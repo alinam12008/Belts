@@ -1,0 +1,2189 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Admin Dashboard | BELTS STORE</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@600;700&amp;family=Inter:wght@400;600&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+    <!-- Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface": "#f9f9fc",
+                        "on-primary-fixed": "#001945",
+                        "on-tertiary-fixed-variant": "#44474a",
+                        "on-background": "#1a1c1e",
+                        "background": "#f9f9fc",
+                        "on-secondary-fixed": "#001d36",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-container": "#494c4f",
+                        "on-secondary-fixed-variant": "#00497d",
+                        "on-primary-container": "#a1bbff",
+                        "inverse-primary": "#b0c6ff",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed-dim": "#c4c7ca",
+                        "surface-container-high": "#e8e8ea",
+                        "surface-container-low": "#f3f3f6",
+                        "on-surface": "#1a1c1e",
+                        "outline": "#737783",
+                        "secondary-fixed": "#d1e4ff",
+                        "surface-container-highest": "#e2e2e5",
+                        "on-surface-variant": "#434652",
+                        "secondary": "#0061a4",
+                        "secondary-container": "#33a0fd",
+                        "tertiary-fixed": "#e0e3e6",
+                        "on-tertiary-fixed": "#191c1e",
+                        "on-error": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-container": "#babcbf",
+                        "surface-bright": "#f9f9fc",
+                        "surface-container": "#eeeef0",
+                        "primary": "#003178",
+                        "on-primary-fixed-variant": "#00429c",
+                        "surface-variant": "#e2e2e5",
+                        "on-secondary": "#ffffff",
+                        "primary-container": "#0d47a1",
+                        "tertiary": "#323538",
+                        "on-secondary-container": "#00355c",
+                        "surface-tint": "#2b5bb5",
+                        "error": "#ba1a1a",
+                        "primary-fixed-dim": "#b0c6ff",
+                        "outline-variant": "#c3c6d4",
+                        "inverse-surface": "#2f3133",
+                        "inverse-on-surface": "#f0f0f3",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed": "#d9e2ff",
+                        "on-primary": "#ffffff",
+                        "surface-dim": "#dadadc",
+                        "secondary-fixed-dim": "#9ecaff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-desktop": "64px",
+                        "container-max": "1280px",
+                        "unit": "4px",
+                        "gutter": "24px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Hanken Grotesk"],
+                        "label-sm": ["Inter"],
+                        "technical-label": ["JetBrains Mono"],
+                        "body-md": ["Inter"],
+                        "display-lg": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "600" }],
+                        "technical-label": ["13px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+
+        .zebra-stripe-table tr:nth-child(even) {
+            background-color: #F5F7FA;
+        }
+
+        .zebra-stripe-table tr:nth-child(odd) {
+            background-color: #FFFFFF;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #003178;
+            border-radius: 4px;
+        }
+
+        .image-overlay-gradient {
+            background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.9) 30%, rgba(255, 255, 255, 0) 100%);
+        }
+
+        /* ── Hero Slider (CSS only) ── */
+        .hero-slide {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transition: opacity 0.9s ease;
+        }
+        .hero-slide.active {
+            opacity: 1;
+            z-index: 1;
+        }
+        .hero-slider-dots {
+            position: absolute;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 10;
+        }
+        .hero-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.4);
+            cursor: pointer;
+            border: 2px solid rgba(255, 255, 255, 0.6);
+            transition: all 0.3s;
+        }
+        .hero-dot.active {
+            background: #fff;
+            transform: scale(1.2);
+        }
+        .hero-slide-content {
+            animation: slideInLeft 0.8s ease forwards;
+        }
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .counter-val {
+            display: inline-block;
+        }
+
+        [data-aos] {
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .logo-card:hover {
+            box-shadow: 0 0 0 2px #003178, 0 8px 24px rgba(0, 49, 120, 0.12);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md min-h-screen flex flex-col">
+
+    <!-- Toast Container -->
+    <div id="toast-container" class="fixed bottom-6 right-6 z-[11000] flex flex-col gap-3 max-w-sm w-full pointer-events-none"></div>
+
+    <!-- 2FA Simulated Code Alert Toast -->
+    <div id="dev-otp-toast" class="fixed top-6 right-6 z-[11000] bg-primary text-white border border-outline-variant p-4 shadow-2xl rounded max-w-sm w-full hidden pointer-events-auto">
+        <div class="flex items-start gap-3">
+            <span class="material-symbols-outlined text-secondary-container mt-0.5">security</span>
+            <div class="flex-1">
+                <p class="text-xs font-bold uppercase tracking-wider">2FA Code Generated (Dev Mode)</p>
+                <p class="text-lg font-technical-label font-bold text-yellow-300 mt-1" id="dev-otp-code">000000</p>
+                <p class="text-[10px] opacity-80 mt-1">Copy and paste this code to authorize access.</p>
+            </div>
+            <button onclick="document.getElementById('dev-otp-toast')?.classList.add('hidden')" class="text-white/60 hover:text-white"><span class="material-symbols-outlined text-sm">close</span></button>
+        </div>
+    </div>
+
+    <!-- ================= AUTH SCREEN ================= -->
+    <div id="auth-screen" class="fixed inset-0 bg-primary/20 backdrop-blur-md flex items-center justify-center p-4 z-[9999] bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-surface-container-lowest via-surface-container-low to-primary/10">
+        <div class="glass-card max-w-md w-full p-8 shadow-2xl rounded-xl relative border border-outline-variant/60 flex flex-col">
+            <div class="text-center mb-8">
+                <span class="material-symbols-outlined text-primary text-5xl mb-2">shield_person</span>
+                <h2 class="font-headline-lg text-2xl uppercase tracking-wide text-primary font-bold">Admin Portal Access</h2>
+                <p class="text-xs text-on-surface-variant mt-1">Secure verification and management terminal</p>
+            </div>
+
+            <!-- Login View -->
+            <div id="login-view" class="space-y-4">
+                <form id="login-form" onsubmit="handleLogin(event)" class="space-y-4">
+                    <div>
+                        <label class="block text-xs uppercase font-technical-label text-on-surface-variant mb-1">Email Address</label>
+                        <input id="login-email" type="email" required class="w-full p-3 border border-outline-variant bg-surface-container-low text-sm rounded outline-none focus:ring-1 focus:ring-primary focus:border-primary"/>
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase font-technical-label text-on-surface-variant mb-1">Password</label>
+                        <div class="relative">
+                            <input id="login-password" type="password" required class="w-full p-3 border border-outline-variant bg-surface-container-low text-sm rounded outline-none focus:ring-1 focus:ring-primary focus:border-primary"/>
+                            <button type="button" id="toggle-password-visibility" class="absolute inset-y-0 right-0 pr-3 flex items-center text-sm leading-5 text-on-surface-variant">
+                                <span class="material-symbols-outlined text-base">visibility_off</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between text-xs">
+                        <label class="flex items-center gap-2">
+                            <input type="checkbox" id="remember-me" class="form-checkbox text-primary rounded focus:ring-primary"/>
+                            <span class="text-on-surface-variant">Remember Me</span>
+                        </label>
+                        <a href="#" class="text-primary font-bold hover:underline">Forgot Password?</a>
+                    </div>
+                    <button type="submit" class="w-full bg-primary text-on-primary font-bold py-3 uppercase text-xs hover:bg-primary-container transition-all flex items-center justify-center gap-2 rounded shadow-md">
+                        Login Terminal <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                    </button>
+                </form>
+                <div class="text-center pt-4 border-t border-outline-variant/30 hidden">
+                    <p class="text-xs text-on-surface-variant">Don't have an admin account? <button onclick="toggleAuthView('signup')" class="text-primary font-bold hover:underline">Signup (Admin Only)</button></p>
+                </div>
+            </div>
+
+            <!-- 2FA Verification View -->
+            <div id="otp-view" class="space-y-4 hidden">
+                <div class="text-center bg-primary/5 p-4 rounded border border-outline-variant/40 mb-4">
+                    <p class="text-xs text-on-surface-variant font-bold uppercase">2FA OTP Required</p>
+                    <p class="text-[11px] text-on-surface-variant mt-1">A verification code has been logged to the server terminal.</p>
+                </div>
+                <form id="otp-form" onsubmit="handleVerifyOTP(event)" class="space-y-4">
+                    <div>
+                        <label class="block text-xs uppercase font-technical-label text-on-surface-variant mb-1">6-Digit Verification Code</label>
+                        <input id="otp-code" type="text" maxlength="6" placeholder="000000" required class="w-full p-3 border border-outline-variant bg-surface-container-low text-center text-lg font-technical-label font-bold rounded tracking-[0.4em] outline-none focus:ring-1 focus:ring-primary focus:border-primary"/>
+                    </div>
+                    <button type="submit" class="w-full bg-secondary text-white font-bold py-3 uppercase text-xs hover:bg-blue-700 transition-all flex items-center justify-center gap-2 rounded shadow-md">
+                        Verify and Proceed <span class="material-symbols-outlined text-sm">vpn_key</span>
+                    </button>
+                </form>
+                <div class="text-center">
+                    <button onclick="cancel2FA()" class="text-xs text-on-surface-variant hover:text-error hover:underline flex items-center justify-center gap-1 mx-auto"><span class="material-symbols-outlined text-xs">cancel</span> Cancel and return</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= MAIN LAYOUT ================= -->
+    <div id="admin-layout" class="flex-1 flex overflow-hidden hidden">
+        <!-- Sidebar -->
+        <aside class="w-64 bg-primary text-on-primary flex flex-col justify-between shrink-0 border-r border-outline-variant/20 shadow-xl z-20">
+            <div>
+                <div class="h-20 flex items-center justify-between px-6 border-b border-outline-variant/20 bg-primary/20">
+                    <a href="index.html" class="font-headline-lg text-lg font-bold tracking-wider text-white">BELTS ADMIN</a>
+                    <a href="index.html" class="text-white/60 hover:text-white" title="Go to Website"><span class="material-symbols-outlined text-base">open_in_new</span></a>
+                </div>
+                <nav class="p-4 space-y-1">
+                    <a href="#dashboard" class="nav-item flex items-center gap-4 px-4 py-3 text-white/80 hover:bg-white/10 hover:text-white rounded-lg transition-all font-bold text-xs uppercase tracking-wider font-technical-label">
+                        <span class="material-symbols-outlined">dashboard</span> Dashboard
+                    </a>
+                    <a href="#products" class="nav-item flex items-center gap-4 px-4 py-3 text-white/80 hover:bg-white/10 hover:text-white rounded-lg transition-all font-bold text-xs uppercase tracking-wider font-technical-label">
+                        <span class="material-symbols-outlined">inventory_2</span> Product Catalog
+                    </a>
+                    <a href="#orders" class="nav-item flex items-center gap-4 px-4 py-3 text-white/80 hover:bg-white/10 hover:text-white rounded-lg transition-all font-bold text-xs uppercase tracking-wider font-technical-label">
+                        <span class="material-symbols-outlined">order_approve</span> Orders &amp; Quotes
+                    </a>
+                    <a href="#tickets" class="nav-item flex items-center gap-4 px-4 py-3 text-white/80 hover:bg-white/10 hover:text-white rounded-lg transition-all font-bold text-xs uppercase tracking-wider font-technical-label">
+                        <span class="material-symbols-outlined">support_agent</span> Tickets inbox
+                    </a>
+                    <a href="#settings" class="nav-item flex items-center gap-4 px-4 py-3 text-white/80 hover:bg-white/10 hover:text-white rounded-lg transition-all font-bold text-xs uppercase tracking-wider font-technical-label">
+                        <span class="material-symbols-outlined">settings</span> System configs
+                    </a>
+                </nav>
+            </div>
+            <div class="p-4 border-t border-outline-variant/20 bg-primary/20 flex flex-col gap-3">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center font-headline-lg text-white font-bold" id="sidebar-profile-pic">A</div>
+                    <div class="min-w-0 flex-1">
+                        <p class="text-xs font-bold text-white truncate" id="sidebar-admin-name">Admin Name</p>
+                        <p class="text-[10px] text-white/60 truncate" id="sidebar-admin-email">admin@belts.com</p>
+                    </div>
+                </div>
+                <button onclick="handleLogout()" class="w-full py-2 bg-error-container text-red-100 border border-red-500/20 text-xs font-bold uppercase hover:bg-red-500/10 rounded transition-all flex items-center justify-center gap-1">
+                    <span class="material-symbols-outlined text-xs">logout</span> Terminate session
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Body -->
+        <div class="flex-1 flex flex-col overflow-hidden bg-surface">
+            <header class="h-20 bg-surface-container-lowest border-b border-outline-variant flex items-center justify-between px-8 shadow-sm z-10">
+                <div class="flex items-center gap-4">
+                    <h2 class="font-headline-lg text-xl font-bold text-primary uppercase" id="section-title">Dashboard</h2>
+                </div>
+                <div class="flex items-center gap-6">
+                    <div class="relative group">
+                        <button class="relative w-10 h-10 border border-outline-variant rounded flex items-center justify-center hover:bg-surface-container-low transition-colors text-on-surface-variant">
+                            <span class="material-symbols-outlined text-xl">notifications</span>
+                            <span id="notif-badge" class="absolute top-1.5 right-1.5 bg-error text-white text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center hidden">0</span>
+                        </button>
+                        <div class="absolute right-0 top-full mt-2 w-80 bg-surface-container-lowest border border-outline-variant shadow-2xl p-4 rounded-lg hidden group-hover:block z-50">
+                            <h4 class="font-technical-label text-xs uppercase tracking-wider text-primary border-b border-outline-variant pb-2 mb-3">Live warnings &amp; alerts</h4>
+                            <div class="space-y-2 max-h-60 overflow-y-auto" id="notif-list">
+                                <p class="text-[11px] text-on-surface-variant italic">No new stock or order alerts.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Language selector removed -->
+                </div>
+            </header>
+
+            <!-- Main Scrollable Content -->
+            <main class="flex-1 overflow-y-auto p-8 bg-surface space-y-8">
+
+                <!-- ================= PANEL: DASHBOARD ================= -->
+                <section id="panel-dashboard" class="panel-section space-y-8 hidden">
+                    <!-- Stats Cards Grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                        <div class="glass-card p-6 rounded-lg shadow-sm flex items-center gap-4">
+                            <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary shrink-0"><span class="material-symbols-outlined text-2xl">payments</span></div>
+                            <div>
+                                <p class="text-[11px] text-on-surface-variant font-technical-label uppercase">Total Sales Revenue</p>
+                                <p class="text-xl font-headline-lg font-bold text-primary mt-1" id="stat-revenue">$0.00</p>
+                            </div>
+                        </div>
+                        <div class="glass-card p-6 rounded-lg shadow-sm flex items-center gap-4">
+                            <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary shrink-0"><span class="material-symbols-outlined text-2xl">trending_up</span></div>
+                            <div>
+                                <p class="text-[11px] text-on-surface-variant font-technical-label uppercase">Weekly Revenue</p>
+                                <p class="text-xl font-headline-lg font-bold text-primary mt-1" id="stat-weekly-revenue">$0.00</p>
+                            </div>
+                        </div>
+                        <div class="glass-card p-6 rounded-lg shadow-sm flex items-center gap-4">
+                            <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary shrink-0"><span class="material-symbols-outlined text-2xl">assignment</span></div>
+                            <div>
+                                <p class="text-[11px] text-on-surface-variant font-technical-label uppercase">Inquiries Count</p>
+                                <p class="text-xl font-headline-lg font-bold text-primary mt-1" id="stat-orders">0 Orders</p>
+                            </div>
+                        </div>
+                        <div class="glass-card p-6 rounded-lg shadow-sm flex items-center gap-4">
+                            <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary shrink-0"><span class="material-symbols-outlined text-2xl">group</span></div>
+                            <div>
+                                <p class="text-[11px] text-on-surface-variant font-technical-label uppercase">Registered Clients</p>
+                                <p class="text-xl font-headline-lg font-bold text-primary mt-1" id="stat-users">0 Users</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Charts & Warnings -->
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                        <!-- Revenue Breakdown Chart Mockup -->
+                        <div class="lg:col-span-2 glass-card p-6 rounded-lg shadow-sm space-y-4">
+                            <h3 class="font-headline-lg text-base font-bold text-primary uppercase">Revenue &amp; Inquiries Trend</h3>
+                            <div class="h-64 flex items-end justify-between gap-4 pt-8 pb-2 border-b border-outline-variant px-4">
+                                <div class="flex flex-col items-center flex-1 h-full justify-end">
+                                    <div class="bg-primary/20 w-8 h-[20%] rounded-t transition-all hover:bg-primary" title="Monday: $120"></div>
+                                    <span class="text-[10px] font-technical-label uppercase text-on-surface-variant mt-2">Mon</span>
+                                </div>
+                                <div class="flex flex-col items-center flex-1 h-full justify-end">
+                                    <div class="bg-primary/20 w-8 h-[45%] rounded-t transition-all hover:bg-primary" title="Tuesday: $290"></div>
+                                    <span class="text-[10px] font-technical-label uppercase text-on-surface-variant mt-2">Tue</span>
+                                </div>
+                                <div class="flex flex-col items-center flex-1 h-full justify-end">
+                                    <div class="bg-primary/20 w-8 h-[35%] rounded-t transition-all hover:bg-primary" title="Wednesday: $210"></div>
+                                    <span class="text-[10px] font-technical-label uppercase text-on-surface-variant mt-2">Wed</span>
+                                </div>
+                                <div class="flex flex-col items-center flex-1 h-full justify-end">
+                                    <div class="bg-primary/20 w-8 h-[60%] rounded-t transition-all hover:bg-primary" title="Thursday: $410"></div>
+                                    <span class="text-[10px] font-technical-label uppercase text-on-surface-variant mt-2">Thu</span>
+                                </div>
+                                <div class="flex flex-col items-center flex-1 h-full justify-end">
+                                    <div class="bg-primary/20 w-8 h-[75%] rounded-t transition-all hover:bg-primary" title="Friday: $530"></div>
+                                    <span class="text-[10px] font-technical-label uppercase text-on-surface-variant mt-2">Fri</span>
+                                </div>
+                                <div class="flex flex-col items-center flex-1 h-full justify-end">
+                                    <div class="bg-primary/20 w-8 h-[15%] rounded-t transition-all hover:bg-primary" title="Saturday: $90"></div>
+                                    <span class="text-[10px] font-technical-label uppercase text-on-surface-variant mt-2">Sat</span>
+                                </div>
+                                <div class="flex flex-col items-center flex-1 h-full justify-end">
+                                    <div class="bg-primary/20 w-8 h-[30%] rounded-t transition-all hover:bg-primary" title="Sunday: $180"></div>
+                                    <span class="text-[10px] font-technical-label uppercase text-on-surface-variant mt-2">Sun</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Low Stock alerts box -->
+                        <div class="glass-card p-6 rounded-lg shadow-sm flex flex-col justify-between">
+                            <div>
+                                <h3 class="font-headline-lg text-base font-bold text-red-700 uppercase flex items-center gap-2"><span class="material-symbols-outlined text-red-600">warning</span> Stock Deficits</h3>
+                                <p class="text-xs text-on-surface-variant mt-1 border-b border-outline-variant pb-2 mb-4">Immediate reordering recommended</p>
+                                <div class="space-y-3 max-h-48 overflow-y-auto" id="low-stock-list">
+                                    <!-- Dynamic deficit items go here -->
+                                </div>
+                            </div>
+                            <a href="#products" class="block w-full border border-primary text-primary font-bold text-center py-2.5 text-xs uppercase hover:bg-primary/5 mt-4 transition-colors">Manage Inventory</a>
+                        </div>
+                    </div>
+
+                    <!-- Audit Trail / Logs & Most sold products -->
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                        <!-- Most sold products -->
+                        <div class="glass-card p-6 rounded-lg shadow-sm">
+                            <h3 class="font-headline-lg text-base font-bold text-primary uppercase mb-4">Top 5 Components</h3>
+                            <div class="overflow-x-auto">
+                                <table class="w-full text-left">
+                                    <thead>
+                                        <tr class="border-b border-outline-variant/60 text-xs font-technical-label uppercase text-on-surface-variant">
+                                            <th class="pb-3">Component Name</th>
+                                            <th class="pb-3 text-right">Items Sold</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="text-sm font-technical-label" id="most-sold-list">
+                                        <!-- Dynamic items -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Recent system activity logs -->
+                        <div class="glass-card p-6 rounded-lg shadow-sm space-y-4">
+                            <h3 class="font-headline-lg text-base font-bold text-primary uppercase">Recent Audit Trail Logs</h3>
+                            <div class="space-y-3 max-h-60 overflow-y-auto" id="recent-logs-list">
+                                <!-- Dynamic logs -->
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+                <!-- ================= PANEL: PRODUCTS ================= -->
+                <section id="panel-products" class="panel-section space-y-6 hidden">
+                    <div class="flex flex-col lg:flex-row gap-6">
+                        <!-- Sidebar for Category Filter Accordion -->
+                        <aside class="w-full lg:w-72 shrink-0">
+                            <div class="bg-surface-container-lowest rounded border border-outline-variant sticky top-6">
+                                <div class="px-6 py-4 border-b border-outline-variant bg-surface-container-low">
+                                    <h3 class="font-headline-lg text-sm font-bold text-primary uppercase">CATALOG FILTER</h3>
+                                    <p class="font-technical-label text-[10px] uppercase text-on-surface-variant">Filter table by Category</p>
+                                </div>
+                                
+                                <!-- Category Accordion List -->
+                                <div id="admin-category-accordion" class="p-2 space-y-1 max-h-[55vh] overflow-y-auto">
+                                    <!-- Rendered via JS -->
+                                </div>
+                            </div>
+                        </aside>
+
+                        <!-- Products Content Area -->
+                        <div class="flex-1 space-y-6">
+                            <!-- Actions and search -->
+                            <div class="flex flex-col sm:flex-row justify-between items-center gap-4 bg-surface-container-lowest p-4 border border-outline-variant rounded-lg">
+                                <div class="relative w-full sm:w-80">
+                                    <input id="product-search-input" oninput="renderProductsTable()" class="w-full pl-10 pr-4 py-2.5 border border-outline-variant rounded focus:border-primary focus:ring-1 focus:ring-primary outline-none text-sm bg-surface-container-low transition-all" placeholder="Filter by name or SKU..."/>
+                                    <span class="material-symbols-outlined absolute left-3 top-3 text-on-surface-variant text-base">search</span>
+                                </div>
+                                <button onclick="openAddProductModal()" class="w-full sm:w-auto bg-primary text-on-primary font-bold px-6 py-2.5 uppercase text-xs hover:bg-primary-container transition-all flex items-center justify-center gap-2 rounded shadow">
+                                    <span class="material-symbols-outlined text-sm">add</span> New Product
+                                </button>
+                            </div>
+
+                            <!-- Breadcrumbs and Count -->
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-outline-variant pb-3">
+                                <div>
+                                    <div id="admin-category-breadcrumbs" class="text-xs font-technical-label text-on-surface-variant uppercase flex flex-wrap items-center gap-1.5">
+                                        <span>Catalog</span> <span class="material-symbols-outlined text-xs">chevron_right</span> <span>All Products</span>
+                                    </div>
+                                    <h3 id="admin-active-category-title" class="font-headline-lg text-lg text-primary font-bold uppercase mt-1">All Products</h3>
+                                </div>
+                                <div class="text-xs font-technical-label text-on-surface-variant bg-surface-container p-2 rounded border border-outline-variant self-start sm:self-center">
+                                    TOTAL FOUND: <span id="admin-products-count" class="font-bold text-primary">0</span>
+                                </div>
+                            </div>
+
+                            <!-- Products Table -->
+                            <div class="bg-surface-container-lowest border border-outline-variant rounded-lg overflow-hidden shadow-sm">
+                                <div class="overflow-x-auto">
+                                    <table class="w-full text-left">
+                                        <thead class="bg-primary text-on-primary text-xs font-technical-label uppercase">
+                                            <tr>
+                                                <th class="px-6 py-4">Image</th>
+                                                <th class="px-6 py-4">Product Name</th>
+                                                <th class="px-6 py-4">SKU</th>
+                                                <th class="px-6 py-4">Category</th>
+                                                <th class="px-6 py-4">Short Description</th>
+                                                <th class="px-6 py-4">Specifications</th>
+                                                <th class="px-6 py-4">Price</th>
+                                                <th class="px-6 py-4">Stock</th>
+                                                <th class="px-6 py-4">Status</th>
+                                                <th class="px-6 py-4 text-right">Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="text-sm font-technical-label divide-y divide-outline-variant/30" id="products-table-body">
+                                            <!-- Dynamic rows -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+                <!-- ================= PANEL: ORDERS ================= -->
+                <section id="panel-orders" class="panel-section space-y-6 hidden">
+                    <!-- Filters -->
+                    <div class="grid grid-cols-1 xl:grid-cols-[1fr_auto] gap-4">
+                        <div class="flex flex-col sm:flex-row gap-4 bg-surface-container-lowest p-4 border border-outline-variant rounded-lg items-center">
+                            <span class="text-xs font-technical-label uppercase text-on-surface-variant">Filter by Status:</span>
+                            <select id="order-status-filter" onchange="renderOrdersTable()" class="border border-outline-variant rounded p-2 text-xs bg-surface-container-low outline-none focus:ring-1 focus:ring-primary focus:border-primary">
+                                <option value="ALL">All Orders</option>
+                                <option value="Pending">Pending</option>
+                                <option value="Shipped">Shipped</option>
+                                <option value="Delivered">Delivered</option>
+                                <option value="Cancelled">Cancelled</option>
+                            </select>
+                            <div class="relative flex-1">
+                                <input id="order-search-input" oninput="renderOrdersTable()" placeholder="Search orders by client, email, phone, or SKU..." class="w-full pl-10 pr-4 py-2.5 border border-outline-variant rounded focus:border-primary focus:ring-1 focus:ring-primary outline-none text-sm bg-surface-container-low transition-all" />
+                                <span class="material-symbols-outlined absolute left-3 top-3 text-on-surface-variant text-base">search</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-end gap-3 flex-wrap">
+                            <button onclick="openAddOrderModal()" class="w-full sm:w-auto bg-primary text-white font-bold px-4 py-2.5 uppercase text-xs hover:bg-primary-container/90 transition-all rounded shadow-sm">
+                                <span class="material-symbols-outlined text-sm">add_shopping_cart</span> Add Order
+                            </button>
+                            <button onclick="exportOrdersToCsv()" class="w-full sm:w-auto bg-secondary text-white font-bold px-4 py-2.5 uppercase text-xs hover:bg-secondary-container/90 transition-all rounded shadow-sm">
+                                <span class="material-symbols-outlined text-sm">file_download</span> Export Orders
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Orders table -->
+                    <div class="bg-surface-container-lowest border border-outline-variant rounded-lg overflow-hidden shadow-sm">
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left">
+                                <thead class="bg-primary text-on-primary text-xs font-technical-label uppercase">
+                                    <tr>
+                                        <th class="px-6 py-4">Client Name</th>
+                                        <th class="px-6 py-4">Company</th>
+                                        <th class="px-6 py-4">Email / Phone</th>
+                                        <th class="px-6 py-4">Items Summary</th>
+                                        <th class="px-6 py-4">Total Value</th>
+                                        <th class="px-6 py-4">Status</th>
+                                        <th class="px-6 py-4 text-right">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-sm divide-y divide-outline-variant/30 font-technical-label" id="orders-table-body">
+                                    <!-- Dynamic rows -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+
+                <!-- ================= PANEL: TICKETS ================= -->
+                <section id="panel-tickets" class="panel-section space-y-6 hidden">
+                    <!-- Split panel: ticket list and thread view -->
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+                        <!-- List -->
+                        <div class="lg:col-span-5 bg-surface-container-lowest border border-outline-variant rounded-lg overflow-hidden flex flex-col h-[600px] shadow-sm">
+                            <div class="px-6 py-4 bg-surface-container-low border-b border-outline-variant flex items-center justify-between gap-3">
+                                <div>
+                                    <h3 class="font-headline-lg text-base font-bold text-primary uppercase">Tickets Inbox</h3>
+                                </div>
+                                <div class="relative w-full max-w-[220px]">
+                                    <input id="ticket-search-input" oninput="renderTicketsList()" placeholder="Search ticket subject or client..." class="w-full pl-10 pr-4 py-2 border border-outline-variant rounded text-xs bg-surface-container-low outline-none focus:ring-1 focus:ring-primary focus:border-primary" />
+                                    <span class="material-symbols-outlined absolute left-3 top-2.5 text-on-surface-variant text-base">search</span>
+                                </div>
+                            </div>
+                            <div class="flex-1 overflow-y-auto divide-y divide-outline-variant/30" id="tickets-list">
+                                <!-- Dynamic entries -->
+                            </div>
+                        </div>
+
+                        <!-- Thread details -->
+                        <div class="lg:col-span-7 bg-surface-container-lowest border border-outline-variant rounded-lg h-[600px] flex flex-col justify-between overflow-hidden shadow-sm" id="ticket-thread-view">
+                            <div class="h-full flex items-center justify-center text-center p-12 text-on-surface-variant opacity-60">
+                                <div>
+                                    <span class="material-symbols-outlined text-5xl mb-2">forum</span>
+                                    <p class="text-sm font-technical-label uppercase">Select a support ticket</p>
+                                    <p class="text-xs mt-1">Choose an inquiry from the inbox thread on the left.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+                <!-- ================= PANEL: SETTINGS ================= -->
+                <section id="panel-settings" class="panel-section space-y-6 hidden">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                        <!-- Profile Settings -->
+                        <form onsubmit="handleUpdateSettings(event)" class="lg:col-span-5 glass-card p-6 rounded-lg shadow-sm space-y-4">
+                            <h3 class="font-headline-lg text-base font-bold text-primary uppercase border-b border-outline-variant pb-2">Profile &amp; Password Settings</h3>
+                            <div>
+                                <label class="block text-xs uppercase font-technical-label text-on-surface-variant mb-1">Admin Username</label>
+                                <input id="settings-name" type="text" required class="w-full p-2.5 border border-outline-variant bg-surface-container-low text-xs rounded outline-none focus:ring-1 focus:ring-primary focus:border-primary"/>
+                            </div>
+                            <div>
+                                <label class="block text-xs uppercase font-technical-label text-on-surface-variant mb-1">Email Address</label>
+                                <input id="settings-email" type="email" required class="w-full p-2.5 border border-outline-variant bg-surface-container-low text-xs rounded outline-none focus:ring-1 focus:ring-primary focus:border-primary"/>
+                            </div>
+                            <div>
+                                <label class="block text-xs uppercase font-technical-label text-on-surface-variant mb-1">New Password (Leave blank to keep current)</label>
+                                <input id="settings-password" type="password" class="w-full p-2.5 border border-outline-variant bg-surface-container-low text-xs rounded outline-none focus:ring-1 focus:ring-primary focus:border-primary"/>
+                            </div>
+                            <button type="submit" class="w-full bg-primary text-on-primary font-bold py-2.5 uppercase text-xs hover:bg-primary-container transition-all rounded shadow-md">
+                                Save Profile Settings
+                            </button>
+                        </form>
+
+                        <!-- Login History / IP Tracking logs -->
+                        <div class="lg:col-span-7 glass-card p-6 rounded-lg shadow-sm flex flex-col">
+                            <h3 class="font-headline-lg text-base font-bold text-primary uppercase border-b border-outline-variant pb-2 mb-4">Security Logins &amp; IP Tracking History</h3>
+                            <div class="flex-1 overflow-y-auto max-h-80 space-y-2.5" id="login-history-list">
+                                <!-- Dynamic history -->
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </main>
+        </div>
+    </div>
+
+    <!-- ================= MODAL: ADD/EDIT ORDER ================= -->
+    <div id="order-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[10005] hidden items-center justify-center p-4">
+        <div class="bg-surface-container-lowest border border-outline-variant p-8 shadow-2xl relative rounded max-w-3xl w-full max-h-[90vh] overflow-y-auto">
+            <button onclick="closeOrderModal()" class="absolute top-4 right-4 text-on-surface-variant hover:text-primary transition-colors p-2">
+                <span class="material-symbols-outlined text-2xl">close</span>
+            </button>
+            <h4 id="order-modal-title" class="font-headline-lg text-xl uppercase text-primary font-bold mb-6">New Order</h4>
+            <form id="order-form" onsubmit="handleSaveOrder(event)" class="space-y-4">
+                <input type="hidden" id="form-order-id" />
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs uppercase font-technical-label text-on-surface-variant mb-1">Client Name *</label>
+                        <input id="form-order-client-name" type="text" required class="w-full p-2.5 border border-outline-variant bg-surface-container-low text-xs rounded outline-none focus:ring-1 focus:ring-primary focus:border-primary" />
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase font-technical-label text-on-surface-variant mb-1">Company</label>
+                        <input id="form-order-client-company" type="text" class="w-full p-2.5 border border-outline-variant bg-surface-container-low text-xs rounded outline-none focus:ring-1 focus:ring-primary focus:border-primary" />
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase font-technical-label text-on-surface-variant mb-1">Email *</label>
+                        <input id="form-order-client-email" type="email" required class="w-full p-2.5 border border-outline-variant bg-surface-container-low text-xs rounded outline-none focus:ring-1 focus:ring-primary focus:border-primary" />
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase font-technical-label text-on-surface-variant mb-1">Phone</label>
+                        <input id="form-order-client-phone" type="text" class="w-full p-2.5 border border-outline-variant bg-surface-container-low text-xs rounded outline-none focus:ring-1 focus:ring-primary focus:border-primary" />
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs uppercase font-technical-label text-on-surface-variant mb-1">Message / Notes</label>
+                    <textarea id="form-order-client-message" rows="3" class="w-full p-2.5 border border-outline-variant bg-surface-container-low text-xs rounded outline-none focus:ring-1 focus:ring-primary focus:border-primary"></textarea>
+                </div>
+
+                <!-- Amount field -->
+                <div>
+                    <label class="block text-xs uppercase font-technical-label text-on-surface-variant mb-1">Order Amount (optional)</label>
+                    <input id="form-order-amount" type="number" step="0.01" placeholder="Leave empty to auto-calculate" class="w-full p-2.5 border border-outline-variant bg-surface-container-low text-xs rounded outline-none focus:ring-1 focus:ring-primary focus:border-primary" />
+                </div>
+
+                <div class="border border-outline-variant rounded-lg bg-surface-container-low p-4">
+                    <div class="flex items-center justify-between mb-3">
+                        <p class="text-xs uppercase font-technical-label text-on-surface-variant">Order items</p>
+                        <button type="button" onclick="addOrderItemRow()" class="text-[10px] font-bold text-primary hover:underline inline-flex items-center gap-1">
+                            <span class="material-symbols-outlined text-sm">add</span> Add item
+                        </button>
+                    </div>
+                    <div id="order-items-rows" class="space-y-3">
+                        <!-- item rows added here -->
+                    </div>
+                </div>
+                <div class="pt-4 flex justify-end gap-3 border-t border-outline-variant/30">
+                    <button type="button" onclick="closeOrderModal()" class="border border-outline-variant text-on-surface-variant font-bold px-6 py-2.5 uppercase text-[10px] rounded hover:bg-surface-container-low transition-all">Cancel</button>
+                    <button type="submit" class="bg-primary text-on-primary font-bold px-6 py-2.5 uppercase text-[10px] rounded hover:bg-primary-container shadow transition-all">Save Order</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ================= MODAL: ADD/EDIT PRODUCT ================= -->
+    <div id="product-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[10005] hidden items-center justify-center p-4">
+        <div class="bg-surface-container-lowest border border-outline-variant p-8 shadow-2xl relative rounded max-w-2xl w-full flex flex-col max-h-[90vh] overflow-y-auto">
+            <button onclick="closeProductModal()" class="absolute top-4 right-4 text-on-surface-variant hover:text-primary transition-colors p-2">
+                <span class="material-symbols-outlined text-2xl">close</span>
+            </button>
+            <h4 id="product-modal-title" class="font-headline-lg text-xl uppercase text-primary font-bold mb-6">Create New Product</h4>
+            
+            <form id="product-form" onsubmit="handleSaveProduct(event)" class="space-y-4">
+                <input type="hidden" id="form-product-id"/>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs uppercase font-technical-label text-on-surface-variant mb-1">Product Title *</label>
+                        <input id="form-product-name" type="text" required class="w-full p-2.5 border border-outline-variant bg-surface-container-low text-xs rounded outline-none focus:ring-1 focus:ring-primary focus:border-primary"/>
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase font-technical-label text-on-surface-variant mb-1">SKU Code *</label>
+                        <input id="form-product-sku" type="text" required class="w-full p-2.5 border border-outline-variant bg-surface-container-low text-xs rounded outline-none focus:ring-1 focus:ring-primary focus:border-primary"/>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs uppercase font-technical-label text-on-surface-variant mb-1">Category *</label>
+                        <input id="form-product-cat" type="text" list="category-options" required placeholder="e.g. Bearings" class="w-full p-2.5 border border-outline-variant bg-surface-container-low text-xs rounded outline-none focus:ring-1 focus:ring-primary focus:border-primary"/>
+                        <datalist id="category-options">
+                            <option value="Belts Power Transmission"></option>
+                            <option value="Pulleys"></option>
+                            <option value="Conveying Accessorise"></option>
+                            <option value="Rubber"></option>
+                            <option value="Industrial Insulation"></option>
+                            <option value="Bearings"></option>
+                            <option value="Transmission Chains And Sprockets"></option>
+                        </datalist>
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase font-technical-label text-on-surface-variant mb-1">Subcategory (Optional)</label>
+                        <input id="form-product-subcat" type="text" class="w-full p-2.5 border border-outline-variant bg-surface-container-low text-xs rounded outline-none focus:ring-1 focus:ring-primary focus:border-primary"/>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div>
+                        <label class="block text-xs uppercase font-technical-label text-on-surface-variant mb-1">Base Price ($) *</label>
+                        <input id="form-product-price" type="number" required class="w-full p-2.5 border border-outline-variant bg-surface-container-low text-xs rounded outline-none focus:ring-1 focus:ring-primary focus:border-primary"/>
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase font-technical-label text-on-surface-variant mb-1">Discount Price ($)</label>
+                        <input id="form-product-discount-price" type="number" class="w-full p-2.5 border border-outline-variant bg-surface-container-low text-xs rounded outline-none focus:ring-1 focus:ring-primary focus:border-primary"/>
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase font-technical-label text-on-surface-variant mb-1">Stock Count *</label>
+                        <input id="form-product-stock" type="number" required class="w-full p-2.5 border border-outline-variant bg-surface-container-low text-xs rounded outline-none focus:ring-1 focus:ring-primary focus:border-primary"/>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs uppercase font-technical-label text-on-surface-variant mb-1">Product Status</label>
+                        <select id="form-product-status" class="w-full p-2.5 border border-outline-variant bg-surface-container-low text-xs rounded outline-none focus:ring-1 focus:ring-primary focus:border-primary">
+                            <option value="Active">Active</option>
+                            <option value="Inactive">Inactive</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase font-technical-label text-on-surface-variant mb-1">Brand Name</label>
+                        <input id="form-product-brand" type="text" class="w-full p-2.5 border border-outline-variant bg-surface-container-low text-xs rounded outline-none focus:ring-1 focus:ring-primary focus:border-primary"/>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs uppercase font-technical-label text-on-surface-variant mb-1">Product Image Upload / URL</label>
+                    <div class="flex gap-4">
+                        <input id="form-product-image-file" type="file" accept="image/*" class="w-full p-2 border border-outline-variant bg-surface-container-low text-xs rounded outline-none focus:ring-1 focus:ring-primary focus:border-primary"/>
+                        <input id="form-product-image-url" type="text" placeholder="Or enter direct URL" class="w-full p-2.5 border border-outline-variant bg-surface-container-low text-xs rounded outline-none focus:ring-1 focus:ring-primary focus:border-primary"/>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs uppercase font-technical-label text-on-surface-variant mb-1">Short Description</label>
+                    <textarea id="form-product-short-desc" rows="2" class="w-full p-2.5 border border-outline-variant bg-surface-container-low text-xs rounded outline-none focus:ring-1 focus:ring-primary focus:border-primary"></textarea>
+                </div>
+
+                <div>
+                    <label class="block text-xs uppercase font-technical-label text-on-surface-variant mb-1">Full Description (Long HTML Description)</label>
+                    <textarea id="form-product-desc" rows="3" placeholder="Detailed product descriptions or HTML specifications..." class="w-full p-2.5 border border-outline-variant bg-surface-container-low text-xs rounded outline-none focus:ring-1 focus:ring-primary focus:border-primary"></textarea>
+                </div>
+
+                <div class="space-y-2">
+                    <label class="block text-xs uppercase font-technical-label text-on-surface-variant">Technical Specifications</label>
+                    <div class="border border-outline-variant rounded p-4 bg-surface-container-low space-y-3">
+                        <div id="specs-editor-rows" class="space-y-2">
+                            <!-- Dynamic key-value inputs rendered by JS -->
+                        </div>
+                        <button type="button" onclick="addSpecRow()" class="flex items-center gap-1.5 text-xs text-primary font-bold hover:underline py-1 transition-all">
+                            <span class="material-symbols-outlined text-sm">add_circle</span> Add Specification Property
+                        </button>
+                    </div>
+                </div>
+
+                <div class="pt-4 flex justify-end gap-3 border-t border-outline-variant/30">
+                    <button type="button" onclick="closeProductModal()" class="border border-outline-variant text-on-surface-variant font-bold px-6 py-2.5 uppercase text-[10px] rounded hover:bg-surface-container-low transition-all">Cancel</button>
+                    <button type="submit" class="bg-primary text-on-primary font-bold px-6 py-2.5 uppercase text-[10px] rounded hover:bg-primary-container shadow transition-all">Save Component</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <!-- ================= JAVASCRIPT (FULL, NO LANGUAGE) ================= -->
+    <script>
+        // ---- Currency helper ----
+        function formatCurrency(amount) {
+            return `$${amount.toFixed(2)}`;
+        }
+
+        // ---- Auth state ----
+        let token = localStorage.getItem('admin_token') || null;
+        let activeTab = "dashboard";
+        let products = [];
+        let orders = [];
+        let users = [];
+        let tickets = [];
+        let coupons = [];
+        let analytics = {};
+        let ticketReplyAttachments = [];
+
+        // ---- Category hierarchy (full, unchanged) ----
+        let currentAdminFilter = { category: null, subcategory: null, subsubcategory: null };
+        const categoriesHierarchy = {
+            "BELTS POWER TRANSMISSION": [
+                "V Belts",
+                "Round Belts",
+                "Ribbed Belts",
+                "Emergency and Transport Belts",
+                "Timing Belts",
+                "Special Belts",
+                "Measurement and Testing Tools"
+            ],
+            "PULLEYS": [
+                "Clamping Plates",
+                "Ribbed Belt Pulleys",
+                "Timing Belt Pulleys",
+                "V-Grooved Pulleys"
+            ],
+            "CONVEYING ACCESSORIES": [],
+            "RUBBER": [
+                "Rubber Sheets",
+                "Rubber Stud",
+                "White Rubber Sheets",
+                "Silicon Sheet",
+                "Rubber Sponge Sheet",
+                "Soft Sponge Rubber",
+                "Rubber Mounts",
+                "Rubber Glass Moulding",
+                "Rubber Metal Bonded",
+                "Rubber O-Ring Service Kit"
+            ],
+            "INDUSTRIAL INSULATION": [
+                "Gasket Graphite With Steel Sheet",
+                "S.S. Wire Mesh",
+                "Cork Gasket (Rubberized)",
+                "Gaskets Sheets (Non-Asbestos Heat Resistant)",
+                "Oil Resistant Jointing",
+                "Gasket Graphite With Steel Mesh",
+                "Heat Insulation Tape",
+                "Gland Packing Rope With Teflon",
+                "Graphite Gland Packing Rope",
+                "Packing Rope Square White",
+                "Packing Rope Cord Round",
+                "Heat Insulation Cloth"
+            ],
+            "BEARINGS": {
+                "RADIAL BALL BEARINGS": [
+                    "Single Row Angular Contact Ball Bearings",
+                    "Self Aligning Ball Bearings",
+                    "Double Row Angular Contact Ball Bearings"
+                ],
+                "RADIAL ROLLER BEARINGS": [
+                    "Tapered Roller Bearings",
+                    "Spherical Roller Bearings",
+                    "Double Row Tapered Roller Bearings",
+                    "Double Row Cylindrical Roller Bearings",
+                    "Cylindrical Roller Bearings"
+                ],
+                "THRUST BALL BEARINGS": [
+                    "Double Direction Thrust Ball Bearings",
+                    "Double Direction Thrust Angular Contact Ball Bearings",
+                    "Thrust Ball Bearings"
+                ],
+                "BEARING UNITS AND PLUMMER BLOCK HOUSING": []
+            },
+            "TRANSMISSION CHAINS AND SPROCKETS": {
+                "TRANSMISSION CHAIN": [
+                    "Connecting Links",
+                    "Offset Links",
+                    "Hollow Pin Chain",
+                    "Conveyor Chain With Attachment",
+                    "Conveyor Chain",
+                    "Stainless Steel Chains",
+                    "Leaf Chain",
+                    "Agricultural Roller Chain",
+                    "Silent Chain"
+                ],
+                "SPROCKETS": []
+            },
+            "COUPLINGS": [
+                "Chain Couplings"
+            ]
+        };
+
+        function slugify(text) {
+            return text.toString().toLowerCase()
+                .replace(/\s+/g, '-')
+                .replace(/[^\w\-]+/g, '')
+                .replace(/\-\-+/g, '-')
+                .replace(/^-+/, '')
+                .replace(/-+$/, '');
+        }
+
+        // ---- DOM ready ----
+        document.addEventListener('DOMContentLoaded', () => {
+            if (token) {
+                showAdminPanel();
+            } else {
+                showAuthScreen();
+            }
+            window.addEventListener('hashchange', handleRoute);
+        });
+
+        // ================= ROUTING =================
+        function handleRoute() {
+            if (!token) return;
+            const hash = window.location.hash.substring(1) || "dashboard";
+            activeTab = hash;
+            document.querySelectorAll('.nav-item').forEach(item => {
+                const href = item.getAttribute('href');
+                if (href === `#${hash}`) {
+                    item.classList.add('bg-white/10', 'text-white');
+                    item.classList.remove('text-white/80');
+                } else {
+                    item.classList.remove('bg-white/10', 'text-white');
+                    item.classList.add('text-white/80');
+                }
+            });
+            const titles = {
+                dashboard: "Terminal Dashboard",
+                products: "Product Catalog",
+                orders: "Orders & Requests Pipeline",
+                tickets: "Customer Support Threads",
+                settings: "Configuration Terminal"
+            };
+            document.getElementById('section-title').innerText = titles[hash] || "Terminal Dashboard";
+            document.querySelectorAll('.panel-section').forEach(sect => sect.classList.add('hidden'));
+            const panel = document.getElementById(`panel-${hash}`);
+            if (panel) panel.classList.remove('hidden');
+            if (hash === "dashboard") loadDashboardData();
+            if (hash === "products") {
+                loadProductsData();
+                renderAdminCategories();
+                updateAdminBreadcrumbs();
+            }
+            if (hash === "orders") loadOrdersData();
+            if (hash === "tickets") loadTicketsData();
+            if (hash === "settings") loadSettingsData();
+        }
+
+        // ================= AUTH LAYOUTS =================
+        function toggleAuthView(view) {
+            document.getElementById('login-view')?.classList.add('hidden');
+            document.getElementById('otp-view')?.classList.add('hidden');
+            document.getElementById('signup-view')?.classList.add('hidden');
+            document.getElementById(`${view}-view`)?.classList.remove('hidden');
+        }
+
+        function showAuthScreen() {
+            document.getElementById('auth-screen')?.classList.remove('hidden');
+            document.getElementById('admin-layout')?.classList.add('hidden');
+        }
+
+        function showAdminPanel() {
+            document.getElementById('auth-screen')?.classList.add('hidden');
+            document.getElementById('admin-layout')?.classList.remove('hidden');
+            fetch('/api/admin/me', {
+                headers: { 'Authorization': `Bearer ${token}` }
+            })
+            .then(res => {
+                if (!res.ok) throw new Error();
+                return res.json();
+            })
+            .then(adminInfo => {
+                document.getElementById('sidebar-admin-name') && (document.getElementById('sidebar-admin-name').innerText = adminInfo.name);
+                document.getElementById('sidebar-admin-email') && (document.getElementById('sidebar-admin-email').innerText = adminInfo.email);
+                document.getElementById('sidebar-profile-pic') && (document.getElementById('sidebar-profile-pic').innerText = adminInfo.name.charAt(0));
+                handleRoute();
+            })
+            .catch(() => {
+                handleLogout();
+            });
+        }
+
+        // ================= AUTH ACTIONS =================
+        function handleLogin(e) {
+            e.preventDefault();
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-password').value;
+
+            fetch('/api/admin/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email, password })
+            })
+            .then(async res => {
+                const data = await res.json();
+                if (!res.ok) throw new Error(data.error || 'Login failed');
+                return data;
+            })
+            .then(data => {
+                if (data.twoFactorRequired) {
+                    toggleAuthView('otp');
+                    document.getElementById('dev-otp-code') && (document.getElementById('dev-otp-code').innerText = data.devCode);
+                    document.getElementById('dev-otp-toast')?.classList.remove('hidden');
+                }
+            })
+            .catch(err => {
+                showToast(err.message, "error");
+            });
+        }
+
+        function handleVerifyOTP(e) {
+            e.preventDefault();
+            const email = document.getElementById('login-email').value;
+            const code = document.getElementById('otp-code').value;
+
+            fetch('/api/admin/verify-2fa', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email, code })
+            })
+            .then(async res => {
+                const data = await res.json();
+                if (!res.ok) throw new Error(data.error || 'Verification failed');
+                return data;
+            })
+            .then(data => {
+                token = data.token;
+                localStorage.setItem('admin_token', token);
+                document.getElementById('dev-otp-toast')?.classList.add('hidden');
+                showAdminPanel();
+                showToast("Terminal session authorized successfully.", "success");
+            })
+            .catch(err => {
+                showToast(err.message, "error");
+            });
+        }
+
+        function cancel2FA() {
+            toggleAuthView('login');
+            document.getElementById('dev-otp-toast')?.classList.add('hidden');
+        }
+
+        function handleLogout() {
+            token = null;
+            localStorage.removeItem('admin_token');
+            showAuthScreen();
+            showToast("Terminal session terminated.", "info");
+        }
+
+        // ================= DATA LOADING (all functions unchanged) =================
+        function loadDashboardData() {
+            fetch('/api/admin/analytics', {
+                headers: { 'Authorization': `Bearer ${token}` }
+            })
+            .then(res => res.json())
+            .then(data => {
+                analytics = data;
+                document.getElementById('stat-revenue').innerText = formatCurrency(data.totalSales || 0);
+                document.getElementById('stat-weekly-revenue').innerText = formatCurrency(data.weeklyRevenue || 0);
+                document.getElementById('stat-orders').innerText = `${data.totalOrders} Inquiries`;
+                document.getElementById('stat-users').innerText = `${data.activeUsers} Users`;
+
+                const list = document.getElementById('low-stock-list');
+                if (data.lowStock.length === 0) {
+                    list.innerHTML = `<p class="text-[11px] text-on-surface-variant italic">All stock levels are optimal.</p>`;
+                    document.getElementById('notif-badge')?.classList.add('hidden');
+                } else {
+                    const nb = document.getElementById('notif-badge'); if (nb) { nb.innerText = data.lowStock.length; nb.classList.remove('hidden'); }
+                    list.innerHTML = data.lowStock.map(p => `
+                        <div class="flex items-center justify-between bg-red-50 p-2.5 rounded border border-red-200">
+                            <div>
+                                <p class="text-xs font-bold text-red-900 truncate max-w-[150px]">${p.name}</p>
+                                <p class="text-[10px] text-red-700 font-technical-label">SKU: ${p.sku}</p>
+                            </div>
+                            <span class="text-xs font-bold text-red-800 font-technical-label bg-red-200 px-2 py-0.5 rounded">Stock: ${p.stock}</span>
+                        </div>
+                    `).join('');
+                    const notifList = document.getElementById('notif-list');
+                    if (notifList) notifList.innerHTML = data.lowStock.map(p => `
+                        <div class="border-b border-outline-variant/30 pb-2 mb-2">
+                            <p class="text-[11px] font-bold text-red-800">LOW STOCK WARNING</p>
+                            <p class="text-xs mt-0.5">${p.name} (SKU: ${p.sku}) is running low on stock. Current count: ${p.stock}</p>
+                        </div>
+                    `).join('');
+                }
+
+                const mostSoldTbody = document.getElementById('most-sold-list');
+                if (data.mostSold.length === 0) {
+                    mostSoldTbody.innerHTML = `<tr><td colspan="2" class="py-4 text-center text-xs text-on-surface-variant italic">No order items recorded yet.</td></tr>`;
+                } else {
+                    mostSoldTbody.innerHTML = data.mostSold.map(p => `
+                        <tr class="border-b border-outline-variant/30">
+                            <td class="py-3 font-bold text-primary">${p.name}</td>
+                            <td class="py-3 text-right font-bold text-on-surface">${p.count} units</td>
+                        </tr>
+                    `).join('');
+                }
+
+                const logsContainer = document.getElementById('recent-logs-list');
+                if (data.recentLogs.length === 0) {
+                    logsContainer.innerHTML = `<p class="text-xs text-on-surface-variant italic">No activity recorded yet.</p>`;
+                } else {
+                    logsContainer.innerHTML = data.recentLogs.map(l => {
+                        const date = new Date(l.timestamp).toLocaleString();
+                        return `
+                            <div class="flex items-start gap-2.5 text-xs">
+                                <span class="material-symbols-outlined text-sm mt-0.5 text-primary">history</span>
+                                <div>
+                                    <p class="text-on-surface font-bold">${l.action}</p>
+                                    <p class="text-[10px] text-on-surface-variant">${date} · Author: ${l.adminName}</p>
+                                </div>
+                            </div>
+                        `;
+                    }).join('');
+                }
+            })
+            .catch(err => console.error(err));
+        }
+
+        function loadProductsData() {
+            fetch('/api/products')
+            .then(res => res.json())
+            .then(data => {
+                products = data;
+                renderProductsTable();
+            });
+        }
+
+        function loadOrdersData() {
+            fetch('/api/orders', {
+                headers: { 'Authorization': `Bearer ${token}` }
+            })
+            .then(res => res.json())
+            .then(data => {
+                orders = data;
+                renderOrdersTable();
+            });
+        }
+
+        function loadTicketsData() {
+            fetch('/api/tickets', {
+                headers: { 'Authorization': `Bearer ${token}` }
+            })
+            .then(res => res.json())
+            .then(data => {
+                tickets = data;
+                renderTicketsList();
+            });
+        }
+
+        function loadSettingsData() {
+            fetch('/api/admin/me', {
+                headers: { 'Authorization': `Bearer ${token}` }
+            })
+            .then(res => res.json())
+            .then(data => {
+                document.getElementById('settings-name') && (document.getElementById('settings-name').value = data.name);
+                document.getElementById('settings-email') && (document.getElementById('settings-email').value = data.email);
+                const historyList = document.getElementById('login-history-list');
+                if (data.loginHistory.length === 0) {
+                    historyList.innerHTML = `<p class="text-xs text-on-surface-variant italic">No login events captured.</p>`;
+                } else {
+                    historyList.innerHTML = data.loginHistory.slice().reverse().map(h => {
+                        const date = new Date(h.timestamp).toLocaleString();
+                        const isSuccess = h.status === "Success";
+                        return `
+                            <div class="flex items-center justify-between p-3 bg-surface-container-low border border-outline-variant/60 rounded">
+                                <div>
+                                    <p class="text-xs font-bold text-on-surface">IP: ${h.ip}</p>
+                                    <p class="text-[10px] text-on-surface-variant">${date}</p>
+                                </div>
+                                <span class="text-[10px] font-bold uppercase px-2 py-0.5 rounded ${isSuccess ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}">${h.status}</span>
+                            </div>
+                        `;
+                    }).join('');
+                }
+            });
+        }
+
+        // ================= RENDERING TABLES (all functions restored) =================
+        function renderAdminCategories() {
+            const container = document.getElementById('admin-category-accordion');
+            if (!container) return;
+            container.innerHTML = "";
+
+            // Header for "All Products"
+            const allBtn = document.createElement('button');
+            allBtn.className = 'w-full text-left px-4 py-2.5 text-xs font-technical-label uppercase font-bold text-on-surface-variant hover:bg-surface-container-high rounded flex items-center gap-3 transition-colors';
+            allBtn.innerHTML = `<span class="material-symbols-outlined text-sm">grid_view</span> ALL PRODUCTS`;
+            allBtn.addEventListener('click', () => {
+                currentAdminFilter = { category: null, subcategory: null, subsubcategory: null };
+                document.querySelectorAll('.admin-cat-link').forEach(l => l.classList.remove('bg-primary/10', 'text-primary', 'font-bold'));
+                renderProductsTable();
+                updateAdminBreadcrumbs();
+            });
+            container.appendChild(allBtn);
+
+            Object.keys(categoriesHierarchy).forEach(cat => {
+                const catId = slugify(cat);
+                const subObj = categoriesHierarchy[cat];
+                const hasSubs = (Array.isArray(subObj) ? subObj.length > 0 : Object.keys(subObj).length > 0);
+
+                const itemDiv = document.createElement('div');
+                itemDiv.className = 'border-b border-outline-variant/30 pb-1';
+
+                const titleRow = document.createElement('div');
+                titleRow.className = 'flex justify-between items-center w-full';
+
+                const catBtn = document.createElement('button');
+                catBtn.className = 'admin-cat-link text-left px-4 py-2 flex-1 text-xs font-technical-label uppercase font-semibold text-on-surface hover:bg-surface-container-high rounded transition-all truncate';
+                catBtn.innerText = cat;
+                catBtn.addEventListener('click', () => {
+                    currentAdminFilter.category = cat;
+                    currentAdminFilter.subcategory = null;
+                    currentAdminFilter.subsubcategory = null;
+                    document.querySelectorAll('.admin-cat-link').forEach(l => l.classList.remove('bg-primary/10', 'text-primary', 'font-bold'));
+                    catBtn.classList.add('bg-primary/10', 'text-primary', 'font-bold');
+                    renderProductsTable();
+                    updateAdminBreadcrumbs();
+                    if (hasSubs) {
+                        const sublist = document.getElementById(`admin-sub-${catId}`);
+                        sublist.classList.toggle('hidden');
+                        const icon = titleRow.querySelector('.admin-accordion-icon');
+                        icon.innerText = sublist.classList.contains('hidden') ? 'add' : 'remove';
+                    }
+                });
+                titleRow.appendChild(catBtn);
+
+                if (hasSubs) {
+                    const iconBtn = document.createElement('button');
+                    iconBtn.className = 'p-2 text-on-surface-variant hover:text-primary transition-colors flex items-center justify-center';
+                    iconBtn.innerHTML = `<span class="material-symbols-outlined text-base admin-accordion-icon">add</span>`;
+                    iconBtn.addEventListener('click', () => {
+                        const sublist = document.getElementById(`admin-sub-${catId}`);
+                        sublist.classList.toggle('hidden');
+                        iconBtn.querySelector('.admin-accordion-icon').innerText = sublist.classList.contains('hidden') ? 'add' : 'remove';
+                    });
+                    titleRow.appendChild(iconBtn);
+                }
+
+                itemDiv.appendChild(titleRow);
+
+                if (hasSubs) {
+                    const subList = document.createElement('div');
+                    subList.id = `admin-sub-${catId}`;
+                    subList.className = 'hidden pl-4 pr-2 py-1 space-y-1 bg-surface-container-low/50 rounded mt-0.5';
+
+                    if (Array.isArray(subObj)) {
+                        subObj.forEach(subcat => {
+                            const subBtn = document.createElement('button');
+                            subBtn.className = 'admin-cat-link w-full text-left px-3 py-1.5 text-xs text-on-surface-variant hover:text-primary transition-colors truncate';
+                            subBtn.innerText = subcat;
+                            subBtn.addEventListener('click', () => {
+                                currentAdminFilter.category = cat;
+                                currentAdminFilter.subcategory = subcat;
+                                currentAdminFilter.subsubcategory = null;
+                                document.querySelectorAll('.admin-cat-link').forEach(l => l.classList.remove('bg-primary/10', 'text-primary', 'font-bold'));
+                                subBtn.classList.add('bg-primary/10', 'text-primary', 'font-bold');
+                                renderProductsTable();
+                                updateAdminBreadcrumbs();
+                            });
+                            subList.appendChild(subBtn);
+                        });
+                    } else {
+                        Object.keys(subObj).forEach(subcat => {
+                            const subcatId = slugify(subcat);
+                            const subSubArray = subObj[subcat];
+                            const hasSubSubs = subSubArray.length > 0;
+
+                            const subDiv = document.createElement('div');
+                            subDiv.className = 'space-y-0.5';
+
+                            const subTitleRow = document.createElement('div');
+                            subTitleRow.className = 'flex justify-between items-center w-full';
+
+                            const subBtn = document.createElement('button');
+                            subBtn.className = 'admin-cat-link text-left px-3 py-1 flex-1 text-xs text-on-surface-variant hover:text-primary transition-colors truncate';
+                            subBtn.innerText = subcat;
+                            subBtn.addEventListener('click', () => {
+                                currentAdminFilter.category = cat;
+                                currentAdminFilter.subcategory = subcat;
+                                currentAdminFilter.subsubcategory = null;
+                                document.querySelectorAll('.admin-cat-link').forEach(l => l.classList.remove('bg-primary/10', 'text-primary', 'font-bold'));
+                                subBtn.classList.add('bg-primary/10', 'text-primary', 'font-bold');
+                                renderProductsTable();
+                                updateAdminBreadcrumbs();
+                                if (hasSubSubs) {
+                                    const subsublist = document.getElementById(`admin-subsub-${subcatId}`);
+                                    subsublist.classList.toggle('hidden');
+                                }
+                            });
+                            subTitleRow.appendChild(subBtn);
+
+                            if (hasSubSubs) {
+                                const subIconBtn = document.createElement('button');
+                                subIconBtn.className = 'p-1 text-on-surface-variant hover:text-primary transition-colors flex items-center justify-center';
+                                subIconBtn.innerHTML = `<span class="material-symbols-outlined text-[14px]">unfold_more</span>`;
+                                subIconBtn.addEventListener('click', () => {
+                                    const subsublist = document.getElementById(`admin-subsub-${subcatId}`);
+                                    subsublist.classList.toggle('hidden');
+                                });
+                                subTitleRow.appendChild(subIconBtn);
+                            }
+
+                            subDiv.appendChild(subTitleRow);
+
+                            if (hasSubSubs) {
+                                const subSubList = document.createElement('div');
+                                subSubList.id = `admin-subsub-${subcatId}`;
+                                subSubList.className = 'hidden pl-4 pr-1 py-0.5 space-y-0.5 border-l border-outline-variant/40 ml-2';
+
+                                subSubArray.forEach(subsub => {
+                                    const subSubBtn = document.createElement('button');
+                                    subSubBtn.className = 'admin-cat-link w-full text-left px-2 py-1 text-[11px] text-on-surface-variant opacity-80 hover:opacity-100 hover:text-primary transition-colors truncate';
+                                    subSubBtn.innerText = subsub;
+                                    subSubBtn.addEventListener('click', () => {
+                                        currentAdminFilter.category = cat;
+                                        currentAdminFilter.subcategory = subcat;
+                                        currentAdminFilter.subsubcategory = subsub;
+                                        document.querySelectorAll('.admin-cat-link').forEach(l => l.classList.remove('bg-primary/10', 'text-primary', 'font-bold'));
+                                        subSubBtn.classList.add('bg-primary/10', 'text-primary', 'font-bold');
+                                        renderProductsTable();
+                                        updateAdminBreadcrumbs();
+                                    });
+                                    subSubList.appendChild(subSubBtn);
+                                });
+                                subDiv.appendChild(subSubList);
+                            }
+
+                            subList.appendChild(subDiv);
+                        });
+                    }
+                    itemDiv.appendChild(subList);
+                }
+
+                container.appendChild(itemDiv);
+            });
+        }
+
+        function updateAdminBreadcrumbs() {
+            const breadcrumbs = document.getElementById('admin-category-breadcrumbs');
+            const activeTitle = document.getElementById('admin-active-category-title');
+            if (!breadcrumbs || !activeTitle) return;
+
+            let pathHtml = `<span>Catalog</span>`;
+            let activeTitleText = "All Products";
+
+            if (currentAdminFilter.category) {
+                pathHtml += ` <span class="material-symbols-outlined text-xs">chevron_right</span> <span>${currentAdminFilter.category}</span>`;
+                activeTitleText = currentAdminFilter.category;
+            }
+            if (currentAdminFilter.subcategory) {
+                pathHtml += ` <span class="material-symbols-outlined text-xs">chevron_right</span> <span>${currentAdminFilter.subcategory}</span>`;
+                activeTitleText = currentAdminFilter.subcategory;
+            }
+            if (currentAdminFilter.subsubcategory) {
+                pathHtml += ` <span class="material-symbols-outlined text-xs">chevron_right</span> <span>${currentAdminFilter.subsubcategory}</span>`;
+                activeTitleText = currentAdminFilter.subsubcategory;
+            }
+            breadcrumbs.innerHTML = pathHtml;
+            activeTitle.innerText = activeTitleText;
+        }
+
+        function renderProductsTable() {
+            const query = document.getElementById('product-search-input').value.toLowerCase().trim();
+            const tbody = document.getElementById('products-table-body');
+            const filtered = products.filter(p => {
+                if (currentAdminFilter.category && p.category.toLowerCase().trim() !== currentAdminFilter.category.toLowerCase().trim()) return false;
+                if (currentAdminFilter.subcategory && (!p.subcategory || p.subcategory.toLowerCase().trim() !== currentAdminFilter.subcategory.toLowerCase().trim())) return false;
+                if (currentAdminFilter.subsubcategory && (!p.subcategory || p.subcategory.toLowerCase().trim() !== currentAdminFilter.subsubcategory.toLowerCase().trim())) return false;
+                if (query) {
+                    const matchesName = p.name.toLowerCase().includes(query);
+                    const matchesSKU = p.sku.toLowerCase().includes(query);
+                    const matchesBrand = p.brand && p.brand.toLowerCase().includes(query);
+                    return matchesName || matchesSKU || matchesBrand;
+                }
+                return true;
+            });
+            document.getElementById('admin-products-count').innerText = filtered.length;
+            if (filtered.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="8" class="px-6 py-8 text-center text-xs text-on-surface-variant italic">No matching products found.</td></tr>`;
+                return;
+            }
+            tbody.innerHTML = filtered.map(p => {
+                const image = p.images && p.images.length > 0 ? p.images[0] : 'https://belts-store.com/wp-content/uploads/2025/09/BELTS-STORE_en-1.svg';
+                const statusCls = p.status === 'Active' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800';
+                return `
+                    <tr>
+                        <td class="px-6 py-4"><img src="${image}" alt="" class="w-10 h-10 object-contain bg-surface-container-low p-1 border border-outline-variant rounded"/></td>
+                        <td class="px-6 py-4 font-bold text-primary truncate max-w-[200px]" title="${p.name}">${p.name}</td>
+                        <td class="px-6 py-4 font-bold text-on-surface">${p.sku}</td>
+                        <td class="px-6 py-4 text-on-surface-variant">${p.category}</td>
+                        <td class="px-6 py-4 text-xs text-on-surface-variant max-w-[260px] line-clamp-3" title="${p.shortDescription || ''}">${p.shortDescription ? p.shortDescription : '—'}</td>
+                        <td class="px-6 py-4 text-xs text-on-surface-variant max-w-[260px]">
+                            ${Object.keys(p.specifications || {}).length > 0 ? Object.keys(p.specifications).slice(0, 3).map(key => `<div class="truncate" title="${key}: ${p.specifications[key]}"><span class="font-bold text-on-surface">${key}:</span> ${p.specifications[key]}</div>`).join('') : '—'}
+                        </td>
+                        <td class="px-6 py-4 font-bold text-on-surface">$${p.price.toFixed(2)}</td>
+                        <td class="px-6 py-4 font-bold text-on-surface">${p.stock}</td>
+                        <td class="px-6 py-4"><span class="text-[10px] font-bold uppercase px-2 py-0.5 rounded ${statusCls}">${p.status}</span></td>
+                        <td class="px-6 py-4 text-right">
+                            <div class="inline-flex gap-2">
+                                <button onclick="openEditProductModal('${p._id}')" class="p-1.5 border border-outline-variant rounded hover:bg-primary hover:text-white hover:border-primary transition-all text-on-surface-variant" title="Edit Component"><span class="material-symbols-outlined text-sm">edit</span></button>
+                                <button onclick="handleDeleteProduct('${p._id}')" class="p-1.5 border border-outline-variant rounded hover:bg-error hover:text-white hover:border-error transition-all text-on-surface-variant" title="Delete Component"><span class="material-symbols-outlined text-sm">delete</span></button>
+                            </div>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        function renderOrdersTable() {
+            const filter = document.getElementById('order-status-filter').value;
+            const query = document.getElementById('order-search-input').value.toLowerCase().trim();
+            const tbody = document.getElementById('orders-table-body');
+            const filtered = orders.filter(o => {
+                if (filter !== 'ALL' && o.status !== filter) return false;
+                if (!query) return true;
+                const clientMatch = o.client.name.toLowerCase().includes(query) || (o.client.company || '').toLowerCase().includes(query);
+                const contactMatch = (o.client.email || '').toLowerCase().includes(query) || (o.client.phone || '').toLowerCase().includes(query);
+                const itemsMatch = o.items.some(i => i.name.toLowerCase().includes(query) || (i.ref || '').toLowerCase().includes(query));
+                return clientMatch || contactMatch || itemsMatch;
+            });
+            if (filtered.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="7" class="px-6 py-8 text-center text-xs text-on-surface-variant italic">No orders found matching status filter.</td></tr>`;
+                return;
+            }
+            tbody.innerHTML = filtered.map(o => {
+                const itemsSummary = o.items.map(i => `${i.name} (x${i.quantity})`).join(', ');
+                const statusCls = {
+                    Pending: 'bg-yellow-100 text-yellow-800',
+                    Shipped: 'bg-blue-100 text-blue-800',
+                    Delivered: 'bg-green-100 text-green-800',
+                    Cancelled: 'bg-red-100 text-red-800'
+                }[o.status] || 'bg-outline-variant text-on-surface-variant';
+
+                return `
+                    <tr class="align-top">
+                        <td class="px-6 py-4 font-bold text-primary">${o.client.name}</td>
+                        <td class="px-6 py-4 text-on-surface font-semibold">${o.client.company || 'N/A'}</td>
+                        <td class="px-6 py-4 text-xs text-on-surface-variant">
+                            <a href="mailto:${o.client.email}" class="hover:underline text-primary">${o.client.email}</a><br/>
+                            <span class="font-bold">${o.client.phone || 'N/A'}</span>
+                        </td>
+                        <td class="px-6 py-4 text-xs max-w-[250px] truncate" title="${itemsSummary}">${itemsSummary}</td>
+                        <td class="px-6 py-4 font-bold text-on-surface">${formatCurrency(o.totalPrice || 0)}</td>
+                        <td class="px-6 py-4"><span class="text-[10px] font-bold uppercase px-2 py-0.5 rounded ${statusCls}">${o.status}</span></td>
+                        <td class="px-6 py-4 text-right">
+                            <div class="inline-flex flex-col gap-1.5 w-full max-w-[130px]">
+                                <button onclick="showEditOrderModal('${o._id}')" class="text-[10px] uppercase font-bold text-primary hover:text-primary/80 hover:underline text-left">Edit order</button>
+                                <button onclick="showOrderDetails('${o._id}')" class="text-[10px] uppercase font-bold text-primary hover:text-primary/80 hover:underline text-left">View details</button>
+                                <select onchange="handleUpdateOrderStatus('${o._id}', this.value)" class="border border-outline-variant rounded p-1 text-[10px] bg-surface-container-low outline-none">
+                                    <option value="Pending" ${o.status === 'Pending' ? 'selected' : ''}>Pending</option>
+                                    <option value="Shipped" ${o.status === 'Shipped' ? 'selected' : ''}>Shipped</option>
+                                    <option value="Delivered" ${o.status === 'Delivered' ? 'selected' : ''}>Delivered</option>
+                                    <option value="Cancelled" ${o.status === 'Cancelled' ? 'selected' : ''}>Cancelled</option>
+                                </select>
+                                <button onclick="handleDeleteOrder('${o._id}')" class="text-[9px] uppercase font-bold text-red-600 hover:text-red-800 hover:underline text-left">Cancel &amp; Delete</button>
+                            </div>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        function exportOrdersToCsv() {
+            const headers = ['Order ID', 'Client Name', 'Company', 'Email', 'Phone', 'Status', 'Total Price', 'Items'];
+            const rows = orders.map(o => [
+                o._id,
+                o.client.name,
+                o.client.company || '',
+                o.client.email,
+                o.client.phone || '',
+                o.status,
+                o.totalPrice || 0,
+                o.items.map(i => `${i.name} x${i.quantity}`).join(' | ')
+            ]);
+            const csvContent = [headers, ...rows].map(r => r.map(cell => `"${String(cell).replace(/"/g, '""')}"`).join(',')).join('\r\n');
+            const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = `orders-export-${new Date().toISOString().slice(0,10)}.csv`;
+            link.click();
+            URL.revokeObjectURL(url);
+        }
+
+        function showOrderDetails(id) {
+            const order = orders.find(o => o._id === id);
+            if (!order) return;
+            const orderItemsHtml = order.items.map(i => {
+                const unitPrice = i.unitPrice !== undefined ? i.unitPrice : i.price || 0;
+                return `
+                    <tr class="border-b border-outline-variant/30">
+                        <td class="px-4 py-3 text-xs text-on-surface-variant">${i.name}</td>
+                        <td class="px-4 py-3 text-xs text-on-surface-variant">${i.ref || 'N/A'}</td>
+                        <td class="px-4 py-3 text-xs text-on-surface-variant">${i.quantity}</td>
+                        <td class="px-4 py-3 text-xs font-semibold text-on-surface">${formatCurrency(unitPrice * i.quantity)}</td>
+                    </tr>
+                `;
+            }).join('');
+
+            const detailHtml = `
+                <div class="fixed inset-0 bg-black/40 z-[11000] flex items-center justify-center p-4">
+                    <div class="bg-surface-container-lowest border border-outline-variant rounded-lg shadow-2xl max-w-3xl w-full overflow-hidden">
+                        <div class="flex items-center justify-between p-5 border-b border-outline-variant">
+                            <div>
+                                <h3 class="font-headline-lg text-base font-bold text-primary">Order Details</h3>
+                                <p class="text-[11px] text-on-surface-variant">Order ID: ${order._id}</p>
+                            </div>
+                            <button onclick="document.getElementById('order-detail-modal')?.remove()" class="text-on-surface-variant hover:text-primary"><span class="material-symbols-outlined">close</span></button>
+                        </div>
+                        <div class="p-5 space-y-4 max-h-[80vh] overflow-y-auto">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="bg-surface rounded-lg p-4 border border-outline-variant">
+                                    <p class="text-[10px] uppercase font-bold text-on-surface-variant mb-2">Client</p>
+                                    <p class="font-bold text-on-surface">${order.client.name}</p>
+                                    <p class="text-xs text-on-surface-variant">${order.client.company || 'Independent'}</p>
+                                    <p class="text-xs text-on-surface-variant">${order.client.email}</p>
+                                    <p class="text-xs text-on-surface-variant">${order.client.phone || 'N/A'}</p>
+                                </div>
+                                <div class="bg-surface rounded-lg p-4 border border-outline-variant">
+                                    <p class="text-[10px] uppercase font-bold text-on-surface-variant mb-2">Status & Total</p>
+                                    <p class="text-xs font-bold text-on-surface-variant mb-1">${order.status}</p>
+                                    <p class="text-xl font-bold text-primary">${formatCurrency(order.totalPrice || 0)}</p>
+                                </div>
+                            </div>
+                            <div class="bg-surface rounded-lg p-4 border border-outline-variant">
+                                <p class="text-[10px] uppercase font-bold text-on-surface-variant mb-2">Items</p>
+                                <div class="overflow-x-auto">
+                                    <table class="w-full text-left text-[11px]">
+                                        <thead class="text-on-surface-variant uppercase">
+                                            <tr>
+                                                <th class="px-4 py-3">Name</th>
+                                                <th class="px-4 py-3">SKU</th>
+                                                <th class="px-4 py-3">Qty</th>
+                                                <th class="px-4 py-3">Line Total</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>${orderItemsHtml}</tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="bg-surface rounded-lg p-4 border border-outline-variant">
+                                <p class="text-[10px] uppercase font-bold text-on-surface-variant mb-2">Client Message</p>
+                                <p class="text-xs text-on-surface-variant">${order.client.message || 'No message provided.'}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            const container = document.createElement('div');
+            container.id = 'order-detail-modal';
+            container.innerHTML = detailHtml;
+            document.body.appendChild(container);
+        }
+
+        // ---- Ticket functions ----
+        function renderTicketsList() {
+            const query = document.getElementById('ticket-search-input')?.value.toLowerCase().trim() || '';
+            const container = document.getElementById('tickets-list');
+            const filtered = tickets.filter(t => {
+                if (!query) return true;
+                return [t.name, t.email, t.company, t.subject, t.message]
+                    .filter(Boolean)
+                    .some(field => field.toLowerCase().includes(query));
+            });
+            if (filtered.length === 0) {
+                container.innerHTML = `<p class="text-xs text-on-surface-variant italic p-6 text-center">No support tickets found.</p>`;
+                return;
+            }
+            container.innerHTML = filtered.map(t => {
+                const date = new Date(t.createdAt || t.updatedAt).toLocaleDateString();
+                const statusCls = {
+                    Open: 'bg-green-100 text-green-800',
+                    Pending: 'bg-yellow-100 text-yellow-800',
+                    Resolved: 'bg-outline-variant text-on-surface-variant'
+                }[t.status] || 'bg-outline-variant text-on-surface-variant';
+                return `
+                    <div onclick="showTicketThread('${t._id}')" class="p-5 hover:bg-surface-container-low transition-colors cursor-pointer border-l-4 border-transparent hover:border-primary flex flex-col gap-2">
+                        <div class="flex justify-between items-start gap-2">
+                            <span class="text-xs font-bold text-primary truncate max-w-[150px]">${t.name}</span>
+                            <span class="text-[10px] font-bold uppercase px-2 py-0.5 rounded ${statusCls}">${t.status}</span>
+                        </div>
+                        <p class="text-xs font-bold uppercase tracking-wider text-on-surface truncate">${t.subject} Inquiry</p>
+                        <p class="text-[11px] text-on-surface-variant line-clamp-2">${t.message}</p>
+                        <span class="text-[10px] text-on-surface-variant/75 mt-1 font-technical-label">${date}</span>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function showTicketThread(id) {
+            const ticket = tickets.find(t => t._id === id);
+            const view = document.getElementById('ticket-thread-view');
+            if (!ticket) return;
+            if (!products.length) loadProductsData();
+            ticketReplyAttachments = [];
+            const date = new Date(ticket.createdAt || ticket.updatedAt).toLocaleString();
+            const emailStatus = ticket.emailSentAt ? `Email sent ${new Date(ticket.emailSentAt).toLocaleString()}` : 'Email not sent yet';
+            const whatsappStatus = ticket.whatsappSentAt ? `WhatsApp sent ${new Date(ticket.whatsappSentAt).toLocaleString()}` : 'WhatsApp not sent yet';
+            const repliesHtml = ticket.replies.map(r => {
+                const attachmentsHtml = r.products && r.products.length ? `
+                    <div class="mt-2 flex flex-wrap gap-2">
+                        ${r.products.map(p => `<a href="${p.url}" target="_blank" class="text-xs font-bold text-primary hover:underline">${p.name}</a>`).join('')}
+                    </div>
+                ` : '';
+                return `
+                <div class="p-4 bg-surface-container-low rounded border border-outline-variant/40 flex flex-col gap-1.5 ${r.sender === 'Admin' ? 'self-end' : 'self-start'} max-w-[85%]">
+                    <div class="flex justify-between items-center text-[10px] font-bold text-primary border-b border-outline-variant/30 pb-1">
+                        <span>${r.sender}</span>
+                        <span>${new Date(r.timestamp).toLocaleTimeString()}</span>
+                    </div>
+                    <p class="text-xs mt-1 text-on-surface">${r.message}</p>
+                    ${attachmentsHtml}
+                </div>
+            `;
+            }).join('');
+
+            view.innerHTML = `
+                <div class="px-6 py-4 bg-surface-container-low border-b border-outline-variant flex flex-col gap-3 shrink-0">
+                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                        <div>
+                            <h4 class="font-headline-lg text-sm font-bold text-primary uppercase">${ticket.name} (${ticket.company || 'Private Client'})</h4>
+                            <p class="text-[10px] text-on-surface-variant">${ticket.email} · Phone: ${ticket.phone || 'N/A'}</p>
+                            <p class="text-[10px] text-on-surface-variant mt-1">Subject: ${ticket.subject}</p>
+                            <p class="text-[10px] text-on-surface-variant mt-1">Ticket ID: ${ticket._id}</p>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <select onchange="handleUpdateTicketStatus('${ticket._id}', this.value)" class="border border-outline-variant rounded p-2 text-xs bg-surface outline-none">
+                                <option value="Open" ${ticket.status === 'Open' ? 'selected' : ''}>Open</option>
+                                <option value="Pending" ${ticket.status === 'Pending' ? 'selected' : ''}>Pending</option>
+                                <option value="Replied" ${ticket.status === 'Replied' ? 'selected' : ''}>Replied</option>
+                                <option value="Resolved" ${ticket.status === 'Resolved' ? 'selected' : ''}>Resolved</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 text-[10px] text-on-surface-variant">
+                        <span class="px-3 py-1 rounded bg-surface-container-low border border-outline-variant">${emailStatus}</span>
+                        <span class="px-3 py-1 rounded bg-surface-container-low border border-outline-variant">${whatsappStatus}</span>
+                    </div>
+                </div>
+                <div class="flex-1 overflow-y-auto p-6 space-y-4 flex flex-col">
+                    <div class="p-4 bg-primary/5 rounded border border-primary/20 flex flex-col gap-1.5 self-start max-w-[85%]">
+                        <div class="flex justify-between items-center text-[10px] font-bold text-primary border-b border-outline-variant/30 pb-1">
+                            <span>Client Original Inquiry</span>
+                            <span>${date}</span>
+                        </div>
+                        <p class="text-xs mt-1 text-on-surface">${ticket.message}</p>
+                    </div>
+                    ${repliesHtml || `<p class="text-xs text-on-surface-variant italic">No replies yet.</p>`}
+                </div>
+                <div id="ticket-product-picker" class="hidden bg-surface-container-low rounded border border-outline-variant p-3 max-h-52 overflow-y-auto">
+                    <p class="text-[10px] uppercase font-bold text-on-surface-variant mb-2">Select products to attach</p>
+                    <div id="ticket-product-picker-list" class="grid grid-cols-1 sm:grid-cols-2 gap-2"></div>
+                </div>
+                <div class="flex gap-3">
+                    <input id="ticket-reply-msg" type="text" placeholder="Type your response to customer..." class="flex-1 p-2.5 border border-outline-variant bg-surface text-xs rounded outline-none focus:ring-1 focus:ring-primary focus:border-primary"/>
+                    <button onclick="handleReplyTicket('${ticket._id}')" class="bg-primary text-on-primary font-bold px-6 py-2 uppercase text-[10px] hover:bg-primary-container transition-all rounded shadow">
+                        Send Response
+                    </button>
+                </div>
+            `;
+            renderTicketAttachmentPreview();
+        }
+
+        function toggleTicketProductPicker() {
+            const picker = document.getElementById('ticket-product-picker');
+            if (!picker) return;
+            if (!products.length) loadProductsData();
+            picker.classList.toggle('hidden');
+            renderTicketProductPicker();
+        }
+
+        function renderTicketProductPicker() {
+            const list = document.getElementById('ticket-product-picker-list');
+            if (!list) return;
+            if (!products.length) {
+                list.innerHTML = `<p class="text-xs text-on-surface-variant">Loading products...</p>`;
+                return;
+            }
+            list.innerHTML = products.slice(0, 20).map(prod => {
+                const url = prod.slug ? `https://belts-store.com/product/${prod.slug}/` : (prod.url || window.location.origin);
+                const attached = ticketReplyAttachments.some(item => item.url === url);
+                return `
+                    <div class="border border-outline-variant rounded p-3 bg-surface-container-low flex flex-col gap-2 text-[11px] ${attached ? 'ring-2 ring-primary/60' : ''}">
+                        <div class="font-bold text-on-surface">${prod.name}</div>
+                        <div class="text-on-surface-variant truncate">SKU: ${prod.sku || 'N/A'}</div>
+                        <button type="button" onclick="toggleTicketProductAttachment('${encodeURIComponent(prod.name)}','${encodeURIComponent(url)}')" class="self-start bg-primary text-white text-[10px] uppercase font-bold px-3 py-1 rounded hover:bg-primary-container transition-all">
+                            ${attached ? 'Remove' : 'Attach'}
+                        </button>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function toggleTicketProductAttachment(name, url) {
+            name = decodeURIComponent(name);
+            url = decodeURIComponent(url);
+            const existingIndex = ticketReplyAttachments.findIndex(item => item.url === url);
+            if (existingIndex !== -1) {
+                ticketReplyAttachments.splice(existingIndex, 1);
+            } else {
+                ticketReplyAttachments.push({ name, url });
+            }
+            renderTicketAttachmentPreview();
+            renderTicketProductPicker();
+        }
+
+        function removeTicketAttachment(index) {
+            if (index >= 0 && index < ticketReplyAttachments.length) {
+                ticketReplyAttachments.splice(index, 1);
+                renderTicketAttachmentPreview();
+                renderTicketProductPicker();
+            }
+        }
+
+        function renderTicketAttachmentPreview() {
+            const preview = document.getElementById('ticket-attachments-preview');
+            if (!preview) return;
+            if (!ticketReplyAttachments.length) {
+                preview.innerHTML = `<span class="text-[10px] text-on-surface-variant">No products attached.</span>`;
+                return;
+            }
+            preview.innerHTML = ticketReplyAttachments.map((item, index) => `
+                <span class="inline-flex items-center gap-1 rounded-full border border-outline-variant bg-surface-container-low px-3 py-1 text-[10px] text-on-surface">
+                    <a href="${item.url}" target="_blank" class="font-bold text-primary hover:underline">${item.name}</a>
+                    <button type="button" onclick="removeTicketAttachment(${index})" class="text-red-600 hover:text-red-900">×</button>
+                </span>
+            `).join('');
+        }
+
+        // ---- Product/Order CRUD functions ----
+        function addSpecRow(key = '', value = '') {
+            const container = document.getElementById('specs-editor-rows');
+            if (!container) return;
+            const row = document.createElement('div');
+            row.className = 'flex items-center gap-2 spec-row';
+            row.innerHTML = `
+                <input type="text" placeholder="Property (e.g. Width)" value="${escapeHtml(key)}" class="flex-1 p-2 border border-outline-variant bg-surface-container-lowest text-xs rounded outline-none focus:ring-1 focus:ring-primary focus:border-primary spec-key" required/>
+                <input type="text" placeholder="Value (e.g. 50mm)" value="${escapeHtml(value)}" class="flex-1 p-2 border border-outline-variant bg-surface-container-lowest text-xs rounded outline-none focus:ring-1 focus:ring-primary focus:border-primary spec-value" required/>
+                <button type="button" onclick="this.parentElement.remove()" class="p-2 text-on-surface-variant hover:text-error transition-colors flex items-center justify-center border border-outline-variant rounded hover:border-error bg-surface-container-low" title="Delete Property">
+                    <span class="material-symbols-outlined text-sm">delete</span>
+                </button>
+            `;
+            container.appendChild(row);
+        }
+
+        function escapeHtml(text) {
+            return text
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+        }
+
+        function openAddProductModal() {
+            document.getElementById('product-modal-title').innerText = "Create New Product";
+            document.getElementById('product-form').reset();
+            document.getElementById('form-product-id').value = "";
+            document.getElementById('specs-editor-rows').innerHTML = "";
+            document.getElementById('form-product-desc').value = "";
+            addSpecRow();
+            document.getElementById('product-modal').classList.remove('hidden');
+            document.getElementById('product-modal').classList.add('flex');
+        }
+
+        function openEditProductModal(id) {
+            const p = products.find(prod => prod._id === id);
+            if (!p) return;
+            document.getElementById('product-modal-title').innerText = "Modify Product Attributes";
+            document.getElementById('form-product-id').value = p._id;
+            document.getElementById('form-product-name').value = p.name;
+            document.getElementById('form-product-sku').value = p.sku;
+            document.getElementById('form-product-cat').value = p.category;
+            document.getElementById('form-product-subcat').value = p.subcategory || "";
+            document.getElementById('form-product-price').value = p.price;
+            document.getElementById('form-product-discount-price').value = p.discountPrice || "";
+            document.getElementById('form-product-stock').value = p.stock;
+            document.getElementById('form-product-status').value = p.status;
+            document.getElementById('form-product-brand').value = p.brand || "";
+            document.getElementById('form-product-image-url').value = p.images && p.images.length > 0 ? p.images[0] : "";
+            document.getElementById('form-product-short-desc').value = p.shortDescription || "";
+            document.getElementById('form-product-desc').value = p.description || "";
+            const specsContainer = document.getElementById('specs-editor-rows');
+            specsContainer.innerHTML = "";
+            if (p.specifications && Object.keys(p.specifications).length > 0) {
+                Object.keys(p.specifications).forEach(k => {
+                    addSpecRow(k, p.specifications[k]);
+                });
+            } else {
+                addSpecRow();
+            }
+            document.getElementById('product-modal').classList.remove('hidden');
+            document.getElementById('product-modal').classList.add('flex');
+        }
+
+        function closeProductModal() {
+            document.getElementById('product-modal').classList.add('hidden');
+            document.getElementById('product-modal').classList.remove('flex');
+        }
+
+        function handleSaveProduct(e) {
+            e.preventDefault();
+            const id = document.getElementById('form-product-id').value;
+            const name = document.getElementById('form-product-name').value;
+            const sku = document.getElementById('form-product-sku').value;
+            const category = document.getElementById('form-product-cat').value;
+            const subcategory = document.getElementById('form-product-subcat').value;
+            const price = parseFloat(document.getElementById('form-product-price').value);
+            const discountPrice = parseFloat(document.getElementById('form-product-discount-price').value) || 0;
+            const stock = parseInt(document.getElementById('form-product-stock').value);
+            const status = document.getElementById('form-product-status').value;
+            const brand = document.getElementById('form-product-brand').value;
+            const imageUrlInput = document.getElementById('form-product-image-url').value;
+            const shortDescription = document.getElementById('form-product-short-desc').value;
+            const description = document.getElementById('form-product-desc').value;
+
+            const specifications = {};
+            const rows = document.querySelectorAll('.spec-row');
+            rows.forEach(row => {
+                const keyInput = row.querySelector('.spec-key');
+                const valInput = row.querySelector('.spec-value');
+                if (keyInput && valInput) {
+                    const k = keyInput.value.trim();
+                    const v = valInput.value.trim();
+                    if (k) specifications[k] = v;
+                }
+            });
+
+            const fileInput = document.getElementById('form-product-image-file');
+            const file = fileInput.files[0];
+
+            if (file) {
+                const reader = new FileReader();
+                reader.readAsDataURL(file);
+                reader.onload = function() {
+                    const base64Str = reader.result;
+                    fetch('/api/products/upload', {
+                        method: 'POST',
+                        headers: { 
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${token}`
+                        },
+                        body: JSON.stringify({ filename: file.name, base64: base64Str })
+                    })
+                    .then(res => res.json())
+                    .then(data => {
+                        saveProductDetails(id, {
+                            name, sku, category, subcategory, price, discountPrice, stock, status, brand,
+                            images: [data.url], shortDescription, description, specifications
+                        });
+                    })
+                    .catch(() => showToast("Failed to upload product image", "error"));
+                };
+            } else {
+                saveProductDetails(id, {
+                    name, sku, category, subcategory, price, discountPrice, stock, status, brand,
+                    images: imageUrlInput ? [imageUrlInput] : [], shortDescription, description, specifications
+                });
+            }
+        }
+
+        function saveProductDetails(id, payload) {
+            const url = id ? `/api/products/${id}` : '/api/products';
+            const method = id ? 'PUT' : 'POST';
+            fetch(url, {
+                method: method,
+                headers: { 
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify(payload)
+            })
+            .then(async res => {
+                const data = await res.json();
+                if (!res.ok) throw new Error(data.error || 'Failed to save product');
+                return data;
+            })
+            .then(() => {
+                showToast("Product saved successfully.", "success");
+                closeProductModal();
+                loadProductsData();
+            })
+            .catch(err => showToast(err.message, "error"));
+        }
+
+        function handleDeleteProduct(id) {
+            if (!confirm("Are you sure you want to permanently delete this product?")) return;
+            fetch(`/api/products/${id}`, {
+                method: 'DELETE',
+                headers: { 'Authorization': `Bearer ${token}` }
+            })
+            .then(async res => {
+                if (!res.ok) throw new Error();
+                showToast("Product deleted successfully.", "success");
+                loadProductsData();
+            })
+            .catch(() => showToast("Failed to delete product", "error"));
+        }
+
+        function handleUpdateOrderStatus(id, status) {
+            fetch(`/api/orders/${id}/status`, {
+                method: 'PUT',
+                headers: { 
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify({ status })
+            })
+            .then(res => {
+                if (!res.ok) throw new Error();
+                showToast(`Order status updated to: ${status}`, "success");
+                loadOrdersData();
+            })
+            .catch(() => showToast("Failed to update status", "error"));
+        }
+
+        function handleDeleteOrder(id) {
+            if (!confirm("Are you sure you want to cancel and delete this order?")) return;
+            fetch(`/api/orders/${id}`, {
+                method: 'DELETE',
+                headers: { 'Authorization': `Bearer ${token}` }
+            })
+            .then(res => {
+                if (!res.ok) throw new Error();
+                showToast("Order cancelled and deleted.", "info");
+                loadOrdersData();
+            })
+            .catch(() => showToast("Failed to delete order", "error"));
+        }
+
+        function openAddOrderModal() {
+            document.getElementById('order-modal-title').innerText = 'Create New Order';
+            document.getElementById('form-order-id').value = '';
+            document.getElementById('form-order-client-name').value = '';
+            document.getElementById('form-order-client-company').value = '';
+            document.getElementById('form-order-client-email').value = '';
+            document.getElementById('form-order-client-phone').value = '';
+            document.getElementById('form-order-client-message').value = '';
+            document.getElementById('form-order-amount').value = '';
+            const itemsContainer = document.getElementById('order-items-rows');
+            itemsContainer.innerHTML = '';
+            addOrderItemRow();
+            document.getElementById('order-modal').classList.remove('hidden');
+        }
+
+        function closeOrderModal() {
+            document.getElementById('order-modal').classList.add('hidden');
+        }
+
+        function addOrderItemRow(item = {}) {
+            const container = document.getElementById('order-items-rows');
+            const row = document.createElement('div');
+            row.className = 'grid grid-cols-1 lg:grid-cols-[1fr_1fr_1fr_auto] gap-3 items-end';
+            row.innerHTML = `
+                <div>
+                    <label class="block text-xs uppercase font-technical-label text-on-surface-variant mb-1">Item Name *</label>
+                    <input type="text" class="order-item-name w-full p-2.5 border border-outline-variant bg-surface-container-low text-xs rounded outline-none focus:ring-1 focus:ring-primary focus:border-primary" value="${item.name || ''}" required />
+                </div>
+                <div>
+                    <label class="block text-xs uppercase font-technical-label text-on-surface-variant mb-1">SKU / Ref</label>
+                    <input type="text" class="order-item-ref w-full p-2.5 border border-outline-variant bg-surface-container-low text-xs rounded outline-none focus:ring-1 focus:ring-primary focus:border-primary" value="${item.ref || ''}" />
+                </div>
+                <div>
+                    <label class="block text-xs uppercase font-technical-label text-on-surface-variant mb-1">Quantity *</label>
+                    <input type="number" min="1" class="order-item-qty w-full p-2.5 border border-outline-variant bg-surface-container-low text-xs rounded outline-none focus:ring-1 focus:ring-primary focus:border-primary" value="${item.quantity || 1}" required />
+                </div>
+                <button type="button" onclick="this.closest('.grid').remove()" class="h-11 self-start bg-error text-white rounded hover:bg-red-700 transition-all flex items-center justify-center px-3">
+                    <span class="material-symbols-outlined text-sm">delete</span>
+                </button>
+            `;
+            container.appendChild(row);
+        }
+
+        function showEditOrderModal(id) {
+            const order = orders.find(o => o._id === id);
+            if (!order) return;
+            document.getElementById('order-modal-title').innerText = 'Edit Order';
+            document.getElementById('form-order-id').value = id;
+            document.getElementById('form-order-client-name').value = order.client.name || '';
+            document.getElementById('form-order-client-company').value = order.client.company || '';
+            document.getElementById('form-order-client-email').value = order.client.email || '';
+            document.getElementById('form-order-client-phone').value = order.client.phone || '';
+            document.getElementById('form-order-client-message').value = order.client.message || '';
+            document.getElementById('form-order-amount').value = order.totalPrice || '';
+            const itemsContainer = document.getElementById('order-items-rows');
+            itemsContainer.innerHTML = '';
+            order.items.forEach(item => addOrderItemRow(item));
+            document.getElementById('order-modal').classList.remove('hidden');
+        }
+
+        function handleSaveOrder(e) {
+            e.preventDefault();
+            const id = document.getElementById('form-order-id').value;
+            const client = {
+                name: document.getElementById('form-order-client-name').value,
+                company: document.getElementById('form-order-client-company').value,
+                email: document.getElementById('form-order-client-email').value,
+                phone: document.getElementById('form-order-client-phone').value,
+                message: document.getElementById('form-order-client-message').value
+            };
+            const items = Array.from(document.querySelectorAll('#order-items-rows > div')).map(row => {
+                const name = row.querySelector('.order-item-name')?.value.trim() || '';
+                const ref = row.querySelector('.order-item-ref')?.value.trim() || '';
+                const quantity = parseInt(row.querySelector('.order-item-qty')?.value, 10) || 1;
+                return { name, ref, quantity };
+            }).filter(item => item.name);
+
+            const amountInput = document.getElementById('form-order-amount');
+            const amount = amountInput.value ? parseFloat(amountInput.value) : null;
+
+            if (!client.name || !client.email || items.length === 0) {
+                return showToast('Please provide client details and at least one order item.', 'error');
+            }
+
+            const payload = { client, items };
+            if (amount !== null) payload.amount = amount;
+
+            const url = id ? `/api/orders/${id}` : '/api/orders';
+            const method = id ? 'PUT' : 'POST';
+            fetch(url, {
+                method,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify(payload)
+            })
+            .then(async res => {
+                const data = await res.json();
+                if (!res.ok) throw new Error(data.error || 'Failed to save order');
+                return data;
+            })
+            .then(() => {
+                showToast(`Order ${id ? 'updated' : 'created'} successfully.`, 'success');
+                closeOrderModal();
+                loadOrdersData();
+            })
+            .catch(err => showToast(err.message, 'error'));
+        }
+
+        function handleUpdateTicketStatus(id, status) {
+            fetch(`/api/tickets/${id}`, {
+                method: 'PUT',
+                headers: { 
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify({ status })
+            })
+            .then(res => {
+                if (!res.ok) throw new Error();
+                showToast(`Ticket status updated to ${status}`, "success");
+                loadTicketsData();
+            })
+            .catch(() => showToast("Failed to update ticket", "error"));
+        }
+
+        function handleReplyTicket(id) {
+            const input = document.getElementById('ticket-reply-msg');
+            const reply = input.value.trim();
+            if (!reply) return showToast('Please enter a response before sending.', 'error');
+            fetch(`/api/tickets/${id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify({ reply, products: ticketReplyAttachments })
+            })
+            .then(async res => {
+                const data = await res.json();
+                if (!res.ok) throw new Error(data.error || 'Failed to send response');
+                return data;
+            })
+            .then(() => {
+                showToast('Response sent and ticket updated.', 'success');
+                input.value = "";
+                ticketReplyAttachments = [];
+                renderTicketAttachmentPreview();
+                const picker = document.getElementById('ticket-product-picker');
+                if (picker) picker.classList.add('hidden');
+                fetch('/api/tickets', {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                })
+                .then(r => r.json())
+                .then(data => {
+                    tickets = data;
+                    renderTicketsList();
+                    showTicketThread(id);
+                });
+            })
+            .catch(err => showToast(err.message, 'error'));
+        }
+
+        function handleUpdateSettings(e) {
+            e.preventDefault();
+            const name = document.getElementById('settings-name').value;
+            const email = document.getElementById('settings-email').value;
+            const password = document.getElementById('settings-password').value;
+            fetch('/api/admin/settings', {
+                method: 'PUT',
+                headers: { 
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify({ name, email, password: password || undefined })
+            })
+            .then(async res => {
+                const data = await res.json();
+                if (!res.ok) throw new Error(data.error || 'Update failed');
+                return data;
+            })
+            .then(() => {
+                showToast("Admin profile details updated.", "success");
+                document.getElementById('settings-password').value = "";
+                showAdminPanel();
+            })
+            .catch(err => showToast(err.message, "error"));
+        }
+
+        // ================= Toast =================
+        function showToast(message, type = "success") {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = `p-4 border shadow-2xl rounded flex items-center justify-between pointer-events-auto transition-all duration-300 transform translate-y-10 opacity-0 bg-white border-outline-variant`;
+            let icon = "check_circle";
+            let colorCls = "text-primary";
+            if (type === "error") { icon = "cancel"; colorCls = "text-red-600"; }
+            if (type === "info") { icon = "info"; colorCls = "text-blue-600"; }
+            toast.innerHTML = `
+                <div class="flex items-center gap-3">
+                    <span class="material-symbols-outlined ${colorCls}" style="font-variation-settings: 'FILL' 1;">${icon}</span>
+                    <p class="text-xs font-bold uppercase tracking-wide leading-tight text-on-surface">${message}</p>
+                </div>
+                <button class="text-on-surface-variant hover:text-primary ml-4 transition-colors p-1 flex items-center justify-center">
+                    <span class="material-symbols-outlined text-sm">close</span>
+                </button>
+            `;
+            container.appendChild(toast);
+            setTimeout(() => { toast.classList.remove('translate-y-10', 'opacity-0'); }, 10);
+            toast.querySelector('button').addEventListener('click', () => {
+                toast.classList.add('translate-y-10', 'opacity-0');
+                setTimeout(() => toast.remove(), 300);
+            });
+            setTimeout(() => {
+                if (toast.parentNode) {
+                    toast.classList.add('translate-y-10', 'opacity-0');
+                    setTimeout(() => toast.remove(), 300);
+                }
+            }, 4000);
+        }
+
+        console.log('Admin panel loaded (full functions, no i18n).');
+    </script>
+</body>
+</html>

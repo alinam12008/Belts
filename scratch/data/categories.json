@@ -1,0 +1,65 @@
+[
+  {
+    "_id": "m3vm1sl2d8ntxfo6s14wn",
+    "createdAt": "2026-06-20T10:23:31.065Z",
+    "updatedAt": "2026-06-20T10:23:31.065Z",
+    "name": "Belts Power Transmission",
+    "description": "V Belts, Timing Belts, and Ribbed Belts",
+    "image": "",
+    "status": "Active"
+  },
+  {
+    "_id": "2yt4ljq5wg9tx4ja5lfi2s",
+    "createdAt": "2026-06-20T10:23:31.066Z",
+    "updatedAt": "2026-06-20T10:23:31.066Z",
+    "name": "Pulleys",
+    "description": "Precision grooved pulleys",
+    "image": "",
+    "status": "Active"
+  },
+  {
+    "_id": "lj96vrd6s581egpulzdok",
+    "createdAt": "2026-06-20T10:23:31.068Z",
+    "updatedAt": "2026-06-20T10:23:31.068Z",
+    "name": "Conveying Accessorise",
+    "description": "Modular handling accessories and rollers",
+    "image": "",
+    "status": "Active"
+  },
+  {
+    "_id": "zyxzbx50jztigs96sgpk8",
+    "createdAt": "2026-06-20T10:23:31.070Z",
+    "updatedAt": "2026-06-20T10:23:31.070Z",
+    "name": "Rubber",
+    "description": "Industrial rubber sheetings and components",
+    "image": "",
+    "status": "Active"
+  },
+  {
+    "_id": "w2y4dlwdl25sb0ibztkj4",
+    "createdAt": "2026-06-20T10:23:31.074Z",
+    "updatedAt": "2026-06-20T10:23:31.074Z",
+    "name": "Industrial Insulation",
+    "description": "Gaskets, felts, and gland packings",
+    "image": "",
+    "status": "Active"
+  },
+  {
+    "_id": "z97ja6jh8zd0yqnci9o65a",
+    "createdAt": "2026-06-20T10:23:31.075Z",
+    "updatedAt": "2026-06-20T10:23:31.075Z",
+    "name": "Bearings",
+    "description": "Ball and roller bearing systems",
+    "image": "",
+    "status": "Active"
+  },
+  {
+    "_id": "fmqghayrripdz4r9sepig",
+    "createdAt": "2026-06-20T10:23:31.076Z",
+    "updatedAt": "2026-06-20T10:23:31.076Z",
+    "name": "Transmission Chains And Sprockets",
+    "description": "ANSI/DIN chains and sprockets",
+    "image": "",
+    "status": "Active"
+  }
+]

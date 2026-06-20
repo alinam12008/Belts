@@ -1,0 +1,109 @@
+[
+  {
+    "_id": "zb6cuidrxt2sbcxx3c6k",
+    "createdAt": "2026-06-20T10:23:31.062Z",
+    "updatedAt": "2026-06-20T21:42:58.078Z",
+    "name": "System Administrator",
+    "email": "admin@gmail.com",
+    "password": "$2b$10$gFhK6F5PEimDqDJgsgCFqONisCcB1iajzxSID9h45ppHidTLMOO12",
+    "profilePicture": "",
+    "loginHistory": [
+      {
+        "timestamp": "2026-06-20T13:06:07.615Z",
+        "ip": "::1",
+        "status": "Success"
+      },
+      {
+        "timestamp": "2026-06-20T13:07:20.041Z",
+        "ip": "::1",
+        "status": "Success"
+      },
+      {
+        "timestamp": "2026-06-20T13:27:47.951Z",
+        "ip": "::1",
+        "status": "Success"
+      },
+      {
+        "timestamp": "2026-06-20T13:31:41.270Z",
+        "ip": "::1",
+        "status": "Success"
+      },
+      {
+        "timestamp": "2026-06-20T13:36:46.288Z",
+        "ip": "::1",
+        "status": "Failed: Wrong password"
+      },
+      {
+        "timestamp": "2026-06-20T13:39:42.030Z",
+        "ip": "::1",
+        "status": "Failed: Wrong password"
+      },
+      {
+        "timestamp": "2026-06-20T13:40:17.382Z",
+        "ip": "::1",
+        "status": "Failed: Wrong password"
+      },
+      {
+        "timestamp": "2026-06-20T13:40:28.804Z",
+        "ip": "::1",
+        "status": "Failed: Wrong password"
+      },
+      {
+        "timestamp": "2026-06-20T13:44:13.302Z",
+        "ip": "::1",
+        "status": "Success"
+      },
+      {
+        "timestamp": "2026-06-20T14:00:46.874Z",
+        "ip": "::1",
+        "status": "Success"
+      },
+      {
+        "timestamp": "2026-06-20T21:18:02.785Z",
+        "ip": "::1",
+        "status": "Success"
+      },
+      {
+        "timestamp": "2026-06-20T21:18:37.012Z",
+        "ip": "::1",
+        "status": "Success"
+      },
+      {
+        "timestamp": "2026-06-20T21:19:08.429Z",
+        "ip": "::1",
+        "status": "Success"
+      },
+      {
+        "timestamp": "2026-06-20T21:37:27.126Z",
+        "ip": "::1",
+        "status": "Success"
+      },
+      {
+        "timestamp": "2026-06-20T21:42:58.077Z",
+        "ip": "::1",
+        "status": "Success"
+      }
+    ]
+  },
+  {
+    "_id": "34pronhgnvcaj2qpusripn",
+    "createdAt": "2026-06-20T10:26:07.544Z",
+    "updatedAt": "2026-06-20T10:33:41.964Z",
+    "name": "Test Admin",
+    "email": "test@admin.com",
+    "password": "$2b$10$zOlqhBlxtgPs1rH9GzBDhO7KO0cde7WyY7XnvJX7QAYNEGPBGwvdi",
+    "profilePicture": "",
+    "loginHistory": [
+      {
+        "timestamp": "2026-06-20T10:32:47.250Z",
+        "ip": "::1",
+        "status": "Success"
+      },
+      {
+        "timestamp": "2026-06-20T10:33:41.961Z",
+        "ip": "::1",
+        "status": "Success"
+      }
+    ]
+  }
+]

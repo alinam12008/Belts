@@ -1,0 +1,83 @@
+[
+  {
+    "_id": "wrcv9vd76at3yktydrgtk",
+    "createdAt": "2026-06-20T10:23:31.346Z",
+    "updatedAt": "2026-06-20T21:51:22.102Z",
+    "name": "John Doe",
+    "email": "john@example.com",
+    "phone": "+966500000001",
+    "company": "Industrial Co",
+    "subject": "quote",
+    "message": "Need pricing for bulk order of Optibelt KB SK wedge belts.",
+    "status": "Replied",
+    "replies": [
+      {
+        "sender": "Admin",
+        "message": "2000",
+        "timestamp": "2026-06-20T13:58:23.786Z"
+      },
+      {
+        "sender": "Admin",
+        "message": "bye",
+        "timestamp": "2026-06-20T21:51:22.099Z"
+      }
+    ],
+    "emailSentAt": "2026-06-20T21:51:22.099Z",
+    "lastResponseAt": "2026-06-20T21:51:22.099Z"
+  },
+  {
+    "_id": "qlrfwqcvfhgftepq0mgidc",
+    "createdAt": "2026-06-20T10:23:31.347Z",
+    "updatedAt": "2026-06-20T10:23:31.347Z",
+    "name": "Jane Smith",
+    "email": "jane@example.com",
+    "phone": "+966500000002",
+    "company": "AgriCorp",
+    "subject": "technical",
+    "message": "Can you provide the maximum temperature range for the Chevron Conveyor Belts?",
+    "status": "Resolved",
+    "replies": [
+      {
+        "sender": "Admin",
+        "message": "Hello Jane, Kauman Chevron Belts generally withstand up to 90 degrees Celsius.",
+        "timestamp": "2026-06-20T10:23:31.346Z"
+      },
+      {
+        "sender": "Jane Smith",
+        "message": "Thank you, that is exactly what I needed!",
+        "timestamp": "2026-06-20T10:23:31.346Z"
+      }
+    ]
+  },
+  {
+    "_id": "82c6hjxv8y51pwqlyb8qpt",
+    "createdAt": "2026-06-20T13:57:57.756Z",
+    "updatedAt": "2026-06-20T18:55:33.187Z",
+    "name": "Alina Momin",
+    "email": "irfanamomin8@gmail.com",
+    "phone": "9372091920",
+    "company": "AFRO-7",
+    "subject": "quote",
+    "message": "How does it work?",
+    "status": "Replied",
+    "replies": [
+      {
+        "sender": "Admin",
+        "message": "ok will send you the details",
+        "timestamp": "2026-06-20T13:58:41.740Z"
+      },
+      {
+        "sender": "Admin",
+        "message": "in progress",
+        "timestamp": "2026-06-20T18:47:59.844Z"
+      },
+      {
+        "sender": "Admin",
+        "message": "will inform you",
+        "timestamp": "2026-06-20T18:55:33.185Z"
+      }
+    ],
+    "emailSentAt": "2026-06-20T18:55:33.185Z",
+    "lastResponseAt": "2026-06-20T18:55:33.185Z"
+  }
+]

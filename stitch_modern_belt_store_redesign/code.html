@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BELTS STORE | Industrial Power Transmission</title>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@600;700&amp;family=Inter:wght@400;600&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface": "#f9f9fc",
+                        "on-primary-fixed": "#001945",
+                        "on-tertiary-fixed-variant": "#44474a",
+                        "on-background": "#1a1c1e",
+                        "background": "#f9f9fc",
+                        "on-secondary-fixed": "#001d36",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-container": "#494c4f",
+                        "on-secondary-fixed-variant": "#00497d",
+                        "on-primary-container": "#a1bbff",
+                        "inverse-primary": "#b0c6ff",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed-dim": "#c4c7ca",
+                        "surface-container-high": "#e8e8ea",
+                        "surface-container-low": "#f3f3f6",
+                        "on-surface": "#1a1c1e",
+                        "outline": "#737783",
+                        "secondary-fixed": "#d1e4ff",
+                        "surface-container-highest": "#e2e2e5",
+                        "on-surface-variant": "#434652",
+                        "secondary": "#0061a4",
+                        "secondary-container": "#33a0fd",
+                        "tertiary-fixed": "#e0e3e6",
+                        "on-error": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed": "#191c1e",
+                        "on-tertiary-container": "#babcbf",
+                        "surface-bright": "#f9f9fc",
+                        "surface-container": "#eeeef0",
+                        "primary": "#003178",
+                        "on-primary-fixed-variant": "#00429c",
+                        "surface-variant": "#e2e2e5",
+                        "on-secondary": "#ffffff",
+                        "primary-container": "#0d47a1",
+                        "tertiary": "#323538",
+                        "on-secondary-container": "#00355c",
+                        "surface-tint": "#2b5bb5",
+                        "error": "#ba1a1a",
+                        "primary-fixed-dim": "#b0c6ff",
+                        "outline-variant": "#c3c6d4",
+                        "inverse-surface": "#2f3133",
+                        "inverse-on-surface": "#f0f0f3",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed": "#d9e2ff",
+                        "on-primary": "#ffffff",
+                        "surface-dim": "#dadadc",
+                        "secondary-fixed-dim": "#9ecaff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-desktop": "64px",
+                        "container-max": "1280px",
+                        "unit": "4px",
+                        "gutter": "24px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Hanken Grotesk"],
+                        "label-sm": ["Inter"],
+                        "technical-label": ["JetBrains Mono"],
+                        "body-md": ["Inter"],
+                        "display-lg": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                        "technical-label": ["13px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        
+        .zebra-stripe-table tr:nth-child(even) { background-color: #F5F7FA; }
+        .zebra-stripe-table tr:nth-child(odd) { background-color: #FFFFFF; }
+        
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #003178; border-radius: 4px; }
+
+        .image-overlay-gradient {
+            background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.9) 30%, rgba(255,255,255,0) 100%);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md">
+<!-- TopNavBar -->
+<header class="bg-surface-container-lowest dark:bg-surface-container-lowest border-b border-outline-variant fixed top-0 w-full z-50">
+<div class="flex justify-between items-center h-20 px-margin-desktop w-full max-w-container-max mx-auto">
+<div class="flex items-center gap-8">
+<span class="font-headline-lg text-headline-lg font-bold text-on-surface dark:text-on-surface">BELTS STORE</span>
+<nav class="hidden md:flex items-center gap-6">
+<a class="font-body-md text-body-md uppercase font-bold text-primary border-b-2 border-primary pb-1" href="products.html">Products</a>
+<a class="font-body-md text-body-md uppercase font-bold text-on-surface-variant hover:text-primary transition-colors" href="mmmm.html">About Us</a>
+<a class="font-body-md text-body-md uppercase font-bold text-on-surface-variant hover:text-primary transition-colors" href="clients.html">Clients</a>
+<a class="font-body-md text-body-md uppercase font-bold text-on-surface-variant hover:text-primary transition-colors" href="#">Partners</a>
+</nav>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative hidden lg:block">
+<input class="pl-4 pr-10 py-2 border border-outline-variant rounded focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all w-64 bg-surface-container-low" placeholder="Search Part Number..." type="text"/>
+<span class="material-symbols-outlined absolute right-3 top-2.5 text-on-surface-variant">search</span>
+</div>
+<button class="bg-primary text-on-primary font-bold px-6 py-2 uppercase text-label-sm hover:bg-primary-container transition-all">CONTACT US</button>
+</div>
+</div>
+</header>
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="relative h-[600px] w-full overflow-hidden flex items-center">
+<div class="absolute inset-0 z-0">
+<video autoplay loop muted playsinline class="w-full h-full object-cover">
+<source src="salsaaaaaa.mp4" type="video/mp4"/>
+<img class="w-full h-full object-cover" data-alt="A cinematic, high-resolution close-up of a heavy-duty industrial rubber timing belt with detailed tooth structure, resting on a clean white technical background. The lighting is cold and professional, emphasizing the rugged texture and precision engineering of the material. Sharp focus on the foreground fibers and rubber grade." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwPCl2gvN6k80qPlL8x0G1iAFVklyYWGNTWwnFOrYrHcqMdlQ7O4_NDlxrlSr94rfT9AeC3QgCxnIQtipHQpV20dQQIwquIdq3-3paWn8NNL_JThPrsrcfYQowgGLOR1CoyTYVjdU2HVBVdE_PyP2nSI1QpUn9BUfrUnnd4NOt2Sscqjn0AmWylV--15xLs8jasKfWExwNQpPjBWrN6zONDIlhNaVpi6L9kEb5tlNYb__liiKM9LYS00MztsltqoA6fXc_jDrkWTs"/>
+</video>
+<div class="absolute inset-0 image-overlay-gradient"></div>
+</div>
+<div class="relative z-10 px-margin-desktop max-w-container-max mx-auto w-full">
+<div class="max-w-2xl">
+<h1 class="font-display-lg text-display-lg text-primary uppercase mb-4">Powering Industrial Excellence</h1>
+<p class="text-on-surface-variant text-xl mb-8 font-body-md leading-relaxed">
+                        High-precision power transmission solutions designed for the most demanding mechanical environments. Engineering reliability into every component.
+                    </p>
+<div class="flex gap-4">
+<button class="bg-primary text-on-primary px-8 py-4 font-bold flex items-center gap-2 hover:translate-x-1 transition-transform">
+                            BROWSE CATALOG <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<button class="border-2 border-primary text-primary px-8 py-4 font-bold hover:bg-primary/5 transition-colors">
+                            VIEW SPECIFICATIONS
+                        </button>
+</div>
+</div>
+</div>
+</section>
+<section class="max-w-container-max mx-auto px-margin-desktop py-20 flex gap-gutter">
+<!-- SideNavBar -->
+<aside class="hidden lg:flex flex-col gap-unit py-gutter sticky top-24 bg-surface-container-lowest dark:bg-surface-container-low rounded-xl w-72 h-fit border border-outline-variant">
+<div class="px-6 py-4 border-b border-outline-variant">
+<h3 class="font-headline-lg text-xl font-bold text-primary">PRODUCT CATEGORIES</h3>
+<p class="font-technical-label text-xs uppercase text-on-surface-variant">Technical Specifications</p>
+</div>
+<div class="p-2 flex flex-col gap-1">
+<a class="flex items-center gap-4 px-4 py-3 bg-primary text-on-primary font-bold rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">settings_input_component</span>
+<span class="font-technical-label text-technical-label uppercase">Belts Power Transmission</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">settings_backup_restore</span>
+<span class="font-technical-label text-technical-label uppercase">Pulleys</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">conveyor_belt</span>
+<span class="font-technical-label text-technical-label uppercase">Conveying Accessories</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">opacity</span>
+<span class="font-technical-label text-technical-label uppercase">Rubber</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">heat_pump</span>
+<span class="font-technical-label text-technical-label uppercase">Industrial Insulation</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">radio_button_checked</span>
+<span class="font-technical-label text-technical-label uppercase">Bearings</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">link</span>
+<span class="font-technical-label text-technical-label uppercase">Transmission Chains</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-technical-label text-technical-label uppercase">Sprockets</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<div class="flex-1 space-y-20">
+<!-- Category Grid -->
+<section>
+<div class="flex items-center gap-4 mb-8">
+<h2 class="font-headline-lg text-headline-lg text-primary">BROWSE CATEGORIES</h2>
+<div class="flex-1 h-px bg-outline-variant"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-gutter">
+<!-- Category Card 1 -->
+<div class="group relative aspect-[4/3] bg-primary overflow-hidden cursor-pointer">
+<div class="absolute inset-0 opacity-40 group-hover:opacity-60 transition-opacity">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Close-up of a high-torque industrial conveyor pulley system in operation. Metal rollers and heavy-duty belts are visible with slight motion blur to suggest industrial performance. Tonal blue filter applied to maintain the professional corporate aesthetic. Lighting is sharp and clinical." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAphQm7oX9l2HL5ucGSOaksubniFuNEdk05KyXEhSqY-zmi_ZwyUxAHLvv13D6ywtKbjzhT6hlLaFZYplOFbvbpudq1n9vQNqTH2nUIqdyfjGvgk1RFPmZl_poeo1b1wAjf7R0c_umLk60jnXEJGWNdw4jJaWd0TmvLrVK6LILtpXY3ElY2_OBdYlmIMeiOKmGDDbh5xcje5ka2lP0RZYcSQx_Ivft6tlQXGoG_jKq7xP6DZHMxpwiNcyq456tzA2IW_mlUG03Zlvw"/>
+</div>
+<div class="absolute inset-0 p-8 flex flex-col justify-end text-on-primary">
+<span class="font-technical-label text-xs uppercase tracking-widest mb-2 border-b border-on-primary/30 w-fit">Series P-400</span>
+<h3 class="font-headline-lg text-2xl uppercase">Pulleys</h3>
+<p class="text-sm opacity-80 mt-2">Precision Grooved Performance</p>
+</div>
+</div>
+<!-- Category Card 2 -->
+<div class="group relative aspect-[4/3] bg-primary overflow-hidden cursor-pointer">
+<div class="absolute inset-0 opacity-40 group-hover:opacity-60 transition-opacity">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Technical display of industrial conveying accessories including rollers, side guides, and modular belt components. The parts are arranged neatly on a grey workbench. The lighting is uniform and bright, emphasizing the high-grade materials and industrial finish. Clean, systematic composition." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTuYshrExl5ox2V0fNcHp8zX8wVDeH1lZh_OFNnN1VFDNBm6xDWYQd3G12QsbH9Ndnegr3q9PgyclnnegBgXUUdMfoT5ORw_gM798_dGqWjuT7kVkhy8DM-1jZWVwvI9RC51TqBl-TBtRXYHtwWcFya-xZRqXz5azGUYZDRd8tbrJ7w3zMDikpVowU4dOqiKInL72JzoFJbc2rvanOaZidQC_A6Y9SvqAv6CDMASJR9vOmK3SUmjFAHDP6IfYrnjadTo3SFNyZyU0"/>
+</div>
+<div class="absolute inset-0 p-8 flex flex-col justify-end text-on-primary">
+<span class="font-technical-label text-xs uppercase tracking-widest mb-2 border-b border-on-primary/30 w-fit">Material Flow</span>
+<h3 class="font-headline-lg text-2xl uppercase">Conveying</h3>
+<p class="text-sm opacity-80 mt-2">Modular Handling Systems</p>
+</div>
+</div>
+<!-- Category Card 3 -->
+<div class="group relative aspect-[4/3] bg-primary overflow-hidden cursor-pointer">
+<div class="absolute inset-0 opacity-40 group-hover:opacity-60 transition-opacity">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Close-up of industrial rubber components and specialized gaskets. The texture of the high-grade vulcanized rubber is clearly visible under professional lighting. The composition is focused on the precision of the manufacturing edges. Cool grey and blue tones predominate." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBR30Ar3i0rdy-uBP5gspZUtmsziarCGDUkxwcR9IRWg5wyn9nDTSkodpzeR_MWTrFXmcj15mUVaflBhEL_wk46LwekXZDEIAgczV8d4bq76yNQrx_gIi1s4_tn4w0n6qBaYMX1M-Ft7805Z0szWjySRQLcvpEEk5lIGBa1JUyoHhWdg2Uyxu8_nQ7o8599XCJzIsZUhnA7urXgHl4xUMfFl4IJksjYT5p0IpLkOI_xywo9O6yiJCrGOTd2nme2Oq-yy6_-hVmvGoY"/>
+</div>
+<div class="absolute inset-0 p-8 flex flex-col justify-end text-on-primary">
+<span class="font-technical-label text-xs uppercase tracking-widest mb-2 border-b border-on-primary/30 w-fit">Vulcanized</span>
+<h3 class="font-headline-lg text-2xl uppercase">Rubber</h3>
+<p class="text-sm opacity-80 mt-2">High-Resilience Products</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Technical Advantage Section (Bento Grid) -->
+<section class="bg-surface-container p-12 rounded-lg">
+<div class="text-center mb-12">
+<h2 class="font-headline-lg text-headline-lg text-primary uppercase">The Technical Advantage</h2>
+<p class="text-on-surface-variant max-w-xl mx-auto">Engineered for durability, our transmission solutions undergo rigorous testing to ensure operational certainty.</p>
+</div>
+<div class="grid grid-cols-12 gap-gutter">
+<div class="col-span-12 md:col-span-4 bg-surface-container-lowest p-8 border border-outline-variant">
+<span class="material-symbols-outlined text-4xl text-primary mb-4" style="font-variation-settings: 'FILL' 1;">verified</span>
+<h4 class="font-headline-lg text-xl uppercase mb-2">Precision Load Ratings</h4>
+<p class="text-sm text-on-surface-variant">Accurate performance data for extreme torque and speed requirements.</p>
+</div>
+<div class="col-span-12 md:col-span-4 bg-surface-container-lowest p-8 border border-outline-variant">
+<span class="material-symbols-outlined text-4xl text-primary mb-4" style="font-variation-settings: 'FILL' 1;">engineering</span>
+<h4 class="font-headline-lg text-xl uppercase mb-2">Custom Fabrication</h4>
+<p class="text-sm text-on-surface-variant">Bespoke belt lengths and pulley dimensions engineered to your specs.</p>
+</div>
+<div class="col-span-12 md:col-span-4 bg-surface-container-lowest p-8 border border-outline-variant">
+<span class="material-symbols-outlined text-4xl text-primary mb-4" style="font-variation-settings: 'FILL' 1;">support_agent</span>
+<h4 class="font-headline-lg text-xl uppercase mb-2">Technical Support</h4>
+<p class="text-sm text-on-surface-variant">Direct access to mechanical engineers for system optimization.</p>
+</div>
+</div>
+</section>
+<!-- Featured Products / Data Table -->
+<section>
+<div class="flex justify-between items-end mb-8">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-primary uppercase">Featured Bearings &amp; Sprockets</h2>
+<p class="text-on-surface-variant">Direct stock of high-demand industrial components.</p>
+</div>
+<a class="text-primary font-bold flex items-center gap-1 hover:underline" href="#">
+                            FULL CATALOG <span class="material-symbols-outlined text-sm">open_in_new</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter mb-12">
+<div class="flex bg-surface-container-lowest border border-outline-variant overflow-hidden group">
+<div class="w-1/3 relative">
+<img class="w-full h-full object-cover" data-alt="High-quality macro shot of a chrome steel ball bearing. The reflective surface shows a clean engineering lab environment. Focus is sharp on the outer race and cage. Professional technical product photography for a manufacturer catalog. Cold, clinical, high-contrast style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7yEq1J670vbzsPe21C2MISt9vN_IC2GoOnSsM5Yn0ot9rrO1HCbBy7qUx4G-eJq9R_BVIAfsOGcFP4nE1o-CUOXiTIH03ZpPGCBPouhiiyv1DOur4PEFhaqfbbcUj6HVgCZjo_qVswopBZYlktA-kF4C6FFcGzL-j2KTlfI9KcRqqKSMqDWYr4el11A-I7xlumktO04sA91ft5ZmIzCWhQ8IJaQBxOIF1bGkq_Hpvw8W40NMSFP9KH--Lq9XccqjKXZkby47L8GY"/>
+</div>
+<div class="w-2/3 p-6 flex flex-col justify-between">
+<div>
+<span class="px-2 py-1 bg-secondary-fixed text-on-secondary-fixed text-[10px] font-bold uppercase rounded">In Stock</span>
+<h4 class="font-headline-lg text-lg uppercase mt-2">Double-Row Roller Bearings</h4>
+<p class="text-xs text-on-surface-variant mt-1">High radial load capacity for industrial gearboxes.</p>
+</div>
+<div class="mt-4 flex justify-between items-center">
+<span class="font-technical-label text-primary font-bold">Ref: DRB-8800</span>
+<button class="bg-primary text-on-primary px-4 py-2 text-xs font-bold uppercase">VIEW SPECS</button>
+</div>
+</div>
+</div>
+<div class="flex bg-surface-container-lowest border border-outline-variant overflow-hidden group">
+<div class="w-1/3 relative">
+<img class="w-full h-full object-cover" data-alt="Industrial steel drive sprocket for transmission chains. The teeth are precisely cut and show a machined metallic finish. Professional lighting highlights the geometry of the gear. Set against a minimalist grey background to emphasize technical detail and material quality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWJIaxb5t0FXmNlSJhXaWLPrVybskLht3bmIt02w2on0HxNnxD5UjcANMviM_gLEz9q8U6sevxm7YmoHlNed6nuSEzNfaYgTPt3vpHcAwnWam9iS0idvI82rUdceArEPzgQ2dte-sjE6Vm6jNBU_A6I2a9r8fPUJ2PWjxpCbLpSzIqbRiBOv_hr8y_aNFcLDraudgpx514a-659CzO-yXXIK7mcKmTchyUl_dI6Z_VwSSJ0p5AUrGOgAOEdI82ilWoqlM0yFjSjPA"/>
+</div>
+<div class="w-2/3 p-6 flex flex-col justify-between">
+<div>
+<span class="px-2 py-1 bg-secondary-fixed text-on-secondary-fixed text-[10px] font-bold uppercase rounded">Heavy Duty</span>
+<h4 class="font-headline-lg text-lg uppercase mt-2">Hardened Drive Sprockets</h4>
+<p class="text-xs text-on-surface-variant mt-1">Induction hardened teeth for maximum wear resistance.</p>
+</div>
+<div class="mt-4 flex justify-between items-center">
+<span class="font-technical-label text-primary font-bold">Ref: HS-42/T16</span>
+<button class="bg-primary text-on-primary px-4 py-2 text-xs font-bold uppercase">VIEW SPECS</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Technical Specifications Table -->
+<div class="overflow-x-auto border border-outline-variant rounded-lg">
+<table class="w-full zebra-stripe-table">
+<thead>
+<tr class="bg-primary text-on-primary uppercase text-xs font-technical-label">
+<th class="px-6 py-4 text-left">Model Number</th>
+<th class="px-6 py-4 text-left">Category</th>
+<th class="px-6 py-4 text-left">Material Grade</th>
+<th class="px-6 py-4 text-left">Max Torque</th>
+<th class="px-6 py-4 text-right">Action</th>
+</tr>
+</thead>
+<tbody class="text-sm font-technical-label">
+<tr>
+<td class="px-6 py-4 font-bold text-primary">BT-X990-PH</td>
+<td class="px-6 py-4">Power Belt</td>
+<td class="px-6 py-4">EPDM Rubber</td>
+<td class="px-6 py-4">4500 Nm</td>
+<td class="px-6 py-4 text-right"><span class="material-symbols-outlined cursor-pointer hover:text-primary">download</span></td>
+</tr>
+<tr>
+<td class="px-6 py-4 font-bold text-primary">PL-C200-ST</td>
+<td class="px-6 py-4">Steel Pulley</td>
+<td class="px-6 py-4">C45 Steel</td>
+<td class="px-6 py-4">8200 Nm</td>
+<td class="px-6 py-4 text-right"><span class="material-symbols-outlined cursor-pointer hover:text-primary">download</span></td>
+</tr>
+<tr>
+<td class="px-6 py-4 font-bold text-primary">BR-6205-2RS</td>
+<td class="px-6 py-4">Bearing</td>
+<td class="px-6 py-4">Chromium Steel</td>
+<td class="px-6 py-4">240 Nm</td>
+<td class="px-6 py-4 text-right"><span class="material-symbols-outlined cursor-pointer hover:text-primary">download</span></td>
+</tr>
+<tr>
+<td class="px-6 py-4 font-bold text-primary">CH-ANSI-80-1</td>
+<td class="px-6 py-4">Transmission Chain</td>
+<td class="px-6 py-4">Hardened Alloy</td>
+<td class="px-6 py-4">12000 Nm</td>
+<td class="px-6 py-4 text-right"><span class="material-symbols-outlined cursor-pointer hover:text-primary">download</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<!-- Our Products Section -->
+<section id="our-products" class="scroll-mt-24">
+    <div class="flex items-center gap-4 mb-8">
+        <h2 class="font-headline-lg text-headline-lg text-primary uppercase">Our Products</h2>
+        <div class="flex-1 h-px bg-outline-variant"></div>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-gutter">
+        <!-- Product 1: Optibelt VB -->
+        <div class="flex flex-col bg-surface-container-lowest border border-outline-variant overflow-hidden group rounded">
+            <div class="h-64 relative overflow-hidden bg-surface-container-low border-b border-outline-variant flex items-center justify-center p-4">
+                <img class="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105" src="https://belts-store.com/wp-content/uploads/2011/06/optibelt_VB_Classic_V-belts-1-1-247x296.jpg" alt="Optibelt VB"/>
+            </div>
+            <div class="p-6 flex flex-col justify-between flex-1">
+                <div>
+                    <span class="px-2 py-1 bg-secondary-fixed text-on-secondary-fixed text-[10px] font-bold uppercase rounded">V-Belts</span>
+                    <h4 class="font-headline-lg text-lg uppercase text-primary font-bold mt-2">Optibelt VB</h4>
+                    <p class="text-xs text-on-surface-variant mt-2 leading-relaxed">Classical V-belts designed for general industrial and agricultural machinery, offering high dependability and efficiency.</p>
+                </div>
+                <div class="mt-6 flex justify-between items-center">
+                    <span class="font-technical-label text-primary font-bold text-xs">Ref: OPTI-VB-CLASSIC</span>
+                    <button class="bg-primary text-on-primary px-4 py-2 text-xs font-bold uppercase hover:bg-primary-container transition-all add-to-cart-btn" data-product-id="OPTI-VB-CLASSIC" data-product-name="Optibelt VB">ADD TO CART</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 2: Optibelt RED POWER 3 -->
+        <div class="flex flex-col bg-surface-container-lowest border border-outline-variant overflow-hidden group rounded">
+            <div class="h-64 relative overflow-hidden bg-surface-container-low border-b border-outline-variant flex items-center justify-center p-4">
+                <img class="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105" src="https://belts-store.com/wp-content/uploads/2025/09/Produktfoto_Red_Power_Industrie-1-247x296.jpg" alt="Optibelt RED POWER 3"/>
+            </div>
+            <div class="p-6 flex flex-col justify-between flex-1">
+                <div>
+                    <span class="px-2 py-1 bg-secondary-fixed text-on-secondary-fixed text-[10px] font-bold uppercase rounded">V-Belts</span>
+                    <h4 class="font-headline-lg text-lg uppercase text-primary font-bold mt-2">Optibelt RED POWER 3</h4>
+                    <p class="text-xs text-on-surface-variant mt-2 leading-relaxed">High-performance wrapped wedge belts. Maintenance-free operation and up to 50% higher power capacity than standard belts.</p>
+                </div>
+                <div class="mt-6 flex justify-between items-center">
+                    <span class="font-technical-label text-primary font-bold text-xs">Ref: OPTI-RED-POWER3</span>
+                    <button class="bg-primary text-on-primary px-4 py-2 text-xs font-bold uppercase hover:bg-primary-container transition-all add-to-cart-btn" data-product-id="OPTI-RED-POWER3" data-product-name="Optibelt RED POWER 3">ADD TO CART</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 3: Optibelt SK -->
+        <div class="flex flex-col bg-surface-container-lowest border border-outline-variant overflow-hidden group rounded">
+            <div class="h-64 relative overflow-hidden bg-surface-container-low border-b border-outline-variant flex items-center justify-center p-4">
+                <img class="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105" src="https://belts-store.com/wp-content/uploads/2025/09/Produktfoto_SK_Industrie-1-247x296.jpg" alt="Optibelt SK"/>
+            </div>
+            <div class="p-6 flex flex-col justify-between flex-1">
+                <div>
+                    <span class="px-2 py-1 bg-secondary-fixed text-on-secondary-fixed text-[10px] font-bold uppercase rounded">V-Belts</span>
+                    <h4 class="font-headline-lg text-lg uppercase text-primary font-bold mt-2">Optibelt SK</h4>
+                    <p class="text-xs text-on-surface-variant mt-2 leading-relaxed">High-performance wedge belts with space-saving designs, high speed capability, and exceptional power ratings.</p>
+                </div>
+                <div class="mt-6 flex justify-between items-center">
+                    <span class="font-technical-label text-primary font-bold text-xs">Ref: OPTI-SK-WEDGE</span>
+                    <button class="bg-primary text-on-primary px-4 py-2 text-xs font-bold uppercase hover:bg-primary-container transition-all add-to-cart-btn" data-product-id="OPTI-SK-WEDGE" data-product-name="Optibelt SK">ADD TO CART</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 4: Optibelt SUPER TX -->
+        <div class="flex flex-col bg-surface-container-lowest border border-outline-variant overflow-hidden group rounded">
+            <div class="h-64 relative overflow-hidden bg-surface-container-low border-b border-outline-variant flex items-center justify-center p-4">
+                <img class="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105" src="https://belts-store.com/wp-content/uploads/2011/07/Produktfoto_TX_Industrie-1-247x296.jpg" alt="Optibelt SUPER TX"/>
+            </div>
+            <div class="p-6 flex flex-col justify-between flex-1">
+                <div>
+                    <span class="px-2 py-1 bg-secondary-fixed text-on-secondary-fixed text-[10px] font-bold uppercase rounded">V-Belts</span>
+                    <h4 class="font-headline-lg text-lg uppercase text-primary font-bold mt-2">Optibelt SUPER TX</h4>
+                    <p class="text-xs text-on-surface-variant mt-2 leading-relaxed">Moulded cogged raw-edge V-belts. Features high flexibility, high torque capacity, and excellent heat dissipation properties.</p>
+                </div>
+                <div class="mt-6 flex justify-between items-center">
+                    <span class="font-technical-label text-primary font-bold text-xs">Ref: OPTI-SUPER-TX</span>
+                    <button class="bg-primary text-on-primary px-4 py-2 text-xs font-bold uppercase hover:bg-primary-container transition-all add-to-cart-btn" data-product-id="OPTI-SUPER-TX" data-product-name="Optibelt SUPER TX">ADD TO CART</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 5: Optibelt SUPER XE-POWER PRO -->
+        <div class="flex flex-col bg-surface-container-lowest border border-outline-variant overflow-hidden group rounded">
+            <div class="h-64 relative overflow-hidden bg-surface-container-low border-b border-outline-variant flex items-center justify-center p-4">
+                <img class="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105" src="https://belts-store.com/wp-content/uploads/2025/10/Riemen_Keilriemen_SUPER_XE-POWER_PRO-1-247x296.jpg" alt="Optibelt SUPER XE-POWER PRO"/>
+            </div>
+            <div class="p-6 flex flex-col justify-between flex-1">
+                <div>
+                    <span class="px-2 py-1 bg-secondary-fixed text-on-secondary-fixed text-[10px] font-bold uppercase rounded">V-Belts</span>
+                    <h4 class="font-headline-lg text-lg uppercase text-primary font-bold mt-2">Optibelt SUPER XE-POWER PRO</h4>
+                    <p class="text-xs text-on-surface-variant mt-2 leading-relaxed">Raw edge cogged wedge belts. Excellent transverse rigidity, maintenance-free, suitable for high-torque applications.</p>
+                </div>
+                <div class="mt-6 flex justify-between items-center">
+                    <span class="font-technical-label text-primary font-bold text-xs">Ref: OPTI-SUPER-XE</span>
+                    <button class="bg-primary text-on-primary px-4 py-2 text-xs font-bold uppercase hover:bg-primary-container transition-all add-to-cart-btn" data-product-id="OPTI-SUPER-XE" data-product-name="Optibelt SUPER XE-POWER PRO">ADD TO CART</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 6: Power Twist V-Belts -->
+        <div class="flex flex-col bg-surface-container-lowest border border-outline-variant overflow-hidden group rounded">
+            <div class="h-64 relative overflow-hidden bg-surface-container-low border-b border-outline-variant flex items-center justify-center p-4">
+                <img class="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105" src="https://belts-store.com/wp-content/uploads/2025/10/Polyurethane-Power-Twist-V-belts-1-1-247x296.jpg" alt="Power Twist V-Belts"/>
+            </div>
+            <div class="p-6 flex flex-col justify-between flex-1">
+                <div>
+                    <span class="px-2 py-1 bg-secondary-fixed text-on-secondary-fixed text-[10px] font-bold uppercase rounded">Link Belts</span>
+                    <h4 class="font-headline-lg text-lg uppercase text-primary font-bold mt-2">Power Twist V-Belts</h4>
+                    <p class="text-xs text-on-surface-variant mt-2 leading-relaxed">Link V-belts made from polyurethane/polyester composite. Easily assembled to any length on-site, minimizing downtime.</p>
+                </div>
+                <div class="mt-6 flex justify-between items-center">
+                    <span class="font-technical-label text-primary font-bold text-xs">Ref: POLY-POWER-TWIST</span>
+                    <button class="bg-primary text-on-primary px-4 py-2 text-xs font-bold uppercase hover:bg-primary-container transition-all add-to-cart-btn" data-product-id="POLY-POWER-TWIST" data-product-name="Power Twist V-Belts">ADD TO CART</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Our Clients Section -->
+<section id="our-clients" class="scroll-mt-24">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+        <div>
+            <h2 class="font-headline-lg text-headline-lg text-primary uppercase">Our Clients</h2>
+            <p class="text-on-surface-variant mt-2 text-sm">Trusted by leading global industrial, manufacturing, and engineering enterprises in Saudi Arabia.</p>
+        </div>
+        <div class="hidden md:block flex-1 h-px bg-outline-variant max-w-[200px]"></div>
+    </div>
+    
+    <div class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-gutter bg-surface-container p-8 border border-outline-variant rounded">
+        <!-- Client Logo 1: Saudi Aramco -->
+        <div class="flex items-center justify-center p-4 bg-surface-container-lowest border border-outline-variant rounded hover:border-primary transition-all group h-24">
+            <img class="max-h-12 max-w-full object-contain grayscale opacity-60 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-300" src="https://belts-store.com/wp-content/uploads/2021/07/aramco-1-1.jpg" alt="Saudi Aramco"/>
+        </div>
+        <!-- Client Logo 2: Ma'aden -->
+        <div class="flex items-center justify-center p-4 bg-surface-container-lowest border border-outline-variant rounded hover:border-primary transition-all group h-24">
+            <img class="max-h-12 max-w-full object-contain grayscale opacity-60 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-300" src="https://belts-store.com/wp-content/uploads/2021/07/maaden-1.jpg" alt="Ma'aden"/>
+        </div>
+        <!-- Client Logo 3: SABIC -->
+        <div class="flex items-center justify-center p-4 bg-surface-container-lowest border border-outline-variant rounded hover:border-primary transition-all group h-24">
+            <img class="max-h-12 max-w-full object-contain grayscale opacity-60 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-300" src="https://belts-store.com/wp-content/uploads/2021/07/sabic-2-1.jpg" alt="SABIC"/>
+        </div>
+        <!-- Client Logo 4: Saudi Cement -->
+        <div class="flex items-center justify-center p-4 bg-surface-container-lowest border border-outline-variant rounded hover:border-primary transition-all group h-24">
+            <img class="max-h-12 max-w-full object-contain grayscale opacity-60 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-300" src="https://belts-store.com/wp-content/uploads/2021/07/Saudi-cement-1.jpg" alt="Saudi Cement"/>
+        </div>
+        <!-- Client Logo 5: Nabco -->
+        <div class="flex items-center justify-center p-4 bg-surface-container-lowest border border-outline-variant rounded hover:border-primary transition-all group h-24">
+            <img class="max-h-12 max-w-full object-contain grayscale opacity-60 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-300" src="https://belts-store.com/wp-content/uploads/2021/07/nabco-1-1.jpg" alt="Nabco"/>
+        </div>
+        <!-- Client Logo 6: Eastern Cement -->
+        <div class="flex items-center justify-center p-4 bg-surface-container-lowest border border-outline-variant rounded hover:border-primary transition-all group h-24">
+            <img class="max-h-12 max-w-full object-contain grayscale opacity-60 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-300" src="https://belts-store.com/wp-content/uploads/2021/07/Eastern-Cement-1.jpg" alt="Eastern Cement"/>
+        </div>
+    </div>
+</section>
+
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-primary dark:bg-on-primary-fixed text-on-primary mt-20">
+<div class="w-full py-32 px-margin-desktop grid grid-cols-12 gap-gutter max-w-container-max mx-auto">
+<div class="col-span-12 lg:col-span-4">
+<span class="font-headline-lg text-headline-lg font-bold text-on-primary mb-6 block">BELTS STORE</span>
+<p class="text-surface-variant opacity-80 text-body-md max-w-sm mb-8">
+                    Supplying global industries with premium power transmission components since 1994. Quality certified and engineering backed.
+                </p>
+<div class="flex gap-4">
+<a class="w-10 h-10 border border-on-primary/20 flex items-center justify-center hover:bg-on-primary/10 transition-colors" href="#"><span class="material-symbols-outlined">share</span></a>
+<a class="w-10 h-10 border border-on-primary/20 flex items-center justify-center hover:bg-on-primary/10 transition-colors" href="#"><span class="material-symbols-outlined">mail</span></a>
+<a class="w-10 h-10 border border-on-primary/20 flex items-center justify-center hover:bg-on-primary/10 transition-colors" href="#"><span class="material-symbols-outlined">call</span></a>
+</div>
+</div>
+<div class="col-span-6 lg:col-span-2">
+<h4 class="font-label-sm text-label-sm uppercase tracking-wider mb-6 text-secondary-fixed font-bold">Solutions</h4>
+<ul class="space-y-4 font-body-md text-sm">
+<li><a class="text-surface-variant opacity-80 hover:opacity-100 transition-opacity" href="#">Automotive</a></li>
+<li><a class="text-surface-variant opacity-80 hover:opacity-100 transition-opacity" href="#">Mining &amp; Heav Lift</a></li>
+<li><a class="text-surface-variant opacity-80 hover:opacity-100 transition-opacity" href="#">Agriculture</a></li>
+<li><a class="text-surface-variant opacity-80 hover:opacity-100 transition-opacity" href="#">Food Processing</a></li>
+</ul>
+</div>
+<div class="col-span-6 lg:col-span-2">
+<h4 class="font-label-sm text-label-sm uppercase tracking-wider mb-6 text-secondary-fixed font-bold">Technical</h4>
+<ul class="space-y-4 font-body-md text-sm">
+<li><a class="text-surface-variant opacity-80 hover:opacity-100 transition-opacity" href="#">Calculators</a></li>
+<li><a class="text-surface-variant opacity-80 hover:opacity-100 transition-opacity" href="#">CAD Drawings</a></li>
+<li><a class="text-surface-variant opacity-80 hover:opacity-100 transition-opacity" href="#">Installation Guides</a></li>
+<li><a class="text-surface-variant opacity-80 hover:opacity-100 transition-opacity" href="#">Technical Support</a></li>
+</ul>
+</div>
+<div class="col-span-12 lg:col-span-4">
+<h4 class="font-label-sm text-label-sm uppercase tracking-wider mb-6 text-secondary-fixed font-bold">Industrial Newsletter</h4>
+<p class="text-xs opacity-70 mb-4">Receive technical updates and inventory arrivals.</p>
+<div class="flex">
+<input class="bg-on-primary-fixed border-none text-on-primary p-3 flex-1 outline-none" placeholder="Email address" type="email"/>
+<button class="bg-secondary-fixed text-on-secondary-fixed px-6 font-bold hover:bg-secondary transition-colors">JOIN</button>
+</div>
+</div>
+</div>
+<div class="border-t border-on-primary/10 py-8 px-margin-desktop max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="font-label-sm text-label-sm text-surface-variant opacity-60">© 2024 Belts Store. All Rights Reserved. Powering Industrial Excellence.</p>
+<div class="flex gap-8">
+<a class="font-label-sm text-label-sm text-surface-variant opacity-60 hover:opacity-100" href="#">Privacy Policy</a>
+<a class="font-label-sm text-label-sm text-surface-variant opacity-60 hover:opacity-100" href="#">Terms of Service</a>
+<a class="font-label-sm text-label-sm text-surface-variant opacity-60 hover:opacity-100" href="#">Shipping &amp; Returns</a>
+</div>
+</div>
+</footer>
+<script>
+        // Smooth reveal interaction for side nav
+        document.querySelectorAll('aside a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                document.querySelectorAll('aside a').forEach(l => {
+                    l.classList.remove('bg-primary', 'text-on-primary', 'font-bold');
+                    l.classList.add('text-on-surface-variant', 'hover:bg-surface-container-high', 'hover:text-on-surface');
+                });
+                link.classList.add('bg-primary', 'text-on-primary', 'font-bold');
+                link.classList.remove('text-on-surface-variant', 'hover:bg-surface-container-high', 'hover:text-on-surface');
+            });
+        });
+
+        // Add to Cart interactive Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            // Create toast container if not exists
+            let toastContainer = document.getElementById('toast-container');
+            if (!toastContainer) {
+                toastContainer = document.createElement('div');
+                toastContainer.id = 'toast-container';
+                toastContainer.className = 'fixed bottom-6 right-6 z-[9999] flex flex-col gap-3 max-w-sm w-full px-4 md:px-0';
+                document.body.appendChild(toastContainer);
+            }
+
+            // Click listener for Add to Cart buttons
+            document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+                button.addEventListener('click', () => {
+                    const productId = button.getAttribute('data-product-id');
+                    const productName = button.getAttribute('data-product-name');
+                    showCartToast(productName, productId);
+                });
+            });
+
+            function showCartToast(name, ref) {
+                const toast = document.createElement('div');
+                toast.className = 'bg-primary text-on-primary border border-secondary-container p-4 shadow-lg rounded flex items-center justify-between transition-all duration-300 transform translate-y-10 opacity-0';
+                
+                toast.innerHTML = `
+                    <div class="flex items-center gap-3">
+                        <span class="material-symbols-outlined text-secondary-container" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                        <div>
+                            <h5 class="font-bold text-xs uppercase tracking-wide">Added to Cart</h5>
+                            <p class="text-[11px] text-surface-variant opacity-80 mt-0.5">${name} (${ref})</p>
+                        </div>
+                    </div>
+                    <button class="text-on-primary/60 hover:text-on-primary ml-4 transition-colors">
+                        <span class="material-symbols-outlined text-sm">close</span>
+                    </button>
+                `;
+
+                toastContainer.appendChild(toast);
+
+                // Animate entrance
+                setTimeout(() => {
+                    toast.classList.remove('translate-y-10', 'opacity-0');
+                }, 10);
+
+                // Manual close click
+                toast.querySelector('button').addEventListener('click', () => {
+                    toast.classList.add('translate-y-10', 'opacity-0');
+                    setTimeout(() => {
+                        toast.remove();
+                    }, 300);
+                });
+
+                // Auto hide after 3.5 seconds
+                setTimeout(() => {
+                    if (toast.parentNode) {
+                        toast.classList.add('translate-y-10', 'opacity-0');
+                        setTimeout(() => {
+                            toast.remove();
+                        }, 300);
+                    }
+                }, 3500);
+            }
+        });
+    </script>
+    <script src="cart.js"></script>
+</body></html>

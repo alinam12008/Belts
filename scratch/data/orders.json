@@ -1,0 +1,24 @@
+[
+  {
+    "_id": "py91nzbkn3lpuqqbkr04h",
+    "createdAt": "2026-06-20T19:09:46.209Z",
+    "updatedAt": "2026-06-20T19:13:02.167Z",
+    "client": {
+      "name": "Ayush",
+      "company": "Nexoresha",
+      "email": "irfanamomin8@gmail.comgmail.com",
+      "phone": "9372091920",
+      "message": "Order Placed"
+    },
+    "items": [
+      {
+        "name": "Belts",
+        "ref": "--",
+        "quantity": 2,
+        "unitPrice": 50
+      }
+    ],
+    "status": "Delivered",
+    "totalPrice": 2000
+  }
+]

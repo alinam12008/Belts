@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Products | BELTS STORE | Industrial Power Transmission</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@600;700&amp;family=Inter:wght@400;600&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+    <!-- Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface": "#f9f9fc",
+                        "on-primary-fixed": "#001945",
+                        "on-tertiary-fixed-variant": "#44474a",
+                        "on-background": "#1a1c1e",
+                        "background": "#f9f9fc",
+                        "on-secondary-fixed": "#001d36",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-container": "#494c4f",
+                        "on-secondary-fixed-variant": "#00497d",
+                        "on-primary-container": "#a1bbff",
+                        "inverse-primary": "#b0c6ff",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed-dim": "#c4c7ca",
+                        "surface-container-high": "#e8e8ea",
+                        "surface-container-low": "#f3f3f6",
+                        "on-surface": "#1a1c1e",
+                        "outline": "#737783",
+                        "secondary-fixed": "#d1e4ff",
+                        "surface-container-highest": "#e2e2e5",
+                        "on-surface-variant": "#434652",
+                        "secondary": "#0061a4",
+                        "secondary-container": "#33a0fd",
+                        "tertiary-fixed": "#e0e3e6",
+                        "on-error": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed": "#191c1e",
+                        "on-tertiary-container": "#babcbf",
+                        "surface-bright": "#f9f9fc",
+                        "surface-container": "#eeeef0",
+                        "primary": "#003178",
+                        "on-primary-fixed-variant": "#00429c",
+                        "surface-variant": "#e2e2e5",
+                        "on-secondary": "#ffffff",
+                        "primary-container": "#0d47a1",
+                        "tertiary": "#323538",
+                        "on-secondary-container": "#00355c",
+                        "surface-tint": "#2b5bb5",
+                        "error": "#ba1a1a",
+                        "primary-fixed-dim": "#b0c6ff",
+                        "outline-variant": "#c3c6d4",
+                        "inverse-surface": "#2f3133",
+                        "inverse-on-surface": "#f0f0f3",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed": "#d9e2ff",
+                        "on-primary": "#ffffff",
+                        "surface-dim": "#dadadc",
+                        "secondary-fixed-dim": "#9ecaff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-desktop": "64px",
+                        "container-max": "1280px",
+                        "unit": "4px",
+                        "gutter": "24px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Hanken Grotesk"],
+                        "label-sm": ["Inter"],
+                        "technical-label": ["JetBrains Mono"],
+                        "body-md": ["Inter"],
+                        "display-lg": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                        "technical-label": ["13px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #003178; border-radius: 4px; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md" data-active-page="products">
+    <!-- TopNavBar -->
+    <header class="bg-surface-container-lowest border-b border-outline-variant fixed top-0 w-full z-50">
+        <div class="flex justify-between items-center h-20 px-margin-desktop w-full max-w-container-max mx-auto">
+            <div class="flex items-center gap-8">
+                <a href="index.html" class="font-headline-lg text-headline-lg font-bold text-on-surface dark:text-on-surface">BELTS STORE</a>
+                <nav class="hidden md:flex items-center gap-6">
+                    <!-- nav-component.js injects 5-item nav -->
+                </nav>
+            </div>
+            <div class="flex items-center gap-6">
+                <div class="relative hidden lg:block">
+                    <input id="header-search" class="pl-4 pr-10 py-2 border border-outline-variant rounded focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all w-64 bg-surface-container-low" placeholder="Search Part Number..." type="text" onkeydown="if(event.key==='Enter') { document.getElementById('sidebar-search').value=this.value; document.getElementById('sidebar-search').dispatchEvent(new Event('input')); }"/>
+                    <span class="material-symbols-outlined absolute right-3 top-2.5 text-on-surface-variant">search</span>
+                </div>
+                <button class="bg-primary text-on-primary font-bold px-6 py-2 uppercase text-label-sm hover:bg-primary-container transition-all hidden lg:block" onclick="document.getElementById('floating-cart-btn').click();">VIEW CART</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-20">
+        <section class="max-w-container-max mx-auto px-margin-desktop py-12 flex flex-col lg:flex-row gap-gutter">
+            <!-- Sidebar Accordion Navigation -->
+            <aside class="w-full lg:w-80 shrink-0">
+                <div class="bg-surface-container-lowest rounded border border-outline-variant sticky top-24">
+                    <div class="px-6 py-4 border-b border-outline-variant bg-surface-container-low">
+                        <h3 class="font-headline-lg text-lg font-bold text-primary">PRODUCT SEARCH</h3>
+                        <p class="font-technical-label text-[11px] uppercase text-on-surface-variant">Filter by Category</p>
+                    </div>
+                    
+                    <!-- Search Input inside sidebar -->
+                    <div class="p-4 border-b border-outline-variant bg-surface-container-lowest">
+                        <div class="relative">
+                            <input id="sidebar-search" class="w-full pl-4 pr-10 py-2.5 border border-outline-variant rounded focus:border-primary focus:ring-1 focus:ring-primary outline-none text-sm bg-surface-container-low transition-all" placeholder="Search product name or ref..."/>
+                            <span class="material-symbols-outlined absolute right-3 top-3 text-on-surface-variant text-base">search</span>
+                        </div>
+                    </div>
+
+                    <!-- Category Accordion List -->
+                    <div id="category-accordion" class="p-2 space-y-1 max-h-[60vh] overflow-y-auto">
+                        <!-- Rendered via JS -->
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Product Showcase Grid Area -->
+            <div class="flex-1 space-y-8">
+                <!-- Breadcrumbs and Count -->
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-outline-variant pb-4">
+                    <div>
+                        <div id="category-breadcrumbs" class="text-xs font-technical-label text-on-surface-variant uppercase flex flex-wrap items-center gap-1.5">
+                            <span>Catalog</span> <span class="material-symbols-outlined text-xs">chevron_right</span> <span>All Products</span>
+                        </div>
+                        <h2 id="active-category-title" class="font-headline-lg text-2xl text-primary font-bold uppercase mt-1">All Products</h2>
+                    </div>
+                    <div class="text-xs font-technical-label text-on-surface-variant bg-surface-container p-2 rounded border border-outline-variant self-start sm:self-center">
+                        TOTAL FOUND: <span id="products-count" class="font-bold text-primary">0</span>
+                    </div>
+                </div>
+
+                <!-- Products Grid -->
+                <div id="products-grid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-gutter">
+                    <!-- Rendered via JS -->
+                </div>
+
+                <!-- Empty State -->
+                <div id="products-empty" class="hidden flex-col items-center justify-center text-center p-12 bg-surface-container-lowest border border-outline-variant rounded">
+                    <span class="material-symbols-outlined text-6xl text-on-surface-variant opacity-60 mb-4">search_off</span>
+                    <h4 class="font-headline-lg text-lg uppercase text-primary font-bold">No Products Found</h4>
+                    <p class="text-sm text-on-surface-variant max-w-sm mt-2">No components matched your current search parameters or category filter. Try clearing the search or choosing another category.</p>
+                    <button id="clear-filters-btn" class="mt-6 bg-primary text-on-primary font-bold px-6 py-3 uppercase text-xs hover:bg-primary-container transition-all">Clear Filters</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-primary dark:bg-on-primary-fixed text-on-primary mt-20">
+        <div class="w-full py-32 px-margin-desktop grid grid-cols-12 gap-gutter max-w-container-max mx-auto">
+            <div class="col-span-12 lg:col-span-4">
+                <span class="font-headline-lg text-headline-lg font-bold text-on-primary mb-6 block">BELTS STORE</span>
+                <p class="text-surface-variant opacity-80 text-body-md max-w-sm mb-8">
+                    Supplying global industries with premium power transmission components since 1994. Quality certified and engineering backed.
+                </p>
+                <div class="flex gap-4">
+                    <a class="w-10 h-10 border border-on-primary/20 flex items-center justify-center hover:bg-on-primary/10 transition-colors" href="#"><span class="material-symbols-outlined">share</span></a>
+                    <a class="w-10 h-10 border border-on-primary/20 flex items-center justify-center hover:bg-on-primary/10 transition-colors" href="#"><span class="material-symbols-outlined">mail</span></a>
+                    <a class="w-10 h-10 border border-on-primary/20 flex items-center justify-center hover:bg-on-primary/10 transition-colors" href="#"><span class="material-symbols-outlined">call</span></a>
+                </div>
+            </div>
+            <div class="col-span-6 lg:col-span-2">
+                <h4 class="font-label-sm text-label-sm uppercase tracking-wider mb-6 text-secondary-fixed font-bold">Solutions</h4>
+                <ul class="space-y-4 font-body-md text-sm">
+                    <li><a class="text-surface-variant opacity-80 hover:opacity-100 transition-opacity" href="#">Automotive</a></li>
+                    <li><a class="text-surface-variant opacity-80 hover:opacity-100 transition-opacity" href="#">Mining &amp; Heavy Lift</a></li>
+                    <li><a class="text-surface-variant opacity-80 hover:opacity-100 transition-opacity" href="#">Agriculture</a></li>
+                    <li><a class="text-surface-variant opacity-80 hover:opacity-100 transition-opacity" href="#">Food Processing</a></li>
+                </ul>
+            </div>
+            <div class="col-span-6 lg:col-span-2">
+                <h4 class="font-label-sm text-label-sm uppercase tracking-wider mb-6 text-secondary-fixed font-bold">Technical</h4>
+                <ul class="space-y-4 font-body-md text-sm">
+                    <li><a class="text-surface-variant opacity-80 hover:opacity-100 transition-opacity" href="#">Calculators</a></li>
+                    <li><a class="text-surface-variant opacity-80 hover:opacity-100 transition-opacity" href="#">CAD Drawings</a></li>
+                    <li><a class="text-surface-variant opacity-80 hover:opacity-100 transition-opacity" href="#">Installation Guides</a></li>
+                    <li><a class="text-surface-variant opacity-80 hover:opacity-100 transition-opacity" href="#">Technical Support</a></li>
+                </ul>
+            </div>
+            <div class="col-span-12 lg:col-span-4">
+                <h4 class="font-label-sm text-label-sm uppercase tracking-wider mb-6 text-secondary-fixed font-bold">Industrial Newsletter</h4>
+                <p class="text-xs opacity-70 mb-4">Receive technical updates and inventory arrivals.</p>
+                <div class="flex">
+                    <input class="bg-on-primary-fixed border-none text-on-primary p-3 flex-1 outline-none" placeholder="Email address" type="email"/>
+                    <button class="bg-secondary-fixed text-on-secondary-fixed px-6 font-bold hover:bg-secondary transition-colors">JOIN</button>
+                </div>
+            </div>
+        </div>
+        <div class="border-t border-on-primary/10 py-8 px-margin-desktop max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="font-label-sm text-label-sm text-surface-variant opacity-60">© 2024 Belts Store. All Rights Reserved. Powering Industrial Excellence.</p>
+            <div class="flex gap-8">
+                <a class="font-label-sm text-label-sm text-surface-variant opacity-60 hover:opacity-100" href="#">Privacy Policy</a>
+                <a class="font-label-sm text-label-sm text-surface-variant opacity-60 hover:opacity-100" href="#">Terms of Service</a>
+                <a class="font-label-sm text-label-sm text-surface-variant opacity-60 hover:opacity-100" href="#">Shipping &amp; Returns</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JS Logic for Products Catalog Page -->
+    <script>
+        const categoriesHierarchy = {
+            "BELTS POWER TRANSMISSION": [
+                "V Belts",
+                "Round Belts",
+                "Ribbed Belts",
+                "Emergency and Transport Belts",
+                "Timing Belts",
+                "Special Belts",
+                "Measurement and Testing Tools"
+            ],
+            "PULLEYS": [
+                "Clamping Plates",
+                "Ribbed Belt Pulleys",
+                "Timing Belt Pulleys",
+                "V-Grooved Pulleys"
+            ],
+            "CONVEYING ACCESSORIES": [],
+            "RUBBER": [
+                "Rubber Sheets",
+                "Rubber Stud",
+                "White Rubber Sheets",
+                "Silicon Sheet",
+                "Rubber Sponge Sheet",
+                "Soft Sponge Rubber",
+                "Rubber Mounts",
+                "Rubber Glass Moulding",
+                "Rubber Metal Bonded",
+                "Rubber O-Ring Service Kit"
+            ],
+            "INDUSTRIAL INSULATION": [
+                "Gasket Graphite With Steel Sheet",
+                "S.S. Wire Mesh",
+                "Cork Gasket (Rubberized)",
+                "Gaskets Sheets (Non-Asbestos Heat Resistant)",
+                "Oil Resistant Jointing",
+                "Gasket Graphite With Steel Mesh",
+                "Heat Insulation Tape",
+                "Gland Packing Rope With Teflon",
+                "Graphite Gland Packing Rope",
+                "Packing Rope Square White",
+                "Packing Rope Cord Round",
+                "Heat Insulation Cloth"
+            ],
+            "BEARINGS": {
+                "RADIAL BALL BEARINGS": [
+                    "Single Row Angular Contact Ball Bearings",
+                    "Self Aligning Ball Bearings",
+                    "Double Row Angular Contact Ball Bearings"
+                ],
+                "RADIAL ROLLER BEARINGS": [
+                    "Tapered Roller Bearings",
+                    "Spherical Roller Bearings",
+                    "Double Row Tapered Roller Bearings",
+                    "Double Row Cylindrical Roller Bearings",
+                    "Cylindrical Roller Bearings"
+                ],
+                "THRUST BALL BEARINGS": [
+                    "Double Direction Thrust Ball Bearings",
+                    "Double Direction Thrust Angular Contact Ball Bearings",
+                    "Thrust Ball Bearings"
+                ],
+                "BEARING UNITS AND PLUMMER BLOCK HOUSING": []
+            },
+            "TRANSMISSION CHAINS AND SPROCKETS": {
+                "TRANSMISSION CHAIN": [
+                    "Connecting Links",
+                    "Offset Links",
+                    "Hollow Pin Chain",
+                    "Conveyor Chain With Attachment",
+                    "Conveyor Chain",
+                    "Stainless Steel Chains",
+                    "Leaf Chain",
+                    "Agricultural Roller Chain",
+                    "Silent Chain"
+                ],
+                "SPROCKETS": []
+            },
+            "COUPLINGS": [
+                "Chain Couplings"
+            ]
+        };
+
+        // Slugify helper to match URL parameters/IDs
+        function slugify(text) {
+            return text.toString().toLowerCase()
+                .replace(/\s+/g, '-')           // Replace spaces with -
+                .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
+                .replace(/\-\-+/g, '-')         // Replace multiple - with single -
+                .replace(/^-+/, '')             // Trim - from start
+                .replace(/-+$/, '');            // Trim - from end
+        }
+
+        let allProducts = [];
+        let currentFilter = { category: null, subcategory: null, subsubcategory: null, search: "" };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Load raw products data
+            fetch('products_data.json')
+                .then(response => response.json())
+                .then(data => {
+                    allProducts = data;
+                    renderCategories();
+                    
+                    // Check URL for preselected filters
+                    const params = new URLSearchParams(window.location.search);
+                    const catParam = params.get('cat');
+                    const subcatParam = params.get('subcat');
+                    
+                    if (catParam) {
+                        currentFilter.category = catParam;
+                        if (subcatParam) {
+                            currentFilter.subcategory = subcatParam;
+                        }
+                    }
+                    
+                    filterAndRenderProducts();
+                })
+                .catch(error => {
+                    console.error("Error loading product catalog JSON:", error);
+                });
+
+            // Search Handlers
+            const sideSearch = document.getElementById('sidebar-search');
+            const headSearch = document.getElementById('header-search');
+
+            sideSearch.addEventListener('input', (e) => {
+                currentFilter.search = e.target.value;
+                headSearch.value = e.target.value;
+                filterAndRenderProducts();
+            });
+
+            headSearch.addEventListener('input', (e) => {
+                currentFilter.search = e.target.value;
+                sideSearch.value = e.target.value;
+                filterAndRenderProducts();
+            });
+
+            document.getElementById('clear-filters-btn').addEventListener('click', () => {
+                currentFilter = { category: null, subcategory: null, subsubcategory: null, search: "" };
+                sideSearch.value = "";
+                headSearch.value = "";
+                document.querySelectorAll('.cat-link').forEach(l => l.classList.remove('bg-primary/10', 'text-primary', 'font-bold'));
+                filterAndRenderProducts();
+            });
+        });
+
+        // Dynamic category list builder
+        function renderCategories() {
+            const container = document.getElementById('category-accordion');
+            container.innerHTML = "";
+
+            // Header for "All Products"
+            const allBtn = document.createElement('button');
+            allBtn.className = 'w-full text-left px-4 py-2.5 text-xs font-technical-label uppercase font-bold text-on-surface-variant hover:bg-surface-container-high rounded flex items-center gap-3 transition-colors';
+            allBtn.innerHTML = `<span class="material-symbols-outlined text-sm">grid_view</span> ALL PRODUCTS`;
+            allBtn.addEventListener('click', () => {
+                currentFilter.category = null;
+                currentFilter.subcategory = null;
+                currentFilter.subsubcategory = null;
+                document.querySelectorAll('.cat-link').forEach(l => l.classList.remove('bg-primary/10', 'text-primary', 'font-bold'));
+                filterAndRenderProducts();
+            });
+            container.appendChild(allBtn);
+
+            // Populate hierarchy
+            Object.keys(categoriesHierarchy).forEach(cat => {
+                const catId = slugify(cat);
+                const subObj = categoriesHierarchy[cat];
+                const hasSubs = (Array.isArray(subObj) ? subObj.length > 0 : Object.keys(subObj).length > 0);
+
+                const itemDiv = document.createElement('div');
+                itemDiv.className = 'border-b border-outline-variant/30 pb-1';
+
+                const titleRow = document.createElement('div');
+                titleRow.className = 'flex justify-between items-center w-full';
+
+                const catBtn = document.createElement('button');
+                catBtn.className = 'cat-link text-left px-4 py-2 flex-1 text-xs font-technical-label uppercase font-semibold text-on-surface hover:bg-surface-container-high rounded transition-all truncate';
+                catBtn.innerText = cat;
+                catBtn.addEventListener('click', () => {
+                    currentFilter.category = cat;
+                    currentFilter.subcategory = null;
+                    currentFilter.subsubcategory = null;
+                    
+                    // Highlight selected
+                    document.querySelectorAll('.cat-link').forEach(l => l.classList.remove('bg-primary/10', 'text-primary', 'font-bold'));
+                    catBtn.classList.add('bg-primary/10', 'text-primary', 'font-bold');
+                    
+                    filterAndRenderProducts();
+                    
+                    // Toggle sublist if it exists
+                    if (hasSubs) {
+                        const sublist = document.getElementById(`sub-${catId}`);
+                        sublist.classList.toggle('hidden');
+                        const icon = titleRow.querySelector('.accordion-icon');
+                        icon.innerText = sublist.classList.contains('hidden') ? 'add' : 'remove';
+                    }
+                });
+                titleRow.appendChild(catBtn);
+
+                if (hasSubs) {
+                    const iconBtn = document.createElement('button');
+                    iconBtn.className = 'p-2 text-on-surface-variant hover:text-primary transition-colors flex items-center justify-center';
+                    iconBtn.innerHTML = `<span class="material-symbols-outlined text-base accordion-icon">add</span>`;
+                    iconBtn.addEventListener('click', () => {
+                        const sublist = document.getElementById(`sub-${catId}`);
+                        sublist.classList.toggle('hidden');
+                        iconBtn.querySelector('.accordion-icon').innerText = sublist.classList.contains('hidden') ? 'add' : 'remove';
+                    });
+                    titleRow.appendChild(iconBtn);
+                }
+
+                itemDiv.appendChild(titleRow);
+
+                // Subcategories wrapper
+                if (hasSubs) {
+                    const subList = document.createElement('div');
+                    subList.id = `sub-${catId}`;
+                    subList.className = 'hidden pl-4 pr-2 py-1 space-y-1 bg-surface-container-low/50 rounded mt-0.5';
+
+                    if (Array.isArray(subObj)) {
+                        // V Belts, Round Belts, etc.
+                        subObj.forEach(subcat => {
+                            const subBtn = document.createElement('button');
+                            subBtn.className = 'cat-link w-full text-left px-3 py-1.5 text-xs text-on-surface-variant hover:text-primary transition-colors truncate';
+                            subBtn.innerText = subcat;
+                            subBtn.addEventListener('click', () => {
+                                currentFilter.category = cat;
+                                currentFilter.subcategory = subcat;
+                                currentFilter.subsubcategory = null;
+                                document.querySelectorAll('.cat-link').forEach(l => l.classList.remove('bg-primary/10', 'text-primary', 'font-bold'));
+                                subBtn.classList.add('bg-primary/10', 'text-primary', 'font-bold');
+                                filterAndRenderProducts();
+                            });
+                            subList.appendChild(subBtn);
+                        });
+                    } else {
+                        // RADIAL BALL BEARINGS, RADIAL ROLLER BEARINGS, etc.
+                        Object.keys(subObj).forEach(subcat => {
+                            const subcatId = slugify(subcat);
+                            const subSubArray = subObj[subcat];
+                            const hasSubSubs = subSubArray.length > 0;
+
+                            const subDiv = document.createElement('div');
+                            subDiv.className = 'space-y-0.5';
+
+                            const subTitleRow = document.createElement('div');
+                            subTitleRow.className = 'flex justify-between items-center w-full';
+
+                            const subBtn = document.createElement('button');
+                            subBtn.className = 'cat-link text-left px-3 py-1 flex-1 text-xs text-on-surface-variant hover:text-primary transition-colors truncate';
+                            subBtn.innerText = subcat;
+                            subBtn.addEventListener('click', () => {
+                                currentFilter.category = cat;
+                                currentFilter.subcategory = subcat;
+                                currentFilter.subsubcategory = null;
+                                document.querySelectorAll('.cat-link').forEach(l => l.classList.remove('bg-primary/10', 'text-primary', 'font-bold'));
+                                subBtn.classList.add('bg-primary/10', 'text-primary', 'font-bold');
+                                filterAndRenderProducts();
+                                
+                                if (hasSubSubs) {
+                                    const subsublist = document.getElementById(`subsub-${subcatId}`);
+                                    subsublist.classList.toggle('hidden');
+                                }
+                            });
+                            subTitleRow.appendChild(subBtn);
+
+                            if (hasSubSubs) {
+                                const subIconBtn = document.createElement('button');
+                                subIconBtn.className = 'p-1 text-on-surface-variant hover:text-primary transition-colors flex items-center justify-center';
+                                subIconBtn.innerHTML = `<span class="material-symbols-outlined text-[14px]">unfold_more</span>`;
+                                subIconBtn.addEventListener('click', () => {
+                                    const subsublist = document.getElementById(`subsub-${subcatId}`);
+                                    subsublist.classList.toggle('hidden');
+                                });
+                                subTitleRow.appendChild(subIconBtn);
+                            }
+
+                            subDiv.appendChild(subTitleRow);
+
+                            if (hasSubSubs) {
+                                const subSubList = document.createElement('div');
+                                subSubList.id = `subsub-${subcatId}`;
+                                subSubList.className = 'hidden pl-4 pr-1 py-0.5 space-y-0.5 border-l border-outline-variant/40 ml-2';
+
+                                subSubArray.forEach(subsub => {
+                                    const subSubBtn = document.createElement('button');
+                                    subSubBtn.className = 'cat-link w-full text-left px-2 py-1 text-[11px] text-on-surface-variant opacity-80 hover:opacity-100 hover:text-primary transition-colors truncate';
+                                    subSubBtn.innerText = subsub;
+                                    subSubBtn.addEventListener('click', () => {
+                                        currentFilter.category = cat;
+                                        currentFilter.subcategory = subcat;
+                                        currentFilter.subsubcategory = subsub;
+                                        document.querySelectorAll('.cat-link').forEach(l => l.classList.remove('bg-primary/10', 'text-primary', 'font-bold'));
+                                        subSubBtn.classList.add('bg-primary/10', 'text-primary', 'font-bold');
+                                        filterAndRenderProducts();
+                                    });
+                                    subSubList.appendChild(subSubBtn);
+                                });
+                                subDiv.appendChild(subSubList);
+                            }
+
+                            subList.appendChild(subDiv);
+                        });
+                    }
+                    itemDiv.appendChild(subList);
+                }
+
+                container.appendChild(itemDiv);
+            });
+        }
+
+        // Filter and Render logic
+        function filterAndRenderProducts() {
+            const grid = document.getElementById('products-grid');
+            const empty = document.getElementById('products-empty');
+            const activeTitle = document.getElementById('active-category-title');
+            const breadcrumbs = document.getElementById('category-breadcrumbs');
+            
+            // Filter logic
+            const filtered = allProducts.filter(product => {
+                // Category match
+                if (currentFilter.category) {
+                    // Check if currentFilter.category is in breadcrumbs (case insensitive)
+                    const matchesCat = product.breadcrumbs.some(b => b.toLowerCase().trim() === currentFilter.category.toLowerCase().trim());
+                    if (!matchesCat) return false;
+                }
+                // Subcategory match
+                if (currentFilter.subcategory) {
+                    const matchesSub = product.breadcrumbs.some(b => b.toLowerCase().trim() === currentFilter.subcategory.toLowerCase().trim());
+                    if (!matchesSub) return false;
+                }
+                // Subsubcategory match
+                if (currentFilter.subsubcategory) {
+                    const matchesSubSub = product.breadcrumbs.some(b => b.toLowerCase().trim() === currentFilter.subsubcategory.toLowerCase().trim());
+                    if (!matchesSubSub) return false;
+                }
+                // Search match
+                if (currentFilter.search.trim()) {
+                    const query = currentFilter.search.toLowerCase().trim();
+                    const inTitle = product.title.toLowerCase().includes(query);
+                    
+                    // Search in short description
+                    const rawShort = product.short_description.replace(/<[^>]+>/g, '').toLowerCase();
+                    const inShort = rawShort.includes(query);
+                    
+                    // Search in specs values
+                    const inSpecs = Object.values(product.specs).some(v => v.toLowerCase().includes(query));
+                    
+                    return inTitle || inShort || inSpecs;
+                }
+                return true;
+            });
+
+            // Update Breadcrumbs & Title
+            let pathHtml = `<span>Catalog</span>`;
+            let activeTitleText = "All Products";
+
+            if (currentFilter.category) {
+                pathHtml += ` <span class="material-symbols-outlined text-xs">chevron_right</span> <span>${currentFilter.category}</span>`;
+                activeTitleText = currentFilter.category;
+            }
+            if (currentFilter.subcategory) {
+                pathHtml += ` <span class="material-symbols-outlined text-xs">chevron_right</span> <span>${currentFilter.subcategory}</span>`;
+                activeTitleText = currentFilter.subcategory;
+            }
+            if (currentFilter.subsubcategory) {
+                pathHtml += ` <span class="material-symbols-outlined text-xs">chevron_right</span> <span>${currentFilter.subsubcategory}</span>`;
+                activeTitleText = currentFilter.subsubcategory;
+            }
+            
+            breadcrumbs.innerHTML = pathHtml;
+            activeTitle.innerText = activeTitleText;
+            document.getElementById('products-count').innerText = filtered.length;
+
+            if (filtered.length === 0) {
+                grid.classList.add('hidden');
+                grid.innerHTML = "";
+                empty.classList.remove('hidden');
+                empty.classList.add('flex');
+                return;
+            }
+
+            empty.classList.add('hidden');
+            empty.classList.remove('flex');
+            grid.classList.remove('hidden');
+
+            grid.innerHTML = filtered.map((product, idx) => {
+                const productIndex = allProducts.findIndex(p => p.url === product.url);
+                const shortDescText = product.short_description ? product.short_description.replace(/<[^>]+>/g, ' ').substring(0, 100) + "..." : "Industrial grade component designed for high reliability.";
+                
+                // Get a nice display reference
+                const ref = product.specs["DIN"] || product.specs["ISO"] || (product.url.split('/product/')[1] ? product.url.split('/product/')[1].replace(/\//g, '').toUpperCase() : "BT-GENERIC");
+                const cleanRef = ref.length > 25 ? ref.substring(0, 22) + "..." : ref;
+
+                return `
+                    <div class="flex flex-col bg-surface-container-lowest border border-outline-variant overflow-hidden group rounded-lg transition-all hover:shadow-lg hover:border-primary">
+                        <!-- Product Image -->
+                        <a href="product-detail.html?id=${productIndex}" class="h-56 relative overflow-hidden bg-surface-container-low border-b border-outline-variant flex items-center justify-center p-4">
+                            <img class="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105" src="${product.image || 'https://belts-store.com/wp-content/uploads/2025/09/BELTS-STORE_en-1.svg'}" alt="${product.title}"/>
+                        </a>
+                        
+                        <!-- Product Info -->
+                        <div class="p-6 flex flex-col justify-between flex-1">
+                            <div>
+                                <span class="px-2 py-1 bg-secondary-fixed text-on-secondary-fixed text-[10px] font-bold uppercase rounded font-technical-label">
+                                    ${product.breadcrumbs[1] || product.breadcrumbs[0] || 'Component'}
+                                </span>
+                                <h4 class="font-headline-lg text-base uppercase text-primary font-bold mt-2 truncate">
+                                    <a href="product-detail.html?id=${productIndex}" class="hover:underline">${product.title}</a>
+                                </h4>
+                                <p class="text-xs text-on-surface-variant mt-2 leading-relaxed h-16 overflow-hidden">
+                                    ${shortDescText}
+                                </p>
+                            </div>
+                            <div class="mt-6 flex justify-between items-center border-t border-outline-variant/30 pt-4">
+                                <span class="font-technical-label text-primary font-bold text-xs truncate max-w-[120px]" title="${ref}">Ref: ${cleanRef}</span>
+                                <button class="bg-primary text-on-primary px-4 py-2.5 text-[10px] font-bold uppercase hover:bg-primary-container transition-all add-to-cart-btn" 
+                                    data-product-id="ref-${productIndex}" 
+                                    data-product-name="${product.title}"
+                                    data-product-image="${product.image}"
+                                    data-product-ref="${ref}">ADD TO CART</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+    </script>
+    <script src="products-data.js"></script>
+    <script src="nav-component.js"></script>
+    <script src="cart.js"></script>
+</body>
+</html>

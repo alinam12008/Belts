@@ -1,0 +1,35 @@
+[
+  {
+    "_id": "fs4067cp2r9dtbp8bg22ad",
+    "createdAt": "2026-06-20T10:23:31.347Z",
+    "updatedAt": "2026-06-20T10:23:31.347Z",
+    "code": "WELCOME10",
+    "discountType": "percentage",
+    "discountValue": 10,
+    "status": "Active",
+    "usageLimit": 100,
+    "usedCount": 15
+  },
+  {
+    "_id": "jv0lonb2ymn7iykjwg95",
+    "createdAt": "2026-06-20T10:23:31.350Z",
+    "updatedAt": "2026-06-20T10:23:31.350Z",
+    "code": "HEAVY50",
+    "discountType": "flat",
+    "discountValue": 50,
+    "status": "Active",
+    "usageLimit": 10,
+    "usedCount": 2
+  },
+  {
+    "_id": "fipb07pjmd9ewk9qu2f72t",
+    "createdAt": "2026-06-20T14:25:52.422Z",
+    "updatedAt": "2026-06-20T14:25:52.422Z",
+    "code": "OFFER",
+    "discountType": "percentage",
+    "discountValue": 10,
+    "usageLimit": 2,
+    "status": "Active",
+    "usedCount": 0
+  }
+]

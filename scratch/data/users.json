@@ -1,0 +1,20 @@
+[
+  {
+    "_id": "5d698ctwkd3u58rc8adgi",
+    "createdAt": "2026-06-20T10:23:31.344Z",
+    "updatedAt": "2026-06-20T10:23:31.344Z",
+    "name": "John Doe",
+    "email": "john@example.com",
+    "password": "$2b$10$MMhR.qSh00t2qXZveNwhEuthcATqmeKNw3NrEbNOMMdbM4S2ejQUO",
+    "status": "Active"
+  },
+  {
+    "_id": "a7sdcmgkrzbndgdbjvct",
+    "createdAt": "2026-06-20T10:23:31.345Z",
+    "updatedAt": "2026-06-20T10:23:31.345Z",
+    "name": "Jane Smith",
+    "email": "jane@example.com",
+    "password": "$2b$10$MMhR.qSh00t2qXZveNwhEuthcATqmeKNw3NrEbNOMMdbM4S2ejQUO",
+    "status": "Active"
+  }
+]

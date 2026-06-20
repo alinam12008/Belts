@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>BELTS STORE | About Us</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@600;700&amp;family=Inter:wght@400;600&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+    <!-- Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface": "#f9f9fc",
+                        "on-primary-fixed": "#001945",
+                        "on-tertiary-fixed-variant": "#44474a",
+                        "on-background": "#1a1c1e",
+                        "background": "#f9f9fc",
+                        "on-secondary-fixed": "#001d36",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-container": "#494c4f",
+                        "on-secondary-fixed-variant": "#00497d",
+                        "on-primary-container": "#a1bbff",
+                        "inverse-primary": "#b0c6ff",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed-dim": "#c4c7ca",
+                        "surface-container-high": "#e8e8ea",
+                        "surface-container-low": "#f3f3f6",
+                        "on-surface": "#1a1c1e",
+                        "outline": "#737783",
+                        "secondary-fixed": "#d1e4ff",
+                        "surface-container-highest": "#e2e2e5",
+                        "on-surface-variant": "#434652",
+                        "secondary": "#0061a4",
+                        "secondary-container": "#33a0fd",
+                        "tertiary-fixed": "#e0e3e6",
+                        "on-error": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed": "#191c1e",
+                        "on-tertiary-container": "#babcbf",
+                        "surface-bright": "#f9f9fc",
+                        "surface-container": "#eeeef0",
+                        "primary": "#003178",
+                        "on-primary-fixed-variant": "#00429c",
+                        "surface-variant": "#e2e2e5",
+                        "on-secondary": "#ffffff",
+                        "primary-container": "#0d47a1",
+                        "tertiary": "#323538",
+                        "on-secondary-container": "#00355c",
+                        "surface-tint": "#2b5bb5",
+                        "error": "#ba1a1a",
+                        "primary-fixed-dim": "#b0c6ff",
+                        "outline-variant": "#c3c6d4",
+                        "inverse-surface": "#2f3133",
+                        "inverse-on-surface": "#f0f0f3",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed": "#d9e2ff",
+                        "on-primary": "#ffffff",
+                        "surface-dim": "#dadadc",
+                        "secondary-fixed-dim": "#9ecaff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-desktop": "64px",
+                        "container-max": "1280px",
+                        "unit": "4px",
+                        "gutter": "24px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Hanken Grotesk"],
+                        "label-sm": ["Inter"],
+                        "technical-label": ["JetBrains Mono"],
+                        "body-md": ["Inter"],
+                        "display-lg": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                        "technical-label": ["13px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #003178; border-radius: 4px; }
+
+        .hero-blue-overlay {
+            background: radial-gradient(circle, rgba(0,49,120,0.65) 0%, rgba(0,25,69,0.9) 100%);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md">
+    <!-- TopNavBar -->
+    <header class="bg-surface-container-lowest border-b border-outline-variant fixed top-0 w-full z-50">
+        <div class="flex justify-between items-center h-20 px-margin-desktop w-full max-w-container-max mx-auto">
+            <div class="flex items-center gap-8">
+                <a href="index.html" class="font-headline-lg text-headline-lg font-bold text-primary">Belts Store</a>
+                <nav class="hidden md:flex items-center gap-6">
+                    <a class="font-body-md text-body-md uppercase font-bold text-on-surface-variant hover:text-primary transition-colors" href="index.html">Products</a>
+                    <a class="font-body-md text-body-md uppercase font-bold text-on-surface-variant hover:text-primary transition-colors" href="index.html">Solutions</a>
+                    <a class="font-body-md text-body-md uppercase font-bold text-primary border-b-2 border-primary pb-1" href="#history">History</a>
+                    <a class="font-body-md text-body-md uppercase font-bold text-on-surface-variant hover:text-primary transition-colors" href="#footer">Contact</a>
+                </nav>
+            </div>
+            <div class="flex items-center gap-6">
+                <div class="relative hidden lg:block">
+                    <input class="pl-4 pr-10 py-2 border border-outline-variant rounded focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all w-64 bg-surface-container-low" placeholder="Search specs..." type="text"/>
+                    <span class="material-symbols-outlined absolute right-3 top-2.5 text-on-surface-variant">search</span>
+                </div>
+                <button class="bg-primary text-on-primary font-bold px-6 py-2 uppercase text-label-sm hover:bg-primary-container transition-all">Get a Quote</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-20">
+        <!-- Hero Section -->
+        <section class="relative h-[320px] w-full overflow-hidden flex items-center">
+            <div class="absolute inset-0 z-0">
+                <img class="w-full h-full object-cover" src="about_hero_bg.png" alt="Steel Ball Bearings Background"/>
+                <div class="absolute inset-0 hero-blue-overlay"></div>
+            </div>
+            <div class="relative z-10 px-margin-desktop max-w-container-max mx-auto w-full">
+                <div class="border-l-4 border-secondary pl-6">
+                    <span class="font-technical-label text-xs uppercase tracking-wider text-secondary-fixed-dim block mb-1">PRECISION ENGINEERING SINCE 1935</span>
+                    <h1 class="font-display-lg text-4xl md:text-5xl text-white uppercase mb-2">About Us</h1>
+                    <p class="text-blue-100 text-lg font-body-md">
+                        Learn more about Our Mission and Vision
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mission, Vision & Certification Section -->
+        <section class="max-w-container-max mx-auto px-margin-desktop py-16">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-8">
+                <!-- Our Mission -->
+                <div class="lg:col-span-7 bg-surface-container-lowest border border-outline-variant p-8 rounded-lg flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-4 mb-6">
+                            <h2 class="font-headline-lg text-2xl font-bold text-primary tracking-wide">OUR MISSION</h2>
+                            <div class="flex-1 h-px bg-outline-variant"></div>
+                        </div>
+                        <p class="text-on-surface-variant text-base leading-relaxed">
+                            The Belts Store Trading mission is to deliver superior and innovative solutions to the regional industrial sector such as Governments, and Private Sectors. We utilize proprietary products and technology combined with an outstanding customer services and a vast choice of associated requirements to meet our customers expectation.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- ISO Certification -->
+                <div class="lg:col-span-5 bg-primary text-on-primary p-8 rounded-lg flex flex-col justify-between">
+                    <div>
+                        <span class="font-technical-label text-[11px] uppercase tracking-wider text-secondary-fixed-dim block mb-2">OPERATIONAL CERTIFICATION</span>
+                        <h2 class="font-headline-lg text-3xl font-bold uppercase mb-4">ISO 9001:2015</h2>
+                        <p class="text-blue-100 text-sm leading-relaxed">
+                            Our systems are audited and refined annually to ensure that every power transmission component meets strict global industrial tolerances.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Our Vision -->
+            <div class="bg-surface-container-lowest border border-outline-variant p-8 rounded-lg">
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+                    <div class="md:col-span-4 border-r-0 md:border-r border-outline-variant pr-6">
+                        <h2 class="font-headline-lg text-2xl font-bold text-primary tracking-wide mb-1">OUR VISION</h2>
+                        <span class="font-technical-label text-xs uppercase text-on-surface-variant">FORWARD ENGINEERING</span>
+                    </div>
+                    <div class="md:col-span-8 pl-0 md:pl-6 border-l-0 md:border-l-4 border-secondary py-2">
+                        <blockquote class="italic text-on-surface text-base leading-relaxed">
+                            "To achieve best results in a dynamic, fast moving technology in the field and make sure to provide such products & associated services in collaboration with a number of specialised national and international firms."
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our History Section -->
+        <section id="history" class="bg-tertiary text-white py-16 scroll-mt-20">
+            <div class="max-w-container-max mx-auto px-margin-desktop">
+                <div class="mb-12">
+                    <h2 class="font-headline-lg text-3xl font-bold uppercase mb-4">Our History</h2>
+                    <div class="w-full h-px bg-outline/50"></div>
+                </div>
+
+                <!-- Timeline -->
+                <div class="space-y-12">
+                    <!-- 1935 -->
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
+                        <div class="md:col-span-3">
+                            <span class="font-display-lg text-4xl md:text-5xl font-bold text-white border-b-4 border-secondary pb-1 inline-block">1935</span>
+                        </div>
+                        <div class="md:col-span-9">
+                            <h3 class="font-headline-lg text-xl font-bold text-white mb-2">Foundation</h3>
+                            <p class="text-surface-variant opacity-80 text-sm leading-relaxed">
+                                Mr. Saeed Omar Basaffar (1935 – 2001) the founder was a self-made gentleman and known as a pioneer who had a leading strong personality. He realized the needs for the forthcoming of evolving industrial area which encouraged him to establish a private firm to sell vehicles spare parts including belts.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- 1959 -->
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
+                        <div class="md:col-span-3">
+                            <span class="font-display-lg text-4xl md:text-5xl font-bold text-white border-b-4 border-secondary pb-1 inline-block">1959</span>
+                        </div>
+                        <div class="md:col-span-9">
+                            <h3 class="font-headline-lg text-xl font-bold text-white mb-2">Corporate Shift</h3>
+                            <p class="text-surface-variant opacity-80 text-sm leading-relaxed">
+                                Upon the quantum shift of business in 1959 he changed the name of the firm to Belt Store Trading in alignment with the new direction and the new vision of the Industrial needs for the Eastern Province.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- 1988 -->
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
+                        <div class="md:col-span-3">
+                            <span class="font-display-lg text-4xl md:text-5xl font-bold text-white border-b-4 border-secondary pb-1 inline-block">1988</span>
+                        </div>
+                        <div class="md:col-span-9">
+                            <h3 class="font-headline-lg text-xl font-bold text-white mb-2">Leadership Expansion</h3>
+                            <p class="text-surface-variant opacity-80 text-sm leading-relaxed">
+                                Mr. Salem Basaffar (General Manager) is the eldest son of the late founder of the firm who had joined work beside with his father in 1988, initiating a period of rapid modernization.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- 2003 -->
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
+                        <div class="md:col-span-3">
+                            <span class="font-display-lg text-4xl md:text-5xl font-bold text-white border-b-4 border-secondary pb-1 inline-block">2003</span>
+                        </div>
+                        <div class="md:col-span-9">
+                            <h3 class="font-headline-lg text-xl font-bold text-white mb-2">Digital Transformation</h3>
+                            <p class="text-surface-variant opacity-80 text-sm leading-relaxed">
+                                Mr. Mohammed Basaffar (Executive Manager) joined after acquiring his BS degree in Management Information System from University of South Florida, USA, bringing global technical standards to the operation.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- 2009 -->
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
+                        <div class="md:col-span-3">
+                            <span class="font-display-lg text-4xl md:text-5xl font-bold text-white border-b-4 border-secondary pb-1 inline-block">2009</span>
+                        </div>
+                        <div class="md:col-span-9">
+                            <h3 class="font-headline-lg text-xl font-bold text-white mb-2">Modern Identity</h3>
+                            <p class="text-surface-variant opacity-80 text-sm leading-relaxed">
+                                Belts Store has adapted the new logo and corporate identity of the firm, solidifying its position as a primary entity to support industrial services.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Global Presence -->
+        <section class="bg-surface-container-low py-12 border-t border-b border-outline-variant">
+            <div class="max-w-container-max mx-auto px-margin-desktop">
+                <div class="flex flex-wrap justify-center items-center gap-10 md:gap-16 text-center text-on-surface-variant opacity-60 font-technical-label text-base tracking-widest font-bold">
+                    <span>GERMANY</span>
+                    <span>JAPAN</span>
+                    <span>SPAIN</span>
+                    <span>TAIWAN</span>
+                    <span>CHINA</span>
+                    <span>INDIA</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="footer" class="bg-primary text-on-primary border-t border-outline-variant">
+        <div class="w-full py-20 px-margin-desktop grid grid-cols-12 gap-gutter max-w-container-max mx-auto">
+            <div class="col-span-12 lg:col-span-4">
+                <span class="font-headline-lg text-headline-lg font-bold text-on-primary mb-6 block">Belts Store</span>
+                <p class="text-surface-variant opacity-80 text-body-md max-w-sm mb-8">
+                    Technical precision in power transmission. Importing in collaboration with multinational companies from Germany, Japan, Spain, Taiwan, China, and India.
+                </p>
+                <div class="flex gap-4">
+                    <a class="w-10 h-10 border border-on-primary/20 flex items-center justify-center hover:bg-on-primary/10 transition-colors" href="#"><span class="material-symbols-outlined">share</span></a>
+                    <a class="w-10 h-10 border border-on-primary/20 flex items-center justify-center hover:bg-on-primary/10 transition-colors" href="#"><span class="material-symbols-outlined">mail</span></a>
+                </div>
+            </div>
+            
+            <div class="col-span-12 md:col-span-4 lg:col-span-3">
+                <h4 class="font-label-sm text-label-sm uppercase tracking-wider mb-6 text-secondary-fixed font-bold">Find Us</h4>
+                <ul class="space-y-4 font-body-md text-sm text-surface-variant opacity-80">
+                    <li class="flex items-start gap-2">
+                        <span class="material-symbols-outlined text-sm mt-1">pin_drop</span>
+                        <span>10th street, facing Al-Jazirah bank, 32242 Dammam Saudi Arabia</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="material-symbols-outlined text-sm mt-1">schedule</span>
+                        <span>Sun — Thu: 8:00AM — 5:00PM</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-span-6 md:col-span-4 lg:col-span-2">
+                <h4 class="font-label-sm text-label-sm uppercase tracking-wider mb-6 text-secondary-fixed font-bold">Quick Links</h4>
+                <ul class="space-y-4 font-body-md text-sm">
+                    <li><a class="text-surface-variant opacity-80 hover:opacity-100 transition-opacity" href="#">Privacy Policy</a></li>
+                    <li><a class="text-surface-variant opacity-80 hover:opacity-100 transition-opacity" href="#">Technical Specs</a></li>
+                    <li><a class="text-surface-variant opacity-80 hover:opacity-100 transition-opacity" href="#">Maintenance Guide</a></li>
+                    <li><a class="text-surface-variant opacity-80 hover:opacity-100 transition-opacity" href="#">ISO Certification</a></li>
+                </ul>
+            </div>
+
+            <div class="col-span-6 md:col-span-4 lg:col-span-3">
+                <h4 class="font-label-sm text-label-sm uppercase tracking-wider mb-6 text-secondary-fixed font-bold">Newsletter</h4>
+                <p class="text-xs opacity-70 mb-4">Technical updates and new inventory.</p>
+                <div class="flex">
+                    <input class="bg-on-primary-fixed border-none text-on-primary p-3 flex-1 outline-none text-sm" placeholder="Email Address" type="email"/>
+                    <button class="bg-secondary-fixed text-on-secondary-fixed px-4 font-bold hover:bg-secondary transition-colors flex items-center justify-center">
+                        <span class="material-symbols-outlined text-base">send</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="border-t border-on-primary/10 py-8 px-margin-desktop max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-xs">
+            <p class="text-surface-variant opacity-60">© 2024 Belts Store Industrial. All Rights Reserved. Technical precision in power transmission.</p>
+            <div class="flex gap-8 text-surface-variant opacity-60">
+                <span>ISO 9001:2015</span>
+                <span>Certified Quality System</span>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

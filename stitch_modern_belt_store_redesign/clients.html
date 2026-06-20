@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Our Clients | BELTS STORE | Industrial Power Transmission</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@600;700&amp;family=Inter:wght@400;600&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+    <!-- Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <!-- AOS Animate On Scroll -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface": "#f9f9fc",
+                        "on-primary-fixed": "#001945",
+                        "on-tertiary-fixed-variant": "#44474a",
+                        "on-background": "#1a1c1e",
+                        "background": "#f9f9fc",
+                        "on-secondary-fixed": "#001d36",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-container": "#494c4f",
+                        "on-secondary-fixed-variant": "#00497d",
+                        "on-primary-container": "#a1bbff",
+                        "inverse-primary": "#b0c6ff",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed-dim": "#c4c7ca",
+                        "surface-container-high": "#e8e8ea",
+                        "surface-container-low": "#f3f3f6",
+                        "on-surface": "#1a1c1e",
+                        "outline": "#737783",
+                        "secondary-fixed": "#d1e4ff",
+                        "surface-container-highest": "#e2e2e5",
+                        "on-surface-variant": "#434652",
+                        "secondary": "#0061a4",
+                        "secondary-container": "#33a0fd",
+                        "tertiary-fixed": "#e0e3e6",
+                        "on-error": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed": "#191c1e",
+                        "on-tertiary-container": "#babcbf",
+                        "surface-bright": "#f9f9fc",
+                        "surface-container": "#eeeef0",
+                        "primary": "#003178",
+                        "on-primary-fixed-variant": "#00429c",
+                        "surface-variant": "#e2e2e5",
+                        "on-secondary": "#ffffff",
+                        "primary-container": "#0d47a1",
+                        "tertiary": "#323538",
+                        "on-secondary-container": "#00355c",
+                        "surface-tint": "#2b5bb5",
+                        "error": "#ba1a1a",
+                        "primary-fixed-dim": "#b0c6ff",
+                        "outline-variant": "#c3c6d4",
+                        "inverse-surface": "#2f3133",
+                        "inverse-on-surface": "#f0f0f3",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed": "#d9e2ff",
+                        "on-primary": "#ffffff",
+                        "surface-dim": "#dadadc",
+                        "secondary-fixed-dim": "#9ecaff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-desktop": "64px",
+                        "container-max": "1280px",
+                        "unit": "4px",
+                        "gutter": "24px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Hanken Grotesk"],
+                        "label-sm": ["Inter"],
+                        "technical-label": ["JetBrains Mono"],
+                        "body-md": ["Inter"],
+                        "display-lg": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                        "technical-label": ["13px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #003178; border-radius: 4px; }
+
+        .clients-hero-overlay {
+            background: linear-gradient(135deg, rgba(0,25,69,0.95) 0%, rgba(0,49,120,0.85) 50%, rgba(0,97,164,0.5) 100%);
+        }
+        .logo-card:hover { box-shadow: 0 0 0 2px #003178, 0 8px 24px rgba(0,49,120,0.14); }
+        @keyframes fadeInUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+        .client-card-inner { transition: transform 0.35s ease, box-shadow 0.35s ease; }
+        .client-card-inner:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,49,120,0.14); }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md" data-active-page="clients">
+    <!-- TopNavBar -->
+    <header class="bg-surface-container-lowest border-b border-outline-variant fixed top-0 w-full z-50">
+        <div class="flex justify-between items-center h-20 px-margin-desktop w-full max-w-container-max mx-auto">
+            <div class="flex items-center gap-8">
+                <a href="index.html" class="font-headline-lg text-headline-lg font-bold text-on-surface dark:text-on-surface">BELTS STORE</a>
+                <nav class="hidden md:flex items-center gap-6">
+                    <!-- nav-component.js injects 5-item nav -->
+                </nav>
+            </div>
+            <div class="flex items-center gap-6">
+                <div class="relative hidden lg:block">
+                    <input id="header-search" class="pl-4 pr-10 py-2 border border-outline-variant rounded focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all w-64 bg-surface-container-low" placeholder="Search Part Number..." type="text" onkeydown="if(event.key==='Enter') window.location.href='products.html?search='+encodeURIComponent(this.value);"/>
+                    <span class="material-symbols-outlined absolute right-3 top-2.5 text-on-surface-variant">search</span>
+                </div>
+                <button class="bg-primary text-on-primary font-bold px-6 py-2 uppercase text-label-sm hover:bg-primary-container transition-all hidden lg:block" onclick="document.getElementById('floating-cart-btn') && document.getElementById('floating-cart-btn').click();">VIEW CART</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-20">
+        <!-- Hero Section -->
+        <section class="relative py-24 border-b border-outline-variant overflow-hidden">
+            <div class="absolute inset-0">
+                <img class="w-full h-full object-cover" src="https://belts-store.com/wp-content/uploads/2011/06/optibelt_VB_Classic_V-belts-1-1.jpg" alt="Industrial Background"/>
+                <div class="absolute inset-0 clients-hero-overlay"></div>
+            </div>
+            <div class="relative z-10 max-w-container-max mx-auto px-margin-desktop text-center">
+                <span class="font-technical-label text-xs uppercase tracking-widest text-secondary-fixed-dim block mb-3" data-aos="fade-down">Since 1994 · Saudi Arabia</span>
+                <h1 class="font-display-lg text-display-lg text-on-primary uppercase mb-4" data-aos="fade-up" data-aos-delay="100">OUR CORPORATE CLIENTS</h1>
+                <p class="text-blue-100 text-lg max-w-xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+                    Powering reliability for Saudi Arabia's leading state enterprises, manufacturing giants, and construction companies since 1994.
+                </p>
+                <div class="flex justify-center gap-12 mt-10" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-center">
+                        <span class="font-display-lg text-4xl font-bold text-on-primary block">6+</span>
+                        <span class="font-technical-label text-[11px] uppercase tracking-wider text-blue-200">Enterprise Clients</span>
+                    </div>
+                    <div class="w-px bg-on-primary/20"></div>
+                    <div class="text-center">
+                        <span class="font-display-lg text-4xl font-bold text-on-primary block">89+</span>
+                        <span class="font-technical-label text-[11px] uppercase tracking-wider text-blue-200">Years Experience</span>
+                    </div>
+                    <div class="w-px bg-on-primary/20"></div>
+                    <div class="text-center">
+                        <span class="font-display-lg text-4xl font-bold text-on-primary block">ISO</span>
+                        <span class="font-technical-label text-[11px] uppercase tracking-wider text-blue-200">9001:2015 Certified</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Showcase grid -->
+        <section class="max-w-container-max mx-auto px-margin-desktop py-20">
+            <div class="flex items-center gap-4 mb-12" data-aos="fade-right">
+                <div>
+                    <span class="font-technical-label text-xs uppercase tracking-widest text-secondary block mb-1">Industrial Excellence</span>
+                    <h2 class="font-headline-lg text-3xl text-primary font-bold uppercase">Trusted Partners in Industry</h2>
+                </div>
+                <div class="flex-1 h-px bg-outline-variant ml-4"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-gutter">                <!-- Client 1: Saudi Aramco -->
+                <div class="client-card-inner bg-surface-container-lowest border border-outline-variant rounded p-8 flex flex-col items-center text-center group" data-aos="zoom-in" data-aos-delay="0">
+                    <div class="h-32 flex items-center justify-center mb-6 w-full">
+                        <img class="max-h-24 max-w-full object-contain grayscale opacity-70 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-400" src="https://belts-store.com/wp-content/uploads/2021/07/aramco-1-1.jpg" alt="Saudi Aramco"/>
+                    </div>
+                    <span class="font-technical-label text-[10px] uppercase font-bold tracking-widest text-primary bg-primary/10 px-3 py-1 rounded">Energy &amp; Chemicals</span>
+                    <h3 class="font-headline-lg text-xl uppercase mt-4 text-primary font-bold">Saudi Aramco</h3>
+                    <p class="text-xs text-on-surface-variant leading-relaxed mt-3">
+                        Saudi Arabia's national oil and natural gas company. We supply high-precision heavy-duty transmission belts and pulleys for petrochemical pipelines and extraction facilities.
+                    </p>
+                </div>
+                <!-- Client 2: Ma'aden -->
+                <div class="client-card-inner bg-surface-container-lowest border border-outline-variant rounded p-8 flex flex-col items-center text-center group" data-aos="zoom-in" data-aos-delay="80">
+                    <div class="h-32 flex items-center justify-center mb-6 w-full">
+                        <img class="max-h-24 max-w-full object-contain grayscale opacity-70 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-400" src="https://belts-store.com/wp-content/uploads/2021/07/maaden-1.jpg" alt="Ma'aden"/>
+                    </div>
+                    <span class="font-technical-label text-[10px] uppercase font-bold tracking-widest text-primary bg-primary/10 px-3 py-1 rounded">Mining &amp; Metallurgy</span>
+                    <h3 class="font-headline-lg text-xl uppercase mt-4 text-primary font-bold">Ma'aden</h3>
+                    <p class="text-xs text-on-surface-variant leading-relaxed mt-3">
+                        Saudi Arabian Mining Company. We engineer and supply highly wear-resistant conveyor belts, rollers, and impact gears for heavy minerals extraction and material handling plants.
+                    </p>
+                </div>
+
+                <!-- Client 3: SABIC -->
+                <div class="client-card-inner bg-surface-container-lowest border border-outline-variant rounded p-8 flex flex-col items-center text-center group" data-aos="zoom-in" data-aos-delay="160">
+                    <div class="h-32 flex items-center justify-center mb-6 w-full">
+                        <img class="max-h-24 max-w-full object-contain grayscale opacity-70 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-400" src="https://belts-store.com/wp-content/uploads/2021/07/sabic-2-1.jpg" alt="SABIC"/>
+                    </div>
+                    <span class="font-technical-label text-[10px] uppercase font-bold tracking-widest text-primary bg-primary/10 px-3 py-1 rounded">Chemical Manufacturing</span>
+                    <h3 class="font-headline-lg text-xl uppercase mt-4 text-primary font-bold">SABIC</h3>
+                    <p class="text-xs text-on-surface-variant leading-relaxed mt-3">
+                        Saudi Basic Industries Corporation, one of the world's largest chemical companies. We distribute specialized heat-resistant timing belts and chemical-grade rubber sheets.
+                    </p>
+                </div>
+
+                <!-- Client 4: Saudi Cement -->
+                <div class="client-card-inner bg-surface-container-lowest border border-outline-variant rounded p-8 flex flex-col items-center text-center group" data-aos="zoom-in" data-aos-delay="0">
+                    <div class="h-32 flex items-center justify-center mb-6 w-full">
+                        <img class="max-h-24 max-w-full object-contain grayscale opacity-70 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-400" src="https://belts-store.com/wp-content/uploads/2021/07/Saudi-cement-1.jpg" alt="Saudi Cement"/>
+                    </div>
+                    <span class="font-technical-label text-[10px] uppercase font-bold tracking-widest text-primary bg-primary/10 px-3 py-1 rounded">Building Materials</span>
+                    <h3 class="font-headline-lg text-xl uppercase mt-4 text-primary font-bold">Saudi Cement</h3>
+                    <p class="text-xs text-on-surface-variant leading-relaxed mt-3">
+                        A major construction materials provider. We supply high-tension Ep400 conveying belts, sprockets, and gearboxes for continuous cement mixing and bagging lines.
+                    </p>
+                </div>
+
+                <!-- Client 5: Napco National -->
+                <div class="client-card-inner bg-surface-container-lowest border border-outline-variant rounded p-8 flex flex-col items-center text-center group" data-aos="zoom-in" data-aos-delay="80">
+                    <div class="h-32 flex items-center justify-center mb-6 w-full">
+                        <img class="max-h-24 max-w-full object-contain grayscale opacity-70 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-400" src="https://belts-store.com/wp-content/uploads/2021/07/nabco-1-1.jpg" alt="Napco National"/>
+                    </div>
+                    <span class="font-technical-label text-[10px] uppercase font-bold tracking-widest text-primary bg-primary/10 px-3 py-1 rounded">Packaging &amp; Plastics</span>
+                    <h3 class="font-headline-lg text-xl uppercase mt-4 text-primary font-bold">Napco National</h3>
+                    <p class="text-xs text-on-surface-variant leading-relaxed mt-3">
+                        Leading packaging, paper, and plastics manufacturer in Saudi Arabia. We supply high-precision polyurethane link belts and drive sprockets for packaging lines.
+                    </p>
+                </div>
+
+                <!-- Client 6: Eastern Cement -->
+                <div class="client-card-inner bg-surface-container-lowest border border-outline-variant rounded p-8 flex flex-col items-center text-center group" data-aos="zoom-in" data-aos-delay="160">
+                    <div class="h-32 flex items-center justify-center mb-6 w-full">
+                        <img class="max-h-24 max-w-full object-contain grayscale opacity-70 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-400" src="https://belts-store.com/wp-content/uploads/2021/07/Eastern-Cement-1.jpg" alt="Eastern Cement"/>
+                    </div>
+                    <span class="font-technical-label text-[10px] uppercase font-bold tracking-widest text-primary bg-primary/10 px-3 py-1 rounded">Building Materials</span>
+                    <h3 class="font-headline-lg text-xl uppercase mt-4 text-primary font-bold">Eastern Cement</h3>
+                    <p class="text-xs text-on-surface-variant leading-relaxed mt-3">
+                        Eastern Province Cement Company. We provide high radial load roller bearings, heavy-duty drive chains, and wear-resistant vulcanized rubber gaskets.
+                    </p>
+                </div>
+            </div>
+
+            <!-- CTA Banner -->
+            <div class="mt-16 bg-primary text-on-primary p-12 rounded flex flex-col md:flex-row items-center justify-between gap-8" data-aos="fade-up">
+                <div>
+                    <span class="font-technical-label text-xs uppercase tracking-widest text-secondary-fixed-dim block mb-2">Ready to Partner?</span>
+                    <h3 class="font-headline-lg text-2xl font-bold uppercase">Join Our Growing Client Network</h3>
+                    <p class="text-blue-100 text-sm mt-2 max-w-md">Contact our technical team to discuss your power transmission requirements and get a custom solution.</p>
+                </div>
+                <a href="contact.html" class="bg-on-primary text-primary font-bold px-8 py-4 uppercase text-sm hover:bg-secondary-fixed transition-colors shrink-0">Contact Us Today</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-primary dark:bg-on-primary-fixed text-on-primary mt-20">
+        <div class="w-full py-32 px-margin-desktop grid grid-cols-12 gap-gutter max-w-container-max mx-auto">
+            <div class="col-span-12 lg:col-span-4">
+                <span class="font-headline-lg text-headline-lg font-bold text-on-primary mb-6 block">BELTS STORE</span>
+                <p class="text-surface-variant opacity-80 text-body-md max-w-sm mb-8">
+                    Supplying global industries with premium power transmission components since 1994. Quality certified and engineering backed.
+                </p>
+                <div class="flex gap-4">
+                    <a class="w-10 h-10 border border-on-primary/20 flex items-center justify-center hover:bg-on-primary/10 transition-colors" href="#"><span class="material-symbols-outlined">share</span></a>
+                    <a class="w-10 h-10 border border-on-primary/20 flex items-center justify-center hover:bg-on-primary/10 transition-colors" href="#"><span class="material-symbols-outlined">mail</span></a>
+                    <a class="w-10 h-10 border border-on-primary/20 flex items-center justify-center hover:bg-on-primary/10 transition-colors" href="#"><span class="material-symbols-outlined">call</span></a>
+                </div>
+            </div>
+            <div class="col-span-6 lg:col-span-2">
+                <h4 class="font-label-sm text-label-sm uppercase tracking-wider mb-6 text-secondary-fixed font-bold">Solutions</h4>
+                <ul class="space-y-4 font-body-md text-sm">
+                    <li><a class="text-surface-variant opacity-80 hover:opacity-100 transition-opacity" href="#">Automotive</a></li>
+                    <li><a class="text-surface-variant opacity-80 hover:opacity-100 transition-opacity" href="#">Mining &amp; Heavy Lift</a></li>
+                    <li><a class="text-surface-variant opacity-80 hover:opacity-100 transition-opacity" href="#">Agriculture</a></li>
+                    <li><a class="text-surface-variant opacity-80 hover:opacity-100 transition-opacity" href="#">Food Processing</a></li>
+                </ul>
+            </div>
+            <div class="col-span-6 lg:col-span-2">
+                <h4 class="font-label-sm text-label-sm uppercase tracking-wider mb-6 text-secondary-fixed font-bold">Technical</h4>
+                <ul class="space-y-4 font-body-md text-sm">
+                    <li><a class="text-surface-variant opacity-80 hover:opacity-100 transition-opacity" href="#">Calculators</a></li>
+                    <li><a class="text-surface-variant opacity-80 hover:opacity-100 transition-opacity" href="#">CAD Drawings</a></li>
+                    <li><a class="text-surface-variant opacity-80 hover:opacity-100 transition-opacity" href="#">Installation Guides</a></li>
+                    <li><a class="text-surface-variant opacity-80 hover:opacity-100 transition-opacity" href="#">Technical Support</a></li>
+                </ul>
+            </div>
+            <div class="col-span-12 lg:col-span-4">
+                <h4 class="font-label-sm text-label-sm uppercase tracking-wider mb-6 text-secondary-fixed font-bold">Industrial Newsletter</h4>
+                <p class="text-xs opacity-70 mb-4">Receive technical updates and inventory arrivals.</p>
+                <div class="flex">
+                    <input class="bg-on-primary-fixed border-none text-on-primary p-3 flex-1 outline-none" placeholder="Email address" type="email"/>
+                    <button class="bg-secondary-fixed text-on-secondary-fixed px-6 font-bold hover:bg-secondary transition-colors">JOIN</button>
+                </div>
+            </div>
+        </div>
+        <div class="border-t border-on-primary/10 py-8 px-margin-desktop max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="font-label-sm text-label-sm text-surface-variant opacity-60">© 2024 Belts Store. All Rights Reserved. Powering Industrial Excellence.</p>
+            <div class="flex gap-8">
+                <a class="font-label-sm text-label-sm text-surface-variant opacity-60 hover:opacity-100" href="#">Privacy Policy</a>
+                <a class="font-label-sm text-label-sm text-surface-variant opacity-60 hover:opacity-100" href="#">Terms of Service</a>
+                <a class="font-label-sm text-label-sm text-surface-variant opacity-60 hover:opacity-100" href="#">Shipping &amp; Returns</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="nav-component.js"></script>
+    <script src="cart.js"></script>
+    <!-- AOS Init -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>AOS.init({ once: true, offset: 60, duration: 700, easing: 'ease-out-cubic' });</script>
+</body>
+</html>
