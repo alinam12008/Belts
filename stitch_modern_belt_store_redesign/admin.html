@@ -515,7 +515,6 @@
                                                 <th class="px-6 py-4">Category</th>
                                                 <th class="px-6 py-4">Short Description</th>
                                                 <th class="px-6 py-4">Specifications</th>
-                                                <th class="px-6 py-4">Price</th>
                                                 <th class="px-6 py-4">Stock</th>
                                                 <th class="px-6 py-4">Status</th>
                                                 <th class="px-6 py-4 text-right">Actions</th>
@@ -875,52 +874,31 @@
         // ---- Category hierarchy ----
         let currentAdminFilter = { category: null, subcategory: null, subsubcategory: null };
         const categoriesHierarchy = {
-            "BELTS POWER TRANSMISSION": [
-                "V Belts", "Round Belts", "Ribbed Belts", "Emergency and Transport Belts",
-                "Timing Belts", "Special Belts", "Measurement and Testing Tools"
-            ],
-            "PULLEYS": [
-                "Clamping Plates", "Ribbed Belt Pulleys", "Timing Belt Pulleys", "V-Grooved Pulleys"
-            ],
-            "CONVEYING ACCESSORIES": [],
-            "RUBBER": [
-                "Rubber Sheets", "Rubber Stud", "White Rubber Sheets", "Silicon Sheet",
-                "Rubber Sponge Sheet", "Soft Sponge Rubber", "Rubber Mounts", "Rubber Glass Moulding",
-                "Rubber Metal Bonded", "Rubber O-Ring Service Kit"
-            ],
-            "INDUSTRIAL INSULATION": [
-                "Gasket Graphite With Steel Sheet", "S.S. Wire Mesh", "Cork Gasket (Rubberized)",
-                "Gaskets Sheets (Non-Asbestos Heat Resistant)", "Oil Resistant Jointing",
-                "Gasket Graphite With Steel Mesh", "Heat Insulation Tape", "Gland Packing Rope With Teflon",
-                "Graphite Gland Packing Rope", "Packing Rope Square White", "Packing Rope Cord Round",
-                "Heat Insulation Cloth"
-            ],
-            "BEARINGS": {
-                "RADIAL BALL BEARINGS": [
-                    "Single Row Angular Contact Ball Bearings", "Self Aligning Ball Bearings",
-                    "Double Row Angular Contact Ball Bearings"
-                ],
-                "RADIAL ROLLER BEARINGS": [
-                    "Tapered Roller Bearings", "Spherical Roller Bearings",
-                    "Double Row Tapered Roller Bearings", "Double Row Cylindrical Roller Bearings",
-                    "Cylindrical Roller Bearings"
-                ],
-                "THRUST BALL BEARINGS": [
-                    "Double Direction Thrust Ball Bearings",
-                    "Double Direction Thrust Angular Contact Ball Bearings", "Thrust Ball Bearings"
-                ],
-                "BEARING UNITS AND PLUMMER BLOCK HOUSING": []
-            },
-            "TRANSMISSION CHAINS AND SPROCKETS": {
-                "TRANSMISSION CHAIN": [
-                    "Connecting Links", "Offset Links", "Hollow Pin Chain", "Conveyor Chain With Attachment",
-                    "Conveyor Chain", "Stainless Steel Chains", "Leaf Chain", "Agricultural Roller Chain",
-                    "Silent Chain"
-                ],
-                "SPROCKETS": []
-            },
-            "COUPLINGS": ["Chain Couplings"]
-        };
+  "BELTS POWER TRANSMISSION": [
+    "V Belts",
+    "Round Belts",
+    "Ribbed Belts",
+    "Emergency and transport belts",
+    "Timing Belts",
+    "Special Belts",
+    "Repair Kits and Tension Tools"
+  ],
+  "PULLEYS": [],
+  "CONVEYING ACCESSORIES": [],
+  "RUBBER": [],
+  "INDUSTRIAL INSULATION": [],
+  "BEARINGS": {
+    "RADIAL BALL BEARINGS": [],
+    "RADIAL ROLLER BEARINGS": [],
+    "THRUST BALL BEARINGS": [],
+    "BEARING UNITS AND PLUMMER BLOCK HOUSING": []
+  },
+  "TRANSMISSION CHAINS AND SPROCKETS": {
+    "TRANSMISSION CHAIN": [],
+    "SPROCKETS": [],
+    "COUPLINGS": []
+  }
+};
 
         function slugify(text) {
             return text.toString().toLowerCase()
@@ -1580,7 +1558,7 @@
                         <td class="px-6 py-4 text-xs text-on-surface-variant max-w-[260px]">
                             ${Object.keys(p.specifications || {}).length > 0 ? Object.keys(p.specifications).slice(0, 3).map(key => `<div class="truncate" title="${key}: ${p.specifications[key]}"><span class="font-bold text-on-surface">${key}:</span> ${p.specifications[key]}</div>`).join('') : '—'}
                         </td>
-                        <td class="px-6 py-4 font-bold text-on-surface">$${p.price.toFixed(2)}</td>
+
                         <td class="px-6 py-4 font-bold text-on-surface">${p.stock}</td>
                         <td class="px-6 py-4"><span class="text-[10px] font-bold uppercase px-2 py-0.5 rounded ${statusCls}">${p.status}</span></td>
                         <td class="px-6 py-4 text-right">

@@ -270,90 +270,185 @@ app.put('/api/admin/settings', requireAdmin, async (req, res) => {
   }
 });
 
-// Product APIs
+// ============================================================
+// Products – Direct JSON file operations (MongoDB fallback)
+// ============================================================
+const PRODUCTS_FILE = path.join(__dirname, 'data', 'products.json');
+
+// Helper: read products from JSON file
+function readProductsFile() {
+  try {
+    if (!fs.existsSync(PRODUCTS_FILE)) {
+      fs.writeFileSync(PRODUCTS_FILE, JSON.stringify([], null, 2));
+    }
+    const data = fs.readFileSync(PRODUCTS_FILE, 'utf8');
+    return JSON.parse(data);
+  } catch (err) {
+    console.error('Error reading products file:', err);
+    return [];
+  }
+}
+
+// Helper: write products to JSON file
+function writeProductsFile(products) {
+  fs.writeFileSync(PRODUCTS_FILE, JSON.stringify(products, null, 2));
+}
+
+// GET /api/products
 app.get('/api/products', async (req, res) => {
   try {
-    const products = await db.Product.find();
+    const products = readProductsFile();
     res.json(products);
   } catch (err) {
-    res.status(500).json({ error: 'Failed to fetch products list' });
+    res.status(500).json({ error: 'Failed to fetch products' });
   }
 });
 
+// POST /api/products
 app.post('/api/products', requireAdmin, async (req, res) => {
   try {
+    const products = readProductsFile();
     const { name, description, shortDescription, category, subcategory, brand, sku, price, discountPrice, stock, status, images, specifications, tags } = req.body;
+
     if (!name || !sku || !category) {
       return res.status(400).json({ error: 'Name, SKU, and Category are required' });
     }
-    const slug = name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
-    const product = await db.Product.create({
-      name, description, shortDescription, category, subcategory, brand, sku,
+
+    // Generate unique slug
+    const timestamp = Date.now();
+    const slug = name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '') + '-' + timestamp;
+
+    // Generate unique SKU
+    const finalSku = sku + '-' + Math.random().toString(36).substring(2, 6);
+
+    const newProduct = {
+      _id: `prod_${timestamp}_${Math.random().toString(36).substring(2, 9)}`,
+      name: name || 'Unnamed Product',
+      description: description || '',
+      shortDescription: shortDescription || '',
+      category: category || 'Uncategorized',
+      subcategory: subcategory || '',
+      brand: brand || '',
+      sku: finalSku,
       price: Number(price) || 0,
       discountPrice: Number(discountPrice) || 0,
-      stock: Number(stock) || 0,
+      stock: Number(stock) || 10,
       status: status || 'Active',
       images: images || [],
       specifications: specifications || {},
       tags: tags || [category, subcategory].filter(Boolean),
-      slug
-    });
-    await db.ActivityLog.create({
-      action: `Added product: ${name} (SKU: ${sku})`,
+      slug: slug,
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString()
+    };
+
+    products.push(newProduct);
+    writeProductsFile(products);
+
+    // Log activity
+    const logs = JSON.parse(fs.readFileSync(path.join(__dirname, 'data', 'logs.json'), 'utf8') || '[]');
+    logs.push({
+      action: `Added product: ${name} (SKU: ${finalSku})`,
       adminName: req.admin.name,
       timestamp: new Date().toISOString()
     });
-    res.json(product);
+    fs.writeFileSync(path.join(__dirname, 'data', 'logs.json'), JSON.stringify(logs, null, 2));
+
+    console.log(`✅ Product created: ${name} (${finalSku})`);
+    res.json(newProduct);
+
   } catch (err) {
-    res.status(500).json({ error: 'Failed to add product' });
+    console.error('❌ Product creation error:', err);
+    res.status(500).json({ error: 'Failed to add product', details: err.message });
   }
 });
 
+// PUT /api/products/:id
 app.put('/api/products/:id', requireAdmin, async (req, res) => {
   try {
+    const products = readProductsFile();
+    const index = products.findIndex(p => p._id === req.params.id);
+    if (index === -1) return res.status(404).json({ error: 'Product not found' });
+
     const { name, description, shortDescription, category, subcategory, brand, sku, price, discountPrice, stock, status, images, specifications, tags } = req.body;
-    const slug = name ? name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '') : undefined;
+
+    // Generate slug from name with timestamp
+    let slug = undefined;
+    if (name) {
+      slug = name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '') + '-' + Date.now();
+    }
 
     let finalStatus = status;
     if (stock !== undefined && Number(stock) === 0) {
       finalStatus = 'Inactive';
     }
 
-    const updated = await db.Product.findByIdAndUpdate(req.params.id, {
-      name, description, shortDescription, category, subcategory, brand, sku,
-      price: price !== undefined ? Number(price) : undefined,
-      discountPrice: discountPrice !== undefined ? Number(discountPrice) : undefined,
-      stock: stock !== undefined ? Number(stock) : undefined,
-      status: finalStatus,
-      images, specifications, tags,
-      ...(slug && { slug })
-    }, { new: true });
+    const updatedProduct = {
+      ...products[index],
+      name: name || products[index].name,
+      description: description || '',
+      shortDescription: shortDescription || '',
+      category: category || products[index].category,
+      subcategory: subcategory || '',
+      brand: brand || '',
+      sku: sku || products[index].sku,
+      price: price !== undefined ? Number(price) : products[index].price,
+      discountPrice: discountPrice !== undefined ? Number(discountPrice) : products[index].discountPrice,
+      stock: stock !== undefined ? Number(stock) : products[index].stock,
+      status: finalStatus || products[index].status,
+      images: images || products[index].images,
+      specifications: specifications || {},
+      tags: tags || [category, subcategory].filter(Boolean),
+      ...(slug && { slug }),
+      updatedAt: new Date().toISOString()
+    };
 
-    await db.ActivityLog.create({
-      action: `Modified product: ${updated.name} (SKU: ${updated.sku})`,
+    products[index] = updatedProduct;
+    writeProductsFile(products);
+
+    // Log activity
+    const logs = JSON.parse(fs.readFileSync(path.join(__dirname, 'data', 'logs.json'), 'utf8') || '[]');
+    logs.push({
+      action: `Modified product: ${updatedProduct.name} (SKU: ${updatedProduct.sku})`,
       adminName: req.admin.name,
       timestamp: new Date().toISOString()
     });
-    res.json(updated);
+    fs.writeFileSync(path.join(__dirname, 'data', 'logs.json'), JSON.stringify(logs, null, 2));
+
+    res.json(updatedProduct);
   } catch (err) {
-    res.status(500).json({ error: 'Failed to edit product' });
+    console.error('❌ Product update error:', err);
+    res.status(500).json({ error: 'Failed to edit product', details: err.message });
   }
 });
 
+// DELETE /api/products/:id
 app.delete('/api/products/:id', requireAdmin, async (req, res) => {
   try {
-    const deleted = await db.Product.findByIdAndDelete(req.params.id);
-    if (!deleted) return res.status(404).json({ error: 'Product not found' });
-    await db.ActivityLog.create({
+    const products = readProductsFile();
+    const index = products.findIndex(p => p._id === req.params.id);
+    if (index === -1) return res.status(404).json({ error: 'Product not found' });
+
+    const deleted = products[index];
+    products.splice(index, 1);
+    writeProductsFile(products);
+
+    // Log activity
+    const logs = JSON.parse(fs.readFileSync(path.join(__dirname, 'data', 'logs.json'), 'utf8') || '[]');
+    logs.push({
       action: `Deleted product: ${deleted.name} (SKU: ${deleted.sku})`,
       adminName: req.admin.name,
       timestamp: new Date().toISOString()
     });
+    fs.writeFileSync(path.join(__dirname, 'data', 'logs.json'), JSON.stringify(logs, null, 2));
+
     res.json({ success: true });
   } catch (err) {
+    console.error('❌ Product deletion error:', err);
     res.status(500).json({ error: 'Failed to delete product' });
   }
 });
+
 
 // Image Base64 Upload
 const UPLOADS_DIR = path.join(__dirname, 'mmmm', 'uploads');
