@@ -602,8 +602,7 @@ app.put('/api/tickets/:id', requireAdmin, async (req, res) => {
       const websiteUrl = 'http://localhost:3000';
       
       const whatsappNumbers = [
-        { number: '+966 13 827 2727', clean: '966138272727' },
-        { number: '+966 13 827 2728', clean: '966138272728' }
+        { number: '+966 13 832 2867', clean: '966138322867' },
       ];
       const whatsappMessage = 'Welcome%20to%20Belts%20Store!!%20I%20want%20to%20inquire';
 

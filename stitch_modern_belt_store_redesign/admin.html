@@ -39,9 +39,9 @@
                         "secondary": "#0061a4",
                         "secondary-container": "#33a0fd",
                         "tertiary-fixed": "#e0e3e6",
-                        "on-tertiary-fixed": "#191c1e",
                         "on-error": "#ffffff",
                         "error-container": "#ffdad6",
+                        "on-tertiary-fixed": "#191c1e",
                         "on-tertiary-container": "#babcbf",
                         "surface-bright": "#f9f9fc",
                         "surface-container": "#eeeef0",
@@ -294,6 +294,10 @@
                     </a>
                     <a href="#tickets" class="nav-item flex items-center gap-4 px-4 py-3 text-white/80 hover:bg-white/10 hover:text-white rounded-lg transition-all font-bold text-xs uppercase tracking-wider font-technical-label">
                         <span class="material-symbols-outlined">support_agent</span> Tickets inbox
+                    </a>
+                    <!-- Profile link -->
+                    <a href="#profile" class="nav-item flex items-center gap-4 px-4 py-3 text-white/80 hover:bg-white/10 hover:text-white rounded-lg transition-all font-bold text-xs uppercase tracking-wider font-technical-label">
+                        <span class="material-symbols-outlined">account_circle</span> Profile
                     </a>
                     <a href="#settings" class="nav-item flex items-center gap-4 px-4 py-3 text-white/80 hover:bg-white/10 hover:text-white rounded-lg transition-all font-bold text-xs uppercase tracking-wider font-technical-label">
                         <span class="material-symbols-outlined">settings</span> System configs
@@ -614,6 +618,60 @@
                 </section>
 
 
+                <!-- ================= PANEL: PROFILE ================= -->
+                <section id="panel-profile" class="panel-section space-y-6 hidden">
+                    <!-- Top action bar with Create New Admin button -->
+                    <div class="flex justify-end">
+                        <button onclick="openCreateAdminModal()"
+                                class="bg-primary text-on-primary font-bold px-6 py-2.5 uppercase text-xs hover:bg-primary-container transition-all flex items-center gap-2 rounded shadow">
+                            <span class="material-symbols-outlined text-sm">person_add</span> Create New Admin
+                        </button>
+                    </div>
+
+                    <!-- Existing profile editor -->
+                    <div class="glass-card p-6 rounded-lg shadow-sm">
+                        <h3 class="font-headline-lg text-base font-bold text-primary uppercase border-b border-outline-variant pb-2 mb-6">My Profile</h3>
+                        <div class="flex flex-col md:flex-row gap-8">
+                            <!-- Left: Profile Picture -->
+                            <div class="flex flex-col items-center gap-4 md:w-1/3">
+                                <div class="relative">
+                                    <img id="profile-avatar" src="" alt="Profile Picture" class="w-48 h-48 rounded-full object-cover border-4 border-primary/30 bg-surface-container-low"/>
+                                    <button onclick="document.getElementById('profile-pic-input').click()" class="absolute bottom-2 right-2 bg-primary text-white p-2 rounded-full shadow-lg hover:bg-primary-container transition-colors">
+                                        <span class="material-symbols-outlined text-sm">camera_alt</span>
+                                    </button>
+                                    <input type="file" id="profile-pic-input" accept="image/*" class="hidden" onchange="handleProfilePictureUpload(event)"/>
+                                </div>
+                                <p class="text-xs text-on-surface-variant">Click the camera icon to upload a new photo</p>
+                            </div>
+
+                            <!-- Right: Editable fields -->
+                            <form id="profile-form" onsubmit="handleUpdateProfile(event)" class="flex-1 space-y-4">
+                                <div>
+                                    <label class="block text-xs uppercase font-technical-label text-on-surface-variant mb-1">Full Name</label>
+                                    <input id="profile-name" type="text" required class="w-full p-2.5 border border-outline-variant bg-surface-container-low text-sm rounded outline-none focus:ring-1 focus:ring-primary focus:border-primary"/>
+                                </div>
+                                <div>
+                                    <label class="block text-xs uppercase font-technical-label text-on-surface-variant mb-1">Email Address</label>
+                                    <input id="profile-email" type="email" required class="w-full p-2.5 border border-outline-variant bg-surface-container-low text-sm rounded outline-none focus:ring-1 focus:ring-primary focus:border-primary"/>
+                                </div>
+                                <div>
+                                    <label class="block text-xs uppercase font-technical-label text-on-surface-variant mb-1">Phone (optional)</label>
+                                    <input id="profile-phone" type="text" class="w-full p-2.5 border border-outline-variant bg-surface-container-low text-sm rounded outline-none focus:ring-1 focus:ring-primary focus:border-primary"/>
+                                </div>
+                                <div>
+                                    <label class="block text-xs uppercase font-technical-label text-on-surface-variant mb-1">Bio / About (optional)</label>
+                                    <textarea id="profile-bio" rows="4" class="w-full p-2.5 border border-outline-variant bg-surface-container-low text-sm rounded outline-none focus:ring-1 focus:ring-primary focus:border-primary"></textarea>
+                                </div>
+                                <div class="pt-4 flex justify-end gap-3 border-t border-outline-variant/30">
+                                    <button type="button" onclick="loadProfileData()" class="border border-outline-variant text-on-surface-variant font-bold px-6 py-2.5 uppercase text-[10px] rounded hover:bg-surface-container-low transition-all">Reset</button>
+                                    <button type="submit" class="bg-primary text-on-primary font-bold px-6 py-2.5 uppercase text-[10px] rounded hover:bg-primary-container shadow transition-all">Save Profile</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+
+
                 <!-- ================= PANEL: SETTINGS ================= -->
                 <section id="panel-settings" class="panel-section space-y-6 hidden">
                     <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
@@ -648,6 +706,38 @@
                 </section>
 
             </main>
+        </div>
+    </div>
+
+    <!-- ================= MODAL: CREATE NEW ADMIN ================= -->
+    <div id="create-admin-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[10005] hidden items-center justify-center p-4">
+        <div class="bg-surface-container-lowest border border-outline-variant p-8 shadow-2xl relative rounded max-w-md w-full">
+            <button onclick="closeCreateAdminModal()" class="absolute top-4 right-4 text-on-surface-variant hover:text-primary transition-colors p-2">
+                <span class="material-symbols-outlined text-2xl">close</span>
+            </button>
+            <h4 class="font-headline-lg text-xl uppercase text-primary font-bold mb-6">Create New Admin</h4>
+            <form id="create-admin-form" onsubmit="handleCreateAdmin(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs uppercase font-technical-label text-on-surface-variant mb-1">Full Name *</label>
+                    <input id="new-admin-name" type="text" required class="w-full p-2.5 border border-outline-variant bg-surface-container-low text-xs rounded outline-none focus:ring-1 focus:ring-primary focus:border-primary"/>
+                </div>
+                <div>
+                    <label class="block text-xs uppercase font-technical-label text-on-surface-variant mb-1">Email Address *</label>
+                    <input id="new-admin-email" type="email" required class="w-full p-2.5 border border-outline-variant bg-surface-container-low text-xs rounded outline-none focus:ring-1 focus:ring-primary focus:border-primary"/>
+                </div>
+                <div>
+                    <label class="block text-xs uppercase font-technical-label text-on-surface-variant mb-1">Password *</label>
+                    <input id="new-admin-password" type="password" required class="w-full p-2.5 border border-outline-variant bg-surface-container-low text-xs rounded outline-none focus:ring-1 focus:ring-primary focus:border-primary"/>
+                </div>
+                <div>
+                    <label class="block text-xs uppercase font-technical-label text-on-surface-variant mb-1">Admin Secret Code *</label>
+                    <input id="new-admin-code" type="text" required placeholder="ADMIN123" class="w-full p-2.5 border border-outline-variant bg-surface-container-low text-xs rounded outline-none focus:ring-1 focus:ring-primary focus:border-primary"/>
+                </div>
+                <div class="pt-4 flex justify-end gap-3 border-t border-outline-variant/30">
+                    <button type="button" onclick="closeCreateAdminModal()" class="border border-outline-variant text-on-surface-variant font-bold px-6 py-2.5 uppercase text-[10px] rounded hover:bg-surface-container-low transition-all">Cancel</button>
+                    <button type="submit" class="bg-primary text-on-primary font-bold px-6 py-2.5 uppercase text-[10px] rounded hover:bg-primary-container shadow transition-all">Create Admin</button>
+                </div>
+            </form>
         </div>
     </div>
 
@@ -818,7 +908,7 @@
     </div>
 
 
-    <!-- ================= JAVASCRIPT (FULL, NO LANGUAGE) ================= -->
+    <!-- ================= JAVASCRIPT (FULL, WITH ALL FUNCTIONS) ================= -->
     <script>
         // ---- Currency helper ----
         function formatCurrency(amount) {
@@ -836,88 +926,54 @@
         let analytics = {};
         let ticketReplyAttachments = [];
 
-        // ---- Category hierarchy (full, unchanged) ----
+        // ---- Category hierarchy ----
         let currentAdminFilter = { category: null, subcategory: null, subsubcategory: null };
         const categoriesHierarchy = {
             "BELTS POWER TRANSMISSION": [
-                "V Belts",
-                "Round Belts",
-                "Ribbed Belts",
-                "Emergency and Transport Belts",
-                "Timing Belts",
-                "Special Belts",
-                "Measurement and Testing Tools"
+                "V Belts", "Round Belts", "Ribbed Belts", "Emergency and Transport Belts",
+                "Timing Belts", "Special Belts", "Measurement and Testing Tools"
             ],
             "PULLEYS": [
-                "Clamping Plates",
-                "Ribbed Belt Pulleys",
-                "Timing Belt Pulleys",
-                "V-Grooved Pulleys"
+                "Clamping Plates", "Ribbed Belt Pulleys", "Timing Belt Pulleys", "V-Grooved Pulleys"
             ],
             "CONVEYING ACCESSORIES": [],
             "RUBBER": [
-                "Rubber Sheets",
-                "Rubber Stud",
-                "White Rubber Sheets",
-                "Silicon Sheet",
-                "Rubber Sponge Sheet",
-                "Soft Sponge Rubber",
-                "Rubber Mounts",
-                "Rubber Glass Moulding",
-                "Rubber Metal Bonded",
-                "Rubber O-Ring Service Kit"
+                "Rubber Sheets", "Rubber Stud", "White Rubber Sheets", "Silicon Sheet",
+                "Rubber Sponge Sheet", "Soft Sponge Rubber", "Rubber Mounts", "Rubber Glass Moulding",
+                "Rubber Metal Bonded", "Rubber O-Ring Service Kit"
             ],
             "INDUSTRIAL INSULATION": [
-                "Gasket Graphite With Steel Sheet",
-                "S.S. Wire Mesh",
-                "Cork Gasket (Rubberized)",
-                "Gaskets Sheets (Non-Asbestos Heat Resistant)",
-                "Oil Resistant Jointing",
-                "Gasket Graphite With Steel Mesh",
-                "Heat Insulation Tape",
-                "Gland Packing Rope With Teflon",
-                "Graphite Gland Packing Rope",
-                "Packing Rope Square White",
-                "Packing Rope Cord Round",
+                "Gasket Graphite With Steel Sheet", "S.S. Wire Mesh", "Cork Gasket (Rubberized)",
+                "Gaskets Sheets (Non-Asbestos Heat Resistant)", "Oil Resistant Jointing",
+                "Gasket Graphite With Steel Mesh", "Heat Insulation Tape", "Gland Packing Rope With Teflon",
+                "Graphite Gland Packing Rope", "Packing Rope Square White", "Packing Rope Cord Round",
                 "Heat Insulation Cloth"
             ],
             "BEARINGS": {
                 "RADIAL BALL BEARINGS": [
-                    "Single Row Angular Contact Ball Bearings",
-                    "Self Aligning Ball Bearings",
+                    "Single Row Angular Contact Ball Bearings", "Self Aligning Ball Bearings",
                     "Double Row Angular Contact Ball Bearings"
                 ],
                 "RADIAL ROLLER BEARINGS": [
-                    "Tapered Roller Bearings",
-                    "Spherical Roller Bearings",
-                    "Double Row Tapered Roller Bearings",
-                    "Double Row Cylindrical Roller Bearings",
+                    "Tapered Roller Bearings", "Spherical Roller Bearings",
+                    "Double Row Tapered Roller Bearings", "Double Row Cylindrical Roller Bearings",
                     "Cylindrical Roller Bearings"
                 ],
                 "THRUST BALL BEARINGS": [
                     "Double Direction Thrust Ball Bearings",
-                    "Double Direction Thrust Angular Contact Ball Bearings",
-                    "Thrust Ball Bearings"
+                    "Double Direction Thrust Angular Contact Ball Bearings", "Thrust Ball Bearings"
                 ],
                 "BEARING UNITS AND PLUMMER BLOCK HOUSING": []
             },
             "TRANSMISSION CHAINS AND SPROCKETS": {
                 "TRANSMISSION CHAIN": [
-                    "Connecting Links",
-                    "Offset Links",
-                    "Hollow Pin Chain",
-                    "Conveyor Chain With Attachment",
-                    "Conveyor Chain",
-                    "Stainless Steel Chains",
-                    "Leaf Chain",
-                    "Agricultural Roller Chain",
+                    "Connecting Links", "Offset Links", "Hollow Pin Chain", "Conveyor Chain With Attachment",
+                    "Conveyor Chain", "Stainless Steel Chains", "Leaf Chain", "Agricultural Roller Chain",
                     "Silent Chain"
                 ],
                 "SPROCKETS": []
             },
-            "COUPLINGS": [
-                "Chain Couplings"
-            ]
+            "COUPLINGS": ["Chain Couplings"]
         };
 
         function slugify(text) {
@@ -959,6 +1015,7 @@
                 products: "Product Catalog",
                 orders: "Orders & Requests Pipeline",
                 tickets: "Customer Support Threads",
+                profile: "My Profile",
                 settings: "Configuration Terminal"
             };
             document.getElementById('section-title').innerText = titles[hash] || "Terminal Dashboard";
@@ -973,6 +1030,7 @@
             }
             if (hash === "orders") loadOrdersData();
             if (hash === "tickets") loadTicketsData();
+            if (hash === "profile") loadProfileData();
             if (hash === "settings") loadSettingsData();
         }
 
@@ -1077,7 +1135,7 @@
             showToast("Terminal session terminated.", "info");
         }
 
-        // ================= DATA LOADING (all functions unchanged) =================
+        // ================= DATA LOADING =================
         function loadDashboardData() {
             fetch('/api/admin/analytics', {
                 headers: { 'Authorization': `Bearer ${token}` }
@@ -1178,6 +1236,116 @@
             });
         }
 
+        // ===== PROFILE DATA =====
+        function loadProfileData() {
+            fetch('/api/admin/me', {
+                headers: { 'Authorization': `Bearer ${token}` }
+            })
+            .then(res => {
+                if (!res.ok) throw new Error('Failed to load profile');
+                return res.json();
+            })
+            .then(data => {
+                document.getElementById('profile-name').value = data.name || '';
+                document.getElementById('profile-email').value = data.email || '';
+                document.getElementById('profile-phone').value = data.phone || '';
+                document.getElementById('profile-bio').value = data.bio || '';
+                // Set profile picture
+                const avatar = document.getElementById('profile-avatar');
+                if (data.profilePicture && data.profilePicture !== '') {
+                    avatar.src = data.profilePicture;
+                } else {
+                    avatar.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(data.name || 'Admin')}&background=003178&color=fff&size=200`;
+                }
+            })
+            .catch(err => {
+                showToast(err.message, 'error');
+            });
+        }
+
+        function handleUpdateProfile(e) {
+            e.preventDefault();
+            const name = document.getElementById('profile-name').value;
+            const email = document.getElementById('profile-email').value;
+            const phone = document.getElementById('profile-phone').value;
+            const bio = document.getElementById('profile-bio').value;
+
+            fetch('/api/admin/settings', {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify({ name, email, phone, bio })
+            })
+            .then(async res => {
+                const data = await res.json();
+                if (!res.ok) throw new Error(data.error || 'Update failed');
+                return data;
+            })
+            .then(() => {
+                showToast("Profile updated successfully.", "success");
+                // Update sidebar
+                document.getElementById('sidebar-admin-name').innerText = name;
+                document.getElementById('sidebar-profile-pic').innerText = name.charAt(0);
+                // Reload profile data to refresh avatar
+                loadProfileData();
+                // Also update settings fields if they are open
+                if (document.getElementById('settings-name')) {
+                    document.getElementById('settings-name').value = name;
+                    document.getElementById('settings-email').value = email;
+                }
+            })
+            .catch(err => {
+                showToast(err.message, 'error');
+            });
+        }
+
+        function handleProfilePictureUpload(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = function() {
+                const base64Str = reader.result;
+                fetch('/api/products/upload', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify({ filename: file.name, base64: base64Str })
+                })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.url) {
+                        // Update profile with new picture URL
+                        fetch('/api/admin/settings', {
+                            method: 'PUT',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'Authorization': `Bearer ${token}`
+                            },
+                            body: JSON.stringify({ profilePicture: data.url })
+                        })
+                        .then(async res => {
+                            const result = await res.json();
+                            if (!res.ok) throw new Error(result.error || 'Failed to update profile picture');
+                            showToast("Profile picture updated.", "success");
+                            loadProfileData();
+                        })
+                        .catch(err => {
+                            showToast(err.message, 'error');
+                        });
+                    }
+                })
+                .catch(() => {
+                    showToast("Failed to upload image", "error");
+                });
+            };
+        }
+
         function loadSettingsData() {
             fetch('/api/admin/me', {
                 headers: { 'Authorization': `Bearer ${token}` }
@@ -1207,7 +1375,49 @@
             });
         }
 
-        // ================= RENDERING TABLES (all functions restored) =================
+        // ================= CREATE NEW ADMIN =================
+        function openCreateAdminModal() {
+            document.getElementById('create-admin-form').reset();
+            document.getElementById('create-admin-modal').classList.remove('hidden');
+            document.getElementById('create-admin-modal').classList.add('flex');
+        }
+
+        function closeCreateAdminModal() {
+            document.getElementById('create-admin-modal').classList.add('hidden');
+            document.getElementById('create-admin-modal').classList.remove('flex');
+        }
+
+        function handleCreateAdmin(e) {
+            e.preventDefault();
+            const name = document.getElementById('new-admin-name').value.trim();
+            const email = document.getElementById('new-admin-email').value.trim();
+            const password = document.getElementById('new-admin-password').value;
+            const adminCode = document.getElementById('new-admin-code').value.trim();
+
+            if (!name || !email || !password || !adminCode) {
+                return showToast('All fields are required.', 'error');
+            }
+
+            fetch('/api/admin/signup', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name, email, password, adminCode })
+            })
+            .then(async res => {
+                const data = await res.json();
+                if (!res.ok) throw new Error(data.error || 'Signup failed');
+                return data;
+            })
+            .then(() => {
+                showToast(`Admin account "${email}" created successfully.`, 'success');
+                closeCreateAdminModal();
+            })
+            .catch(err => {
+                showToast(err.message, 'error');
+            });
+        }
+
+        // ================= RENDERING TABLES =================
         function renderAdminCategories() {
             const container = document.getElementById('admin-category-accordion');
             if (!container) return;
@@ -2150,9 +2360,6 @@
             })
             .catch(err => showToast(err.message, "error"));
         }
-
-        // ---- Coupon functions (if needed) ----
-        // ... add coupon functions here if you use them ...
 
         // ---- Toast ----
         function showToast(message, type = "success") {

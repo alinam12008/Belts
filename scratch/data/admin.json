@@ -2,11 +2,10 @@
   {
     "_id": "zb6cuidrxt2sbcxx3c6k",
     "createdAt": "2026-06-20T10:23:31.062Z",
-    "updatedAt": "2026-06-20T21:42:58.078Z",
-    "name": "System Administrator",
+    "updatedAt": "2026-06-21T06:08:36.544Z",
+    "name": "Belts",
     "email": "admin@gmail.com",
     "password": "$2b$10$gFhK6F5PEimDqDJgsgCFqONisCcB1iajzxSID9h45ppHidTLMOO12",
-    "profilePicture": "",
     "loginHistory": [
       {
         "timestamp": "2026-06-20T13:06:07.615Z",
