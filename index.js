@@ -8,10 +8,6 @@ const jwt = require('jsonwebtoken');
 const nodemailer = require('nodemailer');
 const db = require('./db');
 
-// Serve static files from the folder where images are stored
-// app.use('/uploads', express.static(path.join(__dirname, 'mmmm', 'uploads')));
-// If images are in a different folder, change 'uploads' accordingly
-
 // ============================================================
 // 1. SMTP Transporter – with fallback and logging
 // ============================================================
@@ -82,6 +78,24 @@ const app = express();
 app.use(cors());
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
+
+// ✅ FIXED: Serve static files from the root folder FIRST
+// This allows clients.html and partners.html to be served correctly
+app.use(express.static(__dirname));
+
+// Force serve clients.html and partners.html
+app.get('/clients.html', (req, res) => {
+  res.sendFile(path.join(__dirname, 'clients.html'));
+});
+app.get('/partners.html', (req, res) => {
+  res.sendFile(path.join(__dirname, 'partners.html'));
+});
+
+// Then serve the redesign folder (if it exists)
+app.use(express.static(path.join(__dirname, 'stitch_modern_belt_store_redesign')));
+
+// Then serve uploads folder
+app.use('/mmmm', express.static(path.join(__dirname, 'mmmm')));
 
 // Init database
 db.init(
@@ -927,10 +941,6 @@ app.get('/api/admin/analytics', requireAdmin, async (req, res) => {
 // ============================================================
 // 5. Static Files & Server Start
 // ============================================================
-app.use(express.static(path.join(__dirname, 'stitch_modern_belt_store_redesign')));
-app.use('/mmmm', express.static(path.join(__dirname, 'mmmm')));
-app.use(express.static(__dirname));
-
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`🚀 Server running at http://localhost:${PORT}`);

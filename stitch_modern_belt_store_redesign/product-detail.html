@@ -275,7 +275,7 @@
     </footer>
 
     <!-- PDP Controller JS -->
-    <script>
+    <!-- <script>
         document.addEventListener('DOMContentLoaded', () => {
             const params = new URLSearchParams(window.location.search);
             const id = parseInt(params.get('id'));
@@ -464,7 +464,199 @@
                 `;
             }).join('');
         }
-    </script>
+    </script> -->
+
+
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const params = new URLSearchParams(window.location.search);
+        const id = parseInt(params.get('id'));
+
+        if (isNaN(id)) {
+            window.location.href = "products.html";
+            return;
+        }
+
+        fetch('/api/products')
+            .then(response => {
+                if (!response.ok) throw new Error('Failed to fetch products');
+                return response.json();
+            })
+            .then(products => {
+                if (id < 0 || id >= products.length) {
+                    window.location.href = "products.html";
+                    return;
+                }
+                const product = products[id];
+                renderProduct(product, id, products);
+            })
+            .catch(error => {
+                console.error("Error loading product detail:", error);
+                document.getElementById('product-title').innerText = "Error loading product";
+            });
+    });
+
+    function renderProduct(product, index, allProducts) {
+        // same as before but using product from API
+        document.title = `${product.name || 'Product'} | BELTS STORE`;
+
+        // Build breadcrumbs from category/subcategory/subSubcategory
+        const breadcrumbs = [];
+        if (product.category) breadcrumbs.push(product.category);
+        if (product.subcategory) breadcrumbs.push(product.subcategory);
+        if (product.subSubcategory) breadcrumbs.push(product.subSubcategory);
+
+        const breadContainer = document.getElementById('pdp-breadcrumbs');
+        let pathHtml = `<a href="products.html" class="hover:text-primary transition-colors">Catalog</a>`;
+        breadcrumbs.forEach(b => {
+            pathHtml += ` <span class="material-symbols-outlined text-xs">chevron_right</span> <span class="text-on-surface font-semibold">${b}</span>`;
+        });
+        breadContainer.innerHTML = pathHtml;
+
+        // Image
+        const image = product.image || product.images?.[0] || 'https://belts-store.com/wp-content/uploads/2025/09/BELTS-STORE_en-1.svg';
+        document.getElementById('product-main-image').src = image;
+        document.getElementById('product-main-image').alt = product.name || 'Product';
+
+        // Title
+        document.getElementById('product-title').innerText = product.name || 'Unnamed Product';
+        document.getElementById('product-cat-badge').innerText = product.subcategory || product.category || 'Component';
+
+        // Reference
+        const ref = product.sku || product.specifications?.DIN || product.specifications?.ISO || 'BT-GENERIC';
+        document.getElementById('product-ref-label').innerText = `Ref: ${ref}`;
+
+        // Descriptions
+        document.getElementById('product-short-desc').innerHTML = product.shortDescription || '<p>Industrial grade component matching strict performance standards.</p>';
+        document.getElementById('product-long-desc').innerHTML = product.description || '<p>Detailed description and catalog files are available upon inquiry.</p>';
+
+        // Specifications
+        const specs = product.specifications || {};
+        const tableContainer = document.getElementById('specs-table-container');
+        const hasSpecs = Object.keys(specs).length > 0;
+
+        if (hasSpecs) {
+            let tableHtml = `<table class="w-full zebra-stripe-table">`;
+            tableHtml += `<thead><tr class="bg-primary text-on-primary uppercase text-xs font-technical-label"><th class="px-6 py-3 text-left">Property</th><th class="px-6 py-3 text-left">Specification Value</th></tr></thead>`;
+            tableHtml += `<tbody class="text-sm font-technical-label">`;
+            Object.keys(specs).forEach(prop => {
+                tableHtml += `<tr><td class="px-6 py-4 font-bold text-primary">${prop}</td><td class="px-6 py-4">${specs[prop]}</td></tr>`;
+            });
+            tableHtml += `</tbody></table>`;
+            tableContainer.innerHTML = tableHtml;
+        } else {
+            tableContainer.innerHTML = `
+                <table class="w-full zebra-stripe-table">
+                    <thead>
+                        <tr class="bg-primary text-on-primary uppercase text-xs font-technical-label">
+                            <th class="px-6 py-3 text-left">Property</th>
+                            <th class="px-6 py-3 text-left">Details</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-sm font-technical-label">
+                        <tr><td class="px-6 py-4 font-bold text-primary">Category</td><td class="px-6 py-4">${product.category || 'Power Transmission'}</td></tr>
+                        <tr><td class="px-6 py-4 font-bold text-primary">Subcategory</td><td class="px-6 py-4">${product.subcategory || 'Industrial'}</td></tr>
+                        <tr><td class="px-6 py-4 font-bold text-primary">Compliance</td><td class="px-6 py-4">ISO 9001:2015</td></tr>
+                    </tbody>
+                </table>
+            `;
+        }
+
+        // Quantity controls (same as before)
+        const qtyInput = document.getElementById('product-quantity');
+        document.getElementById('qty-dec-btn').addEventListener('click', () => {
+            const val = parseInt(qtyInput.value) || 1;
+            if (val > 1) qtyInput.value = val - 1;
+        });
+        document.getElementById('qty-inc-btn').addEventListener('click', () => {
+            const val = parseInt(qtyInput.value) || 1;
+            qtyInput.value = val + 1;
+        });
+
+        // Action buttons (reuse existing functions)
+        document.getElementById('add-to-cart-action-btn').addEventListener('click', () => {
+            const qty = parseInt(qtyInput.value) || 1;
+            if (window.addToCartManual) {
+                window.addToCartManual(`ref-${index}`, product.name, image, ref, qty);
+            }
+        });
+
+        // WhatsApp and Quote (similar to previous)
+        document.getElementById('whatsapp-inquiry-action-btn').addEventListener('click', () => {
+            const qty = parseInt(qtyInput.value) || 1;
+            if (window.sendWhatsAppSingleInquiry) {
+                window.sendWhatsAppSingleInquiry(product.name, ref, qty);
+            }
+        });
+
+        document.getElementById('request-quote-action-btn').addEventListener('click', () => {
+            const qty = parseInt(qtyInput.value) || 1;
+            if (window.addToCartManual) {
+                window.addToCartManual(`ref-${index}`, product.name, image, ref, qty);
+            }
+            document.getElementById('cart-quote-btn').click();
+        });
+
+        // Render related products
+        renderRelatedProducts(product, index, allProducts);
+    }
+
+    function renderRelatedProducts(product, index, allProducts) {
+        const grid = document.getElementById('related-products-grid');
+        const targetSub = product.subcategory || product.category;
+        let related = allProducts.filter((p, idx) => {
+            if (idx === index) return false;
+            return p.subcategory === targetSub || p.category === targetSub;
+        });
+
+        if (related.length < 3) {
+            const targetCat = product.category;
+            related = allProducts.filter((p, idx) => {
+                if (idx === index) return false;
+                return p.category === targetCat;
+            });
+        }
+
+        const showRelated = related.slice(0, 3);
+
+        if (showRelated.length === 0) {
+            grid.innerHTML = `<div class="col-span-3 text-center text-xs text-on-surface-variant font-technical-label py-4 bg-surface-container rounded border border-outline-variant">No related components currently listed in inventory.</div>`;
+            return;
+        }
+
+        grid.innerHTML = showRelated.map(p => {
+            const pIndex = allProducts.indexOf(p);
+            const ref = p.sku || p.specifications?.DIN || p.specifications?.ISO || 'BT-GENERIC';
+            const cleanRef = ref.length > 20 ? ref.substring(0, 17) + "..." : ref;
+            const img = p.image || p.images?.[0] || 'https://belts-store.com/wp-content/uploads/2025/09/BELTS-STORE_en-1.svg';
+            return `
+                <div class="flex bg-surface-container-lowest border border-outline-variant overflow-hidden group rounded transition-all hover:border-primary">
+                    <div class="w-1/3 bg-surface-container-low border-r border-outline-variant flex items-center justify-center p-2">
+                        <a href="product-detail.html?id=${pIndex}" class="h-full w-full flex items-center justify-center">
+                            <img class="max-h-full max-w-full object-contain" src="${img}" alt="${p.name}"/>
+                        </a>
+                    </div>
+                    <div class="w-2/3 p-4 flex flex-col justify-between">
+                        <div>
+                            <h4 class="font-bold text-xs uppercase text-primary truncate hover:underline">
+                                <a href="product-detail.html?id=${pIndex}">${p.name}</a>
+                            </h4>
+                            <span class="font-technical-label text-[10px] text-on-surface-variant block mt-1" title="${ref}">Ref: ${cleanRef}</span>
+                        </div>
+                        <div class="mt-2 text-right">
+                            <a href="product-detail.html?id=${pIndex}" class="text-[10px] font-bold text-primary uppercase flex items-center justify-end gap-1 hover:underline">
+                                SPECS <span class="material-symbols-outlined text-[12px]">arrow_forward</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }).join('');
+    }
+</script>
+
+
     <script src="nav-component.js"></script>
     <script src="cart.js"></script>
 </body>

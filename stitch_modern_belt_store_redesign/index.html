@@ -1,7 +1,3 @@
-index.html
-
-
-
 <!DOCTYPE html>
 
 <html class="light" lang="en">
@@ -212,16 +208,6 @@ index.html
         .logo-card:hover {
             box-shadow: 0 0 0 2px #003178, 0 8px 24px rgba(0, 49, 120, 0.12);
         }
-
-        /* ── Scroll fade for sections ── */
-        [data-aos] {
-            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        /* ── Animated Counters ── */
-        .counter-val {
-            display: inline-block;
-        }
     </style>
 </head>
 
@@ -232,7 +218,8 @@ index.html
         <div class="flex justify-between items-center h-20 px-margin-desktop w-full max-w-container-max mx-auto">
             <div class="flex items-center gap-8">
                 <a href="admin.html"
-                    class="font-headline-lg text-headline-lg font-bold text-on-surface dark:text-on-surface" title="Admin Login">BELTS
+                    class="font-headline-lg text-headline-lg font-bold text-on-surface dark:text-on-surface"
+                    title="Admin Login">BELTS
                     STORE</a>
                 <nav class="hidden md:flex items-center gap-6">
                     <!-- nav-component.js will inject 5-item nav here -->
@@ -272,32 +259,38 @@ index.html
                     <!-- Top Row: Photo and Name side-by-side -->
                     <div class="flex flex-col md:flex-row gap-8 items-start">
                         <!-- Thinner & Taller Photo Area Placeholder -->
-                        <div class="relative w-[260px] h-[370px] bg-surface-container-low border border-outline-variant rounded-lg flex items-center justify-center shadow-sm overflow-hidden shrink-0">
+                        <div
+                            class="relative w-[260px] h-[370px] bg-surface-container-low border border-outline-variant rounded-lg flex items-center justify-center shadow-sm overflow-hidden shrink-0">
                             <span class="material-symbols-outlined text-7xl text-outline/40">person</span>
                             <!-- Founder Badge in top-right corner -->
-                            <span class="absolute top-4 right-4 bg-error text-white text-[10px] font-bold uppercase px-2.5 py-1.5 rounded">FOUNDER</span>
+                            <span
+                                class="absolute top-4 right-4 bg-error text-white text-[10px] font-bold uppercase px-2.5 py-1.5 rounded">FOUNDER</span>
                         </div>
-                        
+
                         <!-- Founder Details (Name & Blank Info) -->
                         <div class="flex-grow pt-4">
                             <!-- Name of the Founder (highlighted in a larger font) -->
-                            <h1 class="font-display-lg text-3xl md:text-4xl text-primary uppercase font-bold tracking-wide leading-tight">
+                            <h1
+                                class="font-display-lg text-3xl md:text-4xl text-primary uppercase font-bold tracking-wide leading-tight">
                                 Saeed Omar<br>Basaffar
                             </h1>
                             <!-- Founder Info Area (to be populated by backend) -->
                             <div class="mt-4 max-w-md">
-                                <p id="founder-info" class="text-on-surface-variant text-xs md:text-sm leading-relaxed font-body-md">
-                                    Biography, visionary leadership, and credentials text placeholder. This section will be populated dynamically by the backend system.
+                                <p id="founder-info"
+                                    class="text-on-surface-variant text-xs md:text-sm leading-relaxed font-body-md">
+                                    Biography, visionary leadership, and credentials text placeholder. This section will
+                                    be populated dynamically by the backend system.
                                 </p>
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- Bottom Row: Buttons (placed below the photo, wide/rectangular) -->
                     <div class="flex flex-col sm:flex-row gap-4 mt-8 w-full max-w-[640px]">
                         <a href="products.html"
                             class="flex-1 bg-primary text-on-primary p-4 h-16 font-bold flex flex-col items-center justify-center hover:translate-x-1 transition-transform text-center text-sm uppercase leading-tight">
-                            <span class="flex items-center gap-1.5 justify-center">BROWSE CATALOG <span class="material-symbols-outlined text-base">arrow_forward</span></span>
+                            <span class="flex items-center gap-1.5 justify-center">BROWSE CATALOG <span
+                                    class="material-symbols-outlined text-base">arrow_forward</span></span>
                         </a>
                         <a href="products.html"
                             class="flex-1 border-2 border-primary text-primary p-4 h-16 font-bold flex flex-col items-center justify-center hover:bg-primary/5 transition-colors text-center text-sm uppercase leading-tight">
@@ -362,43 +355,43 @@ index.html
                 </div>
                 <div class="p-2 flex flex-col gap-1">
                     <a class="flex items-center gap-4 px-4 py-3 bg-primary text-on-primary font-bold rounded-lg transition-all"
-                        href="#">
+                        href="products.html?cat=BELTS+POWER+TRANSMISSION">
                         <span class="material-symbols-outlined">settings_input_component</span>
                         <span class="font-technical-label text-technical-label uppercase">Belts Power
                             Transmission</span>
                     </a>
                     <a class="flex items-center gap-4 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface rounded-lg transition-colors"
-                        href="#">
+                        href="products.html?cat=PULLEYS">
                         <span class="material-symbols-outlined">settings_backup_restore</span>
                         <span class="font-technical-label text-technical-label uppercase">Pulleys</span>
                     </a>
                     <a class="flex items-center gap-4 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface rounded-lg transition-colors"
-                        href="#">
+                        href="products.html?cat=CONVEYING+ACCESSORIES">
                         <span class="material-symbols-outlined">conveyor_belt</span>
                         <span class="font-technical-label text-technical-label uppercase">Conveying Accessories</span>
                     </a>
                     <a class="flex items-center gap-4 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface rounded-lg transition-colors"
-                        href="#">
+                        href="products.html?cat=RUBBER">
                         <span class="material-symbols-outlined">opacity</span>
                         <span class="font-technical-label text-technical-label uppercase">Rubber</span>
                     </a>
                     <a class="flex items-center gap-4 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface rounded-lg transition-colors"
-                        href="#">
+                        href="products.html?cat=INDUSTRIAL+INSULATION">
                         <span class="material-symbols-outlined">heat_pump</span>
                         <span class="font-technical-label text-technical-label uppercase">Industrial Insulation</span>
                     </a>
                     <a class="flex items-center gap-4 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface rounded-lg transition-colors"
-                        href="#">
+                        href="products.html?cat=BEARINGS">
                         <span class="material-symbols-outlined">radio_button_checked</span>
                         <span class="font-technical-label text-technical-label uppercase">Bearings</span>
                     </a>
                     <a class="flex items-center gap-4 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface rounded-lg transition-colors"
-                        href="#">
+                        href="products.html?cat=TRANSMISSION+CHAINS+AND+SPROCKETS">
                         <span class="material-symbols-outlined">link</span>
                         <span class="font-technical-label text-technical-label uppercase">Transmission Chains</span>
                     </a>
                     <a class="flex items-center gap-4 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface rounded-lg transition-colors"
-                        href="#">
+                        href="products.html?cat=TRANSMISSION+CHAINS+AND+SPROCKETS">
                         <span class="material-symbols-outlined">settings</span>
                         <span class="font-technical-label text-technical-label uppercase">Sprockets</span>
                     </a>
@@ -414,7 +407,7 @@ index.html
                     </div>
                     <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-gutter">
                         <!-- Belt Power Transmission -->
-                        <a href="products.html?cat=Belts+Power+Transmission"
+                        <a href="products.html?cat=BELTS+POWER+TRANSMISSION"
                             class="group relative aspect-[4/3] bg-primary overflow-hidden cursor-pointer block">
                             <div class="absolute inset-0 opacity-40 group-hover:opacity-60 transition-opacity">
                                 <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
@@ -430,7 +423,7 @@ index.html
                             </div>
                         </a>
                         <!-- Pulleys -->
-                        <a href="products.html?cat=Pulleys"
+                        <a href="products.html?cat=PULLEYS"
                             class="group relative aspect-[4/3] bg-primary overflow-hidden cursor-pointer block">
                             <div class="absolute inset-0 opacity-40 group-hover:opacity-60 transition-opacity">
                                 <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
@@ -446,7 +439,7 @@ index.html
                             </div>
                         </a>
                         <!-- Conveying Accessories -->
-                        <a href="products.html?cat=Conveying+Accessorise"
+                        <a href="products.html?cat=CONVEYING+ACCESSORIES"
                             class="group relative aspect-[4/3] bg-primary overflow-hidden cursor-pointer block">
                             <div class="absolute inset-0 opacity-40 group-hover:opacity-60 transition-opacity">
                                 <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
@@ -462,7 +455,7 @@ index.html
                             </div>
                         </a>
                         <!-- Rubber -->
-                        <a href="products.html?cat=Rubber"
+                        <a href="products.html?cat=RUBBER"
                             class="group relative aspect-[4/3] bg-primary overflow-hidden cursor-pointer block">
                             <div class="absolute inset-0 opacity-40 group-hover:opacity-60 transition-opacity">
                                 <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
@@ -477,7 +470,7 @@ index.html
                             </div>
                         </a>
                         <!-- Industrial Insulation -->
-                        <a href="products.html?cat=Industrial+Insulation"
+                        <a href="products.html?cat=INDUSTRIAL+INSULATION"
                             class="group relative aspect-[4/3] bg-tertiary overflow-hidden cursor-pointer block">
                             <div class="absolute inset-0 opacity-30 group-hover:opacity-50 transition-opacity">
                                 <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
@@ -493,7 +486,7 @@ index.html
                             </div>
                         </a>
                         <!-- Bearings -->
-                        <a href="products.html?cat=Bearings"
+                        <a href="products.html?cat=BEARINGS"
                             class="group relative aspect-[4/3] bg-primary overflow-hidden cursor-pointer block">
                             <div class="absolute inset-0 opacity-40 group-hover:opacity-60 transition-opacity">
                                 <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
@@ -509,7 +502,7 @@ index.html
                             </div>
                         </a>
                         <!-- Transmission Chains -->
-                        <a href="products.html?cat=Transmission+Chains+And+Sprockets"
+                        <a href="products.html?cat=TRANSMISSION+CHAINS+AND+SPROCKETS"
                             class="group relative aspect-[4/3] bg-primary overflow-hidden cursor-pointer block col-span-1 md:col-span-2 xl:col-span-1">
                             <div class="absolute inset-0 opacity-40 group-hover:opacity-60 transition-opacity">
                                 <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
@@ -564,69 +557,24 @@ index.html
                         </div>
                     </div>
                 </section>
+
                 <!-- Featured Products / Data Table -->
-                <section>
+                <section id="featured-section">
                     <div class="flex justify-between items-end mb-8">
                         <div>
                             <h2 class="font-headline-lg text-headline-lg text-primary uppercase">Featured Bearings &amp;
                                 Sprockets</h2>
                             <p class="text-on-surface-variant">Direct stock of high-demand industrial components.</p>
                         </div>
-                        <a class="text-primary font-bold flex items-center gap-1 hover:underline" href="#">
+                        <a href="products.html" class="text-primary font-bold flex items-center gap-1 hover:underline">
                             FULL CATALOG <span class="material-symbols-outlined text-sm">open_in_new</span>
                         </a>
                     </div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter mb-12">
-                        <div
-                            class="flex bg-surface-container-lowest border border-outline-variant overflow-hidden group">
-                            <div class="w-1/3 relative">
-                                <img class="w-full h-full object-cover"
-                                    data-alt="High-quality macro shot of a chrome steel ball bearing. The reflective surface shows a clean engineering lab environment. Focus is sharp on the outer race and cage. Professional technical product photography for a manufacturer catalog. Cold, clinical, high-contrast style."
-                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7yEq1J670vbzsPe21C2MISt9vN_IC2GoOnSsM5Yn0ot9rrO1HCbBy7qUx4G-eJq9R_BVIAfsOGcFP4nE1o-CUOXiTIH03ZpPGCBPouhiiyv1DOur4PEFhaqfbbcUj6HVgCZjo_qVswopBZYlktA-kF4C6FFcGzL-j2KTlfI9KcRqqKSMqDWYr4el11A-I7xlumktO04sA91ft5ZmIzCWhQ8IJaQBxOIF1bGkq_Hpvw8W40NMSFP9KH--Lq9XccqjKXZkby47L8GY" />
-                            </div>
-                            <div class="w-2/3 p-6 flex flex-col justify-between">
-                                <div>
-                                    <span
-                                        class="px-2 py-1 bg-secondary-fixed text-on-secondary-fixed text-[10px] font-bold uppercase rounded">In
-                                        Stock</span>
-                                    <h4 class="font-headline-lg text-lg uppercase mt-2">Double-Row Roller Bearings</h4>
-                                    <p class="text-xs text-on-surface-variant mt-1">High radial load capacity for
-                                        industrial gearboxes.</p>
-                                </div>
-                                <div class="mt-4 flex justify-between items-center">
-                                    <span class="font-technical-label text-primary font-bold">Ref: DRB-8800</span>
-                                    <button
-                                        class="bg-primary text-on-primary px-4 py-2 text-xs font-bold uppercase">VIEW
-                                        SPECS</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div
-                            class="flex bg-surface-container-lowest border border-outline-variant overflow-hidden group">
-                            <div class="w-1/3 relative">
-                                <img class="w-full h-full object-cover"
-                                    data-alt="Industrial steel drive sprocket for transmission chains. The teeth are precisely cut and show a machined metallic finish. Professional lighting highlights the geometry of the gear. Set against a minimalist grey background to emphasize technical detail and material quality."
-                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWJIaxb5t0FXmNlSJhXaWLPrVybskLht3bmIt02w2on0HxNnxD5UjcANMviM_gLEz9q8U6sevxm7YmoHlNed6nuSEzNfaYgTPt3vpHcAwnWam9iS0idvI82rUdceArEPzgQ2dte-sjE6Vm6jNBU_A6I2a9r8fPUJ2PWjxpCbLpSzIqbRiBOv_hr8y_aNFcLDraudgpx514a-659CzO-yXXIK7mcKmTchyUl_dI6Z_VwSSJ0p5AUrGOgAOEdI82ilWoqlM0yFjSjPA" />
-                            </div>
-                            <div class="w-2/3 p-6 flex flex-col justify-between">
-                                <div>
-                                    <span
-                                        class="px-2 py-1 bg-secondary-fixed text-on-secondary-fixed text-[10px] font-bold uppercase rounded">Heavy
-                                        Duty</span>
-                                    <h4 class="font-headline-lg text-lg uppercase mt-2">Hardened Drive Sprockets</h4>
-                                    <p class="text-xs text-on-surface-variant mt-1">Induction hardened teeth for maximum
-                                        wear resistance.</p>
-                                </div>
-                                <div class="mt-4 flex justify-between items-center">
-                                    <span class="font-technical-label text-primary font-bold">Ref: HS-42/T16</span>
-                                    <button
-                                        class="bg-primary text-on-primary px-4 py-2 text-xs font-bold uppercase">VIEW
-                                        SPECS</button>
-                                </div>
-                            </div>
-                        </div>
+                    <!-- Dynamic featured products grid -->
+                    <div id="featured-products-grid" class="grid grid-cols-1 md:grid-cols-2 gap-gutter mb-12">
+                        <!-- Rendered by JavaScript -->
                     </div>
-                    <!-- Technical Specifications Table -->
+                    <!-- Technical Specifications Table (static) -->
                     <div class="overflow-x-auto border border-outline-variant rounded-lg">
                         <table class="w-full zebra-stripe-table">
                             <thead>
@@ -690,187 +638,9 @@ index.html
                             ALL <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
                     </div>
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-gutter">
-                        <!-- Product 1: Optibelt VB -->
-                        <div
-                            class="flex flex-col bg-surface-container-lowest border border-outline-variant overflow-hidden group rounded">
-                            <div
-                                class="h-64 relative overflow-hidden bg-surface-container-low border-b border-outline-variant flex items-center justify-center p-4">
-                                <img class="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105"
-                                    src="https://belts-store.com/wp-content/uploads/2011/06/optibelt_VB_Classic_V-belts-1-1-247x296.jpg"
-                                    alt="Optibelt VB" />
-                            </div>
-                            <div class="p-6 flex flex-col justify-between flex-1">
-                                <div>
-                                    <span
-                                        class="px-2 py-1 bg-secondary-fixed text-on-secondary-fixed text-[10px] font-bold uppercase rounded">V-Belts</span>
-                                    <h4 class="font-headline-lg text-lg uppercase text-primary font-bold mt-2">Optibelt
-                                        VB</h4>
-                                    <p class="text-xs text-on-surface-variant mt-2 leading-relaxed">Classical V-belts
-                                        designed for general industrial and agricultural machinery, offering high
-                                        dependability and efficiency.</p>
-                                </div>
-                                <div class="mt-6 flex justify-between items-center">
-                                    <span class="font-technical-label text-primary font-bold text-xs">Ref:
-                                        OPTI-VB-CLASSIC</span>
-                                    <button
-                                        class="bg-primary text-on-primary px-4 py-2 text-xs font-bold uppercase hover:bg-primary-container transition-all add-to-cart-btn"
-                                        data-product-id="OPTI-VB-CLASSIC" data-product-name="Optibelt VB">ADD TO
-                                        CART</button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Product 2: Optibelt RED POWER 3 -->
-                        <div
-                            class="flex flex-col bg-surface-container-lowest border border-outline-variant overflow-hidden group rounded">
-                            <div
-                                class="h-64 relative overflow-hidden bg-surface-container-low border-b border-outline-variant flex items-center justify-center p-4">
-                                <img class="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105"
-                                    src="https://belts-store.com/wp-content/uploads/2025/09/Produktfoto_Red_Power_Industrie-1-247x296.jpg"
-                                    alt="Optibelt RED POWER 3" />
-                            </div>
-                            <div class="p-6 flex flex-col justify-between flex-1">
-                                <div>
-                                    <span
-                                        class="px-2 py-1 bg-secondary-fixed text-on-secondary-fixed text-[10px] font-bold uppercase rounded">V-Belts</span>
-                                    <h4 class="font-headline-lg text-lg uppercase text-primary font-bold mt-2">Optibelt
-                                        RED POWER 3</h4>
-                                    <p class="text-xs text-on-surface-variant mt-2 leading-relaxed">High-performance
-                                        wrapped wedge belts. Maintenance-free operation and up to 50% higher power
-                                        capacity than standard belts.</p>
-                                </div>
-                                <div class="mt-6 flex justify-between items-center">
-                                    <span class="font-technical-label text-primary font-bold text-xs">Ref:
-                                        OPTI-RED-POWER3</span>
-                                    <button
-                                        class="bg-primary text-on-primary px-4 py-2 text-xs font-bold uppercase hover:bg-primary-container transition-all add-to-cart-btn"
-                                        data-product-id="OPTI-RED-POWER3" data-product-name="Optibelt RED POWER 3">ADD
-                                        TO CART</button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Product 3: Optibelt SK -->
-                        <div
-                            class="flex flex-col bg-surface-container-lowest border border-outline-variant overflow-hidden group rounded">
-                            <div
-                                class="h-64 relative overflow-hidden bg-surface-container-low border-b border-outline-variant flex items-center justify-center p-4">
-                                <img class="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105"
-                                    src="https://belts-store.com/wp-content/uploads/2025/09/Produktfoto_SK_Industrie-1-247x296.jpg"
-                                    alt="Optibelt SK" />
-                            </div>
-                            <div class="p-6 flex flex-col justify-between flex-1">
-                                <div>
-                                    <span
-                                        class="px-2 py-1 bg-secondary-fixed text-on-secondary-fixed text-[10px] font-bold uppercase rounded">V-Belts</span>
-                                    <h4 class="font-headline-lg text-lg uppercase text-primary font-bold mt-2">Optibelt
-                                        SK</h4>
-                                    <p class="text-xs text-on-surface-variant mt-2 leading-relaxed">High-performance
-                                        wedge belts with space-saving designs, high speed capability, and exceptional
-                                        power ratings.</p>
-                                </div>
-                                <div class="mt-6 flex justify-between items-center">
-                                    <span class="font-technical-label text-primary font-bold text-xs">Ref:
-                                        OPTI-SK-WEDGE</span>
-                                    <button
-                                        class="bg-primary text-on-primary px-4 py-2 text-xs font-bold uppercase hover:bg-primary-container transition-all add-to-cart-btn"
-                                        data-product-id="OPTI-SK-WEDGE" data-product-name="Optibelt SK">ADD TO
-                                        CART</button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Product 4: Optibelt SUPER TX -->
-                        <div
-                            class="flex flex-col bg-surface-container-lowest border border-outline-variant overflow-hidden group rounded">
-                            <div
-                                class="h-64 relative overflow-hidden bg-surface-container-low border-b border-outline-variant flex items-center justify-center p-4">
-                                <img class="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105"
-                                    src="https://belts-store.com/wp-content/uploads/2011/07/Produktfoto_TX_Industrie-1-247x296.jpg"
-                                    alt="Optibelt SUPER TX" />
-                            </div>
-                            <div class="p-6 flex flex-col justify-between flex-1">
-                                <div>
-                                    <span
-                                        class="px-2 py-1 bg-secondary-fixed text-on-secondary-fixed text-[10px] font-bold uppercase rounded">V-Belts</span>
-                                    <h4 class="font-headline-lg text-lg uppercase text-primary font-bold mt-2">Optibelt
-                                        SUPER TX</h4>
-                                    <p class="text-xs text-on-surface-variant mt-2 leading-relaxed">Moulded cogged
-                                        raw-edge V-belts. Features high flexibility, high torque capacity, and excellent
-                                        heat dissipation properties.</p>
-                                </div>
-                                <div class="mt-6 flex justify-between items-center">
-                                    <span class="font-technical-label text-primary font-bold text-xs">Ref:
-                                        OPTI-SUPER-TX</span>
-                                    <button
-                                        class="bg-primary text-on-primary px-4 py-2 text-xs font-bold uppercase hover:bg-primary-container transition-all add-to-cart-btn"
-                                        data-product-id="OPTI-SUPER-TX" data-product-name="Optibelt SUPER TX">ADD TO
-                                        CART</button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Product 5: Optibelt SUPER XE-POWER PRO -->
-                        <div
-                            class="flex flex-col bg-surface-container-lowest border border-outline-variant overflow-hidden group rounded">
-                            <div
-                                class="h-64 relative overflow-hidden bg-surface-container-low border-b border-outline-variant flex items-center justify-center p-4">
-                                <img class="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105"
-                                    src="https://belts-store.com/wp-content/uploads/2025/10/Riemen_Keilriemen_SUPER_XE-POWER_PRO-1-247x296.jpg"
-                                    alt="Optibelt SUPER XE-POWER PRO" />
-                            </div>
-                            <div class="p-6 flex flex-col justify-between flex-1">
-                                <div>
-                                    <span
-                                        class="px-2 py-1 bg-secondary-fixed text-on-secondary-fixed text-[10px] font-bold uppercase rounded">V-Belts</span>
-                                    <h4 class="font-headline-lg text-lg uppercase text-primary font-bold mt-2">Optibelt
-                                        SUPER XE-POWER PRO</h4>
-                                    <p class="text-xs text-on-surface-variant mt-2 leading-relaxed">Raw edge cogged
-                                        wedge belts. Excellent transverse rigidity, maintenance-free, suitable for
-                                        high-torque applications.</p>
-                                </div>
-                                <div class="mt-6 flex justify-between items-center">
-                                    <span class="font-technical-label text-primary font-bold text-xs">Ref:
-                                        OPTI-SUPER-XE</span>
-                                    <button
-                                        class="bg-primary text-on-primary px-4 py-2 text-xs font-bold uppercase hover:bg-primary-container transition-all add-to-cart-btn"
-                                        data-product-id="OPTI-SUPER-XE"
-                                        data-product-name="Optibelt SUPER XE-POWER PRO">ADD TO CART</button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Product 6: Power Twist V-Belts -->
-                        <div
-                            class="flex flex-col bg-surface-container-lowest border border-outline-variant overflow-hidden group rounded">
-                            <div
-                                class="h-64 relative overflow-hidden bg-surface-container-low border-b border-outline-variant flex items-center justify-center p-4">
-                                <img class="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105"
-                                    src="https://belts-store.com/wp-content/uploads/2025/10/Polyurethane-Power-Twist-V-belts-1-1-247x296.jpg"
-                                    alt="Power Twist V-Belts" />
-                            </div>
-                            <div class="p-6 flex flex-col justify-between flex-1">
-                                <div>
-                                    <span
-                                        class="px-2 py-1 bg-secondary-fixed text-on-secondary-fixed text-[10px] font-bold uppercase rounded">Link
-                                        Belts</span>
-                                    <h4 class="font-headline-lg text-lg uppercase text-primary font-bold mt-2">Power
-                                        Twist V-Belts</h4>
-                                    <p class="text-xs text-on-surface-variant mt-2 leading-relaxed">Link V-belts made
-                                        from polyurethane/polyester composite. Easily assembled to any length on-site,
-                                        minimizing downtime.</p>
-                                </div>
-                                <div class="mt-6 flex justify-between items-center">
-                                    <span class="font-technical-label text-primary font-bold text-xs">Ref:
-                                        POLY-POWER-TWIST</span>
-                                    <button
-                                        class="bg-primary text-on-primary px-4 py-2 text-xs font-bold uppercase hover:bg-primary-container transition-all add-to-cart-btn"
-                                        data-product-id="POLY-POWER-TWIST" data-product-name="Power Twist V-Belts">ADD
-                                        TO CART</button>
-                                </div>
-                            </div>
-                        </div>
+                    <!-- Dynamic product grid -->
+                    <div id="our-products-grid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-gutter">
+                        <!-- Rendered by JavaScript -->
                     </div>
                 </section>
 
@@ -893,7 +663,8 @@ index.html
                     <div
                         class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-gutter bg-surface-container p-8 border border-outline-variant rounded">
                         <!-- Client Logo 1: Saudi Aramco -->
-                        <div class="logo-card flex flex-col items-center justify-center p-4 bg-surface-container-lowest border border-outline-variant rounded transition-all duration-300 group h-28"
+                        <a href="clients.html#aramco"
+                            class="logo-card flex flex-col items-center justify-center p-4 bg-surface-container-low border border-outline-variant rounded transition-all duration-300 group h-28"
                             data-aos="zoom-in" data-aos-delay="0">
                             <img class="max-h-14 max-w-full object-contain grayscale opacity-60 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-400"
                                 src="https://belts-store.com/wp-content/uploads/2021/07/aramco-1-1.jpg"
@@ -901,25 +672,31 @@ index.html
                             <span
                                 class="font-technical-label text-[9px] uppercase tracking-widest text-on-surface-variant mt-2 opacity-0 group-hover:opacity-100 transition-opacity">Saudi
                                 Aramco</span>
-                        </div>
+                        </a>
+
                         <!-- Client Logo 2: Ma'aden -->
-                        <div class="logo-card flex flex-col items-center justify-center p-4 bg-surface-container-lowest border border-outline-variant rounded transition-all duration-300 group h-28"
+                        <a href="clients.html#maaden"
+                            class="logo-card flex flex-col items-center justify-center p-4 bg-surface-container-low border border-outline-variant rounded transition-all duration-300 group h-28"
                             data-aos="zoom-in" data-aos-delay="50">
                             <img class="max-h-14 max-w-full object-contain grayscale opacity-60 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-400"
                                 src="https://belts-store.com/wp-content/uploads/2021/07/maaden-1.jpg" alt="Ma'aden" />
                             <span
                                 class="font-technical-label text-[9px] uppercase tracking-widest text-on-surface-variant mt-2 opacity-0 group-hover:opacity-100 transition-opacity">Ma'aden</span>
-                        </div>
+                        </a>
+
                         <!-- Client Logo 3: SABIC -->
-                        <div class="logo-card flex flex-col items-center justify-center p-4 bg-surface-container-lowest border border-outline-variant rounded transition-all duration-300 group h-28"
+                        <a href="clients.html#sabic"
+                            class="logo-card flex flex-col items-center justify-center p-4 bg-surface-container-low border border-outline-variant rounded transition-all duration-300 group h-28"
                             data-aos="zoom-in" data-aos-delay="100">
                             <img class="max-h-14 max-w-full object-contain grayscale opacity-60 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-400"
                                 src="https://belts-store.com/wp-content/uploads/2021/07/sabic-2-1.jpg" alt="SABIC" />
                             <span
                                 class="font-technical-label text-[9px] uppercase tracking-widest text-on-surface-variant mt-2 opacity-0 group-hover:opacity-100 transition-opacity">SABIC</span>
-                        </div>
+                        </a>
+
                         <!-- Client Logo 4: Saudi Cement -->
-                        <div class="logo-card flex flex-col items-center justify-center p-4 bg-surface-container-lowest border border-outline-variant rounded transition-all duration-300 group h-28"
+                        <a href="clients.html#saudi-cement"
+                            class="logo-card flex flex-col items-center justify-center p-4 bg-surface-container-low border border-outline-variant rounded transition-all duration-300 group h-28"
                             data-aos="zoom-in" data-aos-delay="150">
                             <img class="max-h-14 max-w-full object-contain grayscale opacity-60 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-400"
                                 src="https://belts-store.com/wp-content/uploads/2021/07/Saudi-cement-1.jpg"
@@ -927,9 +704,11 @@ index.html
                             <span
                                 class="font-technical-label text-[9px] uppercase tracking-widest text-on-surface-variant mt-2 opacity-0 group-hover:opacity-100 transition-opacity">Saudi
                                 Cement</span>
-                        </div>
+                        </a>
+
                         <!-- Client Logo 5: Napco National -->
-                        <div class="logo-card flex flex-col items-center justify-center p-4 bg-surface-container-lowest border border-outline-variant rounded transition-all duration-300 group h-28"
+                        <a href="clients.html#napco"
+                            class="logo-card flex flex-col items-center justify-center p-4 bg-surface-container-low border border-outline-variant rounded transition-all duration-300 group h-28"
                             data-aos="zoom-in" data-aos-delay="200">
                             <img class="max-h-14 max-w-full object-contain grayscale opacity-60 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-400"
                                 src="https://belts-store.com/wp-content/uploads/2021/07/nabco-1-1.jpg"
@@ -937,9 +716,11 @@ index.html
                             <span
                                 class="font-technical-label text-[9px] uppercase tracking-widest text-on-surface-variant mt-2 opacity-0 group-hover:opacity-100 transition-opacity">Napco
                                 National</span>
-                        </div>
+                        </a>
+
                         <!-- Client Logo 6: Eastern Cement -->
-                        <div class="logo-card flex flex-col items-center justify-center p-4 bg-surface-container-lowest border border-outline-variant rounded transition-all duration-300 group h-28"
+                        <a href="clients.html#eastern-cement"
+                            class="logo-card flex flex-col items-center justify-center p-4 bg-surface-container-low border border-outline-variant rounded transition-all duration-300 group h-28"
                             data-aos="zoom-in" data-aos-delay="250">
                             <img class="max-h-14 max-w-full object-contain grayscale opacity-60 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-400"
                                 src="https://belts-store.com/wp-content/uploads/2021/07/Eastern-Cement-1.jpg"
@@ -947,11 +728,12 @@ index.html
                             <span
                                 class="font-technical-label text-[9px] uppercase tracking-widest text-on-surface-variant mt-2 opacity-0 group-hover:opacity-100 transition-opacity">Eastern
                                 Cement</span>
-                        </div>
+                        </a>
+
                     </div>
                 </section>
 
-                <!-- Partner Highlights -->
+                <!-- Partner Highlights (NOW WITH RELIABLE ICON FALLBACK) -->
                 <section id="our-partners" class="scroll-mt-24" data-aos="fade-up" data-aos-duration="700">
                     <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
                         <div>
@@ -966,53 +748,65 @@ index.html
                             class="text-primary font-bold text-sm flex items-center gap-1 hover:underline shrink-0 font-technical-label">VIEW
                             ALL PARTNERS <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
                     </div>
+
                     <div
                         class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-gutter bg-surface-container p-8 border border-outline-variant rounded">
-                        <div class="logo-card flex flex-col items-center justify-center p-4 bg-surface-container-lowest border border-outline-variant rounded transition-all duration-300 group h-28"
-                            data-aos="zoom-in" data-aos-delay="0">
-                            <img class="max-h-14 max-w-full object-contain grayscale opacity-60 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-400"
-                                src="https://belts-store.com/wp-content/uploads/2021/07/logo-optibelt-1.jpg"
-                                alt="Optibelt" />
+                        <!-- Partner 1: Optibelt -->
+                        <a href="partners.html"
+                            class="logo-card flex flex-col items-center justify-between p-4 bg-surface-container-lowest border border-outline-variant rounded transition-all duration-300 group h-28 text-center">
                             <span
-                                class="font-technical-label text-[9px] uppercase tracking-widest text-on-surface-variant mt-2 opacity-0 group-hover:opacity-100 transition-opacity">Optibelt</span>
-                        </div>
-                        <div class="logo-card flex flex-col items-center justify-center p-4 bg-surface-container-lowest border border-outline-variant rounded transition-all duration-300 group h-28"
-                            data-aos="zoom-in" data-aos-delay="50">
-                            <img class="max-h-14 max-w-full object-contain grayscale opacity-60 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-400"
-                                src="https://belts-store.com/wp-content/uploads/2021/07/skf-logo-1-1.jpg" alt="SKF" />
+                                class="font-headline-lg text-2xl font-bold text-primary group-hover:text-secondary transition-colors">OPTIBELT</span>
                             <span
-                                class="font-technical-label text-[9px] uppercase tracking-widest text-on-surface-variant mt-2 opacity-0 group-hover:opacity-100 transition-opacity">SKF</span>
-                        </div>
-                        <div class="logo-card flex flex-col items-center justify-center p-4 bg-surface-container-lowest border border-outline-variant rounded transition-all duration-300 group h-28"
-                            data-aos="zoom-in" data-aos-delay="100">
-                            <img class="max-h-14 max-w-full object-contain grayscale opacity-60 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-400"
-                                src="https://belts-store.com/wp-content/uploads/2021/07/habasit-1.jpg" alt="Habasit" />
+                                class="font-technical-label text-[9px] uppercase tracking-widest text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity">Optibelt
+                                Germany</span>
+                        </a>
+                        <!-- Partner 2: SKF -->
+                        <a href="partners.html"
+                            class="logo-card flex flex-col items-center justify-between p-4 bg-surface-container-lowest border border-outline-variant rounded transition-all duration-300 group h-28 text-center">
                             <span
-                                class="font-technical-label text-[9px] uppercase tracking-widest text-on-surface-variant mt-2 opacity-0 group-hover:opacity-100 transition-opacity">Habasit</span>
-                        </div>
-                        <div class="logo-card flex flex-col items-center justify-center p-4 bg-surface-container-lowest border border-outline-variant rounded transition-all duration-300 group h-28"
-                            data-aos="zoom-in" data-aos-delay="150">
-                            <img class="max-h-14 max-w-full object-contain grayscale opacity-60 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-400"
-                                src="https://belts-store.com/wp-content/uploads/2021/07/kauman-1.jpg" alt="Kauman" />
+                                class="font-headline-lg text-2xl font-bold text-primary group-hover:text-secondary transition-colors">SKF</span>
                             <span
-                                class="font-technical-label text-[9px] uppercase tracking-widest text-on-surface-variant mt-2 opacity-0 group-hover:opacity-100 transition-opacity">Kauman</span>
-                        </div>
-                        <div class="logo-card flex flex-col items-center justify-center p-4 bg-surface-container-lowest border border-outline-variant rounded transition-all duration-300 group h-28"
-                            data-aos="zoom-in" data-aos-delay="200">
-                            <img class="max-h-14 max-w-full object-contain grayscale opacity-60 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-400"
-                                src="https://belts-store.com/wp-content/uploads/2021/07/fag-logo-1.jpg" alt="FAG" />
+                                class="font-technical-label text-[9px] uppercase tracking-widest text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity">SKF
+                                Sweden</span>
+                        </a>
+                        <!-- Partner 3: Habasit -->
+                        <a href="partners.html"
+                            class="logo-card flex flex-col items-center justify-between p-4 bg-surface-container-lowest border border-outline-variant rounded transition-all duration-300 group h-28 text-center">
                             <span
-                                class="font-technical-label text-[9px] uppercase tracking-widest text-on-surface-variant mt-2 opacity-0 group-hover:opacity-100 transition-opacity">FAG</span>
-                        </div>
-                        <div class="logo-card flex flex-col items-center justify-center p-4 bg-surface-container-lowest border border-outline-variant rounded transition-all duration-300 group h-28"
-                            data-aos="zoom-in" data-aos-delay="250">
+                                class="font-headline-lg text-2xl font-bold text-primary group-hover:text-secondary transition-colors">HABASIT</span>
                             <span
-                                class="font-headline-lg font-bold text-primary text-2xl tracking-wider group-hover:text-secondary transition-colors">NSK</span>
+                                class="font-technical-label text-[9px] uppercase tracking-widest text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity">Habasit
+                                Switzerland</span>
+                        </a>
+                        <!-- Partner 4: Kauman -->
+                        <a href="partners.html"
+                            class="logo-card flex flex-col items-center justify-between p-4 bg-surface-container-lowest border border-outline-variant rounded transition-all duration-300 group h-28 text-center">
                             <span
-                                class="font-technical-label text-[9px] uppercase tracking-widest text-on-surface-variant mt-2 opacity-0 group-hover:opacity-100 transition-opacity">NSK
+                                class="font-headline-lg text-2xl font-bold text-primary group-hover:text-secondary transition-colors">KAUMAN</span>
+                            <span
+                                class="font-technical-label text-[9px] uppercase tracking-widest text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity">Kauman
+                                Spain</span>
+                        </a>
+                        <!-- Partner 5: FAG -->
+                        <a href="partners.html"
+                            class="logo-card flex flex-col items-center justify-between p-4 bg-surface-container-lowest border border-outline-variant rounded transition-all duration-300 group h-28 text-center">
+                            <span
+                                class="font-headline-lg text-2xl font-bold text-primary group-hover:text-secondary transition-colors">FAG</span>
+                            <span
+                                class="font-technical-label text-[9px] uppercase tracking-widest text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity">FAG
+                                Germany</span>
+                        </a>
+                        <!-- Partner 6: NSK -->
+                        <a href="partners.html"
+                            class="logo-card flex flex-col items-center justify-between p-4 bg-surface-container-lowest border border-outline-variant rounded transition-all duration-300 group h-28 text-center">
+                            <span
+                                class="font-headline-lg text-2xl font-bold text-primary group-hover:text-secondary transition-colors">NSK</span>
+                            <span
+                                class="font-technical-label text-[9px] uppercase tracking-widest text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity">NSK
                                 Japan</span>
-                        </div>
+                        </a>
                     </div>
+
                 </section>
 
             </div>
@@ -1080,13 +874,13 @@ index.html
                     Categories</h4>
                 <ul class="space-y-4 font-body-md text-sm">
                     <li><a class="text-surface-variant opacity-80 hover:opacity-100 transition-opacity"
-                            href="products.html?cat=Belts+Power+Transmission">Belt Power Transmission</a></li>
+                            href="products.html?cat=BELTS+POWER+TRANSMISSION">Belt Power Transmission</a></li>
                     <li><a class="text-surface-variant opacity-80 hover:opacity-100 transition-opacity"
-                            href="products.html?cat=Pulleys">Pulleys</a></li>
+                            href="products.html?cat=PULLEYS">Pulleys</a></li>
                     <li><a class="text-surface-variant opacity-80 hover:opacity-100 transition-opacity"
-                            href="products.html?cat=Bearings">Bearings</a></li>
+                            href="products.html?cat=BEARINGS">Bearings</a></li>
                     <li><a class="text-surface-variant opacity-80 hover:opacity-100 transition-opacity"
-                            href="products.html?cat=Transmission+Chains+And+Sprockets">Transmission Chains</a></li>
+                            href="products.html?cat=TRANSMISSION+CHAINS+AND+SPROCKETS">Transmission Chains</a></li>
                 </ul>
             </div>
             <div class="col-span-12 lg:col-span-4">
@@ -1115,40 +909,173 @@ index.html
             </div>
         </div>
     </footer>
-    <script>
-        // Smooth reveal interaction for side nav
-        document.querySelectorAll('aside a').forEach(link => {
-            link.addEventListener('click', (e) => {
-                document.querySelectorAll('aside a').forEach(l => {
-                    l.classList.remove('bg-primary', 'text-on-primary', 'font-bold');
-                    l.classList.add('text-on-surface-variant', 'hover:bg-surface-container-high', 'hover:text-on-surface');
-                });
-                link.classList.add('bg-primary', 'text-on-primary', 'font-bold');
-                link.classList.remove('text-on-surface-variant', 'hover:bg-surface-container-high', 'hover:text-on-surface');
-            });
-        });
 
-        // Wire up category cards in side nav to link to products.html
-        document.querySelectorAll('aside a[href="#"]').forEach(link => {
-            const label = link.querySelector('span.font-technical-label');
-            if (label) {
-                const catMap = {
-                    'BELTS POWER TRANSMISSION': 'BELTS+POWER+TRANSMISSION',
-                    'PULLEYS': 'PULLEYS',
-                    'CONVEYING ACCESSORIES': 'CONVEYING+ACCESSORIES',
-                    'RUBBER': 'RUBBER',
-                    'INDUSTRIAL INSULATION': 'INDUSTRIAL+INSULATION',
-                    'BEARINGS': 'BEARINGS',
-                    'TRANSMISSION CHAINS': 'TRANSMISSION+CHAINS+AND+SPROCKETS',
-                    'SPROCKETS': 'TRANSMISSION+CHAINS+AND+SPROCKETS'
-                };
-                const text = label.textContent.trim();
-                if (catMap[text]) {
-                    link.href = 'products.html?cat=' + catMap[text];
+    <!-- ════════════════════════════════════════════════════════════ -->
+    <!-- DYNAMIC HOMEPAGE SCRIPT – loads products from API, cleans duplicates -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // ── Duplicate cleaner (copy from products.html) ──
+            function cleanTitle(raw) {
+                if (!raw) return '';
+                let title = raw.trim().replace(/\s+/g, ' ');
+                let previous = '';
+                while (title !== previous) {
+                    previous = title;
+                    const words = title.split(/\s+/);
+                    const result = [];
+                    let i = 0;
+                    while (i < words.length) {
+                        let foundRepeat = false;
+                        for (let L = 1; L <= (words.length - i) / 2; L++) {
+                            let same = true;
+                            for (let j = 0; j < L; j++) {
+                                if (words[i + j].toLowerCase() !== words[i + L + j].toLowerCase()) {
+                                    same = false;
+                                    break;
+                                }
+                            }
+                            if (same) {
+                                for (let j = 0; j < L; j++) result.push(words[i + j]);
+                                i += 2 * L;
+                                foundRepeat = true;
+                                break;
+                            }
+                        }
+                        if (!foundRepeat) {
+                            result.push(words[i]);
+                            i++;
+                        }
+                    }
+                    title = result.join(' ');
                 }
+                return title.replace(/\s+/g, ' ').trim() || raw;
+            }
+
+            // ── Helpers ──
+            function getProductImage(product) {
+                if (product.images && product.images.length > 0) return product.images[0];
+                if (product.image && product.image.trim() !== '') return product.image;
+                return 'https://belts-store.com/wp-content/uploads/2025/09/BELTS-STORE_en-1.svg';
+            }
+
+            function getProductRef(product) {
+                if (product.sku) return product.sku;
+                if (product.specifications) {
+                    if (product.specifications.DIN) return product.specifications.DIN;
+                    if (product.specifications.ISO) return product.specifications.ISO;
+                }
+                return 'BT-GENERIC';
+            }
+
+            // ── Render Featured Products (specific IDs 87 and 104) ──
+            const featuredGrid = document.getElementById('featured-products-grid');
+            if (featuredGrid) {
+                fetch('/api/products')
+                    .then(res => {
+                        if (!res.ok) throw new Error('Failed to fetch products');
+                        return res.json();
+                    })
+                    .then(products => {
+                        // Explicitly use product indices 87 and 104
+                        const featuredIds = [87, 104];
+                        const featuredProducts = featuredIds.map(id => products[id]).filter(p => p !== undefined);
+                        if (featuredProducts.length === 0) {
+                            featuredGrid.innerHTML = `<div class="col-span-2 text-center text-sm text-on-surface-variant py-8">Featured products not found.</div>`;
+                            return;
+                        }
+                        featuredGrid.innerHTML = featuredProducts.map((p, idx) => {
+                            const globalIndex = products.indexOf(p);
+                            const image = getProductImage(p);
+                            const ref = getProductRef(p);
+                            const rawBadge = p.subcategory || p.category || 'Component';
+                            const badge = cleanTitle(rawBadge);
+                            const rawTitle = p.name || 'Unnamed Product';
+                            const title = cleanTitle(rawTitle);
+                            const desc = p.shortDescription || 'Industrial grade component.';
+                            return `
+                            <div class="flex bg-surface-container-lowest border border-outline-variant overflow-hidden group">
+                                <div class="w-1/3 h-48 flex items-center justify-center bg-surface-container-low">
+                                    <img class="max-h-full max-w-full object-contain" 
+                                         src="${image}" 
+                                         alt="${title}"
+                                         onerror="this.src='https://belts-store.com/wp-content/uploads/2025/09/BELTS-STORE_en-1.svg'" />
+                                </div>
+                                <div class="w-2/3 p-6 flex flex-col justify-between">
+                                    <div>
+                                        <span class="px-2 py-1 bg-secondary-fixed text-on-secondary-fixed text-[10px] font-bold uppercase rounded">${badge}</span>
+                                        <h4 class="font-headline-lg text-lg uppercase mt-2">${title}</h4>
+                                        <p class="text-xs text-on-surface-variant mt-1">${desc}</p>
+                                    </div>
+                                    <div class="mt-4 flex justify-between items-center">
+                                        <span class="font-technical-label text-primary font-bold">Ref: ${ref}</span>
+                                        <a href="product-detail.html?id=${globalIndex}" class="bg-primary text-on-primary px-4 py-2 text-xs font-bold uppercase hover:bg-primary/90 transition">VIEW SPECS</a>
+                                    </div>
+                                </div>
+                            </div>`;
+                        }).join('');
+                    })
+                    .catch(err => {
+                        console.error('Error loading featured products:', err);
+                        featuredGrid.innerHTML = `<div class="col-span-2 text-center text-sm text-on-surface-variant py-8">Unable to load featured products.</div>`;
+                    });
+            }
+
+            // ── Render "Our Products" grid (first 6) ──
+            const ourProductsGrid = document.getElementById('our-products-grid');
+            if (ourProductsGrid) {
+                fetch('/api/products')
+                    .then(res => {
+                        if (!res.ok) throw new Error('Failed to fetch products');
+                        return res.json();
+                    })
+                    .then(products => {
+                        const firstSix = products.slice(0, 6);
+                        ourProductsGrid.innerHTML = firstSix.map((p, idx) => {
+                            const globalIndex = idx;
+                            const image = getProductImage(p);
+                            const ref = getProductRef(p);
+                            const rawBadge = p.subcategory || p.category || 'Component';
+                            const badge = cleanTitle(rawBadge);
+                            const rawTitle = p.name || 'Unnamed Product';
+                            const title = cleanTitle(rawTitle);
+                            const shortDesc = p.shortDescription || 'Industrial grade component designed for high reliability.';
+                            return `
+                            <div class="flex flex-col bg-surface-container-lowest border border-outline-variant overflow-hidden group rounded">
+                                <div class="h-64 relative overflow-hidden bg-surface-container-low border-b border-outline-variant flex items-center justify-center p-4">
+                                    <a href="product-detail.html?id=${globalIndex}">
+                                        <img class="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105" src="${image}" alt="${title}" />
+                                    </a>
+                                </div>
+                                <div class="p-6 flex flex-col justify-between flex-1">
+                                    <div>
+                                        <span class="px-2 py-1 bg-secondary-fixed text-on-secondary-fixed text-[10px] font-bold uppercase rounded">${badge}</span>
+                                        <h4 class="font-headline-lg text-lg uppercase text-primary font-bold mt-2">
+                                            <a href="product-detail.html?id=${globalIndex}" class="hover:underline">${title}</a>
+                                        </h4>
+                                        <p class="text-xs text-on-surface-variant mt-2 leading-relaxed">${shortDesc}</p>
+                                    </div>
+                                    <div class="mt-6 flex justify-between items-center">
+                                        <span class="font-technical-label text-primary font-bold text-xs">Ref: ${ref}</span>
+                                        <button class="bg-primary text-on-primary px-4 py-2 text-xs font-bold uppercase hover:bg-primary-container transition-all add-to-cart-btn" 
+                                            data-product-id="${globalIndex}" 
+                                            data-product-name="${title}"
+                                            data-product-image="${image}"
+                                            data-product-ref="${ref}">ADD TO CART</button>
+                                    </div>
+                                </div>
+                            </div>`;
+                        }).join('');
+                    })
+                    .catch(err => {
+                        console.error('Error loading products for Our Products:', err);
+                        ourProductsGrid.innerHTML = `<div class="col-span-full text-center text-sm text-on-surface-variant py-8">Unable to load products.</div>`;
+                    });
             }
         });
+    </script>
 
+    <!-- Existing scripts (hero slider, counters, etc.) - unchanged -->
+    <script>
         // ── Hero Slider ──
         let currentSlide = 0;
         const totalSlides = 3;
@@ -1160,7 +1087,6 @@ index.html
             currentSlide = index;
             const slide = document.getElementById('slide-' + currentSlide);
             slide.classList.add('active');
-            // Re-trigger content animation
             const content = slide.querySelector('.hero-slide-content');
             if (content) { content.style.animation = 'none'; content.offsetHeight; content.style.animation = ''; }
             document.querySelectorAll('.hero-dot')[currentSlide].classList.add('active');
@@ -1202,11 +1128,12 @@ index.html
 
         document.querySelectorAll('.counter-val').forEach(el => counterObserver.observe(el));
     </script>
+
     <!-- AOS Init -->
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
     <script>AOS.init({ once: true, offset: 60, duration: 650, easing: 'ease-out-cubic' });</script>
     <script src="products-data.js"></script>
-    <script src="nav-component.js"></script>
+    <script src="nav-component.js?v=2"></script>
     <script src="cart.js"></script>
 </body>
 

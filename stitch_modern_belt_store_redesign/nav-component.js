@@ -1,5 +1,5 @@
-// nav-component.js — v6.1 (2-col dropdown, click-to-expand, correct subcat param)
-console.log('✅ nav-component.js v6.1 loaded — subcat fixed');
+// nav-component.js — v5.0 (2-col dropdown, click-to-expand subs, filtered links)
+console.log('✅ nav-component.js v5.0 loaded');
 
 (function () {
     'use strict';
@@ -12,19 +12,18 @@ console.log('✅ nav-component.js v6.1 loaded — subcat fixed');
         { id: 'contact',  label: 'Contact Us',   href: 'contact.html' },
     ];
 
-    // ── CATEGORIES — names match products.html categoriesHierarchy, use subcat ──
     const CATEGORIES = [
         {
-            label: 'BELTS POWER TRANSMISSION',
+            label: 'BELT POWER TRANSMISSION',
             href:  'products.html?cat=BELTS+POWER+TRANSMISSION',
             subs: [
-                { label: 'V Belts',                        href: 'products.html?cat=BELTS+POWER+TRANSMISSION&subcat=V+Belts' },
-                { label: 'Round Belts',                    href: 'products.html?cat=BELTS+POWER+TRANSMISSION&subcat=Round+Belts' },
-                { label: 'Ribbed Belts',                   href: 'products.html?cat=BELTS+POWER+TRANSMISSION&subcat=Ribbed+Belts' },
-                { label: 'Emergency and transport belts',  href: 'products.html?cat=BELTS+POWER+TRANSMISSION&subcat=Emergency+and+transport+belts' },
-                { label: 'Timing Belts',                   href: 'products.html?cat=BELTS+POWER+TRANSMISSION&subcat=Timing+Belts' },
-                { label: 'Special Belts',                  href: 'products.html?cat=BELTS+POWER+TRANSMISSION&subcat=Special+Belts' },
-                { label: 'Repair Kits and Tension Tools',  href: 'products.html?cat=BELTS+POWER+TRANSMISSION&subcat=Repair+Kits+and+Tension+Tools' },
+                { label: 'V Belts',                       href: 'products.html?cat=BELTS+POWER+TRANSMISSION&sub=V+Belts' },
+                { label: 'Round Belts',                   href: 'products.html?cat=BELTS+POWER+TRANSMISSION&sub=Round+Belts' },
+                { label: 'Measurement and Testing Tools', href: 'products.html?cat=BELTS+POWER+TRANSMISSION&sub=Measurement+and+Testing+Tools' },
+                { label: 'Ribbed Belts',                  href: 'products.html?cat=BELTS+POWER+TRANSMISSION&sub=Ribbed+Belts' },
+                { label: 'Emergency and Transport Belts', href: 'products.html?cat=BELTS+POWER+TRANSMISSION&sub=Emergency+and+transport+belts' },
+                { label: 'Timing Belts',                  href: 'products.html?cat=BELTS+POWER+TRANSMISSION&sub=Timing+Belts' },
+                { label: 'Special Belts',                 href: 'products.html?cat=BELTS+POWER+TRANSMISSION&sub=Special+Belts' },
             ]
         },
         {
@@ -51,19 +50,19 @@ console.log('✅ nav-component.js v6.1 loaded — subcat fixed');
             label: 'BEARINGS',
             href:  'products.html?cat=BEARINGS',
             subs: [
-                { label: 'Radial Ball Bearings',               href: 'products.html?cat=BEARINGS&subcat=RADIAL+BALL+BEARINGS' },
-                { label: 'Radial Roller Bearings',             href: 'products.html?cat=BEARINGS&subcat=RADIAL+ROLLER+BEARINGS' },
-                { label: 'Thrust Ball Bearings',               href: 'products.html?cat=BEARINGS&subcat=THRUST+BALL+BEARINGS' },
-                { label: 'Bearing Units & Plummer Block',      href: 'products.html?cat=BEARINGS&subcat=BEARING+UNITS+AND+PLUMMER+BLOCK+HOUSING' },
+                { label: 'Radial Ball Bearings',           href: 'products.html?cat=BEARINGS&sub=Radial+Ball+Bearings' },
+                { label: 'Radial Roller Bearings',         href: 'products.html?cat=BEARINGS&sub=Radial+Roller+Bearings' },
+                { label: 'Thrust Ball Bearings',           href: 'products.html?cat=BEARINGS&sub=Thrust+Ball+Bearings' },
+                { label: 'Bearing Units & Plummer Block',  href: 'products.html?cat=BEARINGS&sub=Bearing+Units+and+Plummer+Block+Housing' },
             ]
         },
         {
             label: 'TRANSMISSION CHAINS AND SPROCKETS',
             href:  'products.html?cat=TRANSMISSION+CHAINS+AND+SPROCKETS',
             subs: [
-                { label: 'Transmission Chain', href: 'products.html?cat=TRANSMISSION+CHAINS+AND+SPROCKETS&subcat=TRANSMISSION+CHAIN' },
-                { label: 'Sprockets',          href: 'products.html?cat=TRANSMISSION+CHAINS+AND+SPROCKETS&subcat=SPROCKETS' },
-                { label: 'Couplings',          href: 'products.html?cat=TRANSMISSION+CHAINS+AND+SPROCKETS&subcat=COUPLINGS' },
+                { label: 'Transmission Chain', href: 'products.html?cat=TRANSMISSION+CHAINS+AND+SPROCKETS&sub=Transmission+chain' },
+                { label: 'Sprockets',          href: 'products.html?cat=TRANSMISSION+CHAINS+AND+SPROCKETS&sub=Sprockets' },
+                { label: 'Couplings',          href: 'products.html?cat=TRANSMISSION+CHAINS+AND+SPROCKETS&sub=Couplings' },
             ]
         },
     ];
@@ -79,13 +78,17 @@ console.log('✅ nav-component.js v6.1 loaded — subcat fixed');
             const uid = 'navcat-' + i;
 
             let html = '';
+
             if (hasSubs) {
+                // Category header acts as accordion toggle
                 html += `
                 <div class="nav-cat-block mb-3">
-                    <button type="button"
+                    <button
+                        type="button"
                         data-target="${uid}"
                         onclick="window.__navToggleSub('${uid}', this)"
-                        class="nav-cat-btn w-full text-left flex items-center justify-between gap-2">
+                        class="nav-cat-btn w-full text-left flex items-center justify-between gap-2 group/cat"
+                    >
                         <a href="${cat.href}"
                            onclick="event.stopPropagation()"
                            class="font-bold text-[12px] uppercase tracking-wide text-primary hover:text-secondary transition-colors border-b-2 border-primary pb-1 flex-1">
@@ -104,6 +107,7 @@ console.log('✅ nav-component.js v6.1 loaded — subcat fixed');
                     </ul>
                 </div>`;
             } else {
+                // No subs — plain link
                 html += `
                 <div class="nav-cat-block mb-3">
                     <a href="${cat.href}"
@@ -112,18 +116,23 @@ console.log('✅ nav-component.js v6.1 loaded — subcat fixed');
                     </a>
                 </div>`;
             }
+
             col.push(html);
         });
 
         return `
         <div class="absolute top-full left-1/2 -translate-x-1/2 w-[640px] bg-surface-container-lowest border border-outline-variant shadow-2xl z-[100] py-4 px-5
                     opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+
+            <!-- Header row -->
             <div class="flex items-center justify-between border-b border-outline-variant pb-2 mb-4">
                 <span class="text-[10px] uppercase tracking-widest text-on-surface-variant font-technical-label">Product Categories</span>
                 <a href="products.html" class="text-[10px] uppercase tracking-widest text-primary hover:underline font-technical-label flex items-center gap-1">
                     View All <span class="material-symbols-outlined text-xs">arrow_forward</span>
                 </a>
             </div>
+
+            <!-- 2-column grid -->
             <div class="grid grid-cols-2 gap-x-6">
                 <div>${leftCol.join('')}</div>
                 <div>${rightCol.join('')}</div>
@@ -131,8 +140,8 @@ console.log('✅ nav-component.js v6.1 loaded — subcat fixed');
         </div>`;
     }
 
-    // ── Global toggle helper ─────────────────────────────────────────────────
-    window.__navToggleSub = function (uid) {
+    // ── Global toggle helper (called from onclick in the HTML) ────────────────
+    window.__navToggleSub = function (uid, btn) {
         const list = document.getElementById(uid);
         const icon = document.getElementById(uid + '-icon');
         if (!list) return;
@@ -144,10 +153,10 @@ console.log('✅ nav-component.js v6.1 loaded — subcat fixed');
     // ── Desktop nav ──────────────────────────────────────────────────────────
     function buildDesktopNav(activePage) {
         return PAGES.map(p => {
-            const isActive  = p.id === activePage;
-            const base      = 'font-body-md text-[11px] uppercase font-bold tracking-wider transition-colors whitespace-nowrap';
-            const active    = 'text-primary border-b-2 border-primary pb-1';
-            const inactive  = 'text-on-surface-variant hover:text-primary';
+            const isActive = p.id === activePage;
+            const base    = 'font-body-md text-[11px] uppercase font-bold tracking-wider transition-colors whitespace-nowrap';
+            const active  = 'text-primary border-b-2 border-primary pb-1';
+            const inactive = 'text-on-surface-variant hover:text-primary';
             const cls = `${base} ${isActive ? active : inactive}`;
 
             if (p.hasDropdown) {
@@ -167,22 +176,23 @@ console.log('✅ nav-component.js v6.1 loaded — subcat fixed');
     // ── Mobile nav ───────────────────────────────────────────────────────────
     function buildMobileNav(activePage) {
         return PAGES.map(p => {
-            const isActive  = p.id === activePage;
-            const active    = 'text-primary font-bold bg-primary/5';
-            const inactive  = 'text-on-surface-variant hover:text-primary hover:bg-surface-container-low';
+            const isActive = p.id === activePage;
+            const active   = 'text-primary font-bold bg-primary/5';
+            const inactive = 'text-on-surface-variant hover:text-primary hover:bg-surface-container-low';
             const cls = `block px-4 py-3 font-body-md text-sm uppercase font-bold transition-colors ${isActive ? active : inactive}`;
 
             if (p.hasDropdown) {
                 const cats = CATEGORIES.map((cat, i) => {
                     const uid = 'mob-cat-' + i;
                     const hasSubs = cat.subs.length > 0;
+
                     if (!hasSubs) {
                         return `<a href="${cat.href}" class="block px-6 py-2.5 text-xs font-technical-label uppercase text-on-surface-variant hover:text-primary transition-colors border-b border-outline-variant/40">${cat.label}</a>`;
                     }
                     return `
                     <div>
                         <button type="button"
-                            onclick="(function(){var list=document.getElementById('${uid}');var icon=document.getElementById('${uid}-icon');var open=!list.classList.contains('hidden');list.classList.toggle('hidden',open);if(icon)icon.style.transform=open?'':'rotate(180deg)';})()"
+                            onclick="(function(btn){var uid='${uid}';var list=document.getElementById(uid);var icon=document.getElementById(uid+'-icon');var open=!list.classList.contains('hidden');list.classList.toggle('hidden',open);if(icon)icon.style.transform=open?'':'rotate(180deg)';})(this)"
                             class="w-full flex items-center justify-between px-6 py-2.5 text-xs font-technical-label uppercase text-on-surface-variant hover:text-primary transition-colors border-b border-outline-variant/40">
                             <a href="${cat.href}" onclick="event.stopPropagation()" class="hover:underline">${cat.label}</a>
                             <span class="material-symbols-outlined text-sm" id="${uid}-icon">expand_more</span>
@@ -209,7 +219,7 @@ console.log('✅ nav-component.js v6.1 loaded — subcat fixed');
         }).join('\n');
     }
 
-    // ── Inject navbar (unchanged) ──────────────────────────────────────────
+    // ── Inject navbar ────────────────────────────────────────────────────────
     function injectNavbar() {
         const activePage = window.__NAV_ACTIVE_PAGE || document.body.getAttribute('data-active-page') || '';
         const header = document.querySelector('header');
