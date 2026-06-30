@@ -321,37 +321,10 @@ if (isVercel) {
   }
 }
 
-// Helper: read products from JSON file
-function readProductsFile() {
-  try {
-    if (!fs.existsSync(PRODUCTS_FILE)) {
-      try {
-        fs.writeFileSync(PRODUCTS_FILE, JSON.stringify([], null, 2));
-      } catch (writeErr) {
-        console.error('Error writing default products file:', writeErr.message);
-      }
-    }
-    const data = fs.readFileSync(PRODUCTS_FILE, 'utf8');
-    return JSON.parse(data);
-  } catch (err) {
-    console.error('Error reading products file:', err);
-    return [];
-  }
-}
-
-// Helper: write products to JSON file
-function writeProductsFile(products) {
-  try {
-    fs.writeFileSync(PRODUCTS_FILE, JSON.stringify(products, null, 2));
-  } catch (writeErr) {
-    console.error('Error writing products file:', writeErr.message);
-  }
-}
-
 // GET /api/products
 app.get('/api/products', async (req, res) => {
   try {
-    const products = readProductsFile();
+    const products = await db.Product.find();
     res.json(products);
   } catch (err) {
     res.status(500).json({ error: 'Failed to fetch products' });
@@ -361,7 +334,6 @@ app.get('/api/products', async (req, res) => {
 // POST /api/products
 app.post('/api/products', requireAdmin, async (req, res) => {
   try {
-    const products = readProductsFile();
     const { name, description, shortDescription, category, subcategory, brand, sku, price, discountPrice, stock, status, images, specifications, tags } = req.body;
 
     if (!name || !sku || !category) {
@@ -375,8 +347,7 @@ app.post('/api/products', requireAdmin, async (req, res) => {
     // Generate unique SKU
     const finalSku = sku + '-' + Math.random().toString(36).substring(2, 6);
 
-    const newProduct = {
-      _id: `prod_${timestamp}_${Math.random().toString(36).substring(2, 9)}`,
+    const newProduct = await db.Product.create({
       name: name || 'Unnamed Product',
       description: description || '',
       shortDescription: shortDescription || '',
@@ -391,22 +362,15 @@ app.post('/api/products', requireAdmin, async (req, res) => {
       images: images || [],
       specifications: specifications || {},
       tags: tags || [category, subcategory].filter(Boolean),
-      slug: slug,
-      createdAt: new Date().toISOString(),
-      updatedAt: new Date().toISOString()
-    };
-
-    products.push(newProduct);
-    writeProductsFile(products);
+      slug: slug
+    });
 
     // Log activity
-    const logs = JSON.parse(fs.readFileSync(LOGS_FILE, 'utf8') || '[]');
-    logs.push({
+    await db.ActivityLog.create({
       action: `Added product: ${name} (SKU: ${finalSku})`,
       adminName: req.admin.name,
       timestamp: new Date().toISOString()
     });
-    fs.writeFileSync(LOGS_FILE, JSON.stringify(logs, null, 2));
 
     console.log(`✅ Product created: ${name} (${finalSku})`);
     res.json(newProduct);
@@ -420,10 +384,6 @@ app.post('/api/products', requireAdmin, async (req, res) => {
 // PUT /api/products/:id
 app.put('/api/products/:id', requireAdmin, async (req, res) => {
   try {
-    const products = readProductsFile();
-    const index = products.findIndex(p => p._id === req.params.id);
-    if (index === -1) return res.status(404).json({ error: 'Product not found' });
-
     const { name, description, shortDescription, category, subcategory, brand, sku, price, discountPrice, stock, status, images, specifications, tags } = req.body;
 
     // Generate slug from name with timestamp
@@ -437,37 +397,33 @@ app.put('/api/products/:id', requireAdmin, async (req, res) => {
       finalStatus = 'Inactive';
     }
 
-    const updatedProduct = {
-      ...products[index],
-      name: name || products[index].name,
+    const updateData = {
+      ...(name && { name }),
       description: description || '',
       shortDescription: shortDescription || '',
-      category: category || products[index].category,
+      ...(category && { category }),
       subcategory: subcategory || '',
       brand: brand || '',
-      sku: sku || products[index].sku,
-      price: price !== undefined ? Number(price) : products[index].price,
-      discountPrice: discountPrice !== undefined ? Number(discountPrice) : products[index].discountPrice,
-      stock: stock !== undefined ? Number(stock) : products[index].stock,
-      status: finalStatus || products[index].status,
-      images: images || products[index].images,
+      ...(sku && { sku }),
+      ...(price !== undefined && { price: Number(price) }),
+      ...(discountPrice !== undefined && { discountPrice: Number(discountPrice) }),
+      ...(stock !== undefined && { stock: Number(stock) }),
+      ...(finalStatus && { status: finalStatus }),
+      ...(images && { images }),
       specifications: specifications || {},
       tags: tags || [category, subcategory].filter(Boolean),
-      ...(slug && { slug }),
-      updatedAt: new Date().toISOString()
+      ...(slug && { slug })
     };
 
-    products[index] = updatedProduct;
-    writeProductsFile(products);
+    const updatedProduct = await db.Product.findByIdAndUpdate(req.params.id, updateData, { new: true });
+    if (!updatedProduct) return res.status(404).json({ error: 'Product not found' });
 
     // Log activity
-    const logs = JSON.parse(fs.readFileSync(LOGS_FILE, 'utf8') || '[]');
-    logs.push({
+    await db.ActivityLog.create({
       action: `Modified product: ${updatedProduct.name} (SKU: ${updatedProduct.sku})`,
       adminName: req.admin.name,
       timestamp: new Date().toISOString()
     });
-    fs.writeFileSync(LOGS_FILE, JSON.stringify(logs, null, 2));
 
     res.json(updatedProduct);
   } catch (err) {
@@ -479,22 +435,15 @@ app.put('/api/products/:id', requireAdmin, async (req, res) => {
 // DELETE /api/products/:id
 app.delete('/api/products/:id', requireAdmin, async (req, res) => {
   try {
-    const products = readProductsFile();
-    const index = products.findIndex(p => p._id === req.params.id);
-    if (index === -1) return res.status(404).json({ error: 'Product not found' });
-
-    const deleted = products[index];
-    products.splice(index, 1);
-    writeProductsFile(products);
+    const deleted = await db.Product.findByIdAndDelete(req.params.id);
+    if (!deleted) return res.status(404).json({ error: 'Product not found' });
 
     // Log activity
-    const logs = JSON.parse(fs.readFileSync(LOGS_FILE, 'utf8') || '[]');
-    logs.push({
+    await db.ActivityLog.create({
       action: `Deleted product: ${deleted.name} (SKU: ${deleted.sku})`,
       adminName: req.admin.name,
       timestamp: new Date().toISOString()
     });
-    fs.writeFileSync(LOGS_FILE, JSON.stringify(logs, null, 2));
 
     res.json({ success: true });
   } catch (err) {

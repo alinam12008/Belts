@@ -1007,7 +1007,7 @@
                         return;
                     }
                     featuredGrid.innerHTML = featuredProducts.map((p, idx) => {
-                        const globalIndex = products.indexOf(p);
+                        const globalIndex = p.slug || p._id || products.indexOf(p);
                         const image = getProductImage(p);
                         const ref = getProductRef(p);
                         const rawBadge = p.subcategory || p.category || 'Component';
@@ -1056,7 +1056,7 @@
                 .then(products => {
                     const firstSix = products.slice(0, 6);
                     ourProductsGrid.innerHTML = firstSix.map((p, idx) => {
-                        const globalIndex = idx;
+                        const globalIndex = p.slug || p._id || idx;
                         const image = getProductImage(p);
                         const ref = getProductRef(p);
                         const rawBadge = p.subcategory || p.category || 'Component';

@@ -189,7 +189,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Close drawer clicking outside (semi-overlay)
         document.addEventListener('click', (e) => {
-            if (!drawer.contains(e.target) && !cartBtn.contains(e.target) && !drawer.classList.contains(translateRemoveClass) && !quoteModal.contains(e.target)) {
+            const isCartTrigger = cartBtn.contains(e.target) || e.target.closest('button[onclick*="floating-cart-btn"]');
+            if (!drawer.contains(e.target) && !isCartTrigger && !drawer.classList.contains(translateRemoveClass) && !quoteModal.contains(e.target)) {
                 drawer.classList.add(translateRemoveClass);
             }
         });

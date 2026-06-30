@@ -402,13 +402,13 @@
                         }
 
                         return {
-                            id: index,
+                            id: product.id || index,
                             title: title,
                             breadcrumbs: breadcrumbs,
                             image: image,
                             short_description: product.shortDescription || 'Industrial grade component designed for high reliability.',
                             specs: specs,
-                            sku: product.sku || null,
+                            sku: product.sku || product.original?.sku || null,
                             originalName: originalName // for debugging
                         };
                     });
@@ -418,7 +418,7 @@
                     // URL filters
                     const params = new URLSearchParams(window.location.search);
                     const catParam = params.get('cat');
-                    const subcatParam = params.get('subcat');
+                    const subcatParam = params.get('subcat') || params.get('sub');
                     if (catParam) {
                         currentFilter.category = catParam;
                         if (subcatParam) currentFilter.subcategory = subcatParam;
@@ -672,6 +672,24 @@
             });
         }
 
+        function normalizeCategoryName(cat) {
+            if (!cat) return '';
+            return cat.toLowerCase()
+                .trim()
+                .replace(/accessories/g, 'accessorise')
+                .replace(/accessorise/g, 'accessorise')
+                .replace(/&/g, 'and')
+                .replace(/\s+/g, ' ');
+        }
+
+        function normalizeSubcategoryName(sub) {
+            if (!sub) return '';
+            return sub.toLowerCase()
+                .trim()
+                .replace(/&/g, 'and')
+                .replace(/\s+/g, ' ');
+        }
+
         // Filter and render – unchanged except using the new hierarchy
         function filterAndRenderProducts() {
             const grid = document.getElementById('products-grid');
@@ -685,15 +703,18 @@
 
             const filtered = allProducts.filter(product => {
                 if (currentFilter.category) {
-                    const matchesCat = product.breadcrumbs.some(b => b.toLowerCase().trim() === currentFilter.category.toLowerCase().trim());
+                    const targetCat = normalizeCategoryName(currentFilter.category);
+                    const matchesCat = product.breadcrumbs.some(b => normalizeCategoryName(b) === targetCat);
                     if (!matchesCat) return false;
                 }
                 if (currentFilter.subcategory) {
-                    const matchesSub = product.breadcrumbs.some(b => b.toLowerCase().trim() === currentFilter.subcategory.toLowerCase().trim());
+                    const targetSub = normalizeSubcategoryName(currentFilter.subcategory);
+                    const matchesSub = product.breadcrumbs.some(b => normalizeSubcategoryName(b) === targetSub);
                     if (!matchesSub) return false;
                 }
                 if (currentFilter.subsubcategory) {
-                    const matchesSubSub = product.breadcrumbs.some(b => b.toLowerCase().trim() === currentFilter.subsubcategory.toLowerCase().trim());
+                    const targetSubSub = normalizeSubcategoryName(currentFilter.subsubcategory);
+                    const matchesSubSub = product.breadcrumbs.some(b => normalizeSubcategoryName(b) === targetSubSub);
                     if (!matchesSubSub) return false;
                 }
                 if (currentFilter.search.trim()) {
