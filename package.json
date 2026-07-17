@@ -12,10 +12,27 @@
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
     "jsonwebtoken": "^9.0.3",
-    "mongoose": "^9.7.1",
+    "mongodb": "^7.5.0",
+    "mongoose": "^9.7.4",
     "nodemailer": "^6.10.1"
   },
   "devDependencies": {
     "nodemon": "^3.1.14"
-  }
+  },
+  "name": "belts-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alinam12008/Belts-Project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/alinam12008/Belts-Project/issues"
+  },
+  "homepage": "https://github.com/alinam12008/Belts-Project#readme"
 }

@@ -115,7 +115,7 @@ class JSONModel {
     const items = this._read();
     const idx = items.findIndex(item => item._id === id);
     if (idx === -1) return null;
-    
+
     // Support mongoose update operations like $push, $set
     let current = items[idx];
     if (updateData.$push) {
@@ -267,19 +267,19 @@ const CouponSchema = new mongoose.Schema({
 // --- Unified Database Initialization & Seeding ---
 db.init = async function (mongoUri, defaultEmail, defaultPassword) {
   let isConnected = false;
-  
+
   if (mongoUri) {
     try {
       console.log('Attempting MongoDB connection...');
       // 1.5 seconds timeout for quick fallback
       await mongoose.connect(mongoUri, {
-        serverSelectionTimeoutMS: 1500
+        serverSelectionTimeoutMS: 10000
       });
       console.log('Successfully connected to MongoDB.');
       isConnected = true;
       isMongo = true;
       db.isMongo = true;
-      
+
       db.Admin = mongoose.model('Admin', AdminSchema);
       db.Product = mongoose.model('Product', ProductSchema);
       db.Category = mongoose.model('Category', CategorySchema);
@@ -297,7 +297,7 @@ db.init = async function (mongoUri, defaultEmail, defaultPassword) {
     console.log('Initializing file-based JSON Database...');
     db.isMongo = false;
     isMongo = false;
-    
+
     db.Admin = new JSONModel('admin.json');
     db.Product = new JSONModel('products.json');
     db.Category = new JSONModel('categories.json');
@@ -309,7 +309,7 @@ db.init = async function (mongoUri, defaultEmail, defaultPassword) {
   }
 
   // --- Seeding Data ---
-  
+
   // 1. Seed Admin
   const adminCount = await db.Admin.countDocuments();
   if (adminCount === 0) {
@@ -358,16 +358,16 @@ db.init = async function (mongoUri, defaultEmail, defaultPassword) {
       console.log('Seeding initial products database from products_data.json...');
       try {
         const rawData = JSON.parse(fs.readFileSync(productsJsonPath, 'utf8'));
-        
+
         for (let i = 0; i < rawData.length; i++) {
           const raw = rawData[i];
           const catName = (raw.breadcrumbs && raw.breadcrumbs[0]) || 'Belts Power Transmission';
           const subcatName = (raw.breadcrumbs && raw.breadcrumbs[1]) || '';
-          
+
           // Generate realistic prices and stocks
           const basePrice = 45 + Math.floor(Math.random() * 350);
           const discPrice = basePrice > 100 ? basePrice - 15 - Math.floor(Math.random() * 20) : basePrice;
-          
+
           // Generate clean slug
           const slug = (raw.title || '')
             .toLowerCase()

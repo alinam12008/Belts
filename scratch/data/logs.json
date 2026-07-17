@@ -1222,5 +1222,21 @@
     "action": "Deleted product: Emergency EG (SKU: SKU-1EG-m9nb)",
     "adminName": "System Administrator",
     "timestamp": "2026-07-17T15:14:54.614Z"
+  },
+  {
+    "_id": "k5w9eiywb570iqipe7vxu",
+    "createdAt": "2026-07-17T18:13:40.490Z",
+    "updatedAt": "2026-07-17T18:13:40.490Z",
+    "action": "Added product: Habasit Belts (SKU: SKU-1000-SP-HB-5xzc-h9gw)",
+    "adminName": "System Administrator",
+    "timestamp": "2026-07-17T18:13:40.488Z"
+  },
+  {
+    "_id": "afewy0kn6roifbckx3hxop",
+    "createdAt": "2026-07-17T18:15:46.624Z",
+    "updatedAt": "2026-07-17T18:15:46.624Z",
+    "action": "Modified product: Habasit Belts (SKU: SKU-1000-SP-HB-5xzc-h9gw)",
+    "adminName": "System Administrator",
+    "timestamp": "2026-07-17T18:15:46.623Z"
   }
 ]
