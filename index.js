@@ -7,6 +7,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const nodemailer = require('nodemailer');
 const db = require('./db');
+const cloudinary = require('./cloudinary');
 const isVercel = process.env.VERCEL === '1';
 
 // ============================================================
@@ -99,8 +100,7 @@ app.get('/partners.html', (req, res) => {
 // Then serve the redesign folder (if it exists)
 app.use(express.static(path.join(__dirname, 'stitch_modern_belt_store_redesign')));
 
-// Then serve uploads folder (serve from /tmp on Vercel for write support)
-app.use('/mmmm', express.static(isVercel ? '/tmp/mmmm' : path.join(__dirname, 'mmmm')));
+// NOTE: Images are now served from Cloudinary CDN — no local /mmmm folder needed.
 
 // Init database
 db.init(
@@ -522,15 +522,12 @@ app.delete('/api/products/:id', requireAdmin, async (req, res) => {
 });
 
 
-// Image Base64 Upload
-const UPLOADS_DIR = isVercel ? path.join('/tmp', 'mmmm', 'uploads') : path.join(__dirname, 'mmmm', 'uploads');
-if (!fs.existsSync(UPLOADS_DIR)) {
-  try {
-    fs.mkdirSync(UPLOADS_DIR, { recursive: true });
-  } catch (err) {
-    console.error('Failed to create UPLOADS_DIR:', err.message);
-  }
-}
+// ============================================================
+// Image Upload — Cloudinary (permanent, CDN-backed storage)
+// ============================================================
+
+// ~10 MB limit: base64 encodes ~4/3x, so 13.6 M chars ≈ 10 MB raw
+const MAX_BASE64_LENGTH = 13_600_000;
 
 app.post('/api/products/upload', requireAdmin, async (req, res) => {
   try {
@@ -538,19 +535,38 @@ app.post('/api/products/upload', requireAdmin, async (req, res) => {
     if (!filename || !base64) {
       return res.status(400).json({ error: 'Filename and base64 string are required' });
     }
-    const matches = base64.match(/^data:([A-Za-z-+\/]+);base64,(.+)$/);
-    let buffer;
-    if (matches && matches.length === 3) {
-      buffer = Buffer.from(matches[2], 'base64');
-    } else {
-      buffer = Buffer.from(base64, 'base64');
+
+    // 1. File size guard — reject payloads over ~10 MB
+    if (base64.length > MAX_BASE64_LENGTH) {
+      return res.status(413).json({ error: 'Image too large. Maximum allowed size is 10 MB.' });
     }
-    const cleanName = filename.replace(/[^a-zA-Z0-9.-]/g, '_');
-    const finalFilename = `${Date.now()}_${cleanName}`;
-    fs.writeFileSync(path.join(UPLOADS_DIR, finalFilename), buffer);
-    res.json({ url: `/mmmm/uploads/${finalFilename}` });
+
+    // 2. Image-type validation — only accept images
+    if (base64.startsWith('data:') && !base64.startsWith('data:image/')) {
+      return res.status(400).json({ error: 'Only image uploads are allowed.' });
+    }
+
+    // 3. Preserve the original format: use the data URI prefix as-is when present,
+    //    otherwise fall back to JPEG (document: frontend should always send full data URI)
+    const dataUri = base64.startsWith('data:')
+      ? base64
+      : `data:image/jpeg;base64,${base64}`;
+
+    // 4. Build a unique public_id — Date.now() guarantees no collisions, so overwrite is not needed
+    const publicId = `belts-store/${Date.now()}_${filename.replace(/\.[^.]+$/, '').replace(/[^a-zA-Z0-9_-]/g, '_')}`;
+
+    const result = await cloudinary.uploader.upload(dataUri, {
+      public_id: publicId,
+      resource_type: 'image',
+      quality: 'auto',
+      fetch_format: 'auto',
+    });
+
+    console.log(`✅ Image uploaded to Cloudinary: ${result.secure_url}`);
+    res.json({ url: result.secure_url });
   } catch (err) {
-    res.status(500).json({ error: 'Image upload failed' });
+    console.error('❌ Cloudinary upload failed:', err);
+    res.status(500).json({ error: 'Image upload failed', details: err.message });
   }
 });
 

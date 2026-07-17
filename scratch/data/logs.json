@@ -1198,5 +1198,29 @@
     "action": "Deleted product: Agricultural Roller Chain (SKU: SKU-1000)",
     "adminName": "System Administrator",
     "timestamp": "2026-07-16T19:08:56.914Z"
+  },
+  {
+    "_id": "tp22qzehmf1oqvohbpxtt",
+    "createdAt": "2026-07-17T15:14:45.508Z",
+    "updatedAt": "2026-07-17T15:14:45.508Z",
+    "action": "Added product: Emergency EG (SKU: SKU-1EG-qrcr)",
+    "adminName": "System Administrator",
+    "timestamp": "2026-07-17T15:14:45.506Z"
+  },
+  {
+    "_id": "0mvm02w7bl113m82ho2ch5r",
+    "createdAt": "2026-07-17T15:14:47.119Z",
+    "updatedAt": "2026-07-17T15:14:47.119Z",
+    "action": "Added product: Emergency EG (SKU: SKU-1EG-m9nb)",
+    "adminName": "System Administrator",
+    "timestamp": "2026-07-17T15:14:47.116Z"
+  },
+  {
+    "_id": "uebzl7i0ogyqv6ux5f5yp",
+    "createdAt": "2026-07-17T15:14:54.615Z",
+    "updatedAt": "2026-07-17T15:14:54.615Z",
+    "action": "Deleted product: Emergency EG (SKU: SKU-1EG-m9nb)",
+    "adminName": "System Administrator",
+    "timestamp": "2026-07-17T15:14:54.614Z"
   }
 ]
