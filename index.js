@@ -181,6 +181,39 @@ async function seedProductsFromCatalog() {
   }
 }
 
+// Rebuild the static products_data.json file from the current DB state.
+// This helps static pages that fetch products_data.json directly pick up
+// admin changes (create/edit/delete).
+async function rebuildStaticCatalog() {
+  try {
+    const products = await db.Product.find({ status: 'Active' });
+    const mapped = products.map((p, idx) => {
+      const breadcrumbs = [p.category];
+      if (p.subcategory) breadcrumbs.push(p.subcategory);
+      return {
+        title: p.name,
+        url: p.slug ? `https://belts-store.com/product/${p.slug}/` : `https://belts-store.com/product/product-${idx}/`,
+        image: p.images && p.images.length > 0 ? p.images[0] : '',
+        breadcrumbs: breadcrumbs,
+        short_description: p.shortDescription || '',
+        full_description: p.description || '',
+        specs: p.specifications || {},
+        related: []
+      };
+    });
+
+    try {
+      fs.writeFileSync(CATALOG_PRODUCTS_PATH, JSON.stringify(mapped, null, 2), 'utf8');
+      console.log('✅ Rebuilt static products_data.json');
+    } catch (fsErr) {
+      // On some hosting platforms (serverless), writing into the project dir may fail.
+      console.warn('⚠️ Failed to write products_data.json to disk:', fsErr.message);
+    }
+  } catch (err) {
+    console.error('Failed to rebuild static catalog:', err.message);
+  }
+}
+
 // Authentication middleware
 const requireAdmin = (req, res, next) => {
   const authHeader = req.headers.authorization;
@@ -650,6 +683,8 @@ app.post('/api/products', requireAdmin, async (req, res) => {
     });
 
     console.log(`✅ Product created: ${name} (${finalSku})`);
+    // Rebuild static catalog for frontend consumers
+    try { await rebuildStaticCatalog(); } catch (e) { /* logged in helper */ }
     res.json(newProduct);
 
   } catch (err) {
@@ -702,6 +737,8 @@ app.put('/api/products/:id', requireAdmin, async (req, res) => {
       timestamp: new Date().toISOString()
     });
 
+    // Rebuild static catalog so public pages reflect the edit
+    try { await rebuildStaticCatalog(); } catch (e) { /* logged in helper */ }
     res.json(updatedProduct);
   } catch (err) {
     console.error('❌ Product update error:', err);
@@ -725,6 +762,9 @@ app.delete('/api/products/:id', requireAdmin, async (req, res) => {
       adminName: req.admin.name,
       timestamp: new Date().toISOString()
     });
+
+    // Rebuild static catalog so public pages reflect the deletion
+    try { await rebuildStaticCatalog(); } catch (e) { /* logged in helper */ }
 
     res.json({ success: true });
   } catch (err) {
