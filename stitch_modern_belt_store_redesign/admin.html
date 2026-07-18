@@ -215,14 +215,14 @@
     <!-- Toast Container -->
     <div id="toast-container" class="fixed bottom-6 right-6 z-[11000] flex flex-col gap-3 max-w-sm w-full pointer-events-none"></div>
 
-    <!-- 2FA Simulated Code Alert Toast -->
+    <!-- 2FA Code Panel -->
     <div id="dev-otp-toast" class="fixed top-6 right-6 z-[11000] bg-primary text-white border border-outline-variant p-4 shadow-2xl rounded max-w-sm w-full hidden pointer-events-auto">
         <div class="flex items-start gap-3">
             <span class="material-symbols-outlined text-secondary-container mt-0.5">security</span>
             <div class="flex-1">
-                <p class="text-xs font-bold uppercase tracking-wider">2FA Code Generated (Dev Mode)</p>
+                <p class="text-xs font-bold uppercase tracking-wider">2FA Code</p>
                 <p class="text-lg font-technical-label font-bold text-yellow-300 mt-1" id="dev-otp-code">000000</p>
-                <p class="text-[10px] opacity-80 mt-1">Copy and paste this code to authorize access.</p>
+                <p class="text-[10px] opacity-80 mt-1">Use this code in the verification step after your password is accepted.</p>
             </div>
             <button onclick="document.getElementById('dev-otp-toast')?.classList.add('hidden')" class="text-white/60 hover:text-white"><span class="material-symbols-outlined text-sm">close</span></button>
         </div>
@@ -273,7 +273,7 @@
             <div id="otp-view" class="space-y-4 hidden">
                 <div class="text-center bg-primary/5 p-4 rounded border border-outline-variant/40 mb-4">
                     <p class="text-xs text-on-surface-variant font-bold uppercase">2FA OTP Required</p>
-                    <p class="text-[11px] text-on-surface-variant mt-1">A verification code has been logged to the server terminal.</p>
+                    <p class="text-[11px] text-on-surface-variant mt-1">Enter the one-time code shown in the admin panel after your password was accepted.</p>
                 </div>
                 <form id="otp-form" onsubmit="handleVerifyOTP(event)" class="space-y-4">
                     <div>
@@ -784,6 +784,43 @@
                     <button type="submit" class="bg-primary text-on-primary font-bold px-6 py-2.5 uppercase text-[10px] rounded hover:bg-primary-container shadow transition-all">Save Order</button>
                 </div>
             </form>
+        </div>
+    </div>
+
+    <!-- ================= MODAL: DELETE PRODUCT VERIFY ================= -->
+    <div id="delete-product-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[10005] hidden items-center justify-center p-4">
+        <div class="bg-surface-container-lowest border border-outline-variant p-8 shadow-2xl relative rounded max-w-xl w-full">
+            <button onclick="closeDeleteProductModal()" class="absolute top-4 right-4 text-on-surface-variant hover:text-primary transition-colors p-2">
+                <span class="material-symbols-outlined text-2xl">close</span>
+            </button>
+            <h4 class="font-headline-lg text-xl uppercase text-primary font-bold mb-4">Verify Delete Product</h4>
+            <p class="text-sm text-on-surface-variant mb-4">Enter admin credentials first, then use the generated 2FA code below to confirm deletion.</p>
+            <input type="hidden" id="delete-product-id" />
+            <div class="grid grid-cols-1 gap-4">
+                <div>
+                    <label class="block text-xs uppercase font-technical-label text-on-surface-variant mb-1">Admin Email or Username</label>
+                    <input id="delete-product-username" type="text" class="w-full p-3 border border-outline-variant bg-surface-container-low text-sm rounded outline-none focus:ring-1 focus:ring-primary focus:border-primary" />
+                </div>
+                <div>
+                    <label class="block text-xs uppercase font-technical-label text-on-surface-variant mb-1">Admin Password</label>
+                    <input id="delete-product-password" type="password" class="w-full p-3 border border-outline-variant bg-surface-container-low text-sm rounded outline-none focus:ring-1 focus:ring-primary focus:border-primary" />
+                </div>
+                <div class="flex flex-col gap-2 p-4 border border-outline-variant rounded bg-surface-container-high">
+                    <p class="text-xs uppercase font-technical-label text-on-surface-variant">Generated 2FA Code</p>
+                    <p id="delete-product-code-display" class="text-2xl font-bold text-primary">Awaiting code request</p>
+                    <p class="text-[11px] text-on-surface-variant">Click request code after entering credentials.</p>
+                </div>
+                <div>
+                    <label class="block text-xs uppercase font-technical-label text-on-surface-variant mb-1">Enter 2FA Code</label>
+                    <input id="delete-product-code" type="text" maxlength="6" class="w-full p-3 border border-outline-variant bg-surface-container-low text-sm rounded outline-none focus:ring-1 focus:ring-primary focus:border-primary" />
+                </div>
+                <div id="delete-product-status" class="text-xs text-on-surface-variant"></div>
+                <div class="flex justify-end gap-3 pt-2">
+                    <button type="button" onclick="closeDeleteProductModal()" class="border border-outline-variant text-on-surface-variant font-bold px-6 py-2.5 uppercase text-[10px] rounded hover:bg-surface-container-low transition-all">Cancel</button>
+                    <button type="button" onclick="requestDeleteProductCode()" class="bg-secondary text-white font-bold px-6 py-2.5 uppercase text-[10px] rounded hover:bg-blue-700 transition-all">Request Code</button>
+                    <button type="button" id="delete-product-confirm-btn" onclick="confirmDeleteProduct()" class="bg-error text-white font-bold px-6 py-2.5 uppercase text-[10px] rounded hover:bg-red-700 transition-all" disabled>Confirm Delete</button>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -2136,17 +2173,36 @@
             .catch(err => showToast(err.message, "error"));
         }
 
+        function openDeleteProductModal(id) {
+            document.getElementById('delete-product-id').value = id;
+            document.getElementById('delete-product-username').value = '';
+            document.getElementById('delete-product-password').value = '';
+            document.getElementById('delete-product-code').value = '';
+            document.getElementById('delete-product-code-display').innerText = 'Awaiting code request';
+            document.getElementById('delete-product-status').innerText = '';
+            document.getElementById('delete-product-confirm-btn').disabled = true;
+            document.getElementById('delete-product-modal').classList.remove('hidden');
+        }
+
+        function closeDeleteProductModal() {
+            document.getElementById('delete-product-modal').classList.add('hidden');
+        }
+
         async function handleDeleteProduct(id) {
-            const confirmed = window.confirm("Are you sure you want to permanently delete this product?");
-            if (!confirmed) return;
+            openDeleteProductModal(id);
+        }
 
-            const username = window.prompt("Enter your admin username or email:", "");
-            if (!username) return;
-            const password = window.prompt("Enter your admin password:", "");
-            if (!password) return;
-            const verificationCode = window.prompt("Enter the 2FA verification code:", "");
-            if (!verificationCode) return;
+        async function requestDeleteProductCode() {
+            const username = document.getElementById('delete-product-username').value.trim();
+            const password = document.getElementById('delete-product-password').value;
+            const statusEl = document.getElementById('delete-product-status');
 
+            if (!username || !password) {
+                showToast('Admin username/email and password are required.', 'error');
+                return;
+            }
+
+            statusEl.innerText = 'Verifying credentials...';
             try {
                 const verifyResp = await fetch('/api/admin/request-delete-verification', {
                     method: 'POST',
@@ -2159,18 +2215,40 @@
                 const verifyData = await verifyResp.json();
                 if (!verifyResp.ok) throw new Error(verifyData.error || 'Credential verification failed');
 
+                document.getElementById('delete-product-code-display').innerText = verifyData.devCode || 'Code generated';
+                document.getElementById('delete-product-confirm-btn').disabled = false;
+                statusEl.innerText = '2FA code generated. Enter it below and confirm deletion.';
+            } catch (err) {
+                statusEl.innerText = '';
+                showToast(err.message || 'Verification failed', 'error');
+            }
+        }
+
+        async function confirmDeleteProduct() {
+            const productId = document.getElementById('delete-product-id').value;
+            const username = document.getElementById('delete-product-username').value.trim();
+            const code = document.getElementById('delete-product-code').value.trim();
+            const statusEl = document.getElementById('delete-product-status');
+
+            if (!code) {
+                showToast('Enter the 2FA code before deleting.', 'error');
+                return;
+            }
+
+            statusEl.innerText = 'Confirming 2FA...';
+            try {
                 const confirmResp = await fetch('/api/admin/confirm-delete-verification', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
                         'Authorization': `Bearer ${token}`
                     },
-                    body: JSON.stringify({ email: verifyData.email, code: verificationCode })
+                    body: JSON.stringify({ email: username, code })
                 });
                 const confirmData = await confirmResp.json();
                 if (!confirmResp.ok) throw new Error(confirmData.error || '2FA verification failed');
 
-                const deleteResp = await fetch(`/api/products/${id}`, {
+                const deleteResp = await fetch(`/api/products/${productId}`, {
                     method: 'DELETE',
                     headers: {
                         'Authorization': `Bearer ${token}`,
@@ -2180,9 +2258,11 @@
                 const deleteData = await deleteResp.json().catch(() => ({}));
                 if (!deleteResp.ok) throw new Error(deleteData.error || 'Failed to delete product');
 
-                showToast("Product deleted successfully.", "success");
+                showToast('Product deleted successfully.', 'success');
+                closeDeleteProductModal();
                 loadProductsData();
             } catch (err) {
+                statusEl.innerText = '';
                 showToast(err.message || 'Failed to delete product', 'error');
             }
         }
