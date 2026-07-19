@@ -12,7 +12,10 @@ if (!fs.existsSync(DATA_DIR)) {
     console.error('Failed to create DATA_DIR:', err.message);
   }
 }
-
+// In db.js – expose a connection status
+let isConnected = false;
+module.exports.isConnected = () => isConnected;
+// Set isConnected = true inside your connection callback
 let isMongo = false;
 let db = {
   isMongo: false,

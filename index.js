@@ -1,4 +1,5 @@
 require('dotenv').config();
+const mongoose = require('mongoose'); // add this line
 const express = require('express');
 const path = require('path');
 const cors = require('cors');
@@ -227,6 +228,16 @@ const requireAdmin = (req, res, next) => {
 // ============================================================
 // 4. Routes – all fully implemented
 // ============================================================
+
+// 🔥 ADD THIS HEALTH CHECK ROUTE FIRST
+app.get('/api/health', async (req, res) => {
+  try {
+    await db.Product.findOne(); // a simple query to test connection
+    res.json({ status: 'ok', database: 'connected' });
+  } catch (err) {
+    res.status(500).json({ status: 'error', database: 'disconnected', error: err.message });
+  }
+});
 
 // Intercept products data request to serve dynamic product items
 app.get(['/products_data.json', '/stitch_modern_belt_store_redesign/products_data.json'], async (req, res) => {
@@ -485,10 +496,11 @@ if (isVercel) {
 // GET /api/products
 app.get('/api/products', async (req, res) => {
   try {
-    const products = await db.Product.find();
+    const products = await db.Product.find().lean(); // lean() for plain JS objects
     res.json(products);
   } catch (err) {
-    res.status(500).json({ error: 'Failed to fetch products' });
+    console.error('❌ GET /api/products error:', err.message, err.stack);
+    res.status(500).json({ error: 'Failed to fetch products', details: err.message });
   }
 });
 
@@ -687,9 +699,15 @@ app.post('/api/products', requireAdmin, async (req, res) => {
 // PUT /api/products/:id
 app.put('/api/products/:id', requireAdmin, async (req, res) => {
   try {
+    const { id } = req.params;
     const { name, description, shortDescription, category, subcategory, brand, sku, price, discountPrice, stock, status, images, specifications, tags } = req.body;
 
-    // Generate slug from name with timestamp
+    // Validate required fields
+    if (!name || !sku || !category) {
+      return res.status(400).json({ error: 'Name, SKU, and Category are required' });
+    }
+
+    // Generate slug
     let slug = undefined;
     if (name) {
       slug = name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '') + '-' + Date.now();
@@ -718,8 +736,28 @@ app.put('/api/products/:id', requireAdmin, async (req, res) => {
       ...(slug && { slug })
     };
 
-    const updatedProduct = await db.Product.findByIdAndUpdate(req.params.id, updateData, { new: true });
-    if (!updatedProduct) return res.status(404).json({ error: 'Product not found' });
+    // Try to find and update the product
+    let updatedProduct;
+    try {
+      updatedProduct = await db.Product.findByIdAndUpdate(id, updateData, { new: true });
+    } catch (castErr) {
+      // If ID is not a valid ObjectId, try to find by sku or slug (fallback)
+      console.warn(`Invalid ObjectId format for ID: ${id}, trying fallback by sku or slug`);
+      // Attempt to find by sku or slug if the id matches
+      const product = await db.Product.findOne({ 
+        $or: [{ sku: id }, { slug: id }] 
+      });
+      if (product) {
+        // Update the found product
+        updatedProduct = await db.Product.findByIdAndUpdate(product._id, updateData, { new: true });
+      } else {
+        throw castErr; // rethrow to trigger 404
+      }
+    }
+
+    if (!updatedProduct) {
+      return res.status(404).json({ error: 'Product not found' });
+    }
 
     // Log activity
     await db.ActivityLog.create({
@@ -728,11 +766,12 @@ app.put('/api/products/:id', requireAdmin, async (req, res) => {
       timestamp: new Date().toISOString()
     });
 
-    // Rebuild static catalog so public pages reflect the edit
+    // Rebuild static catalog
     try { await rebuildStaticCatalog(); } catch (e) { /* logged in helper */ }
+
     res.json(updatedProduct);
   } catch (err) {
-    console.error('❌ Product update error:', err);
+    console.error('❌ Product update error:', err.message, err.stack);
     res.status(500).json({ error: 'Failed to edit product', details: err.message });
   }
 });
