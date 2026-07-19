@@ -1,5 +1,5 @@
 /* Global stylesheet for responsive design */
-body { overflow-x: hidden; }
+body { overflow-x: clip; }
 
 /* Ensure media fits container */
 img, video { max-width: 100%; height: auto; }

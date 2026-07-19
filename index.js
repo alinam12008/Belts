@@ -1076,8 +1076,12 @@ app.get('/api/language/:lang', (req, res) => {
 // ============================================================
 // Static Files & Server Start (moved to bottom)
 // ============================================================
-app.use(express.static(__dirname));
+app.get('/i18n.js', (req, res) => {
+  res.sendFile(path.join(__dirname, 'i18n.js'));
+});
+app.use('/mmmm', express.static(path.join(__dirname, 'mmmm')));
 app.use(express.static(path.join(__dirname, 'stitch_modern_belt_store_redesign')));
+app.use('/stitch_modern_belt_store_redesign', express.static(path.join(__dirname, 'stitch_modern_belt_store_redesign')));
 
 app.get('/clients.html', (req, res) => {
   res.sendFile(path.join(__dirname, 'stitch_modern_belt_store_redesign', 'clients.html'));

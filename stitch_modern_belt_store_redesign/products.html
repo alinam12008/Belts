@@ -176,7 +176,7 @@
                 </div>
 
                 <!-- Products Grid -->
-                <div id="products-grid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-gutter">
+                <div id="products-grid" class="grid grid-cols-2 xl:grid-cols-3 gap-gutter">
                     <!-- Rendered via JS -->
                 </div>
 
@@ -727,7 +727,8 @@
                     const rawShort = desc.replace(/<[^>]+>/g, '').toLowerCase();
                     const inShort = rawShort.includes(query);
                     const inSpecs = Object.values(product.specs).some(v => v.toLowerCase().includes(query));
-                    return inTitle || inShort || inSpecs;
+                    const inSku = product.sku ? product.sku.toLowerCase().includes(query) : false;
+                    return inTitle || inShort || inSpecs || inSku;
                 }
                 return true;
             });
@@ -793,28 +794,28 @@
                 return `
                     <div class="flex flex-col bg-surface-container-lowest border border-outline-variant overflow-hidden group rounded-lg transition-all hover:shadow-lg hover:border-primary">
                         <!-- Product Image -->
-                        <a href="${detailLink}" class="h-56 relative overflow-hidden bg-surface-container-low border-b border-outline-variant flex items-center justify-center p-4">
+                        <a href="${detailLink}" class="h-32 sm:h-56 relative overflow-hidden bg-surface-container-low border-b border-outline-variant flex items-center justify-center p-2 sm:p-4">
                             <img class="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105" src="${product.image}" alt="${productTitle}" onerror="this.src='https://belts-store.com/wp-content/uploads/2025/09/BELTS-STORE_en-1.svg'"/>
                         </a>
-                        
+
                         <!-- Product Info -->
-                        <div class="p-6 flex flex-col justify-between flex-1">
+                        <div class="p-3 sm:p-6 flex flex-col justify-between flex-1">
                             <div>
                                 <span class="px-2 py-1 bg-secondary-fixed text-on-secondary-fixed text-[10px] font-bold uppercase rounded font-technical-label">
                                     ${tLabel(product.breadcrumbs[1] || product.breadcrumbs[0] || 'Component')}
                                 </span>
-                                <h4 class="font-headline-lg text-base uppercase text-primary font-bold mt-2 truncate">
+                                <h4 class="font-headline-lg text-sm sm:text-base uppercase text-primary font-bold mt-2 truncate">
                                     <a href="${detailLink}" class="hover:underline">${productTitle}</a>
                                 </h4>
                                 <p class="text-xs text-on-surface-variant mt-2 leading-relaxed h-16 overflow-hidden">
                                     ${shortDescText}
                                 </p>
                             </div>
-                            <div class="mt-6 flex justify-between items-center border-t border-outline-variant/30 pt-4">
-                                <span class="font-technical-label text-primary font-bold text-xs truncate max-w-[120px]" title="${ref}">Ref: ${cleanRef}</span>
-                                <button class="bg-primary text-on-primary px-4 py-2.5 text-[10px] font-bold uppercase hover:bg-primary-container transition-all add-to-cart-btn" 
+                            <div class="mt-4 sm:mt-6 flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 sm:gap-0 border-t border-outline-variant/30 pt-4">
+                                <span class="font-technical-label text-primary font-bold text-xs truncate sm:max-w-[120px]" title="${ref}">Ref: ${cleanRef}</span>
+                                <button class="w-full sm:w-auto bg-primary text-on-primary px-4 py-2.5 text-[10px] font-bold uppercase hover:bg-primary-container transition-all add-to-cart-btn"
                                     data-i18n="add_to_cart"
-                                    data-product-id="${product.id}" 
+                                    data-product-id="${product.id}"
                                     data-product-name="${productTitle}"
                                     data-product-image="${product.image}"
                                     data-product-ref="${ref}">ADD TO CART</button>

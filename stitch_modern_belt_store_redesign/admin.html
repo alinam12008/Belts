@@ -210,7 +210,7 @@
     <link rel="stylesheet" href="responsive.css">
     <link rel="stylesheet" href="custom-cursor.css">
 </head>
-<body class="admin-page bg-surface text-on-surface font-body-md min-h-screen flex flex-col">
+<body class="admin-page bg-surface text-on-surface font-body-md h-screen overflow-hidden flex flex-col">
 
     <!-- Toast Container -->
     <div id="toast-container" class="fixed bottom-6 right-6 z-[11000] flex flex-col gap-3 max-w-sm w-full pointer-events-none"></div>
@@ -523,35 +523,38 @@
 
                         <!-- Products Content Area -->
                         <div class="flex-1 space-y-6">
-                            <!-- Actions and search -->
-                            <div class="flex flex-col sm:flex-row justify-between items-center gap-4 bg-surface-container-lowest p-4 border border-outline-variant rounded-lg">
-                                <div class="relative w-full sm:w-80">
-                                    <input id="product-search-input" oninput="renderProductsTable()" class="w-full pl-10 pr-4 py-2.5 border border-outline-variant rounded focus:border-primary focus:ring-1 focus:ring-primary outline-none text-sm bg-surface-container-low transition-all" placeholder="Filter by name or SKU..." data-i18n-placeholder="admin_filter_sku_placeholder"/>
-                                    <span class="material-symbols-outlined absolute left-3 top-3 text-on-surface-variant text-base">search</span>
-                                </div>
-                                <button onclick="openAddProductModal()" class="w-full sm:w-auto bg-primary text-on-primary font-bold px-6 py-2.5 uppercase text-xs hover:bg-primary-container transition-all flex items-center justify-center gap-2 rounded shadow">
-                                    <span class="material-symbols-outlined text-sm">add</span> New Product
-                                </button>
-                            </div>
-
-                            <!-- Breadcrumbs and Count -->
-                            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-outline-variant pb-3">
-                                <div>
-                                    <div id="admin-category-breadcrumbs" class="text-xs font-technical-label text-on-surface-variant uppercase flex flex-wrap items-center gap-1.5">
-                                        <span>Catalog</span> <span class="material-symbols-outlined text-xs">chevron_right</span> <span>All Products</span>
+                            <!-- Sticky header: Actions/search + Breadcrumbs stay in view while the table scrolls -->
+                            <div class="sticky top-0 z-10 bg-surface space-y-6 pb-2">
+                                <!-- Actions and search -->
+                                <div class="flex flex-col sm:flex-row justify-between items-center gap-4 bg-surface-container-lowest p-4 border border-outline-variant rounded-lg">
+                                    <div class="relative w-full sm:w-80">
+                                        <input id="product-search-input" oninput="renderProductsTable()" class="w-full pl-10 pr-4 py-2.5 border border-outline-variant rounded focus:border-primary focus:ring-1 focus:ring-primary outline-none text-sm bg-surface-container-low transition-all" placeholder="Filter by name or SKU..." data-i18n-placeholder="admin_filter_sku_placeholder"/>
+                                        <span class="material-symbols-outlined absolute left-3 top-3 text-on-surface-variant text-base">search</span>
                                     </div>
-                                    <h3 id="admin-active-category-title" class="font-headline-lg text-lg text-primary font-bold uppercase mt-1">All Products</h3>
+                                    <button onclick="openAddProductModal()" class="w-full sm:w-auto bg-primary text-on-primary font-bold px-6 py-2.5 uppercase text-xs hover:bg-primary-container transition-all flex items-center justify-center gap-2 rounded shadow">
+                                        <span class="material-symbols-outlined text-sm">add</span> New Product
+                                    </button>
                                 </div>
-                                <div class="text-xs font-technical-label text-on-surface-variant bg-surface-container p-2 rounded border border-outline-variant self-start sm:self-center">
-                                    TOTAL FOUND: <span id="admin-products-count" class="font-bold text-primary">0</span>
+
+                                <!-- Breadcrumbs and Count -->
+                                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-outline-variant pb-3">
+                                    <div>
+                                        <div id="admin-category-breadcrumbs" class="text-xs font-technical-label text-on-surface-variant uppercase flex flex-wrap items-center gap-1.5">
+                                            <span>Catalog</span> <span class="material-symbols-outlined text-xs">chevron_right</span> <span>All Products</span>
+                                        </div>
+                                        <h3 id="admin-active-category-title" class="font-headline-lg text-lg text-primary font-bold uppercase mt-1">All Products</h3>
+                                    </div>
+                                    <div class="text-xs font-technical-label text-on-surface-variant bg-surface-container p-2 rounded border border-outline-variant self-start sm:self-center">
+                                        TOTAL FOUND: <span id="admin-products-count" class="font-bold text-primary">0</span>
+                                    </div>
                                 </div>
                             </div>
 
                             <!-- Products Table -->
                             <div class="bg-surface-container-lowest border border-outline-variant rounded-lg overflow-hidden shadow-sm">
-                                <div class="overflow-x-auto">
+                                <div class="overflow-auto max-h-[65vh]">
                                     <table class="w-full text-left">
-                                        <thead class="bg-primary text-on-primary text-xs font-technical-label uppercase">
+                                        <thead class="bg-primary text-on-primary text-xs font-technical-label uppercase sticky top-0 z-10">
                                             <tr>
                                                 <th class="px-6 py-4">Image</th>
                                                 <th class="px-6 py-4">Product Name</th>

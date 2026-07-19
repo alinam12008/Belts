@@ -323,8 +323,11 @@ console.log('✅ nav-component.js v6.0 loaded');
             }
         }
 
-        document.body.classList.add('overflow-x-hidden');
-        document.documentElement.classList.add('overflow-x-hidden');
+        // Use overflow-x: clip (not the Tailwind `overflow-x-hidden` utility) so
+        // horizontal scroll/bleed is still prevented without breaking
+        // `position: sticky` on descendants (e.g. the products.html sidebar).
+        document.body.style.overflowX = 'clip';
+        document.documentElement.style.overflowX = 'clip';
 
         // ── Desktop nav ──────────────────────────────────────────────────────
         var existingNav = header.querySelector('nav');
