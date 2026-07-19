@@ -115,7 +115,10 @@ app.get('/api/db-status', ensureDbReady, (req, res) => {
   res.json({
     usingMongoDB: db.isMongo,
     ready: db.ready,
-    seedHistoryExists: db.SeedHistory ? true : false
+    seedHistoryExists: db.SeedHistory ? true : false,
+    buildMarker: 'no-silent-fallback-v1',
+    hasMongoUriEnvVar: !!process.env.MONGODB_URI,
+    mongoUriLength: process.env.MONGODB_URI ? process.env.MONGODB_URI.length : 0
   });
 });
 
