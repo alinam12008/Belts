@@ -1251,7 +1251,7 @@
         }
 
         function loadProductsData() {
-            fetch('/api/products')
+            fetch('/api/products', { cache: 'no-store' })
             .then(res => res.json())
             .then(data => {
                 products = data;

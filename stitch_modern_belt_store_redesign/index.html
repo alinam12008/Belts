@@ -994,7 +994,7 @@
             const featuredGrid = document.getElementById('featured-products-grid');
             if (!featuredGrid) return;
             
-            fetch('/api/products')
+            fetch('/api/products', { cache: 'no-store' })
                 .then(res => {
                     if (!res.ok) throw new Error('Failed to fetch products');
                     return res.json();
@@ -1048,7 +1048,7 @@
             const ourProductsGrid = document.getElementById('our-products-grid');
             if (!ourProductsGrid) return;
             
-            fetch('/api/products')
+            fetch('/api/products', { cache: 'no-store' })
                 .then(res => {
                     if (!res.ok) throw new Error('Failed to fetch products');
                     return res.json();
