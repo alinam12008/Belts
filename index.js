@@ -90,6 +90,12 @@ app.use((req, res, next) => {
   res.set('Expires', '0');
   next();
 });
+app.use((err, req, res, next) => {
+  if (err && err.type === 'entity.parse.failed') {
+    return res.status(400).json({ error: 'Invalid JSON payload.' });
+  }
+  next(err);
+});
 
 // [FIX] Middleware to wait for DB readiness
 const ensureDbReady = async (req, res, next) => {
@@ -103,6 +109,17 @@ const ensureDbReady = async (req, res, next) => {
   }
   next();
 };
+
+// --------------------------------------------------------------------
+//  🔥 NEW: Debug endpoint to check database status
+// --------------------------------------------------------------------
+app.get('/api/db-status', ensureDbReady, (req, res) => {
+  res.json({
+    usingMongoDB: db.isMongo,
+    ready: db.ready,
+    productModel: db.Product ? 'loaded' : 'not loaded'
+  });
+});
 
 // Init database
 db.init(
@@ -120,11 +137,23 @@ const pending2fa = new Map();
 const CATALOG_PRODUCTS_PATH = path.join(__dirname, 'stitch_modern_belt_store_redesign', 'products_data.json');
 const BACKUP_PRODUCTS_PATH = path.join(__dirname, 'data', 'products-backup.json');
 
+// ============================================================
+// 🔥 UPDATED: seedProductsFromCatalog using SeedHistory
+// ============================================================
 async function seedProductsFromCatalog() {
   try {
+    // 🔥 Check if seeding already done (using SeedHistory)
+    const seedDoc = await db.SeedHistory.findOne({});
+    if (seedDoc) {
+      console.log('✅ Seed history exists – skipping seeding.');
+      return;
+    }
+
+    // If no seed history, but products already exist (maybe manually added)
     const count = await db.Product.countDocuments();
     if (count > 0) {
-      console.log('✅ Products already exist, skipping seeding.');
+      console.log('✅ Products already exist but no seed history – creating seed history and skipping.');
+      await db.SeedHistory.create({ seeded: true, timestamp: new Date() });
       return;
     }
 
@@ -178,12 +207,18 @@ async function seedProductsFromCatalog() {
         createdCount++;
       }
     }
+
+    // ✅ Mark seeding as done
+    await db.SeedHistory.create({ seeded: true, timestamp: new Date() });
     console.log(`✅ Initial seed: ${createdCount} new products added.`);
   } catch (err) {
     console.error('❌ Seeding failed:', err.message);
   }
 }
 
+// --------------------------------------------------------------------
+//  (Optional) Rebuild static catalog – you may keep it or remove it
+// --------------------------------------------------------------------
 async function rebuildStaticCatalog() {
   try {
     const products = await db.Product.find({ status: 'Active' });
@@ -213,7 +248,9 @@ async function rebuildStaticCatalog() {
   }
 }
 
-// Authentication middleware
+// ============================================================
+//  Authentication middleware
+// ============================================================
 const requireAdmin = (req, res, next) => {
   const authHeader = req.headers.authorization;
   if (!authHeader || !authHeader.startsWith('Bearer ')) {
@@ -493,12 +530,25 @@ if (isVercel) {
   }
 }
 
+// ---- Debug endpoints ----
 app.get('/api/debug-model', ensureDbReady, (req, res) => {
   res.json({
     hasProduct: !!db.Product,
     productType: typeof db.Product,
     modelName: db.Product ? db.Product.modelName : 'undefined'
   });
+});
+
+// 🔥 NEW: Get a single product by ID for debugging
+app.get('/api/products/:id', ensureDbReady, async (req, res) => {
+  try {
+    const product = await db.Product.findById(req.params.id);
+    if (!product) return res.status(404).json({ error: 'Product not found' });
+    res.json(product);
+  } catch (err) {
+    console.error('Error fetching product by ID:', err);
+    res.status(500).json({ error: 'Failed to fetch product', details: err.message });
+  }
 });
 
 // [FIX] GET /api/products – removed .lean() to work with both Mongoose and JSONModel
@@ -695,12 +745,15 @@ app.put('/api/products/:id', requireAdmin, ensureDbReady, async (req, res) => {
     let updatedProduct;
     try {
       updatedProduct = await db.Product.findByIdAndUpdate(id, updateData, { new: true });
+      console.log('🟢 Product update result:', updatedProduct ? 'found' : 'not found');
     } catch (castErr) {
       console.warn(`Invalid ObjectId format for ID: ${id}, trying fallback by sku or slug`);
       const product = await db.Product.findOne({ $or: [{ sku: id }, { slug: id }] });
       if (product) {
         updatedProduct = await db.Product.findByIdAndUpdate(product._id, updateData, { new: true });
+        console.log('🟢 Product update (fallback) result:', updatedProduct ? 'found' : 'not found');
       } else {
+        console.warn('No product found by sku or slug');
         throw castErr;
       }
     }
@@ -732,6 +785,8 @@ app.delete('/api/products/:id', requireAdmin, ensureDbReady, async (req, res) =>
 
     const deleted = await db.Product.findByIdAndDelete(req.params.id);
     if (!deleted) return res.status(404).json({ error: 'Product not found' });
+
+    console.log('🔴 Product deleted:', deleted.name, deleted.sku);
 
     await db.ActivityLog.create({
       action: `Deleted product: ${deleted.name} (SKU: ${deleted.sku})`,
@@ -798,17 +853,134 @@ app.put('/api/users/:id/status', requireAdmin, ensureDbReady, async (req, res) =
   // ... rest unchanged
 });
 
-// [IMPORTANT] All other routes (orders, tickets, coupons, analytics) should also use ensureDbReady.
-// For brevity, I'll show only the pattern – you can add it to each route.
-// Example:
-// app.get('/api/orders', requireAdmin, ensureDbReady, async (req, res) => { ... });
-// app.get('/api/tickets', requireAdmin, ensureDbReady, ...);
-// etc.
+// ============================================================
+// 5. Admin analytics, orders, and tickets APIs
+// ============================================================
+app.get('/api/admin/analytics', requireAdmin, ensureDbReady, async (req, res) => {
+  try {
+    const products = await db.Product.find({ status: 'Active' });
+    const activeProducts = products.filter(p => Number(p.stock) > 0);
+    const lowStock = products.filter(p => Number(p.stock) <= 3).slice(0, 10);
+    const orders = await db.Order.find({});
+    const tickets = await db.SupportTicket.find({});
+    const totalSales = orders.reduce((sum, order) => sum + (Number(order.totalPrice) || 0), 0);
+    const weeklyRevenue = orders.filter(order => {
+      const created = new Date(order.createdAt || order.updatedAt || Date.now());
+      const weekAgo = new Date();
+      weekAgo.setDate(weekAgo.getDate() - 7);
+      return created >= weekAgo;
+    }).reduce((sum, order) => sum + (Number(order.totalPrice) || 0), 0);
+    const recentLogs = await db.ActivityLog.find({}).sort({ timestamp: -1 }).slice(0, 10);
+    const mostSold = products.slice(0, 5).map(product => ({ name: product.name, count: Math.max(1, Math.min(10, Number(product.stock) || 1)) }));
+    res.json({
+      totalSales,
+      weeklyRevenue,
+      totalOrders: orders.length,
+      activeUsers: await db.User.countDocuments({ status: 'Active' }),
+      lowStock,
+      mostSold,
+      recentLogs
+    });
+  } catch (err) {
+    console.error('Analytics error:', err);
+    res.status(500).json({ error: 'Failed to load analytics' });
+  }
+});
 
-// ---- You must add ensureDbReady to all routes that touch the database ----
+app.get('/api/orders', requireAdmin, ensureDbReady, async (req, res) => {
+  try {
+    const orders = await db.Order.find({});
+    res.json(orders);
+  } catch (err) {
+    console.error('Orders fetch error:', err);
+    res.status(500).json({ error: 'Failed to fetch orders' });
+  }
+});
+
+app.post('/api/orders', requireAdmin, ensureDbReady, async (req, res) => {
+  try {
+    const { client, items, amount } = req.body;
+    const payload = {
+      client: client || {},
+      items: Array.isArray(items) ? items : [],
+      totalPrice: Number(amount) || 0,
+      status: 'Pending'
+    };
+    const created = await db.Order.create(payload);
+    res.json(created);
+  } catch (err) {
+    console.error('Orders create error:', err);
+    res.status(500).json({ error: 'Failed to create order' });
+  }
+});
+
+app.put('/api/orders/:id/status', requireAdmin, ensureDbReady, async (req, res) => {
+  try {
+    const updated = await db.Order.findByIdAndUpdate(req.params.id, { status: req.body.status }, { new: true });
+    if (!updated) return res.status(404).json({ error: 'Order not found' });
+    res.json(updated);
+  } catch (err) {
+    console.error('Order status update error:', err);
+    res.status(500).json({ error: 'Failed to update order status' });
+  }
+});
+
+app.delete('/api/orders/:id', requireAdmin, ensureDbReady, async (req, res) => {
+  try {
+    const deleted = await db.Order.findByIdAndDelete(req.params.id);
+    if (!deleted) return res.status(404).json({ error: 'Order not found' });
+    res.json({ success: true });
+  } catch (err) {
+    console.error('Order delete error:', err);
+    res.status(500).json({ error: 'Failed to delete order' });
+  }
+});
+
+app.get('/api/tickets', requireAdmin, ensureDbReady, async (req, res) => {
+  try {
+    const tickets = await db.SupportTicket.find({});
+    res.json(tickets);
+  } catch (err) {
+    console.error('Tickets fetch error:', err);
+    res.status(500).json({ error: 'Failed to fetch tickets' });
+  }
+});
+
+app.put('/api/tickets/:id', requireAdmin, ensureDbReady, async (req, res) => {
+  try {
+    const ticket = await db.SupportTicket.findById(req.params.id);
+    if (!ticket) return res.status(404).json({ error: 'Ticket not found' });
+    const update = {};
+    if (req.body.status) update.status = req.body.status;
+    if (req.body.reply) {
+      update.replies = [...(ticket.replies || []), {
+        sender: 'Admin',
+        message: req.body.reply,
+        products: Array.isArray(req.body.products) ? req.body.products : [],
+        timestamp: new Date().toISOString()
+      }];
+      update.lastResponseAt = new Date().toISOString();
+    }
+    const updated = await db.SupportTicket.findByIdAndUpdate(req.params.id, update, { new: true });
+    res.json(updated);
+  } catch (err) {
+    console.error('Ticket update error:', err);
+    res.status(500).json({ error: 'Failed to update ticket' });
+  }
+});
+
+app.post('/api/tickets', async (req, res) => {
+  try {
+    const created = await db.SupportTicket.create(req.body);
+    res.json(created);
+  } catch (err) {
+    console.error('Ticket create error:', err);
+    res.status(500).json({ error: 'Failed to create ticket' });
+  }
+});
 
 // ============================================================
-// 5. Language / i18n API
+// 6. Language / i18n API
 // ============================================================
 const LOCALES_DIR = path.join(__dirname, 'locales');
 app.get('/api/language/:lang', (req, res) => {
@@ -845,7 +1017,12 @@ app.get('/partners.html', (req, res) => {
 const PORT = process.env.PORT || 3000;
 if (!isVercel) {
   app.listen(PORT, () => {
-    console.log(`🚀 Server running at http://localhost:${PORT}`);
+    const routes = app._router?.stack
+      ?.filter(layer => layer.route)
+      .map(layer => layer.route.path)
+      .filter(path => path.includes('/api/'));
+    console.log('🚀 Server running at http://localhost:3000');
+    console.log('Registered API routes:', routes);
   });
 }
 

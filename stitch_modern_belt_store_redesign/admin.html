@@ -1098,9 +1098,12 @@
             fetch('/api/admin/me', {
                 headers: { 'Authorization': `Bearer ${token}` }
             })
-            .then(res => {
-                if (!res.ok) throw new Error();
-                return res.json();
+            .then(async res => {
+                const text = await res.text();
+                let data = {};
+                try { data = text ? JSON.parse(text) : {}; } catch (e) { data = { error: 'Invalid JSON response from server' }; }
+                if (!res.ok) throw new Error(data.error || 'Failed to load profile');
+                return data;
             })
             .then(adminInfo => {
                 document.getElementById('sidebar-admin-name') && (document.getElementById('sidebar-admin-name').innerText = adminInfo.name);
@@ -1185,7 +1188,13 @@
             fetch('/api/admin/analytics', {
                 headers: { 'Authorization': `Bearer ${token}` }
             })
-            .then(res => res.json())
+            .then(async res => {
+                const text = await res.text();
+                let data = {};
+                try { data = text ? JSON.parse(text) : {}; } catch (e) { data = {}; }
+                if (!res.ok) throw new Error(data.error || 'Failed to load dashboard');
+                return data;
+            })
             .then(data => {
                 analytics = data;
                 document.getElementById('stat-revenue').innerText = formatCurrency(data.totalSales || 0);
@@ -1252,7 +1261,13 @@
 
         function loadProductsData() {
             fetch('/api/products', { cache: 'no-store' })
-            .then(res => res.json())
+            .then(async res => {
+                const text = await res.text();
+                let data = [];
+                try { data = text ? JSON.parse(text) : []; } catch (e) { data = []; }
+                if (!res.ok) throw new Error('Failed to load products');
+                return data;
+            })
             .then(data => {
                 products = data;
                 renderProductsTable();
@@ -1263,7 +1278,13 @@
             fetch('/api/orders', {
                 headers: { 'Authorization': `Bearer ${token}` }
             })
-            .then(res => res.json())
+            .then(async res => {
+                const text = await res.text();
+                let data = [];
+                try { data = text ? JSON.parse(text) : []; } catch (e) { data = []; }
+                if (!res.ok) throw new Error('Failed to load orders');
+                return data;
+            })
             .then(data => {
                 orders = data;
                 renderOrdersTable();
@@ -1274,7 +1295,13 @@
             fetch('/api/tickets', {
                 headers: { 'Authorization': `Bearer ${token}` }
             })
-            .then(res => res.json())
+            .then(async res => {
+                const text = await res.text();
+                let data = [];
+                try { data = text ? JSON.parse(text) : []; } catch (e) { data = []; }
+                if (!res.ok) throw new Error('Failed to load tickets');
+                return data;
+            })
             .then(data => {
                 tickets = data;
                 renderTicketsList();
@@ -1286,9 +1313,12 @@
             fetch('/api/admin/me', {
                 headers: { 'Authorization': `Bearer ${token}` }
             })
-            .then(res => {
-                if (!res.ok) throw new Error('Failed to load profile');
-                return res.json();
+            .then(async res => {
+                const text = await res.text();
+                let data = {};
+                try { data = text ? JSON.parse(text) : {}; } catch (e) { data = { error: 'Invalid JSON response from server' }; }
+                if (!res.ok) throw new Error(data.error || 'Failed to load profile');
+                return data;
             })
             .then(data => {
                 document.getElementById('profile-name').value = data.name || '';
