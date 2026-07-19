@@ -12,7 +12,7 @@ const cloudinary = require('./cloudinary');
 const isVercel = process.env.VERCEL === '1';
 
 // ============================================================
-// 1. SMTP Transporter – with fallback and logging
+// 1. SMTP Transporter
 // ============================================================
 let smtpTransporter = null;
 
@@ -97,7 +97,7 @@ app.use((err, req, res, next) => {
   next(err);
 });
 
-// [FIX] Middleware to wait for DB readiness
+// Middleware to wait for DB readiness
 const ensureDbReady = async (req, res, next) => {
   let attempts = 0;
   while (!db.ready && attempts < 10) {
@@ -110,24 +110,24 @@ const ensureDbReady = async (req, res, next) => {
   next();
 };
 
-// --------------------------------------------------------------------
-//  🔥 NEW: Debug endpoint to check database status
-// --------------------------------------------------------------------
+// ---- Debug endpoint: database status ----
 app.get('/api/db-status', ensureDbReady, (req, res) => {
   res.json({
     usingMongoDB: db.isMongo,
     ready: db.ready,
-    productModel: db.Product ? 'loaded' : 'not loaded'
+    seedHistoryExists: db.SeedHistory ? true : false
   });
 });
 
-// Init database
+// ---- Init database ----
 db.init(
   process.env.MONGODB_URI,
   process.env.ADMIN_EMAIL || 'admin@belts.com',
   process.env.ADMIN_PASSWORD || 'admin123'
 ).then(() => {
-  seedProductsFromCatalog();
+  seedProductsFromCatalog().catch(err => {
+    console.error('❌ Seeding error:', err.message);
+  });
 }).catch((err) => {
   console.error('Database initialization failed:', err.message);
 });
@@ -142,14 +142,20 @@ const BACKUP_PRODUCTS_PATH = path.join(__dirname, 'data', 'products-backup.json'
 // ============================================================
 async function seedProductsFromCatalog() {
   try {
-    // 🔥 Check if seeding already done (using SeedHistory)
+    // Guard: if SeedHistory is not available, skip.
+    if (!db.SeedHistory) {
+      console.warn('⚠️ SeedHistory model not available. Skipping seeding.');
+      return;
+    }
+
+    // Check if seeding has already been done
     const seedDoc = await db.SeedHistory.findOne({});
     if (seedDoc) {
       console.log('✅ Seed history exists – skipping seeding.');
       return;
     }
 
-    // If no seed history, but products already exist (maybe manually added)
+    // If no seed history but products already exist (manual additions)
     const count = await db.Product.countDocuments();
     if (count > 0) {
       console.log('✅ Products already exist but no seed history – creating seed history and skipping.');
@@ -157,6 +163,7 @@ async function seedProductsFromCatalog() {
       return;
     }
 
+    // Locate catalog file
     let catalogPath = CATALOG_PRODUCTS_PATH;
     if (!fs.existsSync(catalogPath)) {
       catalogPath = BACKUP_PRODUCTS_PATH;
@@ -208,7 +215,7 @@ async function seedProductsFromCatalog() {
       }
     }
 
-    // ✅ Mark seeding as done
+    // Mark seeding as done
     await db.SeedHistory.create({ seeded: true, timestamp: new Date() });
     console.log(`✅ Initial seed: ${createdCount} new products added.`);
   } catch (err) {
@@ -216,9 +223,7 @@ async function seedProductsFromCatalog() {
   }
 }
 
-// --------------------------------------------------------------------
-//  (Optional) Rebuild static catalog – you may keep it or remove it
-// --------------------------------------------------------------------
+// ---- (Optional) Rebuild static catalog ----
 async function rebuildStaticCatalog() {
   try {
     const products = await db.Product.find({ status: 'Active' });
@@ -249,7 +254,7 @@ async function rebuildStaticCatalog() {
 }
 
 // ============================================================
-//  Authentication middleware
+// Authentication Middleware
 // ============================================================
 const requireAdmin = (req, res, next) => {
   const authHeader = req.headers.authorization;
@@ -270,15 +275,15 @@ const requireAdmin = (req, res, next) => {
 };
 
 // ============================================================
-// 4. Routes – all fully implemented
+// 4. Routes
 // ============================================================
 
-// Health check – also ensures DB is ready
+// Health check
 app.get('/api/health', ensureDbReady, (req, res) => {
   res.json({ status: 'ok', database: 'connected' });
 });
 
-// Intercept products data request to serve dynamic product items
+// Dynamic products_data.json
 app.get(['/products_data.json', '/stitch_modern_belt_store_redesign/products_data.json'], ensureDbReady, async (req, res) => {
   try {
     const products = await db.Product.find({ status: 'Active' });
@@ -303,7 +308,7 @@ app.get(['/products_data.json', '/stitch_modern_belt_store_redesign/products_dat
   }
 });
 
-// Admin Auth Endpoints
+// ---- Admin Auth Endpoints ----
 app.post('/api/admin/signup', async (req, res) => {
   try {
     const { name, email, password, adminCode } = req.body;
@@ -504,7 +509,7 @@ app.put('/api/admin/settings', requireAdmin, async (req, res) => {
 });
 
 // ============================================================
-// Products – Direct JSON file operations (MongoDB fallback)
+// Products API
 // ============================================================
 const PRODUCTS_FILE = isVercel ? path.join('/tmp', 'products.json') : path.join(__dirname, 'data', 'products.json');
 const LOGS_FILE = isVercel ? path.join('/tmp', 'logs.json') : path.join(__dirname, 'data', 'logs.json');
@@ -530,7 +535,6 @@ if (isVercel) {
   }
 }
 
-// ---- Debug endpoints ----
 app.get('/api/debug-model', ensureDbReady, (req, res) => {
   res.json({
     hasProduct: !!db.Product,
@@ -539,7 +543,7 @@ app.get('/api/debug-model', ensureDbReady, (req, res) => {
   });
 });
 
-// 🔥 NEW: Get a single product by ID for debugging
+// Get a single product by ID (for debugging)
 app.get('/api/products/:id', ensureDbReady, async (req, res) => {
   try {
     const product = await db.Product.findById(req.params.id);
@@ -551,7 +555,7 @@ app.get('/api/products/:id', ensureDbReady, async (req, res) => {
   }
 });
 
-// [FIX] GET /api/products – removed .lean() to work with both Mongoose and JSONModel
+// GET all products
 app.get('/api/products', ensureDbReady, async (req, res) => {
   try {
     console.log('🟢 /api/products called');
@@ -568,9 +572,7 @@ app.get('/api/products', ensureDbReady, async (req, res) => {
   }
 });
 
-// ============================================================
-// Category-based browse routes
-// ============================================================
+// ---- Category routes ----
 function toSlug(str) {
   return (str || '').trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
 }
@@ -651,7 +653,7 @@ app.get('/api/products/category/:category/:subcategory', ensureDbReady, async (r
   }
 });
 
-// [FIX] POST /api/products – added duplicate check and ensureDbReady
+// ---- POST, PUT, DELETE ----
 app.post('/api/products', requireAdmin, ensureDbReady, async (req, res) => {
   try {
     const { name, description, shortDescription, category, subcategory, brand, sku, price, discountPrice, stock, status, images, specifications, tags } = req.body;
@@ -660,7 +662,6 @@ app.post('/api/products', requireAdmin, ensureDbReady, async (req, res) => {
       return res.status(400).json({ error: 'Name, SKU, and Category are required' });
     }
 
-    // Check if product already exists with same SKU
     const existing = await db.Product.findOne({ sku });
     if (existing) {
       return res.status(409).json({ error: 'A product with this SKU already exists.' });
@@ -704,7 +705,6 @@ app.post('/api/products', requireAdmin, ensureDbReady, async (req, res) => {
   }
 });
 
-// [FIX] PUT /api/products/:id – improved ObjectId fallback, ensureDbReady
 app.put('/api/products/:id', requireAdmin, ensureDbReady, async (req, res) => {
   try {
     const { id } = req.params;
@@ -776,7 +776,6 @@ app.put('/api/products/:id', requireAdmin, ensureDbReady, async (req, res) => {
   }
 });
 
-// [FIX] DELETE /api/products/:id – added ensureDbReady
 app.delete('/api/products/:id', requireAdmin, ensureDbReady, async (req, res) => {
   try {
     if (req.headers['x-delete-verified'] !== 'true') {
@@ -802,7 +801,7 @@ app.delete('/api/products/:id', requireAdmin, ensureDbReady, async (req, res) =>
   }
 });
 
-// Image Upload
+// ---- Image Upload ----
 const MAX_BASE64_LENGTH = 13_600_000;
 app.post('/api/products/upload', requireAdmin, ensureDbReady, async (req, res) => {
   try {
@@ -839,7 +838,7 @@ app.post('/api/products/upload', requireAdmin, ensureDbReady, async (req, res) =
   }
 });
 
-// User APIs (add ensureDbReady where needed – for brevity, not all shown, but apply similarly)
+// ---- User APIs ----
 app.get('/api/users', requireAdmin, ensureDbReady, async (req, res) => {
   try {
     const users = await db.User.find();
@@ -850,49 +849,40 @@ app.get('/api/users', requireAdmin, ensureDbReady, async (req, res) => {
 });
 
 app.put('/api/users/:id/status', requireAdmin, ensureDbReady, async (req, res) => {
-  // ... rest unchanged
-});
-
-// ============================================================
-// 5. Admin analytics, orders, and tickets APIs
-// ============================================================
-app.get('/api/admin/analytics', requireAdmin, ensureDbReady, async (req, res) => {
   try {
-    const products = await db.Product.find({ status: 'Active' });
-    const activeProducts = products.filter(p => Number(p.stock) > 0);
-    const lowStock = products.filter(p => Number(p.stock) <= 3).slice(0, 10);
-    const orders = await db.Order.find({});
-    const tickets = await db.SupportTicket.find({});
-    const totalSales = orders.reduce((sum, order) => sum + (Number(order.totalPrice) || 0), 0);
-    const weeklyRevenue = orders.filter(order => {
-      const created = new Date(order.createdAt || order.updatedAt || Date.now());
-      const weekAgo = new Date();
-      weekAgo.setDate(weekAgo.getDate() - 7);
-      return created >= weekAgo;
-    }).reduce((sum, order) => sum + (Number(order.totalPrice) || 0), 0);
-    const recentLogs = await db.ActivityLog.find({}).sort({ timestamp: -1 }).slice(0, 10);
-    const mostSold = products.slice(0, 5).map(product => ({ name: product.name, count: Math.max(1, Math.min(10, Number(product.stock) || 1)) }));
-    res.json({
-      totalSales,
-      weeklyRevenue,
-      totalOrders: orders.length,
-      activeUsers: await db.User.countDocuments({ status: 'Active' }),
-      lowStock,
-      mostSold,
-      recentLogs
+    const { status } = req.body;
+    const user = await db.User.findByIdAndUpdate(req.params.id, { status }, { new: true });
+    await db.ActivityLog.create({
+      action: `Set status of user ${user.email} to ${status}`,
+      adminName: req.admin.name,
+      timestamp: new Date().toISOString()
     });
+    res.json(user);
   } catch (err) {
-    console.error('Analytics error:', err);
-    res.status(500).json({ error: 'Failed to load analytics' });
+    res.status(500).json({ error: 'Failed to update status' });
   }
 });
 
+app.delete('/api/users/:id', requireAdmin, ensureDbReady, async (req, res) => {
+  try {
+    const user = await db.User.findByIdAndDelete(req.params.id);
+    await db.ActivityLog.create({
+      action: `Deleted user account: ${user.email}`,
+      adminName: req.admin.name,
+      timestamp: new Date().toISOString()
+    });
+    res.json({ success: true });
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to delete user' });
+  }
+});
+
+// ---- Orders ----
 app.get('/api/orders', requireAdmin, ensureDbReady, async (req, res) => {
   try {
-    const orders = await db.Order.find({});
+    const orders = await db.Order.find();
     res.json(orders);
   } catch (err) {
-    console.error('Orders fetch error:', err);
     res.status(500).json({ error: 'Failed to fetch orders' });
   }
 });
@@ -936,13 +926,23 @@ app.delete('/api/orders/:id', requireAdmin, ensureDbReady, async (req, res) => {
   }
 });
 
+// ---- Tickets ----
 app.get('/api/tickets', requireAdmin, ensureDbReady, async (req, res) => {
   try {
-    const tickets = await db.SupportTicket.find({});
+    const tickets = await db.SupportTicket.find();
     res.json(tickets);
   } catch (err) {
-    console.error('Tickets fetch error:', err);
     res.status(500).json({ error: 'Failed to fetch tickets' });
+  }
+});
+
+app.post('/api/tickets', async (req, res) => {
+  try {
+    const created = await db.SupportTicket.create(req.body);
+    res.json(created);
+  } catch (err) {
+    console.error('Ticket create error:', err);
+    res.status(500).json({ error: 'Failed to create ticket' });
   }
 });
 
@@ -969,19 +969,91 @@ app.put('/api/tickets/:id', requireAdmin, ensureDbReady, async (req, res) => {
   }
 });
 
-app.post('/api/tickets', async (req, res) => {
+// ---- Coupons ----
+app.get('/api/coupons', requireAdmin, ensureDbReady, async (req, res) => {
   try {
-    const created = await db.SupportTicket.create(req.body);
-    res.json(created);
+    const coupons = await db.Coupon.find();
+    res.json(coupons);
   } catch (err) {
-    console.error('Ticket create error:', err);
-    res.status(500).json({ error: 'Failed to create ticket' });
+    res.status(500).json({ error: 'Failed to fetch coupons' });
   }
 });
 
-// ============================================================
-// 6. Language / i18n API
-// ============================================================
+app.post('/api/coupons', requireAdmin, ensureDbReady, async (req, res) => {
+  try {
+    const { code, discountType, discountValue, usageLimit } = req.body;
+    if (!code || !discountType || !discountValue) {
+      return res.status(400).json({ error: 'Code, discount type, and discount value are required' });
+    }
+    const coupon = await db.Coupon.create({
+      code: code.toUpperCase().trim(),
+      discountType,
+      discountValue: Number(discountValue),
+      usageLimit: usageLimit ? Number(usageLimit) : null,
+      status: 'Active',
+      usedCount: 0
+    });
+    res.json(coupon);
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to create coupon' });
+  }
+});
+
+app.put('/api/coupons/:id/status', requireAdmin, ensureDbReady, async (req, res) => {
+  try {
+    const { status } = req.body;
+    if (!status || !['Active', 'Inactive'].includes(status)) {
+      return res.status(400).json({ error: 'Invalid coupon status' });
+    }
+    const coupon = await db.Coupon.findByIdAndUpdate(req.params.id, { status }, { new: true });
+    if (!coupon) return res.status(404).json({ error: 'Coupon not found' });
+    res.json(coupon);
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to update coupon status' });
+  }
+});
+
+app.delete('/api/coupons/:id', requireAdmin, ensureDbReady, async (req, res) => {
+  try {
+    const deleted = await db.Coupon.findByIdAndDelete(req.params.id);
+    if (!deleted) return res.status(404).json({ error: 'Coupon not found' });
+    res.json({ success: true });
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to delete coupon' });
+  }
+});
+
+// ---- Admin Analytics ----
+app.get('/api/admin/analytics', requireAdmin, ensureDbReady, async (req, res) => {
+  try {
+    const products = await db.Product.find({ status: 'Active' });
+    const lowStock = products.filter(p => Number(p.stock) <= 3).slice(0, 10);
+    const orders = await db.Order.find({});
+    const totalSales = orders.reduce((sum, order) => sum + (Number(order.totalPrice) || 0), 0);
+    const weeklyRevenue = orders.filter(order => {
+      const created = new Date(order.createdAt || order.updatedAt || Date.now());
+      const weekAgo = new Date();
+      weekAgo.setDate(weekAgo.getDate() - 7);
+      return created >= weekAgo;
+    }).reduce((sum, order) => sum + (Number(order.totalPrice) || 0), 0);
+    const recentLogs = await db.ActivityLog.find({}).sort({ timestamp: -1 }).limit(10);
+    const mostSold = products.slice(0, 5).map(product => ({ name: product.name, count: Math.max(1, Math.min(10, Number(product.stock) || 1)) }));
+    res.json({
+      totalSales,
+      weeklyRevenue,
+      totalOrders: orders.length,
+      activeUsers: await db.User.countDocuments({ status: 'Active' }),
+      lowStock,
+      mostSold,
+      recentLogs
+    });
+  } catch (err) {
+    console.error('Analytics error:', err);
+    res.status(500).json({ error: 'Failed to load analytics' });
+  }
+});
+
+// ---- i18n ----
 const LOCALES_DIR = path.join(__dirname, 'locales');
 app.get('/api/language/:lang', (req, res) => {
   const lang = req.params.lang;
@@ -1002,7 +1074,7 @@ app.get('/api/language/:lang', (req, res) => {
 });
 
 // ============================================================
-// 6. Static Files & Server Start (moved to bottom)
+// Static Files & Server Start (moved to bottom)
 // ============================================================
 app.use(express.static(__dirname));
 app.use(express.static(path.join(__dirname, 'stitch_modern_belt_store_redesign')));
@@ -1017,12 +1089,7 @@ app.get('/partners.html', (req, res) => {
 const PORT = process.env.PORT || 3000;
 if (!isVercel) {
   app.listen(PORT, () => {
-    const routes = app._router?.stack
-      ?.filter(layer => layer.route)
-      .map(layer => layer.route.path)
-      .filter(path => path.includes('/api/'));
     console.log('🚀 Server running at http://localhost:3000');
-    console.log('Registered API routes:', routes);
   });
 }
 

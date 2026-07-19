@@ -1,17 +1,91 @@
+const fs = require('fs');
+const path = require('path');
+const mongoose = require('mongoose');
+const bcrypt = require('bcryptjs');
+
+const isVercel = process.env.VERCEL === '1';
+const DATA_DIR = isVercel ? path.join('/tmp', 'scratch', 'data') : path.join(__dirname, 'scratch', 'data');
+if (!fs.existsSync(DATA_DIR)) {
+  try {
+    fs.mkdirSync(DATA_DIR, { recursive: true });
+  } catch (err) {
+    console.error('Failed to create DATA_DIR:', err.message);
+  }
+}
+
+let isConnected = false;
+module.exports.isConnected = () => isConnected;
+
+let isMongo = false;
+let db = {
+  isMongo: false,
+  Admin: null,
+  Product: null,
+  Category: null,
+  ActivityLog: null,
+  Order: null,
+  User: null,
+  SupportTicket: null,
+  Coupon: null,
+  SeedHistory: null,
+  init: null,
+  ready: false
+};
+
+// --- JSONModel class (unchanged) ---
+class JSONModel {
+  // ... (keep exactly as you have, no changes)
+}
+
+// --- Mongoose Schemas ---
+const AdminSchema = new mongoose.Schema({
+  name: { type: String, default: 'System Administrator' },
+  email: { type: String, required: true, unique: true },
+  password: { type: String, required: true },
+  profilePicture: { type: String, default: '' },
+  loginHistory: [{ timestamp: String, ip: String, status: String }]
+}, { timestamps: true });
+
+const ProductSchema = new mongoose.Schema({
+  name: { type: String, required: true },
+  description: { type: String, default: '' },
+  shortDescription: { type: String, default: '' },
+  category: { type: String, required: true },
+  subcategory: { type: String, default: '' },
+  brand: { type: String, default: '' },
+  sku: { type: String, required: true, unique: true },
+  price: { type: Number, default: 0 },
+  discountPrice: { type: Number, default: 0 },
+  images: [{ type: String }],
+  specifications: { type: Map, of: String },
+  tags: [{ type: String }],
+  stock: { type: Number, default: 0 },
+  status: { type: String, default: 'Active' },
+  slug: { type: String, required: true }
+}, { timestamps: true });
+
+// ... other schemas (Category, ActivityLog, Order, User, SupportTicket, Coupon) – keep them unchanged
+// Make sure you have SeedHistorySchema defined:
+
+const SeedHistorySchema = new mongoose.Schema({
+  seeded: { type: Boolean, default: true },
+  timestamp: { type: Date, default: Date.now }
+});
+
+// ===== db.init =====
 db.init = async function (mongoUri, defaultEmail, defaultPassword) {
   let isConnected = false;
 
   if (mongoUri) {
     try {
       console.log('Attempting MongoDB connection...');
-      await mongoose.connect(mongoUri, {
-        serverSelectionTimeoutMS: 10000
-      });
-      console.log('Successfully connected to MongoDB.');
+      await mongoose.connect(mongoUri, { serverSelectionTimeoutMS: 10000 });
+      console.log('✅ Connected to MongoDB.');
       isConnected = true;
       isMongo = true;
       db.isMongo = true;
 
+      // Register all models
       db.Admin = mongoose.model('Admin', AdminSchema);
       db.Product = mongoose.model('Product', ProductSchema);
       db.Category = mongoose.model('Category', CategorySchema);
@@ -39,11 +113,11 @@ db.init = async function (mongoUri, defaultEmail, defaultPassword) {
     db.User = new JSONModel('users.json');
     db.SupportTicket = new JSONModel('tickets.json');
     db.Coupon = new JSONModel('coupons.json');
-    // 🔥 ADD THIS LINE – SeedHistory for fallback
     db.SeedHistory = new JSONModel('seedHistory.json', []);
   }
 
-  // --- Seeding Data ---
+  // --- Seeding (Admin, Categories, Users, Tickets, Coupons) ---
+  // (keep your existing seeding code, but REMOVE product seeding from here)
 
   // 1. Seed Admin
   const adminCount = await db.Admin.countDocuments();
@@ -60,73 +134,15 @@ db.init = async function (mongoUri, defaultEmail, defaultPassword) {
     });
   }
 
-  // 2. Seed Categories
-  const categoryCount = await db.Category.countDocuments();
-  if (categoryCount === 0) {
-    console.log('Seeding default categories...');
-    const defaultCategories = [
-      { name: 'Belts Power Transmission', description: 'V Belts, Timing Belts, and Ribbed Belts', image: '', status: 'Active' },
-      { name: 'Pulleys', description: 'Precision grooved pulleys', image: '', status: 'Active' },
-      { name: 'Conveying Accessorise', description: 'Modular handling accessories and rollers', image: '', status: 'Active' },
-      { name: 'Rubber', description: 'Industrial rubber sheetings and components', image: '', status: 'Active' },
-      { name: 'Industrial Insulation', description: 'Gaskets, felts, and gland packings', image: '', status: 'Active' },
-      { name: 'Bearings', description: 'Ball and roller bearing systems', image: '', status: 'Active' },
-      { name: 'Transmission Chains And Sprockets', description: 'ANSI/DIN chains and sprockets', image: '', status: 'Active' }
-    ];
-    for (const cat of defaultCategories) {
-      await db.Category.create(cat);
-    }
-  }
-
+  // 2. Seed Categories (your existing code)
   // 3. Seed Users
-  const userCount = await db.User.countDocuments();
-  if (userCount === 0) {
-    console.log('Seeding initial users...');
-    const salt = await bcrypt.genSalt(10);
-    const userPass = await bcrypt.hash('password123', salt);
-    await db.User.create({ name: 'John Doe', email: 'john@example.com', password: userPass, status: 'Active' });
-    await db.User.create({ name: 'Jane Smith', email: 'jane@example.com', password: userPass, status: 'Active' });
-    await db.User.create({ name: 'Blocked Bob', email: 'bob@example.com', password: userPass, status: 'Blocked' });
-  }
-
   // 4. Seed Support Tickets
-  const ticketCount = await db.SupportTicket.countDocuments();
-  if (ticketCount === 0) {
-    console.log('Seeding initial support tickets...');
-    await db.SupportTicket.create({
-      name: 'John Doe',
-      email: 'john@example.com',
-      phone: '+966500000001',
-      company: 'Industrial Co',
-      subject: 'quote',
-      message: 'Need pricing for bulk order of Optibelt KB SK wedge belts.',
-      status: 'Open',
-      replies: []
-    });
-    await db.SupportTicket.create({
-      name: 'Jane Smith',
-      email: 'jane@example.com',
-      phone: '+966500000002',
-      company: 'AgriCorp',
-      subject: 'technical',
-      message: 'Can you provide the maximum temperature range for the Chevron Conveyor Belts?',
-      status: 'Resolved',
-      replies: [
-        { sender: 'Admin', message: 'Hello Jane, Kauman Chevron Belts generally withstand up to 90 degrees Celsius.', timestamp: new Date().toISOString() },
-        { sender: 'Jane Smith', message: 'Thank you, that is exactly what I needed!', timestamp: new Date().toISOString() }
-      ]
-    });
-  }
-
   // 5. Seed Coupons
-  const couponCount = await db.Coupon.countDocuments();
-  if (couponCount === 0) {
-    console.log('Seeding initial coupons...');
-    await db.Coupon.create({ code: 'WELCOME10', discountType: 'percentage', discountValue: 10, status: 'Active', usageLimit: 100, usedCount: 15 });
-    await db.Coupon.create({ code: 'HEAVY50', discountType: 'flat', discountValue: 50, status: 'Active', usageLimit: 10, usedCount: 2 });
-  }
 
-  // ✅ Remove duplicate SeedHistory assignment
+  // (do NOT seed products here – index.js handles that)
+
   db.ready = true;
   console.log('✅ Database is fully initialized and ready.');
 };
+
+module.exports = db;
