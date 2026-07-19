@@ -120,10 +120,10 @@ const BACKUP_PRODUCTS_PATH = path.join(__dirname, 'data', 'products-backup.json'
 
 async function seedProductsFromCatalog() {
   try {
-    // 1. If there is already at least 1 product in the database, STOP immediately.
+    // 1. Skip if any product already exists
     const count = await db.Product.countDocuments();
     if (count > 0) {
-      console.log('✅ Database has products already. Skipping auto-reset.');
+      console.log('✅ Products already exist, skipping seeding.');
       return;
     }
 
@@ -133,17 +133,20 @@ async function seedProductsFromCatalog() {
       catalogPath = BACKUP_PRODUCTS_PATH;
     }
     if (!fs.existsSync(catalogPath)) {
-      console.log('No product catalog file found.');
+      console.log('No product catalog file found for seeding.');
       return;
     }
 
     const rawProducts = JSON.parse(fs.readFileSync(catalogPath, 'utf8'));
-    if (!Array.isArray(rawProducts)) return;
+    if (!Array.isArray(rawProducts)) {
+      console.warn('Product catalog seed file is not an array.');
+      return;
+    }
 
     let createdCount = 0;
 
     for (const [index, item] of rawProducts.entries()) {
-      // Build your product data (title, specs, price, etc.)
+      // Build your product data (same as before)
       const title = item.title || item.productName || item.name || `Product ${index + 1}`;
       const breadcrumbs = Array.isArray(item.breadcrumbs) ? item.breadcrumbs : [];
       const category = breadcrumbs[0] || item.category || 'General';
@@ -170,13 +173,13 @@ async function seedProductsFromCatalog() {
         slug: `${slugBase}-${Date.now()}-${index + 1}`,
       };
 
-      // 🔥 THE IMPORTANT CHANGE: ONLY add if the SKU does NOT exist.
+      // 🔥 ONLY create if the product does NOT exist
       const existing = await db.Product.findOne({ sku });
       if (!existing) {
         await db.Product.create(normalizedProduct);
         createdCount++;
       }
-      // If it exists, we do NOTHING (no update, no overwrite).
+      // If it exists, we do NOTHING (no update, no overwrite)
     }
 
     console.log(`✅ Initial seed: ${createdCount} new products added.`);
