@@ -288,26 +288,50 @@ db.init = async function (mongoUri, defaultEmail, defaultPassword) {
   let isConnected = false;
 
   if (mongoUri) {
-    try {
-      console.log('Attempting MongoDB connection...');
-      await mongoose.connect(mongoUri, { serverSelectionTimeoutMS: 10000 });
-      console.log('✅ Connected to MongoDB.');
-      isConnected = true;
-      isMongo = true;
-      db.isMongo = true;
+    // Vercel serverless functions have a hard execution time limit (often as
+    // low as 10s on the Hobby plan). Keep the total worst-case connection
+    // budget comfortably under that instead of retrying with long timeouts,
+    // which would just get the whole invocation killed by the platform
+    // before it ever reaches our own error handling below.
+    const MAX_ATTEMPTS = 2;
+    const ATTEMPT_TIMEOUT_MS = 4000;
+    let lastError = null;
+    for (let attempt = 1; attempt <= MAX_ATTEMPTS && !isConnected; attempt++) {
+      try {
+        console.log(`Attempting MongoDB connection (try ${attempt}/${MAX_ATTEMPTS})...`);
+        await mongoose.connect(mongoUri, { serverSelectionTimeoutMS: ATTEMPT_TIMEOUT_MS });
+        console.log('✅ Connected to MongoDB.');
+        isConnected = true;
+        isMongo = true;
+        db.isMongo = true;
 
-      // Register all models
-      db.Admin = mongoose.model('Admin', AdminSchema);
-      db.Product = mongoose.model('Product', ProductSchema);
-      db.Category = mongoose.model('Category', CategorySchema);
-      db.ActivityLog = mongoose.model('ActivityLog', ActivityLogSchema);
-      db.Order = mongoose.model('Order', OrderSchema);
-      db.User = mongoose.model('User', UserSchema);
-      db.SupportTicket = mongoose.model('SupportTicket', SupportTicketSchema);
-      db.Coupon = mongoose.model('Coupon', CouponSchema);
-      db.SeedHistory = mongoose.model('SeedHistory', SeedHistorySchema);
-    } catch (e) {
-      console.warn('MongoDB connection failed. Falling back to local JSON database.', e.message);
+        // Register all models
+        db.Admin = mongoose.model('Admin', AdminSchema);
+        db.Product = mongoose.model('Product', ProductSchema);
+        db.Category = mongoose.model('Category', CategorySchema);
+        db.ActivityLog = mongoose.model('ActivityLog', ActivityLogSchema);
+        db.Order = mongoose.model('Order', OrderSchema);
+        db.User = mongoose.model('User', UserSchema);
+        db.SupportTicket = mongoose.model('SupportTicket', SupportTicketSchema);
+        db.Coupon = mongoose.model('Coupon', CouponSchema);
+        db.SeedHistory = mongoose.model('SeedHistory', SeedHistorySchema);
+      } catch (e) {
+        lastError = e;
+        console.warn(`MongoDB connection attempt ${attempt}/${MAX_ATTEMPTS} failed: ${e.message}`);
+        try { await mongoose.disconnect(); } catch (_) {}
+      }
+    }
+
+    if (!isConnected) {
+      // A database was configured but every attempt to reach it failed.
+      // Do NOT silently fall back to ephemeral JSON storage here: on a
+      // platform like Vercel that would mean some requests silently write
+      // to a store that vanishes on the next cold start, while others hit
+      // the real database -- causing data to randomly "disappear" with no
+      // visible error. Instead, leave db.ready false so every request gets
+      // a clear 503 until MongoDB is actually reachable.
+      console.error('❌ MongoDB is configured but unreachable after all retries. Refusing to fall back to local JSON storage in this mode.', lastError && lastError.message);
+      throw new Error('MongoDB configured but unreachable: ' + (lastError && lastError.message));
     }
   }
 
