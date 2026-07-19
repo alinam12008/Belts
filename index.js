@@ -120,25 +120,30 @@ const BACKUP_PRODUCTS_PATH = path.join(__dirname, 'data', 'products-backup.json'
 
 async function seedProductsFromCatalog() {
   try {
+    // 1. If there is already at least 1 product in the database, STOP immediately.
+    const count = await db.Product.countDocuments();
+    if (count > 0) {
+      console.log('✅ Database has products already. Skipping auto-reset.');
+      return;
+    }
+
+    // 2. Locate the seed file
     let catalogPath = CATALOG_PRODUCTS_PATH;
     if (!fs.existsSync(catalogPath)) {
       catalogPath = BACKUP_PRODUCTS_PATH;
     }
     if (!fs.existsSync(catalogPath)) {
-      console.log('No product catalog file found for seeding.');
+      console.log('No product catalog file found.');
       return;
     }
 
     const rawProducts = JSON.parse(fs.readFileSync(catalogPath, 'utf8'));
-    if (!Array.isArray(rawProducts)) {
-      console.warn('Product catalog seed file is not an array.');
-      return;
-    }
+    if (!Array.isArray(rawProducts)) return;
 
     let createdCount = 0;
-    let updatedCount = 0;
 
     for (const [index, item] of rawProducts.entries()) {
+      // Build your product data (title, specs, price, etc.)
       const title = item.title || item.productName || item.name || `Product ${index + 1}`;
       const breadcrumbs = Array.isArray(item.breadcrumbs) ? item.breadcrumbs : [];
       const category = breadcrumbs[0] || item.category || 'General';
@@ -165,19 +170,18 @@ async function seedProductsFromCatalog() {
         slug: `${slugBase}-${Date.now()}-${index + 1}`,
       };
 
+      // 🔥 THE IMPORTANT CHANGE: ONLY add if the SKU does NOT exist.
       const existing = await db.Product.findOne({ sku });
-      if (existing) {
-        await db.Product.findByIdAndUpdate(existing._id, normalizedProduct, { new: true });
-        updatedCount += 1;
-      } else {
+      if (!existing) {
         await db.Product.create(normalizedProduct);
-        createdCount += 1;
+        createdCount++;
       }
+      // If it exists, we do NOTHING (no update, no overwrite).
     }
 
-    console.log(`✅ Synced products from ${path.basename(catalogPath)}: ${createdCount} created, ${updatedCount} updated.`);
+    console.log(`✅ Initial seed: ${createdCount} new products added.`);
   } catch (err) {
-    console.error('❌ Failed to seed products from catalog:', err.message);
+    console.error('❌ Seeding failed:', err.message);
   }
 }
 
