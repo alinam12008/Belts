@@ -85,22 +85,6 @@ app.use(cors());
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
-// ✅ FIXED: Serve static files from the root folder FIRST
-// This allows clients.html and partners.html to be served correctly
-app.use(express.static(__dirname));
-
-// Force serve clients.html and partners.html
-app.get('/clients.html', (req, res) => {
-  res.sendFile(path.join(__dirname, 'stitch_modern_belt_store_redesign', 'clients.html'));
-});
-app.get('/partners.html', (req, res) => {
-  res.sendFile(path.join(__dirname, 'stitch_modern_belt_store_redesign', 'partners.html'));
-});
-
-// Then serve the redesign folder (if it exists)
-app.use(express.static(path.join(__dirname, 'stitch_modern_belt_store_redesign')));
-
-// NOTE: Images are now served from Cloudinary CDN — no local /mmmm folder needed.
 
 // Init database
 db.init(
@@ -1307,6 +1291,23 @@ app.get('/api/language/:lang', (req, res) => {
 // ============================================================
 // 6. Static Files & Server Start
 // ============================================================
+
+// ============================================================
+// 6. Static Files & Server Start
+// ============================================================
+
+// ***** MOVED STATIC MIDDLEWARE TO BOTTOM *****
+app.use(express.static(__dirname));
+app.use(express.static(path.join(__dirname, 'stitch_modern_belt_store_redesign')));
+
+// Explicit routes for clients.html and partners.html (optional, static already serves them)
+app.get('/clients.html', (req, res) => {
+  res.sendFile(path.join(__dirname, 'stitch_modern_belt_store_redesign', 'clients.html'));
+});
+app.get('/partners.html', (req, res) => {
+  res.sendFile(path.join(__dirname, 'stitch_modern_belt_store_redesign', 'partners.html'));
+});
+
 const PORT = process.env.PORT || 3000;
 if (!isVercel) {
   app.listen(PORT, () => {
