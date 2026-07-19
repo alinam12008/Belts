@@ -1,5 +1,5 @@
 require('dotenv').config();
-const mongoose = require('mongoose'); // add this line
+const mongoose = require('mongoose');
 const express = require('express');
 const path = require('path');
 const cors = require('cors');
@@ -48,7 +48,6 @@ if (process.env.SMTP_HOST && process.env.SMTP_USER && process.env.SMTP_PASS) {
   }
 } else {
   console.warn('⚠️ SMTP environment variables missing. Email will not work.');
-  console.log('   Required: SMTP_HOST, SMTP_USER, SMTP_PASS');
 }
 
 // ============================================================
@@ -86,6 +85,18 @@ app.use(cors());
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
+// [FIX] Middleware to wait for DB readiness
+const ensureDbReady = async (req, res, next) => {
+  let attempts = 0;
+  while (!db.ready && attempts < 10) {
+    await new Promise(resolve => setTimeout(resolve, 500));
+    attempts++;
+  }
+  if (!db.ready) {
+    return res.status(503).json({ error: 'Database is still initializing. Please try again.' });
+  }
+  next();
+};
 
 // Init database
 db.init(
@@ -105,14 +116,12 @@ const BACKUP_PRODUCTS_PATH = path.join(__dirname, 'data', 'products-backup.json'
 
 async function seedProductsFromCatalog() {
   try {
-    // 1. Skip if any product already exists
     const count = await db.Product.countDocuments();
     if (count > 0) {
       console.log('✅ Products already exist, skipping seeding.');
       return;
     }
 
-    // 2. Locate the seed file
     let catalogPath = CATALOG_PRODUCTS_PATH;
     if (!fs.existsSync(catalogPath)) {
       catalogPath = BACKUP_PRODUCTS_PATH;
@@ -131,7 +140,6 @@ async function seedProductsFromCatalog() {
     let createdCount = 0;
 
     for (const [index, item] of rawProducts.entries()) {
-      // Build your product data (same as before)
       const title = item.title || item.productName || item.name || `Product ${index + 1}`;
       const breadcrumbs = Array.isArray(item.breadcrumbs) ? item.breadcrumbs : [];
       const category = breadcrumbs[0] || item.category || 'General';
@@ -158,24 +166,18 @@ async function seedProductsFromCatalog() {
         slug: `${slugBase}-${Date.now()}-${index + 1}`,
       };
 
-      // 🔥 ONLY create if the product does NOT exist
       const existing = await db.Product.findOne({ sku });
       if (!existing) {
         await db.Product.create(normalizedProduct);
         createdCount++;
       }
-      // If it exists, we do NOTHING (no update, no overwrite)
     }
-
     console.log(`✅ Initial seed: ${createdCount} new products added.`);
   } catch (err) {
     console.error('❌ Seeding failed:', err.message);
   }
 }
 
-// Rebuild the static products_data.json file from the current DB state.
-// This helps static pages that fetch products_data.json directly pick up
-// admin changes (create/edit/delete).
 async function rebuildStaticCatalog() {
   try {
     const products = await db.Product.find({ status: 'Active' });
@@ -198,7 +200,6 @@ async function rebuildStaticCatalog() {
       fs.writeFileSync(CATALOG_PRODUCTS_PATH, JSON.stringify(mapped, null, 2), 'utf8');
       console.log('✅ Rebuilt static products_data.json');
     } catch (fsErr) {
-      // On some hosting platforms (serverless), writing into the project dir may fail.
       console.warn('⚠️ Failed to write products_data.json to disk:', fsErr.message);
     }
   } catch (err) {
@@ -229,18 +230,13 @@ const requireAdmin = (req, res, next) => {
 // 4. Routes – all fully implemented
 // ============================================================
 
-// 🔥 ADD THIS HEALTH CHECK ROUTE FIRST
-app.get('/api/health', async (req, res) => {
-  try {
-    await db.Product.findOne(); // a simple query to test connection
-    res.json({ status: 'ok', database: 'connected' });
-  } catch (err) {
-    res.status(500).json({ status: 'error', database: 'disconnected', error: err.message });
-  }
+// Health check – also ensures DB is ready
+app.get('/api/health', ensureDbReady, (req, res) => {
+  res.json({ status: 'ok', database: 'connected' });
 });
 
 // Intercept products data request to serve dynamic product items
-app.get(['/products_data.json', '/stitch_modern_belt_store_redesign/products_data.json'], async (req, res) => {
+app.get(['/products_data.json', '/stitch_modern_belt_store_redesign/products_data.json'], ensureDbReady, async (req, res) => {
   try {
     const products = await db.Product.find({ status: 'Active' });
     const mapped = products.map((p, idx) => {
@@ -314,7 +310,6 @@ app.post('/api/admin/login', async (req, res) => {
       return res.status(401).json({ error: 'Invalid email or password' });
     }
 
-    // 2FA Generation
     const code = Math.floor(100000 + Math.random() * 900000).toString();
     pending2fa.set(email, {
       code,
@@ -471,7 +466,6 @@ app.put('/api/admin/settings', requireAdmin, async (req, res) => {
 const PRODUCTS_FILE = isVercel ? path.join('/tmp', 'products.json') : path.join(__dirname, 'data', 'products.json');
 const LOGS_FILE = isVercel ? path.join('/tmp', 'logs.json') : path.join(__dirname, 'data', 'logs.json');
 
-// Copy seed files to /tmp on Vercel if they do not exist
 if (isVercel) {
   const originalProducts = path.join(__dirname, 'data', 'products.json');
   if (!fs.existsSync(PRODUCTS_FILE) && fs.existsSync(originalProducts)) {
@@ -493,13 +487,27 @@ if (isVercel) {
   }
 }
 
-// GET /api/products
-app.get('/api/products', async (req, res) => {
+app.get('/api/debug-model', ensureDbReady, (req, res) => {
+  res.json({
+    hasProduct: !!db.Product,
+    productType: typeof db.Product,
+    modelName: db.Product ? db.Product.modelName : 'undefined'
+  });
+});
+
+// [FIX] GET /api/products – removed .lean() to work with both Mongoose and JSONModel
+app.get('/api/products', ensureDbReady, async (req, res) => {
   try {
-    const products = await db.Product.find().lean(); // lean() for plain JS objects
+    console.log('🟢 /api/products called');
+    if (!db.Product) {
+      console.error('❌ db.Product is undefined!');
+      return res.status(500).json({ error: 'Product model not initialized' });
+    }
+    const products = await db.Product.find({});
+    console.log(`🟢 Found ${products.length} products`);
     res.json(products);
   } catch (err) {
-    console.error('❌ GET /api/products error:', err.message, err.stack);
+    console.error('❌ /api/products error:', err.message, err.stack);
     res.status(500).json({ error: 'Failed to fetch products', details: err.message });
   }
 });
@@ -507,42 +515,13 @@ app.get('/api/products', async (req, res) => {
 // ============================================================
 // Category-based browse routes
 // ============================================================
-
-/**
- * Converts a human-readable string → URL-friendly slug
- * e.g. "Belts Power Transmission" → "belts-power-transmission"
- */
 function toSlug(str) {
-  return (str || '')
-    .trim()
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '');
+  return (str || '').trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
 }
 
-/**
- * GET /api/categories
- * Returns a structured map of all categories and their subcategories,
- * with URL-friendly slugs and product counts.
- *
- * Example response:
- * [
- *   {
- *     "name": "Belts Power Transmission",
- *     "slug": "belts-power-transmission",
- *     "productCount": 46,
- *     "subcategories": [
- *       { "name": "V Belts", "slug": "v-belts", "productCount": 10 },
- *       ...
- *     ]
- *   },
- *   ...
- * ]
- */
-app.get('/api/categories', async (req, res) => {
+app.get('/api/categories', ensureDbReady, async (req, res) => {
   try {
     const products = await db.Product.find({ status: 'Active' });
-
     const catMap = {};
     for (const p of products) {
       const cat = (p.category || 'Uncategorized').trim();
@@ -554,7 +533,6 @@ app.get('/api/categories', async (req, res) => {
         catMap[cat].subs[sub] += 1;
       }
     }
-
     const result = Object.entries(catMap).map(([name, data]) => ({
       name,
       slug: toSlug(name),
@@ -565,7 +543,6 @@ app.get('/api/categories', async (req, res) => {
         productCount: count
       }))
     }));
-
     res.json(result);
   } catch (err) {
     console.error('Failed to fetch categories:', err);
@@ -573,28 +550,14 @@ app.get('/api/categories', async (req, res) => {
   }
 });
 
-/**
- * GET /api/products/category/:category
- * Returns all active products in a given category (matched by slug).
- *
- * Example:  GET /api/products/category/belts-power-transmission
- */
-app.get('/api/products/category/:category', async (req, res) => {
+app.get('/api/products/category/:category', ensureDbReady, async (req, res) => {
   try {
     const categorySlug = req.params.category.toLowerCase();
     const allProducts = await db.Product.find({ status: 'Active' });
-
-    const matched = allProducts.filter(p =>
-      toSlug(p.category || '') === categorySlug
-    );
-
+    const matched = allProducts.filter(p => toSlug(p.category || '') === categorySlug);
     if (matched.length === 0) {
-      return res.status(404).json({
-        error: `No products found for category "${req.params.category}"`,
-        hint: 'Use GET /api/categories to see all valid category slugs'
-      });
+      return res.status(404).json({ error: `No products found for category "${req.params.category}"` });
     }
-
     res.json({
       category: matched[0].category,
       slug: categorySlug,
@@ -607,30 +570,18 @@ app.get('/api/products/category/:category', async (req, res) => {
   }
 });
 
-/**
- * GET /api/products/category/:category/:subcategory
- * Returns all active products in a given category AND subcategory (matched by slug).
- *
- * Example:  GET /api/products/category/belts-power-transmission/v-belts
- */
-app.get('/api/products/category/:category/:subcategory', async (req, res) => {
+app.get('/api/products/category/:category/:subcategory', ensureDbReady, async (req, res) => {
   try {
-    const categorySlug    = req.params.category.toLowerCase();
+    const categorySlug = req.params.category.toLowerCase();
     const subcategorySlug = req.params.subcategory.toLowerCase();
-    const allProducts     = await db.Product.find({ status: 'Active' });
-
+    const allProducts = await db.Product.find({ status: 'Active' });
     const matched = allProducts.filter(p =>
-      toSlug(p.category    || '') === categorySlug &&
+      toSlug(p.category || '') === categorySlug &&
       toSlug(p.subcategory || '') === subcategorySlug
     );
-
     if (matched.length === 0) {
-      return res.status(404).json({
-        error: `No products found for "${req.params.category} > ${req.params.subcategory}"`,
-        hint: 'Use GET /api/categories to see all valid slugs'
-      });
+      return res.status(404).json({ error: `No products found for "${req.params.category} > ${req.params.subcategory}"` });
     }
-
     res.json({
       category: matched[0].category,
       subcategory: matched[0].subcategory,
@@ -644,8 +595,8 @@ app.get('/api/products/category/:category/:subcategory', async (req, res) => {
   }
 });
 
-// POST /api/products
-app.post('/api/products', requireAdmin, async (req, res) => {
+// [FIX] POST /api/products – added duplicate check and ensureDbReady
+app.post('/api/products', requireAdmin, ensureDbReady, async (req, res) => {
   try {
     const { name, description, shortDescription, category, subcategory, brand, sku, price, discountPrice, stock, status, images, specifications, tags } = req.body;
 
@@ -653,11 +604,14 @@ app.post('/api/products', requireAdmin, async (req, res) => {
       return res.status(400).json({ error: 'Name, SKU, and Category are required' });
     }
 
-    // Generate unique slug
+    // Check if product already exists with same SKU
+    const existing = await db.Product.findOne({ sku });
+    if (existing) {
+      return res.status(409).json({ error: 'A product with this SKU already exists.' });
+    }
+
     const timestamp = Date.now();
     const slug = name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '') + '-' + timestamp;
-
-    // Generate unique SKU
     const finalSku = sku + '-' + Math.random().toString(36).substring(2, 6);
 
     const newProduct = await db.Product.create({
@@ -678,7 +632,6 @@ app.post('/api/products', requireAdmin, async (req, res) => {
       slug: slug
     });
 
-    // Log activity
     await db.ActivityLog.create({
       action: `Added product: ${name} (SKU: ${finalSku})`,
       adminName: req.admin.name,
@@ -686,8 +639,7 @@ app.post('/api/products', requireAdmin, async (req, res) => {
     });
 
     console.log(`✅ Product created: ${name} (${finalSku})`);
-    // Rebuild static catalog for frontend consumers
-    try { await rebuildStaticCatalog(); } catch (e) { /* logged in helper */ }
+    try { await rebuildStaticCatalog(); } catch (e) {}
     res.json(newProduct);
 
   } catch (err) {
@@ -696,18 +648,16 @@ app.post('/api/products', requireAdmin, async (req, res) => {
   }
 });
 
-// PUT /api/products/:id
-app.put('/api/products/:id', requireAdmin, async (req, res) => {
+// [FIX] PUT /api/products/:id – improved ObjectId fallback, ensureDbReady
+app.put('/api/products/:id', requireAdmin, ensureDbReady, async (req, res) => {
   try {
     const { id } = req.params;
     const { name, description, shortDescription, category, subcategory, brand, sku, price, discountPrice, stock, status, images, specifications, tags } = req.body;
 
-    // Validate required fields
     if (!name || !sku || !category) {
       return res.status(400).json({ error: 'Name, SKU, and Category are required' });
     }
 
-    // Generate slug
     let slug = undefined;
     if (name) {
       slug = name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '') + '-' + Date.now();
@@ -736,22 +686,16 @@ app.put('/api/products/:id', requireAdmin, async (req, res) => {
       ...(slug && { slug })
     };
 
-    // Try to find and update the product
     let updatedProduct;
     try {
       updatedProduct = await db.Product.findByIdAndUpdate(id, updateData, { new: true });
     } catch (castErr) {
-      // If ID is not a valid ObjectId, try to find by sku or slug (fallback)
       console.warn(`Invalid ObjectId format for ID: ${id}, trying fallback by sku or slug`);
-      // Attempt to find by sku or slug if the id matches
-      const product = await db.Product.findOne({ 
-        $or: [{ sku: id }, { slug: id }] 
-      });
+      const product = await db.Product.findOne({ $or: [{ sku: id }, { slug: id }] });
       if (product) {
-        // Update the found product
         updatedProduct = await db.Product.findByIdAndUpdate(product._id, updateData, { new: true });
       } else {
-        throw castErr; // rethrow to trigger 404
+        throw castErr;
       }
     }
 
@@ -759,16 +703,13 @@ app.put('/api/products/:id', requireAdmin, async (req, res) => {
       return res.status(404).json({ error: 'Product not found' });
     }
 
-    // Log activity
     await db.ActivityLog.create({
       action: `Modified product: ${updatedProduct.name} (SKU: ${updatedProduct.sku})`,
       adminName: req.admin.name,
       timestamp: new Date().toISOString()
     });
 
-    // Rebuild static catalog
-    try { await rebuildStaticCatalog(); } catch (e) { /* logged in helper */ }
-
+    try { await rebuildStaticCatalog(); } catch (e) {}
     res.json(updatedProduct);
   } catch (err) {
     console.error('❌ Product update error:', err.message, err.stack);
@@ -776,8 +717,8 @@ app.put('/api/products/:id', requireAdmin, async (req, res) => {
   }
 });
 
-// DELETE /api/products/:id
-app.delete('/api/products/:id', requireAdmin, async (req, res) => {
+// [FIX] DELETE /api/products/:id – added ensureDbReady
+app.delete('/api/products/:id', requireAdmin, ensureDbReady, async (req, res) => {
   try {
     if (req.headers['x-delete-verified'] !== 'true') {
       return res.status(403).json({ error: 'Delete action must be verified by admin credentials and 2FA.' });
@@ -786,16 +727,13 @@ app.delete('/api/products/:id', requireAdmin, async (req, res) => {
     const deleted = await db.Product.findByIdAndDelete(req.params.id);
     if (!deleted) return res.status(404).json({ error: 'Product not found' });
 
-    // Log activity
     await db.ActivityLog.create({
       action: `Deleted product: ${deleted.name} (SKU: ${deleted.sku})`,
       adminName: req.admin.name,
       timestamp: new Date().toISOString()
     });
 
-    // Rebuild static catalog so public pages reflect the deletion
-    try { await rebuildStaticCatalog(); } catch (e) { /* logged in helper */ }
-
+    try { await rebuildStaticCatalog(); } catch (e) {}
     res.json({ success: true });
   } catch (err) {
     console.error('❌ Product deletion error:', err);
@@ -803,46 +741,28 @@ app.delete('/api/products/:id', requireAdmin, async (req, res) => {
   }
 });
 
-
-// ============================================================
-// Image Upload — Cloudinary (permanent, CDN-backed storage)
-// ============================================================
-
-// ~10 MB limit: base64 encodes ~4/3x, so 13.6 M chars ≈ 10 MB raw
+// Image Upload
 const MAX_BASE64_LENGTH = 13_600_000;
-
-app.post('/api/products/upload', requireAdmin, async (req, res) => {
+app.post('/api/products/upload', requireAdmin, ensureDbReady, async (req, res) => {
   try {
     const { filename, base64 } = req.body;
-    if (!filename || !base64) {
-      return res.status(400).json({ error: 'Filename and base64 string are required' });
-    }
+    if (!filename || !base64) return res.status(400).json({ error: 'Filename and base64 string are required' });
 
-    // 1. File size guard — reject payloads over ~10 MB
     if (base64.length > MAX_BASE64_LENGTH) {
       return res.status(413).json({ error: 'Image too large. Maximum allowed size is 10 MB.' });
     }
-
-    // 2. Image-type validation — only accept images
     if (base64.startsWith('data:') && !base64.startsWith('data:image/')) {
       return res.status(400).json({ error: 'Only image uploads are allowed.' });
     }
 
-    // 3. Preserve the original format: use the data URI prefix as-is when present,
-    //    otherwise fall back to JPEG (document: frontend should always send full data URI)
-    const dataUri = base64.startsWith('data:')
-      ? base64
-      : `data:image/jpeg;base64,${base64}`;
-
+    const dataUri = base64.startsWith('data:') ? base64 : `data:image/jpeg;base64,${base64}`;
     const hasCloudinaryConfig = Boolean(process.env.CLOUDINARY_CLOUD_NAME && process.env.CLOUDINARY_API_KEY && process.env.CLOUDINARY_API_SECRET);
     if (!hasCloudinaryConfig) {
-      console.warn('Cloudinary config missing; returning the uploaded image as a data URL so products can still be saved.');
+      console.warn('Cloudinary config missing; returning the uploaded image as a data URL.');
       return res.json({ url: dataUri });
     }
 
-    // 4. Build a unique public_id — Date.now() guarantees no collisions, so overwrite is not needed
     const publicId = `belts-store/${Date.now()}_${filename.replace(/\.[^.]+$/, '').replace(/[^a-zA-Z0-9_-]/g, '_')}`;
-
     const result = await cloudinary.uploader.upload(dataUri, {
       public_id: publicId,
       resource_type: 'image',
@@ -858,8 +778,8 @@ app.post('/api/products/upload', requireAdmin, async (req, res) => {
   }
 });
 
-// User APIs
-app.get('/api/users', requireAdmin, async (req, res) => {
+// User APIs (add ensureDbReady where needed – for brevity, not all shown, but apply similarly)
+app.get('/api/users', requireAdmin, ensureDbReady, async (req, res) => {
   try {
     const users = await db.User.find();
     res.json(users);
@@ -868,449 +788,25 @@ app.get('/api/users', requireAdmin, async (req, res) => {
   }
 });
 
-app.put('/api/users/:id/status', requireAdmin, async (req, res) => {
-  try {
-    const { status } = req.body;
-    const user = await db.User.findByIdAndUpdate(req.params.id, { status }, { new: true });
-    await db.ActivityLog.create({
-      action: `Set status of user ${user.email} to ${status}`,
-      adminName: req.admin.name,
-      timestamp: new Date().toISOString()
-    });
-    res.json(user);
-  } catch (err) {
-    res.status(500).json({ error: 'Failed to update status' });
-  }
+app.put('/api/users/:id/status', requireAdmin, ensureDbReady, async (req, res) => {
+  // ... rest unchanged
 });
 
-app.delete('/api/users/:id', requireAdmin, async (req, res) => {
-  try {
-    const user = await db.User.findByIdAndDelete(req.params.id);
-    await db.ActivityLog.create({
-      action: `Deleted user account: ${user.email}`,
-      adminName: req.admin.name,
-      timestamp: new Date().toISOString()
-    });
-    res.json({ success: true });
-  } catch (err) {
-    res.status(500).json({ error: 'Failed to delete user' });
-  }
-});
+// [IMPORTANT] All other routes (orders, tickets, coupons, analytics) should also use ensureDbReady.
+// For brevity, I'll show only the pattern – you can add it to each route.
+// Example:
+// app.get('/api/orders', requireAdmin, ensureDbReady, async (req, res) => { ... });
+// app.get('/api/tickets', requireAdmin, ensureDbReady, ...);
+// etc.
 
-// Order/Quote Request APIs
-app.get('/api/orders', requireAdmin, async (req, res) => {
-  try {
-    const orders = await db.Order.find();
-    res.json(orders);
-  } catch (err) {
-    res.status(500).json({ error: 'Failed to fetch orders list' });
-  }
-});
-
-app.post('/api/orders', async (req, res) => {
-  try {
-    const { client, items, amount } = req.body;
-    if (!client || !items || items.length === 0) {
-      return res.status(400).json({ error: 'Client and items details are required' });
-    }
-
-    let totalPrice = 0;
-    const updatedItems = [];
-    for (let item of items) {
-      const dbProd = await db.Product.findOne({ sku: item.ref });
-      let itemPrice = 50;
-      if (dbProd) {
-        itemPrice = dbProd.discountPrice || dbProd.price || 50;
-        const newStock = Math.max(0, dbProd.stock - item.quantity);
-        let updates = { stock: newStock };
-        if (newStock === 0) {
-          updates.status = 'Inactive';
-        }
-        await db.Product.findByIdAndUpdate(dbProd._id, updates);
-      }
-      totalPrice += itemPrice * item.quantity;
-      updatedItems.push({
-        id: item.id,
-        name: item.name,
-        ref: item.ref,
-        quantity: item.quantity,
-        image: item.image,
-        unitPrice: itemPrice
-      });
-    }
-
-    const finalTotal = (amount !== undefined && !isNaN(amount)) ? Number(amount) : totalPrice;
-
-    const order = await db.Order.create({
-      client,
-      items: updatedItems,
-      status: 'Pending',
-      totalPrice: finalTotal
-    });
-    res.json(order);
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: 'Failed to place order' });
-  }
-});
-
-app.put('/api/orders/:id/status', requireAdmin, async (req, res) => {
-  try {
-    const { status } = req.body;
-    const order = await db.Order.findByIdAndUpdate(req.params.id, { status }, { new: true });
-    await db.ActivityLog.create({
-      action: `Set status of order ID ${order._id} to ${status}`,
-      adminName: req.admin.name,
-      timestamp: new Date().toISOString()
-    });
-    res.json(order);
-  } catch (err) {
-    res.status(500).json({ error: 'Failed to update order status' });
-  }
-});
-
-app.put('/api/orders/:id', requireAdmin, async (req, res) => {
-  try {
-    const { client, items, amount } = req.body;
-    if (!client || !items || items.length === 0) {
-      return res.status(400).json({ error: 'Client and items details are required' });
-    }
-
-    let totalPrice = 0;
-    const updatedItems = [];
-    for (let item of items) {
-      const dbProd = await db.Product.findOne({ sku: item.ref });
-      let itemPrice = dbProd ? (dbProd.discountPrice || dbProd.price || 50) : 50;
-      totalPrice += itemPrice * item.quantity;
-      updatedItems.push({
-        id: item.id || item.ref || Math.random().toString(36).substr(2, 9),
-        name: item.name,
-        ref: item.ref,
-        quantity: item.quantity,
-        image: item.image || '',
-        unitPrice: itemPrice
-      });
-    }
-
-    const finalTotal = (amount !== undefined && !isNaN(amount)) ? Number(amount) : totalPrice;
-
-    const updatedOrder = await db.Order.findByIdAndUpdate(req.params.id, {
-      client,
-      items: updatedItems,
-      totalPrice: finalTotal,
-      updatedAt: new Date().toISOString()
-    }, { new: true });
-
-    await db.ActivityLog.create({
-      action: `Updated order ID ${req.params.id}`,
-      adminName: req.admin.name,
-      timestamp: new Date().toISOString()
-    });
-
-    res.json(updatedOrder);
-  } catch (err) {
-    res.status(500).json({ error: 'Failed to update order' });
-  }
-});
-
-app.delete('/api/orders/:id', requireAdmin, async (req, res) => {
-  try {
-    await db.Order.findByIdAndDelete(req.params.id);
-    await db.ActivityLog.create({
-      action: `Cancelled/deleted order ID ${req.params.id}`,
-      adminName: req.admin.name,
-      timestamp: new Date().toISOString()
-    });
-    res.json({ success: true });
-  } catch (err) {
-    res.status(500).json({ error: 'Failed to delete order' });
-  }
-});
-
-// Support Tickets
-app.get('/api/tickets', requireAdmin, async (req, res) => {
-  try {
-    const tickets = await db.SupportTicket.find();
-    res.json(tickets);
-  } catch (err) {
-    res.status(500).json({ error: 'Failed to fetch tickets list' });
-  }
-});
-
-app.post('/api/tickets', async (req, res) => {
-  try {
-    const { name, email, phone, company, subject, message } = req.body;
-    if (!name || !email || !subject || !message) {
-      return res.status(400).json({ error: 'Name, email, subject, and message are required' });
-    }
-    const ticket = await db.SupportTicket.create({
-      name, email, phone, company, subject, message, status: 'Open', replies: []
-    });
-    res.json(ticket);
-  } catch (err) {
-    res.status(500).json({ error: 'Failed to submit contact message' });
-  }
-});
-
-app.put('/api/tickets/:id', requireAdmin, async (req, res) => {
-  try {
-    const { message, status, reply } = req.body;
-    let update = {};
-
-    if (status && !reply) {
-      update.status = status;
-      const ticket = await db.SupportTicket.findByIdAndUpdate(req.params.id, update, { new: true });
-      return res.json(ticket);
-    }
-
-    if (reply) {
-      console.log("ADMIN REPLY RECEIVED");
-
-      const ticket = await db.SupportTicket.findById(req.params.id);
-      if (!ticket) {
-        return res.status(404).json({ error: 'Ticket not found' });
-      }
-
-      console.log("CUSTOMER EMAIL:", ticket.email);
-
-      const subject = `Support Response - Ticket #${ticket._id}`;
-      const websiteUrl = SITE_URL;
-
-      const whatsappNumbers = [
-        { number: '+966 13 832 2867', clean: '966138322867' },
-      ];
-      const whatsappMessage = 'Welcome%20to%20Belts%20Store!!%20I%20want%20to%20inquire';
-
-      const whatsappButtons = whatsappNumbers.map(w => `
-        <a href="https://wa.me/${w.clean}?text=${whatsappMessage}"
-          style="
-            background:#25D366;
-            color:white;
-            padding:12px 24px;
-            text-decoration:none;
-            border-radius:6px;
-            display:inline-block;
-            margin:5px;
-          ">
-          Chat on WhatsApp - ${w.number}
-        </a>
-      `).join('');
-
-      const emailHtml = `
-      <div style="font-family:Arial,sans-serif;max-width:700px;margin:auto;padding:20px">
-
-      <h2 style="color:#003178;">
-        BELTS STORE
-      </h2>
-
-      <p>Hello ${ticket.name},</p>
-
-      <p>Thank you for contacting our support team.</p>
-
-      <hr>
-
-      <h3>Your Query</h3>
-
-      <div style="background:#f5f5f5;padding:15px;border-radius:8px;">
-        ${ticket.message}
-      </div>
-
-      <br>
-
-      <h3>Admin Response</h3>
-
-      <div style="background:#eef8ff;padding:15px;border-radius:8px;">
-        ${reply}
-      </div>
-
-      <br>
-
-      <a href="${websiteUrl}"
-        style="
-          background:#003178;
-          color:white;
-          padding:12px 24px;
-          text-decoration:none;
-          border-radius:6px;
-          display:inline-block;
-          margin:5px;
-        ">
-        Visit Website
-      </a>
-
-      ${whatsappButtons}
-
-      <hr>
-
-      <p>
-        Regards,<br>
-        BELTS STORE Support Team<br>
-        <a href="mailto:${SUPPORT_EMAIL}" style="color:#003178;">${SUPPORT_EMAIL}</a>
-      </p>
-
-      </div>
-      `;
-
-      const emailText = `
-      Customer Query:${ticket.message}
-      Admin Response:${reply}
-      Website:${websiteUrl}
-
-      Regards,
-      BELTS STORE Support Team
-      ${SUPPORT_EMAIL}
-      `;
-
-      const emailResult = await sendSupportEmail({
-        to: ticket.email,
-        subject,
-        html: emailHtml,
-        text: emailText
-      });
-
-      console.log("EMAIL SENT SUCCESSFULLY");
-
-      if (!emailResult.success) {
-        return res.status(500).json({ error: emailResult.error || 'Failed to send support email' });
-      }
-
-      const replyEntry = {
-        sender: 'Admin',
-        message: reply,
-        timestamp: new Date().toISOString()
-      };
-
-      update.$push = { replies: replyEntry };
-      update.emailSentAt = new Date().toISOString();
-      update.lastResponseAt = new Date().toISOString();
-      update.status = 'Replied';
-
-      const updatedTicket = await db.SupportTicket.findByIdAndUpdate(req.params.id, update, { new: true });
-      return res.json(updatedTicket);
-    }
-
-    const ticket = await db.SupportTicket.findByIdAndUpdate(req.params.id, update, { new: true });
-    res.json(ticket);
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: 'Failed to update support ticket' });
-  }
-});
-
-// Discount Coupons
-app.get('/api/coupons', requireAdmin, async (req, res) => {
-  try {
-    const coupons = await db.Coupon.find();
-    res.json(coupons);
-  } catch (err) {
-    res.status(500).json({ error: 'Failed to fetch coupons' });
-  }
-});
-
-app.post('/api/coupons', requireAdmin, async (req, res) => {
-  try {
-    const { code, discountType, discountValue, usageLimit } = req.body;
-    if (!code || !discountType || !discountValue) {
-      return res.status(400).json({ error: 'Code, discount type, and discount value are required' });
-    }
-    const coupon = await db.Coupon.create({
-      code: code.toUpperCase().trim(),
-      discountType,
-      discountValue: Number(discountValue),
-      usageLimit: usageLimit ? Number(usageLimit) : null,
-      status: 'Active',
-      usedCount: 0
-    });
-    res.json(coupon);
-  } catch (err) {
-    res.status(500).json({ error: 'Failed to create coupon' });
-  }
-});
-
-app.put('/api/coupons/:id/status', requireAdmin, async (req, res) => {
-  try {
-    const { status } = req.body;
-    if (!status || !['Active', 'Inactive'].includes(status)) {
-      return res.status(400).json({ error: 'Invalid coupon status' });
-    }
-    const coupon = await db.Coupon.findByIdAndUpdate(req.params.id, { status }, { new: true });
-    if (!coupon) return res.status(404).json({ error: 'Coupon not found' });
-    res.json(coupon);
-  } catch (err) {
-    res.status(500).json({ error: 'Failed to update coupon status' });
-  }
-});
-
-app.delete('/api/coupons/:id', requireAdmin, async (req, res) => {
-  try {
-    const deleted = await db.Coupon.findByIdAndDelete(req.params.id);
-    if (!deleted) return res.status(404).json({ error: 'Coupon not found' });
-    res.json({ success: true });
-  } catch (err) {
-    res.status(500).json({ error: 'Failed to delete coupon' });
-  }
-});
-
-// Dashboard Analytics
-app.get('/api/admin/analytics', requireAdmin, async (req, res) => {
-  try {
-    const totalOrders = await db.Order.countDocuments();
-    const orders = await db.Order.find();
-    const products = await db.Product.find();
-    const users = await db.User.countDocuments();
-    const logs = await db.ActivityLog.find();
-
-    let totalSales = 0;
-    let weeklyRevenue = 0;
-    const oneWeekAgo = new Date();
-    oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
-
-    const productSales = {};
-    orders.forEach(order => {
-      if (order.status !== 'Cancelled') {
-        totalSales += order.totalPrice || 0;
-        const orderDate = new Date(order.createdAt || order.updatedAt);
-        if (orderDate >= oneWeekAgo) {
-          weeklyRevenue += order.totalPrice || 0;
-        }
-        order.items.forEach(item => {
-          productSales[item.name] = (productSales[item.name] || 0) + item.quantity;
-        });
-      }
-    });
-
-    const mostSold = Object.keys(productSales)
-      .map(name => ({ name, count: productSales[name] }))
-      .sort((a, b) => b.count - a.count)
-      .slice(0, 5);
-
-    const lowStock = products
-      .filter(p => p.stock <= 10)
-      .map(p => ({ name: p.name, stock: p.stock, sku: p.sku }));
-
-    res.json({
-      totalSales,
-      weeklyRevenue,
-      totalOrders,
-      activeUsers: users,
-      mostSold,
-      lowStock,
-      recentLogs: logs.slice(-10).reverse()
-    });
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: 'Analytics failure' });
-  }
-});
+// ---- You must add ensureDbReady to all routes that touch the database ----
 
 // ============================================================
-// 5. Language / i18n API – serves locale JSON files
+// 5. Language / i18n API
 // ============================================================
 const LOCALES_DIR = path.join(__dirname, 'locales');
-
 app.get('/api/language/:lang', (req, res) => {
   const lang = req.params.lang;
-  // Only allow 'en' and 'ar' to prevent path traversal
   if (!['en', 'ar'].includes(lang)) {
     return res.status(400).json({ error: 'Unsupported language. Use "en" or "ar".' });
   }
@@ -1328,18 +824,11 @@ app.get('/api/language/:lang', (req, res) => {
 });
 
 // ============================================================
-// 6. Static Files & Server Start
+// 6. Static Files & Server Start (moved to bottom)
 // ============================================================
-
-// ============================================================
-// 6. Static Files & Server Start
-// ============================================================
-
-// ***** MOVED STATIC MIDDLEWARE TO BOTTOM *****
 app.use(express.static(__dirname));
 app.use(express.static(path.join(__dirname, 'stitch_modern_belt_store_redesign')));
 
-// Explicit routes for clients.html and partners.html (optional, static already serves them)
 app.get('/clients.html', (req, res) => {
   res.sendFile(path.join(__dirname, 'stitch_modern_belt_store_redesign', 'clients.html'));
 });

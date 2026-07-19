@@ -12,10 +12,11 @@ if (!fs.existsSync(DATA_DIR)) {
     console.error('Failed to create DATA_DIR:', err.message);
   }
 }
+
 // In db.js – expose a connection status
 let isConnected = false;
 module.exports.isConnected = () => isConnected;
-// Set isConnected = true inside your connection callback
+
 let isMongo = false;
 let db = {
   isMongo: false,
@@ -27,13 +28,23 @@ let db = {
   User: null,
   SupportTicket: null,
   Coupon: null,
-  init: null
+  init: null,
+  ready: false // [FIX] add ready flag
 };
 
 // --- Local JSON File Database Fallback Implementation ---
 class JSONModel {
   constructor(filename, defaultData = []) {
     this.filePath = path.join(DATA_DIR, filename);
+    // [FIX] ensure directory exists
+    const dir = path.dirname(this.filePath);
+    if (!fs.existsSync(dir)) {
+      try {
+        fs.mkdirSync(dir, { recursive: true });
+      } catch (err) {
+        console.error(`Failed to create directory for ${filename}:`, err.message);
+      }
+    }
     if (!fs.existsSync(this.filePath)) {
       const originalPath = path.join(__dirname, 'scratch', 'data', filename);
       if (isVercel && fs.existsSync(originalPath)) {
@@ -61,9 +72,15 @@ class JSONModel {
   _read() {
     try {
       const data = fs.readFileSync(this.filePath, 'utf8');
-      return JSON.parse(data);
+      const parsed = JSON.parse(data);
+      // [FIX] ensure array
+      if (!Array.isArray(parsed)) {
+        console.warn(`Data in ${this.filePath} is not an array. Returning empty array.`);
+        return [];
+      }
+      return parsed;
     } catch (e) {
-      console.error(`Error reading ${this.filePath}:`, e);
+      console.error(`Error reading ${this.filePath}:`, e.message);
       return [];
     }
   }
@@ -119,7 +136,6 @@ class JSONModel {
     const idx = items.findIndex(item => item._id === id);
     if (idx === -1) return null;
 
-    // Support mongoose update operations like $push, $set
     let current = items[idx];
     if (updateData.$push) {
       for (let key in updateData.$push) {
@@ -193,7 +209,7 @@ const ProductSchema = new mongoose.Schema({
   specifications: { type: Map, of: String },
   tags: [{ type: String }],
   stock: { type: Number, default: 0 },
-  status: { type: String, default: 'Active' }, // Active, Inactive
+  status: { type: String, default: 'Active' },
   slug: { type: String, required: true }
 }, { timestamps: true });
 
@@ -225,7 +241,7 @@ const OrderSchema = new mongoose.Schema({
     quantity: Number,
     image: String
   }],
-  status: { type: String, default: 'Pending' }, // Pending, Processed, Completed, Cancelled
+  status: { type: String, default: 'Pending' },
   totalPrice: { type: Number, default: 0 }
 }, { timestamps: true });
 
@@ -233,7 +249,7 @@ const UserSchema = new mongoose.Schema({
   name: { type: String, required: true },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
-  status: { type: String, default: 'Active' } // Active, Blocked
+  status: { type: String, default: 'Active' }
 }, { timestamps: true });
 
 const SupportTicketSchema = new mongoose.Schema({
@@ -243,26 +259,23 @@ const SupportTicketSchema = new mongoose.Schema({
   company: { type: String, default: '' },
   subject: { type: String, required: true },
   message: { type: String, required: true },
-  status: { type: String, default: 'Open' }, // Open, Pending, Replied, Resolved
+  status: { type: String, default: 'Open' },
   emailSentAt: { type: String, default: '' },
   whatsappSentAt: { type: String, default: '' },
   lastResponseAt: { type: String, default: '' },
   replies: [{
     sender: String,
     message: String,
-    products: [{
-      name: String,
-      url: String
-    }],
+    products: [{ name: String, url: String }],
     timestamp: String
   }]
 }, { timestamps: true });
 
 const CouponSchema = new mongoose.Schema({
   code: { type: String, required: true, unique: true },
-  discountType: { type: String, required: true }, // percentage, flat
+  discountType: { type: String, required: true },
   discountValue: { type: Number, required: true },
-  status: { type: String, default: 'Active' }, // Active, Inactive
+  status: { type: String, default: 'Active' },
   usageLimit: { type: Number, default: null },
   usedCount: { type: Number, default: 0 }
 }, { timestamps: true });
@@ -274,7 +287,6 @@ db.init = async function (mongoUri, defaultEmail, defaultPassword) {
   if (mongoUri) {
     try {
       console.log('Attempting MongoDB connection...');
-      // 1.5 seconds timeout for quick fallback
       await mongoose.connect(mongoUri, {
         serverSelectionTimeoutMS: 10000
       });
@@ -346,61 +358,9 @@ db.init = async function (mongoUri, defaultEmail, defaultPassword) {
     }
   }
 
-  // 3. Seed Products from products_data.json only when the catalog is empty.
-  // This preserves admin-created products across restarts and deployments.
-  const productCount = await db.Product.countDocuments();
-  if (productCount === 0) {
-    const productsJsonPath = path.join(__dirname, 'stitch_modern_belt_store_redesign', 'products_data.json');
-    if (fs.existsSync(productsJsonPath)) {
-      console.log('Seeding initial products database from products_data.json...');
-      try {
-        const rawData = JSON.parse(fs.readFileSync(productsJsonPath, 'utf8'));
+  // [FIX] REMOVED product seeding from db.js – index.js handles it once.
 
-        for (let i = 0; i < rawData.length; i++) {
-          const raw = rawData[i];
-          const catName = (raw.breadcrumbs && raw.breadcrumbs[0]) || 'Belts Power Transmission';
-          const subcatName = (raw.breadcrumbs && raw.breadcrumbs[1]) || '';
-
-          // Generate realistic prices and stocks
-          const basePrice = 45 + Math.floor(Math.random() * 350);
-          const discPrice = basePrice > 100 ? basePrice - 15 - Math.floor(Math.random() * 20) : basePrice;
-
-          // Generate clean slug
-          const slug = (raw.title || '')
-            .toLowerCase()
-            .replace(/[^a-z0-9]+/g, '-')
-            .replace(/^-+|-+$/g, '') || `product-${i}`;
-
-          // Extract specs ref if possible
-          const ref = raw.specs ? (raw.specs["DIN"] || raw.specs["ISO"]) : null;
-          const sku = ref || `SKU-${1000 + i}`;
-
-          await db.Product.create({
-            name: raw.title || 'Unnamed Product',
-            description: raw.full_description || '',
-            shortDescription: raw.short_description || '',
-            category: catName,
-            subcategory: subcatName,
-            brand: 'Optibelt',
-            sku: sku,
-            price: basePrice,
-            discountPrice: discPrice,
-            images: raw.image ? [raw.image] : [],
-            specifications: raw.specs || {},
-            tags: [catName, subcatName].filter(Boolean),
-            stock: 10 + Math.floor(Math.random() * 90),
-            status: 'Active',
-            slug: slug
-          });
-        }
-        console.log(`Successfully seeded ${rawData.length} products.`);
-      } catch (err) {
-        console.error('Error seeding products:', err);
-      }
-    }
-  }
-
-  // 4. Seed Users
+  // 3. Seed Users
   const userCount = await db.User.countDocuments();
   if (userCount === 0) {
     console.log('Seeding initial users...');
@@ -411,7 +371,7 @@ db.init = async function (mongoUri, defaultEmail, defaultPassword) {
     await db.User.create({ name: 'Blocked Bob', email: 'bob@example.com', password: userPass, status: 'Blocked' });
   }
 
-  // 5. Seed Support Tickets
+  // 4. Seed Support Tickets
   const ticketCount = await db.SupportTicket.countDocuments();
   if (ticketCount === 0) {
     console.log('Seeding initial support tickets...');
@@ -440,13 +400,17 @@ db.init = async function (mongoUri, defaultEmail, defaultPassword) {
     });
   }
 
-  // 6. Seed Coupons
+  // 5. Seed Coupons
   const couponCount = await db.Coupon.countDocuments();
   if (couponCount === 0) {
     console.log('Seeding initial coupons...');
     await db.Coupon.create({ code: 'WELCOME10', discountType: 'percentage', discountValue: 10, status: 'Active', usageLimit: 100, usedCount: 15 });
     await db.Coupon.create({ code: 'HEAVY50', discountType: 'flat', discountValue: 50, status: 'Active', usageLimit: 10, usedCount: 2 });
   }
+
+  // [FIX] Set ready flag
+  db.ready = true;
+  console.log('✅ Database is fully initialized and ready.');
 };
 
 module.exports = db;
