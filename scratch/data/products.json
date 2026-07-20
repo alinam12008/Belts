@@ -13,7 +13,10 @@
     "images": [
       "https://belts-store.com/wp-content/uploads/2011/06/optibelt_VB_Classic_V-belts-1-1.jpg"
     ],
-    "specifications": {},
+    "specifications": {
+      "Electrical Property": "Electrically conductive",
+      "Temperature Range": "-30°C to +90°C"
+    },
     "tags": [
       "Belts Power Transmission",
       "V Belts"
@@ -22,7 +25,7 @@
     "status": "Active",
     "slug": "optibelt-vb-1784496584044",
     "createdAt": "2026-07-18T13:22:56.167Z",
-    "updatedAt": "2026-07-19T21:29:44.045Z"
+    "updatedAt": "2026-07-20T22:15:39.755Z"
   },
   {
     "_id": "6a5b7e3076f7114690b6f3a6",
@@ -38,7 +41,10 @@
     "images": [
       "https://belts-store.com/wp-content/uploads/2025/09/Produktfoto_Red_Power_Industrie-1-247x296.jpg"
     ],
-    "specifications": {},
+    "specifications": {
+      "Electrical Property": "Electrically conductive",
+      "Temperature Range": "-30°C to +100°C"
+    },
     "tags": [
       "Belts Power Transmission",
       "V Belts"
@@ -47,7 +53,7 @@
     "status": "Active",
     "slug": "optibelt-red-power-3",
     "createdAt": "2026-07-18T13:22:56.178Z",
-    "updatedAt": "2026-07-18T13:22:56.178Z"
+    "updatedAt": "2026-07-20T22:15:40.747Z"
   },
   {
     "_id": "6a5b7e3076f7114690b6f3a7",
@@ -94,7 +100,10 @@
     "images": [
       "https://belts-store.com/wp-content/uploads/2011/07/Produktfoto_TX_Industrie-1-247x296.jpg"
     ],
-    "specifications": {},
+    "specifications": {
+      "Electrical Property": "Electrically conductive",
+      "Temperature Range": "-30°C to +90°C"
+    },
     "tags": [
       "Belts Power Transmission",
       "V Belts"
@@ -103,7 +112,7 @@
     "status": "Active",
     "slug": "optibelt-super-tx-1784545928416-4",
     "createdAt": "2026-07-20T11:12:08.447Z",
-    "updatedAt": "2026-07-20T11:12:08.447Z"
+    "updatedAt": "2026-07-20T22:15:41.657Z"
   },
   {
     "_id": "6a5e0288969540e9ca9b899b",
@@ -125,7 +134,9 @@
     "images": [
       "https://belts-store.com/wp-content/uploads/2025/10/Riemen_Keilriemen_SUPER_XE-POWER_PRO-1-247x296.jpg"
     ],
-    "specifications": {},
+    "specifications": {
+      "Temperature Range": "-40°C to +120°C"
+    },
     "tags": [
       "Belts Power Transmission",
       "V Belts"
@@ -134,7 +145,7 @@
     "status": "Active",
     "slug": "optibelt-super-xe-power-pro-1784545928523-5",
     "createdAt": "2026-07-20T11:12:08.558Z",
-    "updatedAt": "2026-07-20T11:12:08.558Z"
+    "updatedAt": "2026-07-20T22:15:42.782Z"
   },
   {
     "_id": "6a5e0288969540e9ca9b899c",
@@ -156,7 +167,10 @@
     "images": [
       "https://belts-store.com/wp-content/uploads/2025/10/Produktfoto_VX_Industrie-1-247x296.jpg"
     ],
-    "specifications": {},
+    "specifications": {
+      "Electrical Property": "Electrically conductive",
+      "Temperature Range": "-30°C to +90°C"
+    },
     "tags": [
       "Belts Power Transmission",
       "V Belts"
@@ -165,7 +179,7 @@
     "status": "Active",
     "slug": "optibelt-vario-power-1784545928634-6",
     "createdAt": "2026-07-20T11:12:08.668Z",
-    "updatedAt": "2026-07-20T11:12:08.668Z"
+    "updatedAt": "2026-07-20T22:15:43.707Z"
   },
   {
     "_id": "6a5e0288969540e9ca9b899d",
@@ -218,7 +232,9 @@
     "images": [
       "https://belts-store.com/wp-content/uploads/2025/10/Produktfoto_DK_Industrie-1-247x296.jpg"
     ],
-    "specifications": {},
+    "specifications": {
+      "Temperature Range": "-40°C to +120°C"
+    },
     "tags": [
       "Belts Power Transmission",
       "V Belts"
@@ -227,7 +243,7 @@
     "status": "Active",
     "slug": "optibelt-dk-1784545928947-8",
     "createdAt": "2026-07-20T11:12:08.978Z",
-    "updatedAt": "2026-07-20T11:12:08.978Z"
+    "updatedAt": "2026-07-20T22:15:44.344Z"
   },
   {
     "_id": "6a5e0289969540e9ca9b899f",
@@ -3195,8 +3211,8 @@
   {
     "_id": "6a5e0294969540e9ca9b89fc",
     "name": "Bearing Unit",
-    "description": "Bearing Unit",
-    "shortDescription": "Bearing Unit",
+    "description": "Bearing Unit\n",
+    "shortDescription": "Bearing Unit\n\n\n\nPillow Blocks / UCP Type",
     "category": "Bearings",
     "subcategory": "Bearing Units and Plummer Block Housing",
     "brand": "",
@@ -3219,9 +3235,9 @@
     ],
     "stock": 10,
     "status": "Active",
-    "slug": "bearing-unit-1784545940026-102",
+    "slug": "bearing-unit-1784585177539",
     "createdAt": "2026-07-20T11:12:20.067Z",
-    "updatedAt": "2026-07-20T11:12:20.067Z"
+    "updatedAt": "2026-07-20T22:06:17.543Z"
   },
   {
     "_id": "6a5e0294969540e9ca9b89fd",

@@ -9,7 +9,10 @@
     ],
     "short_description": "Optibelt VB",
     "full_description": "",
-    "specs": {},
+    "specs": {
+      "Electrical Property": "Electrically conductive",
+      "Temperature Range": "-30°C to +90°C"
+    },
     "related": []
   },
   {
@@ -22,7 +25,10 @@
     ],
     "short_description": "Optibelt RED POWER 3",
     "full_description": "Optibelt RED POWER 3",
-    "specs": {},
+    "specs": {
+      "Electrical Property": "Electrically conductive",
+      "Temperature Range": "-30°C to +100°C"
+    },
     "related": []
   },
   {
@@ -48,7 +54,10 @@
     ],
     "short_description": "Optibelt SUPER TX",
     "full_description": "Optibelt SUPER TX",
-    "specs": {},
+    "specs": {
+      "Electrical Property": "Electrically conductive",
+      "Temperature Range": "-30°C to +90°C"
+    },
     "related": []
   },
   {
@@ -61,7 +70,9 @@
     ],
     "short_description": "Optibelt SUPER XE-POWER PRO",
     "full_description": "Optibelt SUPER XE-POWER PRO",
-    "specs": {},
+    "specs": {
+      "Temperature Range": "-40°C to +120°C"
+    },
     "related": []
   },
   {
@@ -74,7 +85,10 @@
     ],
     "short_description": "Optibelt VARIO POWER",
     "full_description": "Optibelt VARIO POWER",
-    "specs": {},
+    "specs": {
+      "Electrical Property": "Electrically conductive",
+      "Temperature Range": "-30°C to +90°C"
+    },
     "related": []
   },
   {
@@ -100,7 +114,9 @@
     ],
     "short_description": "Optibelt DK",
     "full_description": "Optibelt DK",
-    "specs": {},
+    "specs": {
+      "Temperature Range": "-40°C to +120°C"
+    },
     "related": []
   },
   {
@@ -1382,14 +1398,14 @@
   },
   {
     "title": "Bearing Unit",
-    "url": "https://belts-store.com/product/bearing-unit-1784545940026-102/",
+    "url": "https://belts-store.com/product/bearing-unit-1784585177539/",
     "image": "https://belts-store.com/wp-content/uploads/2011/07/BU_UCT-1.jpg",
     "breadcrumbs": [
       "Bearings",
       "Bearing Units and Plummer Block Housing"
     ],
-    "short_description": "Bearing Unit",
-    "full_description": "Bearing Unit",
+    "short_description": "Bearing Unit\n\n\n\nPillow Blocks / UCP Type",
+    "full_description": "Bearing Unit\n",
     "specs": {},
     "related": []
   },
