@@ -283,63 +283,83 @@ const SeedHistorySchema = new mongoose.Schema({
   timestamp: { type: Date, default: Date.now }
 });
 
+// Remembers the configured URI so a later reconnect attempt can be made
+// without needing db.init's original arguments again.
+let storedMongoUri = null;
+
+// Registers the Mongoose models against the current connection. Shared by
+// both the initial connect and any later reconnect attempt.
+function registerMongoModels() {
+  db.Admin = mongoose.model('Admin', AdminSchema);
+  db.Product = mongoose.model('Product', ProductSchema);
+  db.Category = mongoose.model('Category', CategorySchema);
+  db.ActivityLog = mongoose.model('ActivityLog', ActivityLogSchema);
+  db.Order = mongoose.model('Order', OrderSchema);
+  db.User = mongoose.model('User', UserSchema);
+  db.SupportTicket = mongoose.model('SupportTicket', SupportTicketSchema);
+  db.Coupon = mongoose.model('Coupon', CouponSchema);
+  db.SeedHistory = mongoose.model('SeedHistory', SeedHistorySchema);
+}
+
+async function attemptMongoConnect(mongoUri) {
+  try {
+    await mongoose.connect(mongoUri, {
+      serverSelectionTimeoutMS: 9000,
+      // Serverless best practice: each cold start is a brand-new process
+      // with its own connection pool. Mongoose's default of up to 100
+      // connections per instance can exhaust a shared MongoDB Atlas tier's
+      // total connection limit once enough instances are warm at once.
+      maxPoolSize: 5,
+      minPoolSize: 0,
+    });
+    console.log('✅ Connected to MongoDB.');
+    isMongo = true;
+    db.isMongo = true;
+    registerMongoModels();
+    return true;
+  } catch (e) {
+    console.warn(`MongoDB connection attempt failed: ${e.message}`);
+    try { await mongoose.disconnect(); } catch (_) {}
+    return false;
+  }
+}
+
+// A cold-start that fails to connect once used to be stuck on the JSON
+// fallback for its entire lifetime (which can serve many requests over
+// minutes), even though the database is fine and a later attempt would
+// likely succeed. This lets any request give the instance another chance,
+// throttled so a persistently-unreachable database doesn't add a repeated
+// connection attempt's latency to every single request.
+let lastReconnectAttempt = 0;
+const RECONNECT_COOLDOWN_MS = 15000;
+db.ensureMongoConnection = async function () {
+  if (db.isMongo || !storedMongoUri) return db.isMongo;
+  const now = Date.now();
+  if (now - lastReconnectAttempt < RECONNECT_COOLDOWN_MS) return false;
+  lastReconnectAttempt = now;
+  console.log('Retrying MongoDB connection for this instance...');
+  return attemptMongoConnect(storedMongoUri);
+};
+
 // ===== db.init =====
 db.init = async function (mongoUri, defaultEmail, defaultPassword) {
   let isConnected = false;
 
   if (mongoUri) {
-    // A single, generous attempt beats two short ones: splitting the budget
-    // into multiple short tries just guarantees each one is too short if the
-    // real bottleneck is consistent latency (e.g. region distance) rather
-    // than a one-off transient blip -- retrying with the same short timeout
-    // reproduces the same failure instead of fixing it.
-    const MAX_ATTEMPTS = 1;
-    const ATTEMPT_TIMEOUT_MS = 9000;
-    let lastError = null;
-    for (let attempt = 1; attempt <= MAX_ATTEMPTS && !isConnected; attempt++) {
-      try {
-        console.log(`Attempting MongoDB connection (try ${attempt}/${MAX_ATTEMPTS})...`);
-        await mongoose.connect(mongoUri, {
-          serverSelectionTimeoutMS: ATTEMPT_TIMEOUT_MS,
-          // Serverless best practice: each cold start is a brand-new process
-          // with its own connection pool. Mongoose's default of up to 100
-          // connections per instance can exhaust a shared MongoDB Atlas
-          // tier's total connection limit once enough instances are warm at
-          // once. Keep each instance's pool small since it only ever serves
-          // a handful of concurrent requests anyway.
-          maxPoolSize: 5,
-          minPoolSize: 0,
-        });
-        console.log('✅ Connected to MongoDB.');
-        isConnected = true;
-        isMongo = true;
-        db.isMongo = true;
-
-        // Register all models
-        db.Admin = mongoose.model('Admin', AdminSchema);
-        db.Product = mongoose.model('Product', ProductSchema);
-        db.Category = mongoose.model('Category', CategorySchema);
-        db.ActivityLog = mongoose.model('ActivityLog', ActivityLogSchema);
-        db.Order = mongoose.model('Order', OrderSchema);
-        db.User = mongoose.model('User', UserSchema);
-        db.SupportTicket = mongoose.model('SupportTicket', SupportTicketSchema);
-        db.Coupon = mongoose.model('Coupon', CouponSchema);
-        db.SeedHistory = mongoose.model('SeedHistory', SeedHistorySchema);
-      } catch (e) {
-        lastError = e;
-        console.warn(`MongoDB connection attempt ${attempt}/${MAX_ATTEMPTS} failed: ${e.message}`);
-        try { await mongoose.disconnect(); } catch (_) {}
-      }
-    }
+    storedMongoUri = mongoUri;
+    console.log('Attempting MongoDB connection...');
+    isConnected = await attemptMongoConnect(mongoUri);
 
     if (!isConnected) {
-      // A database was configured but every attempt to reach it failed.
+      // A database was configured but the attempt to reach it failed.
       // Fall back to the local JSON store so the site (browsing, login)
       // stays available instead of going fully dark -- but db.isMongo stays
       // false, and index.js uses that to block WRITE operations specifically
       // (see requireMongoForWrites) so we never silently lose admin edits by
-      // writing them to storage that vanishes on the next cold start.
-      console.error('❌ MongoDB is configured but unreachable after all retries. Falling back to read-only-safe local JSON storage.', lastError && lastError.message);
+      // writing them to storage that vanishes on the next cold start. Every
+      // subsequent request gets a fresh chance to reconnect via
+      // db.ensureMongoConnection() instead of staying stuck forever.
+      console.error('❌ MongoDB is configured but unreachable right now. Falling back to read-only-safe local JSON storage until a later request reconnects.');
     }
   }
 

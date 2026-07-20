@@ -107,6 +107,14 @@ const ensureDbReady = async (req, res, next) => {
   if (!db.ready) {
     return res.status(503).json({ error: 'Database is still initializing. Please try again.' });
   }
+  // Give this instance a fresh chance to reach MongoDB if its initial
+  // cold-start attempt failed, instead of staying stuck on the JSON
+  // fallback (and therefore possibly stale/inconsistent data) for its
+  // entire lifetime. Throttled internally, so this is a no-op most of
+  // the time and never slows down a request when already connected.
+  if (!db.isMongo) {
+    await db.ensureMongoConnection();
+  }
   next();
 };
 
@@ -115,7 +123,10 @@ const ensureDbReady = async (req, res, next) => {
 // storage that vanishes on the next cold start. Reads (browsing, login) are
 // still allowed to fall back so the site doesn't go fully dark during a
 // transient MongoDB connectivity blip -- only writes are blocked.
-const requireMongoForWrites = (req, res, next) => {
+const requireMongoForWrites = async (req, res, next) => {
+  if (!db.isMongo) {
+    await db.ensureMongoConnection();
+  }
   if (!db.isMongo) {
     return res.status(503).json({ error: 'Database connection is temporarily unavailable. Changes cannot be saved right now -- please try again in a moment.' });
   }
