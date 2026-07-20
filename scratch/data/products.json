@@ -3176,37 +3176,6 @@
     "updatedAt": "2026-07-20T11:12:20.387Z"
   },
   {
-    "_id": "6a5e0294969540e9ca9b89ff",
-    "name": "Sprockets",
-    "description": "Sprockets",
-    "shortDescription": "Sprockets",
-    "category": "Transmission Chains and Sprockets",
-    "subcategory": "Sprockets",
-    "brand": "",
-    "name_ar": "",
-    "description_ar": "",
-    "shortDescription_ar": "",
-    "category_ar": "",
-    "subcategory_ar": "",
-    "brand_ar": "",
-    "sku": "SKU-1782069704186-10-esfa",
-    "price": 0,
-    "discountPrice": 0,
-    "images": [
-      "/mmmm/uploads/SKU-1782069704186-10-esfa.jpg"
-    ],
-    "specifications": {},
-    "tags": [
-      "Transmission Chains and Sprockets",
-      "Sprockets"
-    ],
-    "stock": 10,
-    "status": "Active",
-    "slug": "sprockets-1784545940428-105",
-    "createdAt": "2026-07-20T11:12:20.467Z",
-    "updatedAt": "2026-07-20T11:12:20.467Z"
-  },
-  {
     "_id": "6a5e0294969540e9ca9b8a00",
     "name": "Offset Links",
     "description": "Offset Links",
