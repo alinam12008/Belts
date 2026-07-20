@@ -75,99 +75,6 @@
     "updatedAt": "2026-07-18T13:22:56.185Z"
   },
   {
-    "_id": "6a5e0287969540e9ca9b8997",
-    "name": "Optibelt VB",
-    "description": "Optibelt VB",
-    "shortDescription": "Optibelt VB",
-    "category": "Belts Power Transmission",
-    "subcategory": "V Belts",
-    "brand": "",
-    "name_ar": "",
-    "description_ar": "",
-    "shortDescription_ar": "",
-    "category_ar": "",
-    "subcategory_ar": "",
-    "brand_ar": "",
-    "sku": "SKU-1782069696800-0-0rq5",
-    "price": 0,
-    "discountPrice": 0,
-    "images": [
-      "https://belts-store.com/wp-content/uploads/2011/06/optibelt_VB_Classic_V-belts-1-1.jpg"
-    ],
-    "specifications": {},
-    "tags": [
-      "Belts Power Transmission",
-      "V Belts"
-    ],
-    "stock": 10,
-    "status": "Active",
-    "slug": "optibelt-vb-1784545927390-1",
-    "createdAt": "2026-07-20T11:12:07.425Z",
-    "updatedAt": "2026-07-20T11:12:07.425Z"
-  },
-  {
-    "_id": "6a5e0287969540e9ca9b8998",
-    "name": "Optibelt RED POWER 3",
-    "description": "Optibelt RED POWER 3",
-    "shortDescription": "Optibelt RED POWER 3",
-    "category": "Belts Power Transmission",
-    "subcategory": "V Belts",
-    "brand": "",
-    "name_ar": "",
-    "description_ar": "",
-    "shortDescription_ar": "",
-    "category_ar": "",
-    "subcategory_ar": "",
-    "brand_ar": "",
-    "sku": "SKU-1782069696801-6-8p7w",
-    "price": 0,
-    "discountPrice": 0,
-    "images": [
-      "https://belts-store.com/wp-content/uploads/2025/09/Produktfoto_Red_Power_Industrie-1-247x296.jpg"
-    ],
-    "specifications": {},
-    "tags": [
-      "Belts Power Transmission",
-      "V Belts"
-    ],
-    "stock": 10,
-    "status": "Active",
-    "slug": "optibelt-red-power-3-1784545927827-2",
-    "createdAt": "2026-07-20T11:12:07.859Z",
-    "updatedAt": "2026-07-20T11:12:07.859Z"
-  },
-  {
-    "_id": "6a5e0288969540e9ca9b8999",
-    "name": "Optibelt SK",
-    "description": "Optibelt SK",
-    "shortDescription": "Optibelt SK",
-    "category": "Belts Power Transmission",
-    "subcategory": "V Belts",
-    "brand": "",
-    "name_ar": "",
-    "description_ar": "",
-    "shortDescription_ar": "",
-    "category_ar": "",
-    "subcategory_ar": "",
-    "brand_ar": "",
-    "sku": "SKU-1782069696801-10-4om5",
-    "price": 0,
-    "discountPrice": 0,
-    "images": [
-      "https://belts-store.com/wp-content/uploads/2025/09/Produktfoto_SK_Industrie-1-247x296.jpg"
-    ],
-    "specifications": {},
-    "tags": [
-      "Belts Power Transmission",
-      "V Belts"
-    ],
-    "stock": 10,
-    "status": "Active",
-    "slug": "optibelt-sk-1784545927987-3",
-    "createdAt": "2026-07-20T11:12:08.161Z",
-    "updatedAt": "2026-07-20T11:12:08.161Z"
-  },
-  {
     "_id": "6a5e0288969540e9ca9b899a",
     "name": "Optibelt SUPER TX",
     "description": "Optibelt SUPER TX",
@@ -3577,5 +3484,135 @@
     "slug": "specialty-chain-series-1784545941744-114",
     "createdAt": "2026-07-20T11:12:21.785Z",
     "updatedAt": "2026-07-20T11:12:21.785Z"
+  },
+  {
+    "_id": "6a5e8e260a1f95058f7d347a",
+    "name": "Habasit Belts",
+    "description": "Power Transmission Belt. Composite construction with three different material traction layers coated with NBR rubber, woven fabric cover.",
+    "shortDescription": "Power Transmission Belt - composite multi-layer construction, NBR rubber coating.",
+    "category": "Belts Power Transmission",
+    "subcategory": "",
+    "brand": "",
+    "sku": "SKU-2001",
+    "price": 0,
+    "discountPrice": 0,
+    "images": [
+      "https://belts-store.com/wp-content/uploads/2017/04/Habasit_Belts-1-510x379.jpg"
+    ],
+    "tags": [
+      "Belts Power Transmission"
+    ],
+    "stock": 10,
+    "status": "Active",
+    "slug": "habasit-belts-2001",
+    "createdAt": "2026-07-20T21:07:50.664Z",
+    "updatedAt": "2026-07-20T21:07:50.664Z"
+  },
+  {
+    "_id": "6a5e8e260a1f95058f7d347b",
+    "name": "High Power Timing Belt",
+    "description": "High power timing belt for HTD and RPP pulleys. Sections: 3M HP, 5M HP, 8M HP, 14M HP. Dimensions: from 111 up to 4,578 mm.",
+    "shortDescription": "High power timing belt for HTD/RPP pulleys, sections 3M/5M/8M/14M HP.",
+    "category": "Belts Power Transmission",
+    "subcategory": "Timing Belts",
+    "brand": "",
+    "sku": "SKU-2002",
+    "price": 0,
+    "discountPrice": 0,
+    "images": [
+      "https://belts-store.com/wp-content/uploads/2011/07/omega_hp-1.jpg"
+    ],
+    "specifications": {
+      "Sections": "3M HP, 5M HP, 8M HP, 14M HP",
+      "Dimensions": "From 111 up to 4,578 mm"
+    },
+    "tags": [
+      "Belts Power Transmission",
+      "Timing Belts"
+    ],
+    "stock": 10,
+    "status": "Active",
+    "slug": "high-power-timing-belt-2002",
+    "createdAt": "2026-07-20T21:07:50.703Z",
+    "updatedAt": "2026-07-20T21:07:50.703Z"
+  },
+  {
+    "_id": "6a5e8e260a1f95058f7d347c",
+    "name": "Endless Belts ( Timing Belt)",
+    "description": "Endless timing belts. Sections: XL, L, H, XH, 5M, 8M, 14M. Dimensions: metre goods from 600 mm.",
+    "shortDescription": "Endless timing belts, sections XL/L/H/XH/5M/8M/14M.",
+    "category": "Belts Power Transmission",
+    "subcategory": "Timing Belts",
+    "brand": "",
+    "sku": "SKU-2003",
+    "price": 0,
+    "discountPrice": 0,
+    "images": [
+      "https://belts-store.com/wp-content/uploads/2011/07/RTEmagicC_alpha_linear_kl_mg-1.gif-1.gif"
+    ],
+    "specifications": {
+      "Sections": "XL, L, H, XH, 5M, 8M, 14M",
+      "Dimensions": "Metre goods from 600 mm"
+    },
+    "tags": [
+      "Belts Power Transmission",
+      "Timing Belts"
+    ],
+    "stock": 10,
+    "status": "Active",
+    "slug": "endless-belts-timing-belt-2003",
+    "createdAt": "2026-07-20T21:07:50.719Z",
+    "updatedAt": "2026-07-20T21:07:50.719Z"
+  },
+  {
+    "_id": "6a5e8e260a1f95058f7d347d",
+    "name": "Bearing Unit",
+    "description": "Bearing unit, Pillow Blocks / UCT Type.",
+    "shortDescription": "Pillow Blocks / UCT Type bearing unit.",
+    "category": "Bearings",
+    "subcategory": "Bearing Units and Plummer Block Housing",
+    "brand": "",
+    "sku": "SKU-2004",
+    "price": 0,
+    "discountPrice": 0,
+    "images": [
+      "https://belts-store.com/wp-content/uploads/2011/07/BU_UCT-1.jpg"
+    ],
+    "specifications": {
+      "Item Code": "Pillow Blocks / UCT Type"
+    },
+    "tags": [
+      "Bearings",
+      "Bearing Units and Plummer Block Housing"
+    ],
+    "stock": 10,
+    "status": "Active",
+    "slug": "bearing-unit-uct-2004",
+    "createdAt": "2026-07-20T21:07:50.736Z",
+    "updatedAt": "2026-07-20T21:07:50.736Z"
+  },
+  {
+    "_id": "6a5e8e260a1f95058f7d347e",
+    "name": "Sprockets",
+    "description": "Sprockets for transmission chains.",
+    "shortDescription": "Sprockets for transmission chains.",
+    "category": "Transmission Chains and Sprockets",
+    "subcategory": "Sprockets",
+    "brand": "",
+    "sku": "SKU-2005",
+    "price": 0,
+    "discountPrice": 0,
+    "images": [
+      "https://belts-store.com/wp-content/uploads/2011/07/S1_B-1.jpg"
+    ],
+    "tags": [
+      "Transmission Chains and Sprockets",
+      "Sprockets"
+    ],
+    "stock": 10,
+    "status": "Active",
+    "slug": "sprockets-variant-b-2005",
+    "createdAt": "2026-07-20T21:07:50.751Z",
+    "updatedAt": "2026-07-20T21:07:50.751Z"
   }
 ]
