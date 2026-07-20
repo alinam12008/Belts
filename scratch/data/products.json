@@ -171,7 +171,7 @@
     "_id": "6a5e0288969540e9ca9b899d",
     "name": "Optibelt KB SK",
     "description": "Optibelt KB SK",
-    "shortDescription": "Optibelt KB SK",
+    "shortDescription": "optibelt KB SK kraftbands consist of high-quality wrapped individual belts that are joined together by a cover plate.",
     "category": "Belts Power Transmission",
     "subcategory": "V Belts",
     "brand": "",
@@ -196,7 +196,7 @@
     "status": "Active",
     "slug": "optibelt-kb-sk-1784545928737-7",
     "createdAt": "2026-07-20T11:12:08.838Z",
-    "updatedAt": "2026-07-20T11:12:08.838Z"
+    "updatedAt": "2026-07-20T21:40:02.310Z"
   },
   {
     "_id": "6a5e0288969540e9ca9b899e",
@@ -264,7 +264,7 @@
     "_id": "6a5e0289969540e9ca9b89a0",
     "name": "Optibelt OPTIMAT OE",
     "description": "Optibelt OPTIMAT OE",
-    "shortDescription": "Optibelt OPTIMAT OE",
+    "shortDescription": "The perforated, finite optibelt OPTIMAT V-belts are connected to each other by a joint or plate connector.",
     "category": "Belts Power Transmission",
     "subcategory": "Special Belts",
     "brand": "",
@@ -289,13 +289,13 @@
     "status": "Active",
     "slug": "optibelt-optimat-oe-1784545929275-10",
     "createdAt": "2026-07-20T11:12:09.379Z",
-    "updatedAt": "2026-07-20T11:12:09.379Z"
+    "updatedAt": "2026-07-20T21:40:04.724Z"
   },
   {
     "_id": "6a5e0289969540e9ca9b89a1",
     "name": "Optibelt LB",
     "description": "Optibelt LB",
-    "shortDescription": "Optibelt LB",
+    "shortDescription": "Polyester fabric insert\nProfiles and standard roll lengths of Z/10, A/13, B/17, 8T, 10T, 13T ,17T, 22T.\nOther dimensions on request.",
     "category": "Belts Power Transmission",
     "subcategory": "Special Belts",
     "brand": "",
@@ -320,7 +320,7 @@
     "status": "Active",
     "slug": "optibelt-lb-1784545929489-11",
     "createdAt": "2026-07-20T11:12:09.584Z",
-    "updatedAt": "2026-07-20T11:12:09.584Z"
+    "updatedAt": "2026-07-20T21:40:05.492Z"
   },
   {
     "_id": "6a5e0289969540e9ca9b89a2",
@@ -351,13 +351,13 @@
     "status": "Active",
     "slug": "polyurethane-power-twist-v-belts-1784545929883-12",
     "createdAt": "2026-07-20T11:12:09.984Z",
-    "updatedAt": "2026-07-20T11:12:09.984Z"
+    "updatedAt": "2026-07-20T21:40:06.145Z"
   },
   {
     "_id": "6a5e028a969540e9ca9b89a3",
     "name": "V-belt – Raw edge, Moulded cogged",
     "description": "V-belt – Raw edge, Moulded cogged",
-    "shortDescription": "V-belt – Raw edge, Moulded cogged",
+    "shortDescription": "Sections: \nXPZ, XPA, XPB, XPC, 3VX/9NX, 5VX/15NX\nDimensions: \nFrom 587 up to 3,550 mm\n\nmore info.",
     "category": "Belts Power Transmission",
     "subcategory": "V Belts",
     "brand": "",
@@ -382,13 +382,13 @@
     "status": "Active",
     "slug": "v-belt-raw-edge-moulded-cogged-1784545930099-13",
     "createdAt": "2026-07-20T11:12:10.138Z",
-    "updatedAt": "2026-07-20T11:12:10.138Z"
+    "updatedAt": "2026-07-20T21:40:06.818Z"
   },
   {
     "_id": "6a5e028a969540e9ca9b89a4",
     "name": "Optibelt HVAC Power",
     "description": "Optibelt HVAC Power",
-    "shortDescription": "Optibelt HVAC Power",
+    "shortDescription": "Sections:\nA/4L – B/5L\nDimensions:\n20 – 47 mm (450 -1150 mm)\n\nmore info.",
     "category": "Belts Power Transmission",
     "subcategory": "V Belts",
     "brand": "",
@@ -413,13 +413,13 @@
     "status": "Active",
     "slug": "optibelt-hvac-power-1784545930169-14",
     "createdAt": "2026-07-20T11:12:10.208Z",
-    "updatedAt": "2026-07-20T11:12:10.208Z"
+    "updatedAt": "2026-07-20T21:40:07.631Z"
   },
   {
     "_id": "6a5e028a969540e9ca9b89a5",
     "name": "High performance wedge belts with Aramid cord",
     "description": "High performance wedge belts with Aramid cord",
-    "shortDescription": "High performance wedge belts with Aramid cord",
+    "shortDescription": "Sections:\nSPB, SPC and 8V/25N\nDimensions:\nFrom 1,500 up to 9,000 mm\n\nmore info",
     "category": "Belts Power Transmission",
     "subcategory": "V Belts",
     "brand": "",
@@ -444,13 +444,13 @@
     "status": "Active",
     "slug": "high-performance-wedge-belts-with-aramid-cord-1784545930250-15",
     "createdAt": "2026-07-20T11:12:10.286Z",
-    "updatedAt": "2026-07-20T11:12:10.286Z"
+    "updatedAt": "2026-07-20T21:40:08.357Z"
   },
   {
     "_id": "6a5e028a969540e9ca9b89a6",
     "name": "High Power Wedge Belt – Maintenance-Free",
     "description": "High Power Wedge Belt – Maintenance-Free",
-    "shortDescription": "High Power Wedge Belt – Maintenance-Free",
+    "shortDescription": "Sections:\nSPZ, SPA, SPB, SPC, 3V/9N, 5V/15N, 8V/25N\nDimensions:\nFrom 1,200 up to 12,000 mm\n\nmore info.",
     "category": "Belts Power Transmission",
     "subcategory": "V Belts",
     "brand": "",
@@ -475,7 +475,7 @@
     "status": "Active",
     "slug": "high-power-wedge-belt-maintenance-free-1784545930322-16",
     "createdAt": "2026-07-20T11:12:10.363Z",
-    "updatedAt": "2026-07-20T11:12:10.363Z"
+    "updatedAt": "2026-07-20T21:40:09.183Z"
   },
   {
     "_id": "6a5e028a969540e9ca9b89a7",
@@ -635,7 +635,7 @@
     "_id": "6a5e028a969540e9ca9b89ac",
     "name": "Elastic Ribbed Belt",
     "description": "Elastic Ribbed Belt",
-    "shortDescription": "Elastic Ribbed Belt",
+    "shortDescription": "Sections:\nEPH, EPJ\n\nDimensions:\nThe belt length is dependent upon the respective section.\n \nmore info.",
     "category": "Belts Power Transmission",
     "subcategory": "Ribbed Belts",
     "brand": "",
@@ -660,13 +660,13 @@
     "status": "Active",
     "slug": "elastic-ribbed-belt-1784545930951-22",
     "createdAt": "2026-07-20T11:12:10.988Z",
-    "updatedAt": "2026-07-20T11:12:10.988Z"
+    "updatedAt": "2026-07-20T21:40:12.889Z"
   },
   {
     "_id": "6a5e028b969540e9ca9b89ad",
     "name": "Ribbed Belt",
     "description": "Ribbed Belt",
-    "shortDescription": "Ribbed Belt",
+    "shortDescription": "Sections:\nPH, PJ, PK, PL, PM\nDimensions:\nThe belt length is dependent upon the respective section.\n\n\nmore info.",
     "category": "Belts Power Transmission",
     "subcategory": "Ribbed Belts",
     "brand": "",
@@ -691,13 +691,13 @@
     "status": "Active",
     "slug": "ribbed-belt-1784545931031-23",
     "createdAt": "2026-07-20T11:12:11.067Z",
-    "updatedAt": "2026-07-20T11:12:11.067Z"
+    "updatedAt": "2026-07-20T21:40:13.533Z"
   },
   {
     "_id": "6a5e028b969540e9ca9b89ae",
     "name": "Optibelt Laser Pointer II",
     "description": "Optibelt Laser Pointer II",
-    "shortDescription": "Optibelt Laser Pointer II",
+    "shortDescription": "Simplifies the alignment of belt drives.\nmore info.",
     "category": "Belts Power Transmission",
     "subcategory": "Repair Kits and Tension Tools",
     "brand": "",
@@ -722,13 +722,13 @@
     "status": "Active",
     "slug": "optibelt-laser-pointer-ii-1784545931117-24",
     "createdAt": "2026-07-20T11:12:11.158Z",
-    "updatedAt": "2026-07-20T11:12:11.158Z"
+    "updatedAt": "2026-07-20T21:40:14.263Z"
   },
   {
     "_id": "6a5e028b969540e9ca9b89af",
     "name": "Optibelt Service Box",
     "description": "Optibelt Service Box",
-    "shortDescription": "Optibelt Service Box",
+    "shortDescription": "For quick help on location.\nmore info",
     "category": "Belts Power Transmission",
     "subcategory": "Repair Kits and Tension Tools",
     "brand": "",
@@ -753,13 +753,13 @@
     "status": "Active",
     "slug": "optibelt-service-box-1784545931202-25",
     "createdAt": "2026-07-20T11:12:11.237Z",
-    "updatedAt": "2026-07-20T11:12:11.237Z"
+    "updatedAt": "2026-07-20T21:40:15.046Z"
   },
   {
     "_id": "6a5e028b969540e9ca9b89b0",
     "name": "Optibelt TT mini + TT mini S",
     "description": "Optibelt TT mini + TT mini S",
-    "shortDescription": "Optibelt TT mini + TT mini S",
+    "shortDescription": "Serve to inspect the tension of drive belts by means of testing the frequency.\nmore info.",
     "category": "Belts Power Transmission",
     "subcategory": "Repair Kits and Tension Tools",
     "brand": "",
@@ -784,13 +784,13 @@
     "status": "Active",
     "slug": "optibelt-tt-mini-tt-mini-s-1784545931271-26",
     "createdAt": "2026-07-20T11:12:11.307Z",
-    "updatedAt": "2026-07-20T11:12:11.307Z"
+    "updatedAt": "2026-07-20T21:40:15.723Z"
   },
   {
     "_id": "6a5e028b969540e9ca9b89b1",
     "name": "Optikrik 0, I, II, III Belt Tension Gauges",
     "description": "Optikrik 0, I, II, III Belt Tension Gauges",
-    "shortDescription": "Optikrik 0, I, II, III Belt Tension Gauges",
+    "shortDescription": "The tension testers reliably inspect whether the kraftb and or\nribbed belt is of the correct tension level.\nmore info.",
     "category": "Belts Power Transmission",
     "subcategory": "Repair Kits and Tension Tools",
     "brand": "",
@@ -815,13 +815,13 @@
     "status": "Active",
     "slug": "optikrik-0-i-ii-iii-belt-tension-gauges-1784545931349-27",
     "createdAt": "2026-07-20T11:12:11.387Z",
-    "updatedAt": "2026-07-20T11:12:11.387Z"
+    "updatedAt": "2026-07-20T21:40:16.451Z"
   },
   {
     "_id": "6a5e028b969540e9ca9b89b2",
     "name": "Measuring Gauge",
     "description": "Measuring Gauge",
-    "shortDescription": "Measuring Gauge",
+    "shortDescription": "Measuring range: 500-2,500 mm inside length (L)\nmore info.",
     "category": "Belts Power Transmission",
     "subcategory": "Repair Kits and Tension Tools",
     "brand": "",
@@ -846,13 +846,13 @@
     "status": "Active",
     "slug": "measuring-gauge-1784545931422-28",
     "createdAt": "2026-07-20T11:12:11.467Z",
-    "updatedAt": "2026-07-20T11:12:11.467Z"
+    "updatedAt": "2026-07-20T21:40:17.165Z"
   },
   {
     "_id": "6a5e028b969540e9ca9b89b3",
     "name": "V-Belt and pulley Groove Gauges",
     "description": "V-Belt and pulley Groove Gauges",
-    "shortDescription": "V-Belt and pulley Groove Gauges",
+    "shortDescription": "Valuable help for the measurement of V-belt and pulley groove sections.\n\nmore info.",
     "category": "Belts Power Transmission",
     "subcategory": "Repair Kits and Tension Tools",
     "brand": "",
@@ -877,13 +877,13 @@
     "status": "Active",
     "slug": "v-belt-and-pulley-groove-gauges-1784545931511-29",
     "createdAt": "2026-07-20T11:12:11.547Z",
-    "updatedAt": "2026-07-20T11:12:11.547Z"
+    "updatedAt": "2026-07-20T21:40:17.813Z"
   },
   {
     "_id": "6a5e028b969540e9ca9b89b4",
     "name": "Agricultural transmission Belts",
     "description": "Agricultural transmission Belts",
-    "shortDescription": "Agricultural transmission Belts",
+    "shortDescription": "Sections:\nfrom 2″ (inch) to 12″ (inch)\nLength Range:\nmore info.",
     "category": "Belts Power Transmission",
     "subcategory": "Special Belts",
     "brand": "",
@@ -908,13 +908,13 @@
     "status": "Active",
     "slug": "agricultural-transmission-belts-1784545931621-30",
     "createdAt": "2026-07-20T11:12:11.657Z",
-    "updatedAt": "2026-07-20T11:12:11.657Z"
+    "updatedAt": "2026-07-20T21:40:18.499Z"
   },
   {
     "_id": "6a5e028b969540e9ca9b89b5",
     "name": "Emergency Belt- Use fastener to join",
     "description": "Emergency Belt- Use fastener to join",
-    "shortDescription": "Emergency Belt- Use fastener to join",
+    "shortDescription": "Sections:\nA/13, B/17, C/22\nDimensions:\nOpen\nmore info.",
     "category": "Belts Power Transmission",
     "subcategory": "Special Belts",
     "brand": "",
@@ -939,13 +939,13 @@
     "status": "Active",
     "slug": "emergency-belt-use-fastener-to-join-1784545931698-31",
     "createdAt": "2026-07-20T11:12:11.737Z",
-    "updatedAt": "2026-07-20T11:12:11.737Z"
+    "updatedAt": "2026-07-20T21:40:19.212Z"
   },
   {
     "_id": "6a5e028b969540e9ca9b89b6",
     "name": "Emergency Belt-Comes with Bolt for Adjustment",
     "description": "Emergency Belt-Comes with Bolt for Adjustment",
-    "shortDescription": "Emergency Belt-Comes with Bolt for Adjustment",
+    "shortDescription": "Sections:\nA/13, B/17, C/22\nDimensions:\nOpen\nmore info.",
     "category": "Belts Power Transmission",
     "subcategory": "Special Belts",
     "brand": "",
@@ -970,13 +970,13 @@
     "status": "Active",
     "slug": "emergency-belt-comes-with-bolt-for-adjustment-1784545931781-32",
     "createdAt": "2026-07-20T11:12:11.819Z",
-    "updatedAt": "2026-07-20T11:12:11.819Z"
+    "updatedAt": "2026-07-20T21:40:19.862Z"
   },
   {
     "_id": "6a5e028b969540e9ca9b89b7",
     "name": "Optibelt Clamping Plates",
     "description": "Optibelt Clamping Plates",
-    "shortDescription": "Optibelt Clamping Plates",
+    "shortDescription": "Clamping plates are used in linear technology in order to fasten the timing\nbelts on to the housing.\nThese plates are available\n\nmore info.",
     "category": "Belts Power Transmission",
     "subcategory": "",
     "brand": "",
@@ -1000,7 +1000,7 @@
     "status": "Active",
     "slug": "optibelt-clamping-plates-1784545931861-33",
     "createdAt": "2026-07-20T11:12:11.897Z",
-    "updatedAt": "2026-07-20T11:12:11.897Z"
+    "updatedAt": "2026-07-20T21:40:20.757Z"
   },
   {
     "_id": "6a5e028b969540e9ca9b89b8",
@@ -1068,7 +1068,7 @@
     "_id": "6a5e028c969540e9ca9b89ba",
     "name": "Timing Belt – Maintenance-Free (Optibelt)",
     "description": "Timing Belt – Maintenance-Free (Optibelt)",
-    "shortDescription": "Timing Belt – Maintenance-Free (Optibelt)",
+    "shortDescription": "Sections:\nS3M, S5M, S8M, S14MDimensions:\nFrom 120 up to 5012 mm\nmore info.",
     "category": "Belts Power Transmission",
     "subcategory": "Timing Belts",
     "brand": "",
@@ -1093,13 +1093,13 @@
     "status": "Active",
     "slug": "timing-belt-maintenance-free-optibelt-1784545932101-36",
     "createdAt": "2026-07-20T11:12:12.147Z",
-    "updatedAt": "2026-07-20T11:12:12.147Z"
+    "updatedAt": "2026-07-20T21:40:22.919Z"
   },
   {
     "_id": "6a5e028c969540e9ca9b89bb",
     "name": "Timing Belt / Double Section Timing Belt",
     "description": "Timing Belt / Double Section Timing Belt",
-    "shortDescription": "Timing Belt / Double Section Timing Belt",
+    "shortDescription": "Sections:\nMXL, XL, L, H, XH, XXH\nDimensions: \nFrom 91 up to 4,572 mm\nmore info.",
     "category": "Belts Power Transmission",
     "subcategory": "Timing Belts",
     "brand": "",
@@ -1124,13 +1124,13 @@
     "status": "Active",
     "slug": "timing-belt-double-section-timing-belt-1784545932182-37",
     "createdAt": "2026-07-20T11:12:12.226Z",
-    "updatedAt": "2026-07-20T11:12:12.226Z"
+    "updatedAt": "2026-07-20T21:40:23.611Z"
   },
   {
     "_id": "6a5e028c969540e9ca9b89bc",
     "name": "High Performance Polyurethane Timing Belt",
     "description": "High Performance Polyurethane Timing Belt",
-    "shortDescription": "High Performance Polyurethane Timing Belt",
+    "shortDescription": "Sections:\nT2,5; T5; T10; AT5; AT10;\ndouble timing belt DT5 and DT10Dimensions :\nFrom 120 up to 2,250 mm\n\nmore info.",
     "category": "Belts Power Transmission",
     "subcategory": "Timing Belts",
     "brand": "",
@@ -1155,13 +1155,13 @@
     "status": "Active",
     "slug": "high-performance-polyurethane-timing-belt-1784545932260-38",
     "createdAt": "2026-07-20T11:12:12.297Z",
-    "updatedAt": "2026-07-20T11:12:12.297Z"
+    "updatedAt": "2026-07-20T21:40:24.327Z"
   },
   {
     "_id": "6a5e028c969540e9ca9b89bd",
     "name": "Double Section Timing – Metric Single and Sleeve",
     "description": "Double Section Timing – Metric Single and Sleeve",
-    "shortDescription": "Double Section Timing – Metric Single and Sleeve",
+    "shortDescription": "Sections:\nT2,5, T5, T10, T20, AT5, AT10, AT20Dimensions:\nFrom 120 up to 2,350 mm\n\n\nmore info.",
     "category": "Belts Power Transmission",
     "subcategory": "Timing Belts",
     "brand": "",
@@ -1186,7 +1186,7 @@
     "status": "Active",
     "slug": "double-section-timing-metric-single-and-sleeve-1784545932337-39",
     "createdAt": "2026-07-20T11:12:12.367Z",
-    "updatedAt": "2026-07-20T11:12:12.367Z"
+    "updatedAt": "2026-07-20T21:40:25.043Z"
   },
   {
     "_id": "6a5e028c969540e9ca9b89be",
@@ -1223,7 +1223,7 @@
     "_id": "6a5e028c969540e9ca9b89bf",
     "name": "High Performance Wedge Belt with Aramid Cord",
     "description": "High Performance Wedge Belt with Aramid Cord",
-    "shortDescription": "High Performance Wedge Belt with Aramid Cord",
+    "shortDescription": "Sections:\n\n3V/9J, 5V/15J, 8V/25J\nDimensions: \nFrom 1,200 up to 12,000 mm\n\nmore info.",
     "category": "Belts Power Transmission",
     "subcategory": "V Belts",
     "brand": "",
@@ -1248,13 +1248,13 @@
     "status": "Active",
     "slug": "high-performance-wedge-belt-with-aramid-cord-1784545932501-41",
     "createdAt": "2026-07-20T11:12:12.536Z",
-    "updatedAt": "2026-07-20T11:12:12.536Z"
+    "updatedAt": "2026-07-20T21:40:26.374Z"
   },
   {
     "_id": "6a5e028c969540e9ca9b89c0",
     "name": "Endless Timing Belt",
     "description": "Endless Timing Belt",
-    "shortDescription": "Endless Timing Belt",
+    "shortDescription": "Endless timing belt for HTD® + RPP® pulleys\nSections:\nOMEGA 3M, OMEGA 5M 10, OMEGA 8M 10\nDimensions:\nRolls measuring 30 m\n\nmore info.",
     "category": "Belts Power Transmission",
     "subcategory": "Timing Belts",
     "brand": "",
@@ -1279,13 +1279,13 @@
     "status": "Active",
     "slug": "endless-timing-belt-1784545932583-42",
     "createdAt": "2026-07-20T11:12:12.628Z",
-    "updatedAt": "2026-07-20T11:12:12.628Z"
+    "updatedAt": "2026-07-20T21:40:27.020Z"
   },
   {
     "_id": "6a5e028c969540e9ca9b89c1",
     "name": "High Power Banded (Kraftband)- Raw Edge",
     "description": "High Power Banded (Kraftband)- Raw Edge",
-    "shortDescription": "High Power Banded (Kraftband)- Raw Edge",
+    "shortDescription": "Sections: \n3V/9J, 5V/15J, 8V/25J, SPB, SPC\n\nDimensions:\nFrom 1,270 up to 12,000 mm\nmore info.",
     "category": "Belts Power Transmission",
     "subcategory": "V Belts",
     "brand": "",
@@ -1310,13 +1310,13 @@
     "status": "Active",
     "slug": "high-power-banded-kraftband-raw-edge-1784545932672-43",
     "createdAt": "2026-07-20T11:12:12.707Z",
-    "updatedAt": "2026-07-20T11:12:12.707Z"
+    "updatedAt": "2026-07-20T21:40:27.709Z"
   },
   {
     "_id": "6a5e028c969540e9ca9b89c2",
     "name": "Banded (Kraftband)- Wrapped Belt",
     "description": "Banded (Kraftband)- Wrapped Belt",
-    "shortDescription": "Banded (Kraftband)- Wrapped Belt",
+    "shortDescription": "Sections: \n3VX/9JX, 5VX/15JX, XPBDimensions: \nFrom 1,250 up to 3,550 mm\nmore info.",
     "category": "Belts Power Transmission",
     "subcategory": "V Belts",
     "brand": "",
@@ -1341,13 +1341,13 @@
     "status": "Active",
     "slug": "banded-kraftband-wrapped-belt-1784545932749-44",
     "createdAt": "2026-07-20T11:12:12.788Z",
-    "updatedAt": "2026-07-20T11:12:12.788Z"
+    "updatedAt": "2026-07-20T21:40:28.423Z"
   },
   {
     "_id": "6a5e028c969540e9ca9b89c3",
     "name": "Endless-Welded Belts",
     "description": "Endless-Welded Belts",
-    "shortDescription": "Endless-Welded Belts",
+    "shortDescription": "Sections:\nL, H, XH, T5, T10, T20\nDimensions:\nMetre goods from 600 mm\n\n\nmore info.",
     "category": "Belts Power Transmission",
     "subcategory": "Timing Belts",
     "brand": "",
@@ -1372,7 +1372,7 @@
     "status": "Active",
     "slug": "endless-welded-belts-1784545932829-45",
     "createdAt": "2026-07-20T11:12:12.862Z",
-    "updatedAt": "2026-07-20T11:12:12.862Z"
+    "updatedAt": "2026-07-20T21:40:29.138Z"
   },
   {
     "_id": "6a5e028c969540e9ca9b89c4",
@@ -1439,7 +1439,7 @@
     "_id": "6a5e028d969540e9ca9b89c6",
     "name": "Ribbed Belt Pullets",
     "description": "Ribbed Belt Pullets",
-    "shortDescription": "Ribbed Belt Pullets",
+    "shortDescription": "Ribbed Belt Pulleys for taper bushes and cylindrical holes\n\nmore info.",
     "category": "Pulleys",
     "subcategory": "",
     "brand": "",
@@ -1463,13 +1463,13 @@
     "status": "Active",
     "slug": "ribbed-belt-pullets-1784545933020-48",
     "createdAt": "2026-07-20T11:12:13.047Z",
-    "updatedAt": "2026-07-20T11:12:13.047Z"
+    "updatedAt": "2026-07-20T21:40:31.389Z"
   },
   {
     "_id": "6a5e028d969540e9ca9b89c7",
     "name": "Timing Belt Pulleys",
     "description": "Timing Belt Pulleys",
-    "shortDescription": "Timing Belt Pulleys",
+    "shortDescription": "V-Grooved Pulleys for taper bushes and cylindrical holes\nmore info.",
     "category": "Pulleys",
     "subcategory": "",
     "brand": "",
@@ -1493,7 +1493,7 @@
     "status": "Active",
     "slug": "timing-belt-pulleys-1784545933082-49",
     "createdAt": "2026-07-20T11:12:13.117Z",
-    "updatedAt": "2026-07-20T11:12:13.117Z"
+    "updatedAt": "2026-07-20T21:40:32.107Z"
   },
   {
     "_id": "6a5e028d969540e9ca9b89c8",
@@ -1531,7 +1531,7 @@
     "description": "Conveyor Belts",
     "shortDescription": "Conveyor Belts",
     "category": "Conveying Accessories",
-    "subcategory": "Conveying Accessorise",
+    "subcategory": "",
     "brand": "",
     "name_ar": "",
     "description_ar": "",
@@ -1554,15 +1554,15 @@
     "status": "Active",
     "slug": "conveyor-belts-1784545933237-51",
     "createdAt": "2026-07-20T11:12:13.267Z",
-    "updatedAt": "2026-07-20T11:12:13.267Z"
+    "updatedAt": "2026-07-20T21:39:41.952Z"
   },
   {
     "_id": "6a5e028d969540e9ca9b89ca",
     "name": "Conveyor Rollers",
     "description": "Conveyor Rollers",
-    "shortDescription": "Conveyor Rollers",
+    "shortDescription": "Steel Rollers\nmore info\nImpact Rollers (Rollers with Rubber)\nmore info.",
     "category": "Conveying Accessories",
-    "subcategory": "Conveying Accessorise",
+    "subcategory": "",
     "brand": "",
     "name_ar": "",
     "description_ar": "",
@@ -1585,15 +1585,15 @@
     "status": "Active",
     "slug": "conveyor-rollers-1784545933318-52",
     "createdAt": "2026-07-20T11:12:13.346Z",
-    "updatedAt": "2026-07-20T11:12:13.346Z"
+    "updatedAt": "2026-07-20T21:40:34.158Z"
   },
   {
     "_id": "6a5e028d969540e9ca9b89cb",
     "name": "Crusher Screen",
     "description": "Crusher Screen",
-    "shortDescription": "Crusher Screen",
+    "shortDescription": "Type: Steel Screen\nSizes (Opening): from 1mm to 85mm\nWidth:  1.2 MTR X 2.00 MTR\nWire Thickness: varies depend on the opening size\nmore info.",
     "category": "Conveying Accessories",
-    "subcategory": "Conveying Accessorise",
+    "subcategory": "",
     "brand": "",
     "name_ar": "",
     "description_ar": "",
@@ -1616,15 +1616,15 @@
     "status": "Active",
     "slug": "crusher-screen-1784545933389-53",
     "createdAt": "2026-07-20T11:12:13.427Z",
-    "updatedAt": "2026-07-20T11:12:13.427Z"
+    "updatedAt": "2026-07-20T21:40:34.797Z"
   },
   {
     "_id": "6a5e028d969540e9ca9b89cc",
     "name": "Gear-Boxes (SMR) Speed Reducer",
     "description": "Gear-Boxes (SMR) Speed Reducer",
-    "shortDescription": "Gear-Boxes (SMR) Speed Reducer",
+    "shortDescription": "more info.",
     "category": "Conveying Accessories",
-    "subcategory": "Conveying Accessorise",
+    "subcategory": "",
     "brand": "",
     "name_ar": "",
     "description_ar": "",
@@ -1647,15 +1647,15 @@
     "status": "Active",
     "slug": "gear-boxes-smr-speed-reducer-1784545933478-54",
     "createdAt": "2026-07-20T11:12:13.518Z",
-    "updatedAt": "2026-07-20T11:12:13.518Z"
+    "updatedAt": "2026-07-20T21:40:35.436Z"
   },
   {
     "_id": "6a5e028d969540e9ca9b89cd",
     "name": "Rough Top Belts",
     "description": "Rough Top Belts",
-    "shortDescription": "Rough Top Belts",
+    "shortDescription": "Type: EP200\nPly:  2ply\nWidth:  from 400mm to 1000mm / (40-100 cm)\nLength: up to 300 MTR\nmore info",
     "category": "Conveying Accessories",
-    "subcategory": "Conveying Accessorise",
+    "subcategory": "",
     "brand": "",
     "name_ar": "",
     "description_ar": "",
@@ -1678,15 +1678,15 @@
     "status": "Active",
     "slug": "rough-top-belts-1784545933562-55",
     "createdAt": "2026-07-20T11:12:13.586Z",
-    "updatedAt": "2026-07-20T11:12:13.586Z"
+    "updatedAt": "2026-07-20T21:40:38.458Z"
   },
   {
     "_id": "6a5e028d969540e9ca9b89ce",
     "name": "Chevron Conveyor Belts",
     "description": "Chevron Conveyor Belts",
-    "shortDescription": "Chevron Conveyor Belts",
+    "shortDescription": "Type: EP315\nPly:   3ply\nWidth:  from 400mm to 1200mm / (40-120 cm)\nLength: up to customer requirement.\nMade in Spain (Kauman Brand)\nmore info.",
     "category": "Conveying Accessories",
-    "subcategory": "Conveying Accessorise",
+    "subcategory": "",
     "brand": "",
     "name_ar": "",
     "description_ar": "",
@@ -1709,15 +1709,15 @@
     "status": "Active",
     "slug": "chevron-conveyor-belts-1784545933635-56",
     "createdAt": "2026-07-20T11:12:13.669Z",
-    "updatedAt": "2026-07-20T11:12:13.669Z"
+    "updatedAt": "2026-07-20T21:40:39.376Z"
   },
   {
     "_id": "6a5e028d969540e9ca9b89cf",
     "name": "Conveyor Belts Fasteners",
     "description": "Conveyor Belts Fasteners",
-    "shortDescription": "Conveyor Belts Fasteners",
+    "shortDescription": "Size: 1″, 1.25″, 1.50″, 2.00″, 2.50″ (inch)\nmore info.",
     "category": "Conveying Accessories",
-    "subcategory": "Conveying Accessorise",
+    "subcategory": "",
     "brand": "",
     "name_ar": "",
     "description_ar": "",
@@ -1740,15 +1740,15 @@
     "status": "Active",
     "slug": "conveyor-belts-fasteners-1784545933697-57",
     "createdAt": "2026-07-20T11:12:13.724Z",
-    "updatedAt": "2026-07-20T11:12:13.724Z"
+    "updatedAt": "2026-07-20T21:40:40.306Z"
   },
   {
     "_id": "6a5e028d969540e9ca9b89d0",
     "name": "Fastners Set",
     "description": "Fastners Set",
-    "shortDescription": "Fastners Set",
+    "shortDescription": "more info",
     "category": "Conveying Accessories",
-    "subcategory": "Conveying Accessorise",
+    "subcategory": "",
     "brand": "",
     "name_ar": "",
     "description_ar": "",
@@ -1771,15 +1771,15 @@
     "status": "Active",
     "slug": "fastners-set-1784545933758-58",
     "createdAt": "2026-07-20T11:12:13.787Z",
-    "updatedAt": "2026-07-20T11:12:13.787Z"
+    "updatedAt": "2026-07-20T21:40:41.630Z"
   },
   {
     "_id": "6a5e028d969540e9ca9b89d1",
     "name": "Screen Rubber",
     "description": "Screen Rubber",
-    "shortDescription": "Screen Rubber",
+    "shortDescription": "Steel Punch\nmore info",
     "category": "Conveying Accessories",
-    "subcategory": "Conveying Accessorise",
+    "subcategory": "",
     "brand": "",
     "name_ar": "",
     "description_ar": "",
@@ -1802,15 +1802,15 @@
     "status": "Active",
     "slug": "screen-rubber-1784545933828-59",
     "createdAt": "2026-07-20T11:12:13.856Z",
-    "updatedAt": "2026-07-20T11:12:13.856Z"
+    "updatedAt": "2026-07-20T21:40:42.554Z"
   },
   {
     "_id": "6a5e028d969540e9ca9b89d2",
     "name": "Belt Punch",
     "description": "Belt Punch",
-    "shortDescription": "Belt Punch",
+    "shortDescription": "Steel Punch\nmore info",
     "category": "Conveying Accessories",
-    "subcategory": "Conveying Accessorise",
+    "subcategory": "",
     "brand": "",
     "name_ar": "",
     "description_ar": "",
@@ -1833,15 +1833,15 @@
     "status": "Active",
     "slug": "belt-punch-1784545933887-60",
     "createdAt": "2026-07-20T11:12:13.928Z",
-    "updatedAt": "2026-07-20T11:12:13.928Z"
+    "updatedAt": "2026-07-20T21:40:43.885Z"
   },
   {
     "_id": "6a5e028e969540e9ca9b89d3",
     "name": "Crusher Spring",
     "description": "Crusher Spring",
-    "shortDescription": "Crusher Spring",
+    "shortDescription": "Type: Steel\nWire Dai X   ID    X Height\nSizes:  19mm    X100mm X300mm\nSizes:  28mm    X146mm X320mm\nmore info.",
     "category": "Conveying Accessories",
-    "subcategory": "Conveying Accessorise",
+    "subcategory": "",
     "brand": "",
     "name_ar": "",
     "description_ar": "",
@@ -1864,15 +1864,15 @@
     "status": "Active",
     "slug": "crusher-spring-1784545934271-61",
     "createdAt": "2026-07-20T11:12:14.376Z",
-    "updatedAt": "2026-07-20T11:12:14.376Z"
+    "updatedAt": "2026-07-20T21:40:45.143Z"
   },
   {
     "_id": "6a5e028e969540e9ca9b89d4",
     "name": "Steel Belts Lacing",
     "description": "Steel Belts Lacing",
-    "shortDescription": "Steel Belts Lacing",
+    "shortDescription": "Size: No. 15, 20, 25G, 27L, 35N, 45U\nmore info.",
     "category": "Conveying Accessories",
-    "subcategory": "Conveying Accessorise",
+    "subcategory": "",
     "brand": "",
     "name_ar": "",
     "description_ar": "",
@@ -1895,13 +1895,13 @@
     "status": "Active",
     "slug": "steel-belts-lacing-1784545934551-62",
     "createdAt": "2026-07-20T11:12:14.593Z",
-    "updatedAt": "2026-07-20T11:12:14.593Z"
+    "updatedAt": "2026-07-20T21:40:46.442Z"
   },
   {
     "_id": "6a5e028e969540e9ca9b89d5",
     "name": "Rubber Sheets",
     "description": "Rubber Sheets",
-    "shortDescription": "Rubber Sheets",
+    "shortDescription": "SBR.\nNEOPRENE,\nW/INSERTION,\nmore info",
     "category": "Rubber",
     "subcategory": "",
     "brand": "",
@@ -1925,13 +1925,13 @@
     "status": "Active",
     "slug": "rubber-sheets-1784545934632-63",
     "createdAt": "2026-07-20T11:12:14.656Z",
-    "updatedAt": "2026-07-20T11:12:14.656Z"
+    "updatedAt": "2026-07-20T21:40:47.365Z"
   },
   {
     "_id": "6a5e028e969540e9ca9b89d6",
     "name": "Rubber Stud",
     "description": "Rubber Stud",
-    "shortDescription": "Rubber Stud",
+    "shortDescription": "more info.",
     "category": "Rubber",
     "subcategory": "",
     "brand": "",
@@ -1955,13 +1955,13 @@
     "status": "Active",
     "slug": "rubber-stud-1784545934697-64",
     "createdAt": "2026-07-20T11:12:14.867Z",
-    "updatedAt": "2026-07-20T11:12:14.867Z"
+    "updatedAt": "2026-07-20T21:40:48.284Z"
   },
   {
     "_id": "6a5e028e969540e9ca9b89d7",
     "name": "White Rubber Sheets",
     "description": "White Rubber Sheets",
-    "shortDescription": "White Rubber Sheets",
+    "shortDescription": "more info.",
     "category": "Rubber",
     "subcategory": "",
     "brand": "",
@@ -1985,13 +1985,13 @@
     "status": "Active",
     "slug": "white-rubber-sheets-1784545934923-65",
     "createdAt": "2026-07-20T11:12:14.947Z",
-    "updatedAt": "2026-07-20T11:12:14.947Z"
+    "updatedAt": "2026-07-20T21:40:49.166Z"
   },
   {
     "_id": "6a5e028f969540e9ca9b89d8",
     "name": "Silicon Sheet",
     "description": "Silicon Sheet",
-    "shortDescription": "Silicon Sheet",
+    "shortDescription": "more info.",
     "category": "Rubber",
     "subcategory": "",
     "brand": "",
@@ -2015,13 +2015,13 @@
     "status": "Active",
     "slug": "silicon-sheet-1784545934991-66",
     "createdAt": "2026-07-20T11:12:15.027Z",
-    "updatedAt": "2026-07-20T11:12:15.027Z"
+    "updatedAt": "2026-07-20T21:40:50.053Z"
   },
   {
     "_id": "6a5e028f969540e9ca9b89d9",
     "name": "Rubber Sponge Sheet",
     "description": "Rubber Sponge Sheet",
-    "shortDescription": "Rubber Sponge Sheet",
+    "shortDescription": "more info.",
     "category": "Rubber",
     "subcategory": "",
     "brand": "",
@@ -2045,13 +2045,13 @@
     "status": "Active",
     "slug": "rubber-sponge-sheet-1784545935077-67",
     "createdAt": "2026-07-20T11:12:15.119Z",
-    "updatedAt": "2026-07-20T11:12:15.119Z"
+    "updatedAt": "2026-07-20T21:40:50.965Z"
   },
   {
     "_id": "6a5e028f969540e9ca9b89da",
     "name": "Soft Spong Rubber",
     "description": "Soft Spong Rubber",
-    "shortDescription": "Soft Spong Rubber",
+    "shortDescription": "more info.",
     "category": "Rubber",
     "subcategory": "",
     "brand": "",
@@ -2075,13 +2075,13 @@
     "status": "Active",
     "slug": "soft-spong-rubber-1784545935149-68",
     "createdAt": "2026-07-20T11:12:15.331Z",
-    "updatedAt": "2026-07-20T11:12:15.331Z"
+    "updatedAt": "2026-07-20T21:40:51.872Z"
   },
   {
     "_id": "6a5e028f969540e9ca9b89db",
     "name": "Rubber Mounts",
     "description": "Rubber Mounts",
-    "shortDescription": "Rubber Mounts",
+    "shortDescription": "more info.",
     "category": "Rubber",
     "subcategory": "",
     "brand": "",
@@ -2105,13 +2105,13 @@
     "status": "Active",
     "slug": "rubber-mounts-1784545935398-69",
     "createdAt": "2026-07-20T11:12:15.436Z",
-    "updatedAt": "2026-07-20T11:12:15.436Z"
+    "updatedAt": "2026-07-20T21:40:52.793Z"
   },
   {
     "_id": "6a5e028f969540e9ca9b89dc",
     "name": "Rubber Glass Moulding",
     "description": "Rubber Glass Moulding",
-    "shortDescription": "Rubber Glass Moulding",
+    "shortDescription": "more info.",
     "category": "Rubber",
     "subcategory": "",
     "brand": "",
@@ -2135,13 +2135,13 @@
     "status": "Active",
     "slug": "rubber-glass-moulding-1784545935477-70",
     "createdAt": "2026-07-20T11:12:15.527Z",
-    "updatedAt": "2026-07-20T11:12:15.527Z"
+    "updatedAt": "2026-07-20T21:40:53.713Z"
   },
   {
     "_id": "6a5e028f969540e9ca9b89dd",
     "name": "Rubber Metal Bonded",
     "description": "Rubber Metal Bonded",
-    "shortDescription": "Rubber Metal Bonded",
+    "shortDescription": "more info",
     "category": "Rubber",
     "subcategory": "",
     "brand": "",
@@ -2165,13 +2165,13 @@
     "status": "Active",
     "slug": "rubber-metal-bonded-1784545935565-71",
     "createdAt": "2026-07-20T11:12:15.593Z",
-    "updatedAt": "2026-07-20T11:12:15.593Z"
+    "updatedAt": "2026-07-20T21:40:54.632Z"
   },
   {
     "_id": "6a5e028f969540e9ca9b89de",
     "name": "Rubber O-Ring Service kit",
     "description": "Rubber O-Ring Service kit",
-    "shortDescription": "Rubber O-Ring Service kit",
+    "shortDescription": "more info.",
     "category": "Rubber",
     "subcategory": "",
     "brand": "",
@@ -2195,13 +2195,13 @@
     "status": "Active",
     "slug": "rubber-o-ring-service-kit-1784545935627-72",
     "createdAt": "2026-07-20T11:12:15.805Z",
-    "updatedAt": "2026-07-20T11:12:15.805Z"
+    "updatedAt": "2026-07-20T21:40:55.555Z"
   },
   {
     "_id": "6a5e028f969540e9ca9b89df",
     "name": "Gasket Graphite With Steel Sheet",
     "description": "Gasket Graphite With Steel Sheet",
-    "shortDescription": "Gasket Graphite With Steel Sheet",
+    "shortDescription": "Sheet Sizes:\n100 cm X 1.00 cm\nThickness Available :\n1.0, 1.5, 2.0, 3.0 mm\nmore info.",
     "category": "Industrial Insulation",
     "subcategory": "",
     "brand": "",
@@ -2225,13 +2225,13 @@
     "status": "Active",
     "slug": "gasket-graphite-with-steel-sheet-1784545935841-73",
     "createdAt": "2026-07-20T11:12:15.877Z",
-    "updatedAt": "2026-07-20T11:12:15.877Z"
+    "updatedAt": "2026-07-20T21:40:56.443Z"
   },
   {
     "_id": "6a5e028f969540e9ca9b89e0",
     "name": "S.S. Wire Mesh",
     "description": "S.S. Wire Mesh",
-    "shortDescription": "S.S. Wire Mesh",
+    "shortDescription": "Roll Width:\n1.00 Mtr & 1.20 Mtr\nRoll Length:\nUp to 30 Mtr\nSize Available :\nVarious size\nmore info.",
     "category": "Industrial Insulation",
     "subcategory": "",
     "brand": "",
@@ -2255,7 +2255,7 @@
     "status": "Active",
     "slug": "s-s-wire-mesh-1784545935930-74",
     "createdAt": "2026-07-20T11:12:15.967Z",
-    "updatedAt": "2026-07-20T11:12:15.967Z"
+    "updatedAt": "2026-07-20T21:40:57.379Z"
   },
   {
     "_id": "6a5e0290969540e9ca9b89e1",
@@ -2291,7 +2291,7 @@
     "_id": "6a5e0290969540e9ca9b89e2",
     "name": "Gaskets Sheets (Non-Asbestos Heat Resistant)",
     "description": "Gaskets Sheets (Non-Asbestos Heat Resistant)",
-    "shortDescription": "Gaskets Sheets (Non-Asbestos Heat Resistant)",
+    "shortDescription": "Sheet Sizes:\n1.5 Mtr x1.5 Mtr,XX\n1.5 Mtr x1Mtr,\n1 Mtr x 1Mtr\nThickness Available :\n0.5, 0.8, 1.0, 1.5, 2.0 and 3.0 mm\nMade in India\nmore info.",
     "category": "Industrial Insulation",
     "subcategory": "",
     "brand": "",
@@ -2315,13 +2315,13 @@
     "status": "Active",
     "slug": "gaskets-sheets-non-asbestos-heat-resistant-1784545936071-76",
     "createdAt": "2026-07-20T11:12:16.097Z",
-    "updatedAt": "2026-07-20T11:12:16.097Z"
+    "updatedAt": "2026-07-20T21:40:59.161Z"
   },
   {
     "_id": "6a5e0290969540e9ca9b89e3",
     "name": "Oil Resistant Jointing",
     "description": "Oil Resistant Jointing",
-    "shortDescription": "Oil Resistant Jointing",
+    "shortDescription": "Sheet Sizes:\n1.0 Mtr x1.0 Mtr,\nThickness Available :\n0.2, X0.4X, 0.5, 0.8, 1.0, 1.2, 1.6, 2.0, 2.4, 3.2 mm\nBrand: Cranlexf\nMade in England\nmore info.",
     "category": "Industrial Insulation",
     "subcategory": "",
     "brand": "",
@@ -2345,13 +2345,13 @@
     "status": "Active",
     "slug": "oil-resistant-jointing-1784545936279-77",
     "createdAt": "2026-07-20T11:12:16.320Z",
-    "updatedAt": "2026-07-20T11:12:16.320Z"
+    "updatedAt": "2026-07-20T21:41:00.049Z"
   },
   {
     "_id": "6a5e0290969540e9ca9b89e4",
     "name": "Gasket Graphite with Steel Mesh",
     "description": "Gasket Graphite with Steel Mesh",
-    "shortDescription": "Gasket Graphite with Steel Mesh",
+    "shortDescription": "Sheet Sizes:\n1.27 Mtr x1.27 Mtr,\n1.5 Mtr x1.5 Mtr,\nThickness Available :\n0.6, 0.8, 1.0, 1.5, 2.0, 3.0 and 4mm\nmore info.",
     "category": "Industrial Insulation",
     "subcategory": "",
     "brand": "",
@@ -2375,13 +2375,13 @@
     "status": "Active",
     "slug": "gasket-graphite-with-steel-mesh-1784545936368-78",
     "createdAt": "2026-07-20T11:12:16.414Z",
-    "updatedAt": "2026-07-20T11:12:16.414Z"
+    "updatedAt": "2026-07-20T21:41:00.983Z"
   },
   {
     "_id": "6a5e0290969540e9ca9b89e5",
     "name": "Heat Insulation Tape (Ordinary-No Insertion)",
     "description": "Heat Insulation Tape (Ordinary-No Insertion)",
-    "shortDescription": "Heat Insulation Tape (Ordinary-No Insertion)",
+    "shortDescription": "Sold By Roll\nStandard Roll Size: 15Mtr\nWidth Available :\n1″ to  4″ (inch)\nmore info.",
     "category": "Industrial Insulation",
     "subcategory": "",
     "brand": "",
@@ -2405,13 +2405,13 @@
     "status": "Active",
     "slug": "heat-insulation-tape-ordinary-no-insertion-1784545936450-79",
     "createdAt": "2026-07-20T11:12:16.497Z",
-    "updatedAt": "2026-07-20T11:12:16.497Z"
+    "updatedAt": "2026-07-20T21:41:01.887Z"
   },
   {
     "_id": "6a5e0290969540e9ca9b89e6",
     "name": "Gland Packing Rope With Teflon (square)",
     "description": "Gland Packing Rope With Teflon (square)",
-    "shortDescription": "Gland Packing Rope With Teflon (square)",
+    "shortDescription": "Sold By Roll\nThickness Available:\n10.0 to 16.0 mm\nmore info.",
     "category": "Industrial Insulation",
     "subcategory": "",
     "brand": "",
@@ -2435,13 +2435,13 @@
     "status": "Active",
     "slug": "gland-packing-rope-with-teflon-square-1784545936541-80",
     "createdAt": "2026-07-20T11:12:16.577Z",
-    "updatedAt": "2026-07-20T11:12:16.577Z"
+    "updatedAt": "2026-07-20T21:41:02.567Z"
   },
   {
     "_id": "6a5e0290969540e9ca9b89e7",
     "name": "Graphite Gland Packing Rope (square Black)",
     "description": "Graphite Gland Packing Rope (square Black)",
-    "shortDescription": "Graphite Gland Packing Rope (square Black)",
+    "shortDescription": "Sold By Roll and  Mtr.\nThickness Available:\n3.0 to 32.0 mm\n.more info.",
     "category": "Industrial Insulation",
     "subcategory": "",
     "brand": "",
@@ -2465,13 +2465,13 @@
     "status": "Active",
     "slug": "graphite-gland-packing-rope-square-black-1784545936744-81",
     "createdAt": "2026-07-20T11:12:16.786Z",
-    "updatedAt": "2026-07-20T11:12:16.786Z"
+    "updatedAt": "2026-07-20T21:41:03.204Z"
   },
   {
     "_id": "6a5e0290969540e9ca9b89e8",
     "name": "Packing Rope (Square White color)",
     "description": "Packing Rope (Square White color)",
-    "shortDescription": "Packing Rope (Square White color)",
+    "shortDescription": "Sold By Roll and  Mtr.\nThickness Available :\n6.0 to 30.0 mm\nmore info.",
     "category": "Industrial Insulation",
     "subcategory": "",
     "brand": "",
@@ -2495,13 +2495,13 @@
     "status": "Active",
     "slug": "packing-rope-square-white-color-1784545936848-82",
     "createdAt": "2026-07-20T11:12:16.886Z",
-    "updatedAt": "2026-07-20T11:12:16.886Z"
+    "updatedAt": "2026-07-20T21:41:04.123Z"
   },
   {
     "_id": "6a5e0291969540e9ca9b89e9",
     "name": "Packing Rope Cord (Round)",
     "description": "Packing Rope Cord (Round)",
-    "shortDescription": "Packing Rope Cord (Round)",
+    "shortDescription": "Sold By Roll\nThickness Available: 3.0 to 30.0 mm\nmore info.",
     "category": "Industrial Insulation",
     "subcategory": "",
     "brand": "",
@@ -2525,13 +2525,13 @@
     "status": "Active",
     "slug": "packing-rope-cord-round-1784545937267-83",
     "createdAt": "2026-07-20T11:12:17.416Z",
-    "updatedAt": "2026-07-20T11:12:17.416Z"
+    "updatedAt": "2026-07-20T21:41:05.303Z"
   },
   {
     "_id": "6a5e0291969540e9ca9b89ea",
     "name": "Heat Insulation Cloth (Ordinary)",
     "description": "Heat Insulation Cloth (Ordinary)",
-    "shortDescription": "Heat Insulation Cloth (Ordinary)",
+    "shortDescription": "Sold By Roll\nStandard Roll Size :30 Mtr\nWidth Available : 1Mtr\nmore info.",
     "category": "Industrial Insulation",
     "subcategory": "",
     "brand": "",
@@ -2555,13 +2555,13 @@
     "status": "Active",
     "slug": "heat-insulation-cloth-ordinary-1784545937523-84",
     "createdAt": "2026-07-20T11:12:17.558Z",
-    "updatedAt": "2026-07-20T11:12:17.558Z"
+    "updatedAt": "2026-07-20T21:41:06.218Z"
   },
   {
     "_id": "6a5e0291969540e9ca9b89eb",
     "name": "Shim (Brass & S.S)",
     "description": "Shim (Brass & S.S)",
-    "shortDescription": "Shim (Brass & S.S)",
+    "shortDescription": "Type:\n–  Brass Shim\n– 304 Stainless Steel Shim\nThickness Available :\nVarious Thickness\nmore info.",
     "category": "Industrial Insulation",
     "subcategory": "",
     "brand": "",
@@ -2585,13 +2585,13 @@
     "status": "Active",
     "slug": "shim-brass-s-s-1784545937783-85",
     "createdAt": "2026-07-20T11:12:17.830Z",
-    "updatedAt": "2026-07-20T11:12:17.830Z"
+    "updatedAt": "2026-07-20T21:41:07.157Z"
   },
   {
     "_id": "6a5e0291969540e9ca9b89ec",
     "name": "Felt Sheet",
     "description": "Felt Sheet",
-    "shortDescription": "Felt Sheet",
+    "shortDescription": "Sheet Sizes:\n1.2 Mtr x1.0Mtr,\nThickness Available :\n2,3,4,5,6,8,10,12,14,16, and 20mm\n.\nmore info.",
     "category": "Industrial Insulation",
     "subcategory": "",
     "brand": "",
@@ -2615,7 +2615,7 @@
     "status": "Active",
     "slug": "felt-sheet-1784545937882-86",
     "createdAt": "2026-07-20T11:12:17.917Z",
-    "updatedAt": "2026-07-20T11:12:17.917Z"
+    "updatedAt": "2026-07-20T21:41:08.047Z"
   },
   {
     "_id": "6a5e0291969540e9ca9b89ed",
@@ -3024,7 +3024,7 @@
     "_id": "6a5e0293969540e9ca9b89fa",
     "name": "Plummer Block Housing",
     "description": "Plummer Block Housing",
-    "shortDescription": "Plummer Block Housing",
+    "shortDescription": "Item Code:\nmore info.",
     "category": "Bearings",
     "subcategory": "Bearing Units and Plummer Block Housing",
     "brand": "",
@@ -3049,7 +3049,7 @@
     "status": "Active",
     "slug": "plummer-block-housing-1784545939838-100",
     "createdAt": "2026-07-20T11:12:19.886Z",
-    "updatedAt": "2026-07-20T11:12:19.886Z"
+    "updatedAt": "2026-07-20T21:41:20.303Z"
   },
   {
     "_id": "6a5e0293969540e9ca9b89fb",
@@ -3117,7 +3117,7 @@
     "_id": "6a5e0294969540e9ca9b89fd",
     "name": "Connecting Links",
     "description": "Connecting Links",
-    "shortDescription": "Connecting Links",
+    "shortDescription": "Type: Connecting Links\n1R, 2R, 3R, 4R, 5R and 6R\nmore info.",
     "category": "Transmission Chains and Sprockets",
     "subcategory": "Transmission chain",
     "brand": "",
@@ -3142,7 +3142,7 @@
     "status": "Active",
     "slug": "connecting-links-1784545940111-103",
     "createdAt": "2026-07-20T11:12:20.310Z",
-    "updatedAt": "2026-07-20T11:12:20.310Z"
+    "updatedAt": "2026-07-20T21:41:22.325Z"
   },
   {
     "_id": "6a5e0294969540e9ca9b89fe",
@@ -3179,7 +3179,7 @@
     "_id": "6a5e0294969540e9ca9b8a00",
     "name": "Offset Links",
     "description": "Offset Links",
-    "shortDescription": "Offset Links",
+    "shortDescription": "Type: Offset Links\n1R, 2R, 3R, 4R, 5R and 6R\nmore info.",
     "category": "Transmission Chains and Sprockets",
     "subcategory": "Transmission chain",
     "brand": "",
@@ -3204,13 +3204,13 @@
     "status": "Active",
     "slug": "offset-links-1784545940526-106",
     "createdAt": "2026-07-20T11:12:20.557Z",
-    "updatedAt": "2026-07-20T11:12:20.557Z"
+    "updatedAt": "2026-07-20T21:41:24.331Z"
   },
   {
     "_id": "6a5e0294969540e9ca9b8a01",
     "name": "Hollow Pin Chain",
     "description": "Hollow Pin Chain",
-    "shortDescription": "Hollow Pin Chain",
+    "shortDescription": "Type: Hollow Pin Chain\nLength: 10ft\nmore info.",
     "category": "Transmission Chains and Sprockets",
     "subcategory": "Transmission chain",
     "brand": "",
@@ -3235,13 +3235,13 @@
     "status": "Active",
     "slug": "hollow-pin-chain-1784545940577-107",
     "createdAt": "2026-07-20T11:12:20.622Z",
-    "updatedAt": "2026-07-20T11:12:20.622Z"
+    "updatedAt": "2026-07-20T21:41:25.048Z"
   },
   {
     "_id": "6a5e0294969540e9ca9b8a02",
     "name": "Conveyor Chain with Attachment",
     "description": "Conveyor Chain with Attachment",
-    "shortDescription": "Conveyor Chain with Attachment",
+    "shortDescription": "Type: Standard Conveyor Chain With Attachments\nDouble Pitch\nLength: 10ft\nmore info",
     "category": "Transmission Chains and Sprockets",
     "subcategory": "Transmission chain",
     "brand": "",
@@ -3266,13 +3266,13 @@
     "status": "Active",
     "slug": "conveyor-chain-with-attachment-1784545940823-108",
     "createdAt": "2026-07-20T11:12:20.856Z",
-    "updatedAt": "2026-07-20T11:12:20.856Z"
+    "updatedAt": "2026-07-20T21:41:25.765Z"
   },
   {
     "_id": "6a5e0294969540e9ca9b8a03",
     "name": "Conveyor Chain",
     "description": "Conveyor Chain",
-    "shortDescription": "Conveyor Chain",
+    "shortDescription": "Type: Standard Conveyor Chain  Double Pitch\nLength: 10ft\nmore info.",
     "category": "Transmission Chains and Sprockets",
     "subcategory": "Transmission chain",
     "brand": "",
@@ -3297,13 +3297,13 @@
     "status": "Active",
     "slug": "conveyor-chain-1784545940892-109",
     "createdAt": "2026-07-20T11:12:20.927Z",
-    "updatedAt": "2026-07-20T11:12:20.927Z"
+    "updatedAt": "2026-07-20T21:41:26.408Z"
   },
   {
     "_id": "6a5e0294969540e9ca9b8a04",
     "name": "Stainless Steel Chains",
     "description": "Stainless Steel Chains",
-    "shortDescription": "Stainless Steel Chains",
+    "shortDescription": "Type: Stainless Steel chains\nLength: Standard  10ft\nmore info.",
     "category": "Transmission Chains and Sprockets",
     "subcategory": "Transmission chain",
     "brand": "",
@@ -3328,13 +3328,13 @@
     "status": "Active",
     "slug": "stainless-steel-chains-1784545940961-110",
     "createdAt": "2026-07-20T11:12:20.996Z",
-    "updatedAt": "2026-07-20T11:12:20.996Z"
+    "updatedAt": "2026-07-20T21:41:27.378Z"
   },
   {
     "_id": "6a5e0295969540e9ca9b8a05",
     "name": "Leaf Chain",
     "description": "Leaf Chain",
-    "shortDescription": "Leaf Chain",
+    "shortDescription": "Type: leaf Chain\nLength: Standard  10ft\nmore info.",
     "category": "Transmission Chains and Sprockets",
     "subcategory": "Transmission chain",
     "brand": "",
@@ -3359,13 +3359,13 @@
     "status": "Active",
     "slug": "leaf-chain-1784545941036-111",
     "createdAt": "2026-07-20T11:12:21.361Z",
-    "updatedAt": "2026-07-20T11:12:21.361Z"
+    "updatedAt": "2026-07-20T21:41:28.323Z"
   },
   {
     "_id": "6a5e0295969540e9ca9b8a06",
     "name": "Agricultural Roller Chain",
     "description": "Agricultural Roller Chain",
-    "shortDescription": "Agricultural Roller Chain",
+    "shortDescription": "Type: Agricultural Roller Chain\nLength: Standard  10ft\nmore info.",
     "category": "Transmission Chains and Sprockets",
     "subcategory": "Transmission chain",
     "brand": "",
@@ -3390,13 +3390,13 @@
     "status": "Active",
     "slug": "agricultural-roller-chain-1784545941444-112",
     "createdAt": "2026-07-20T11:12:21.544Z",
-    "updatedAt": "2026-07-20T11:12:21.544Z"
+    "updatedAt": "2026-07-20T21:41:28.997Z"
   },
   {
     "_id": "6a5e0295969540e9ca9b8a07",
     "name": "Silent Chain",
     "description": "Silent Chain",
-    "shortDescription": "Silent Chain",
+    "shortDescription": "Type: Silent Chain\nLength: Standard  10ft\nmore info.",
     "category": "Transmission Chains and Sprockets",
     "subcategory": "Transmission chain",
     "brand": "",
@@ -3421,13 +3421,13 @@
     "status": "Active",
     "slug": "silent-chain-1784545941583-113",
     "createdAt": "2026-07-20T11:12:21.708Z",
-    "updatedAt": "2026-07-20T11:12:21.708Z"
+    "updatedAt": "2026-07-20T21:41:29.894Z"
   },
   {
     "_id": "6a5e0295969540e9ca9b8a08",
     "name": "Specialty Chain Series",
     "description": "Specialty Chain Series",
-    "shortDescription": "Specialty Chain Series",
+    "shortDescription": "Type: Small Pitch Chain\nLength: Standard  10ft\nmore info.",
     "category": "Transmission Chains and Sprockets",
     "subcategory": "Transmission chain",
     "brand": "",
@@ -3452,7 +3452,7 @@
     "status": "Active",
     "slug": "specialty-chain-series-1784545941744-114",
     "createdAt": "2026-07-20T11:12:21.785Z",
-    "updatedAt": "2026-07-20T11:12:21.785Z"
+    "updatedAt": "2026-07-20T21:41:30.577Z"
   },
   {
     "_id": "6a5e8e260a1f95058f7d347a",
