@@ -110,6 +110,18 @@ const ensureDbReady = async (req, res, next) => {
   next();
 };
 
+// Blocks WRITE operations (create/update/delete) when MongoDB isn't
+// connected, so an admin edit never silently lands on ephemeral per-instance
+// storage that vanishes on the next cold start. Reads (browsing, login) are
+// still allowed to fall back so the site doesn't go fully dark during a
+// transient MongoDB connectivity blip -- only writes are blocked.
+const requireMongoForWrites = (req, res, next) => {
+  if (!db.isMongo) {
+    return res.status(503).json({ error: 'Database connection is temporarily unavailable. Changes cannot be saved right now -- please try again in a moment.' });
+  }
+  next();
+};
+
 // ---- Debug endpoint: database status ----
 app.get('/api/db-status', ensureDbReady, (req, res) => {
   res.json({
@@ -657,7 +669,7 @@ app.get('/api/products/category/:category/:subcategory', ensureDbReady, async (r
 });
 
 // ---- POST, PUT, DELETE ----
-app.post('/api/products', requireAdmin, ensureDbReady, async (req, res) => {
+app.post('/api/products', requireAdmin, ensureDbReady, requireMongoForWrites, async (req, res) => {
   try {
     const { name, description, shortDescription, category, subcategory, brand, sku, price, discountPrice, stock, status, images, specifications, tags } = req.body;
 
@@ -708,7 +720,7 @@ app.post('/api/products', requireAdmin, ensureDbReady, async (req, res) => {
   }
 });
 
-app.put('/api/products/:id', requireAdmin, ensureDbReady, async (req, res) => {
+app.put('/api/products/:id', requireAdmin, ensureDbReady, requireMongoForWrites, async (req, res) => {
   try {
     const { id } = req.params;
     const { name, description, shortDescription, category, subcategory, brand, sku, price, discountPrice, stock, status, images, specifications, tags } = req.body;
@@ -779,7 +791,7 @@ app.put('/api/products/:id', requireAdmin, ensureDbReady, async (req, res) => {
   }
 });
 
-app.delete('/api/products/:id', requireAdmin, ensureDbReady, async (req, res) => {
+app.delete('/api/products/:id', requireAdmin, ensureDbReady, requireMongoForWrites, async (req, res) => {
   try {
     if (req.headers['x-delete-verified'] !== 'true') {
       return res.status(403).json({ error: 'Delete action must be verified by admin credentials and 2FA.' });
@@ -851,7 +863,7 @@ app.get('/api/users', requireAdmin, ensureDbReady, async (req, res) => {
   }
 });
 
-app.put('/api/users/:id/status', requireAdmin, ensureDbReady, async (req, res) => {
+app.put('/api/users/:id/status', requireAdmin, ensureDbReady, requireMongoForWrites, async (req, res) => {
   try {
     const { status } = req.body;
     const user = await db.User.findByIdAndUpdate(req.params.id, { status }, { new: true });
@@ -866,7 +878,7 @@ app.put('/api/users/:id/status', requireAdmin, ensureDbReady, async (req, res) =
   }
 });
 
-app.delete('/api/users/:id', requireAdmin, ensureDbReady, async (req, res) => {
+app.delete('/api/users/:id', requireAdmin, ensureDbReady, requireMongoForWrites, async (req, res) => {
   try {
     const user = await db.User.findByIdAndDelete(req.params.id);
     await db.ActivityLog.create({
@@ -890,7 +902,7 @@ app.get('/api/orders', requireAdmin, ensureDbReady, async (req, res) => {
   }
 });
 
-app.post('/api/orders', requireAdmin, ensureDbReady, async (req, res) => {
+app.post('/api/orders', requireAdmin, ensureDbReady, requireMongoForWrites, async (req, res) => {
   try {
     const { client, items, amount } = req.body;
     const payload = {
@@ -907,7 +919,7 @@ app.post('/api/orders', requireAdmin, ensureDbReady, async (req, res) => {
   }
 });
 
-app.put('/api/orders/:id/status', requireAdmin, ensureDbReady, async (req, res) => {
+app.put('/api/orders/:id/status', requireAdmin, ensureDbReady, requireMongoForWrites, async (req, res) => {
   try {
     const updated = await db.Order.findByIdAndUpdate(req.params.id, { status: req.body.status }, { new: true });
     if (!updated) return res.status(404).json({ error: 'Order not found' });
@@ -918,7 +930,7 @@ app.put('/api/orders/:id/status', requireAdmin, ensureDbReady, async (req, res) 
   }
 });
 
-app.delete('/api/orders/:id', requireAdmin, ensureDbReady, async (req, res) => {
+app.delete('/api/orders/:id', requireAdmin, ensureDbReady, requireMongoForWrites, async (req, res) => {
   try {
     const deleted = await db.Order.findByIdAndDelete(req.params.id);
     if (!deleted) return res.status(404).json({ error: 'Order not found' });
@@ -949,7 +961,7 @@ app.post('/api/tickets', async (req, res) => {
   }
 });
 
-app.put('/api/tickets/:id', requireAdmin, ensureDbReady, async (req, res) => {
+app.put('/api/tickets/:id', requireAdmin, ensureDbReady, requireMongoForWrites, async (req, res) => {
   try {
     const ticket = await db.SupportTicket.findById(req.params.id);
     if (!ticket) return res.status(404).json({ error: 'Ticket not found' });
@@ -982,7 +994,7 @@ app.get('/api/coupons', requireAdmin, ensureDbReady, async (req, res) => {
   }
 });
 
-app.post('/api/coupons', requireAdmin, ensureDbReady, async (req, res) => {
+app.post('/api/coupons', requireAdmin, ensureDbReady, requireMongoForWrites, async (req, res) => {
   try {
     const { code, discountType, discountValue, usageLimit } = req.body;
     if (!code || !discountType || !discountValue) {
@@ -1002,7 +1014,7 @@ app.post('/api/coupons', requireAdmin, ensureDbReady, async (req, res) => {
   }
 });
 
-app.put('/api/coupons/:id/status', requireAdmin, ensureDbReady, async (req, res) => {
+app.put('/api/coupons/:id/status', requireAdmin, ensureDbReady, requireMongoForWrites, async (req, res) => {
   try {
     const { status } = req.body;
     if (!status || !['Active', 'Inactive'].includes(status)) {
@@ -1016,7 +1028,7 @@ app.put('/api/coupons/:id/status', requireAdmin, ensureDbReady, async (req, res)
   }
 });
 
-app.delete('/api/coupons/:id', requireAdmin, ensureDbReady, async (req, res) => {
+app.delete('/api/coupons/:id', requireAdmin, ensureDbReady, requireMongoForWrites, async (req, res) => {
   try {
     const deleted = await db.Coupon.findByIdAndDelete(req.params.id);
     if (!deleted) return res.status(404).json({ error: 'Coupon not found' });

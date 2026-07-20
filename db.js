@@ -324,14 +324,12 @@ db.init = async function (mongoUri, defaultEmail, defaultPassword) {
 
     if (!isConnected) {
       // A database was configured but every attempt to reach it failed.
-      // Do NOT silently fall back to ephemeral JSON storage here: on a
-      // platform like Vercel that would mean some requests silently write
-      // to a store that vanishes on the next cold start, while others hit
-      // the real database -- causing data to randomly "disappear" with no
-      // visible error. Instead, leave db.ready false so every request gets
-      // a clear 503 until MongoDB is actually reachable.
-      console.error('❌ MongoDB is configured but unreachable after all retries. Refusing to fall back to local JSON storage in this mode.', lastError && lastError.message);
-      throw new Error('MongoDB configured but unreachable: ' + (lastError && lastError.message));
+      // Fall back to the local JSON store so the site (browsing, login)
+      // stays available instead of going fully dark -- but db.isMongo stays
+      // false, and index.js uses that to block WRITE operations specifically
+      // (see requireMongoForWrites) so we never silently lose admin edits by
+      // writing them to storage that vanishes on the next cold start.
+      console.error('❌ MongoDB is configured but unreachable after all retries. Falling back to read-only-safe local JSON storage.', lastError && lastError.message);
     }
   }
 
