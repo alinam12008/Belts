@@ -324,7 +324,7 @@ app.get(['/products_data.json', '/stitch_modern_belt_store_redesign/products_dat
 });
 
 // ---- Admin Auth Endpoints ----
-app.post('/api/admin/signup', async (req, res) => {
+app.post('/api/admin/signup', ensureDbReady, async (req, res) => {
   try {
     const { name, email, password, adminCode } = req.body;
     if (!name || !email || !password || !adminCode) {
@@ -354,7 +354,7 @@ app.post('/api/admin/signup', async (req, res) => {
   }
 });
 
-app.post('/api/admin/login', async (req, res) => {
+app.post('/api/admin/login', ensureDbReady, async (req, res) => {
   try {
     const { email, password } = req.body;
     if (!email || !password) {
@@ -388,7 +388,7 @@ app.post('/api/admin/login', async (req, res) => {
   }
 });
 
-app.post('/api/admin/verify-2fa', async (req, res) => {
+app.post('/api/admin/verify-2fa', ensureDbReady, async (req, res) => {
   try {
     const { email, code } = req.body;
     if (!email || !code) {
@@ -425,7 +425,7 @@ app.post('/api/admin/verify-2fa', async (req, res) => {
   }
 });
 
-app.post('/api/admin/request-delete-verification', requireAdmin, async (req, res) => {
+app.post('/api/admin/request-delete-verification', requireAdmin, ensureDbReady, async (req, res) => {
   try {
     const { email, password } = req.body;
     if (!email || !password) {
@@ -466,7 +466,7 @@ app.post('/api/admin/request-delete-verification', requireAdmin, async (req, res
   }
 });
 
-app.post('/api/admin/confirm-delete-verification', requireAdmin, async (req, res) => {
+app.post('/api/admin/confirm-delete-verification', requireAdmin, ensureDbReady, async (req, res) => {
   try {
     const { email, code } = req.body;
     if (!email || !code) {
@@ -493,7 +493,7 @@ app.post('/api/admin/confirm-delete-verification', requireAdmin, async (req, res
   }
 });
 
-app.get('/api/admin/me', requireAdmin, async (req, res) => {
+app.get('/api/admin/me', requireAdmin, ensureDbReady, async (req, res) => {
   try {
     const admin = await db.Admin.findById(req.admin.id);
     if (!admin) return res.status(404).json({ error: 'Profile not found' });
