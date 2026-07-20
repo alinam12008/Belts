@@ -1,75 +1,15 @@
 [
   {
-    "_id": "prod_emergency_belt_1001",
-    "name": "Emergency Belt- Use fastener to join",
-    "description": "<p dir=\"ltr\"><strong>Sections:</strong><br /> A/13, B/17, C/22</p> <p dir=\"ltr\"><strong>Dimensions:</strong><br /> Open</p> <p dir=\"ltr\"><a href=\"#\">more info.</a></p>",
-    "shortDescription": "<p dir=\"ltr\"><strong>Sections:</strong><br /> A/13, B/17, C/22</p> <p dir=\"ltr\"><strong>Dimensions:</strong><br /> Open</p> <p dir=\"ltr\"><a href=\"#\">more info.</a></p>",
-    "category": "Belts Power Transmission",
-    "subcategory": "Special Belts",
-    "brand": "",
-    "sku": "SKU-1001",
-    "price": 0,
-    "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
-    "images": [
-      "https://belts-store.com/wp-content/uploads/2011/07/V_ROPE_LACING-1-1.jpg"
-    ],
-    "specifications": {
-      "Sections": "A/13, B/17, C/22",
-      "Dimensions": "Open"
-    },
-    "tags": [
-      "Belts Power Transmission",
-      "Special Belts"
-    ],
-    "slug": "agricultural-transmission-belts",
-    "createdAt": "2026-06-30T14:30:00.000Z",
-    "updatedAt": "2026-06-30T14:30:00.000Z"
-  },
-  {
-    "_id": "prod_banded_kraftband_1002",
-    "name": "Banded (Kraftband)- Wrapped Belt",
-    "description": "<div><strong>Sections: </strong><br /> 3VX/9JX, 5VX/15JX, XPB<strong>Dimensions: </strong><br /> From 1,250 up to 3,550 mm",
-    "shortDescription": "<div><strong>Sections: </strong><br /> 3VX/9JX, 5VX/15JX, XPB<strong>Dimensions: </strong><br /> From 1,250 up to 3,550 mm",
-    "category": "Belts Power Transmission",
-    "subcategory": "V Belts",
-    "brand": "",
-    "sku": "SKU-1002",
-    "price": 0,
-    "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
-    "images": [
-      "https://belts-store.com/wp-content/uploads/2011/07/industrie_super_kbx_power-1.jpg"
-    ],
-    "specifications": {
-      "Sections": "3VX/9JX, 5VX/15JX, XPB",
-      "Dimensions": "From 1,250 up to 3,550 mm"
-    },
-    "tags": [
-      "Belts Power Transmission",
-      "V Belts"
-    ],
-    "slug": "banded-kraftband-wrapped-belt-2",
-    "createdAt": "2026-06-30T14:30:00.000Z",
-    "updatedAt": "2026-06-30T14:30:00.000Z"
-  },
-  {
-    "_id": "vqzra0p4arguaj1e8k3phb",
-    "createdAt": "2026-07-17T17:28:55.485Z",
-    "updatedAt": "2026-07-17T17:28:55.486Z",
+    "_id": "6a5b7e3076f7114690b6f3a5",
     "name": "Optibelt VB",
-    "description": "Optibelt VB",
+    "description": "",
     "shortDescription": "Optibelt VB",
     "category": "Belts Power Transmission",
     "subcategory": "V Belts",
     "brand": "",
-    "sku": "SKU-1782069696800-0-0rq5",
-    "price": 0,
-    "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
+    "sku": "SKU-1000",
+    "price": 156,
+    "discountPrice": 136,
     "images": [
       "https://belts-store.com/wp-content/uploads/2011/06/optibelt_VB_Classic_V-belts-1-1.jpg"
     ],
@@ -78,23 +18,23 @@
       "Belts Power Transmission",
       "V Belts"
     ],
-    "slug": "optibelt-vb-1784309335484-1"
+    "stock": 10,
+    "status": "Active",
+    "slug": "optibelt-vb-1784496584044",
+    "createdAt": "2026-07-18T13:22:56.167Z",
+    "updatedAt": "2026-07-19T21:29:44.045Z"
   },
   {
-    "_id": "ophzq5tjovn1syx9c20qdu",
-    "createdAt": "2026-07-17T17:28:55.487Z",
-    "updatedAt": "2026-07-17T17:28:55.487Z",
+    "_id": "6a5b7e3076f7114690b6f3a6",
     "name": "Optibelt RED POWER 3",
     "description": "Optibelt RED POWER 3",
     "shortDescription": "Optibelt RED POWER 3",
     "category": "Belts Power Transmission",
     "subcategory": "V Belts",
-    "brand": "",
-    "sku": "SKU-1782069696801-6-8p7w",
-    "price": 0,
-    "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
+    "brand": "Optibelt",
+    "sku": "SKU-1001",
+    "price": 290,
+    "discountPrice": 266,
     "images": [
       "https://belts-store.com/wp-content/uploads/2025/09/Produktfoto_Red_Power_Industrie-1-247x296.jpg"
     ],
@@ -103,23 +43,23 @@
       "Belts Power Transmission",
       "V Belts"
     ],
-    "slug": "optibelt-red-power-3-1784309335486-2"
+    "stock": 20,
+    "status": "Active",
+    "slug": "optibelt-red-power-3",
+    "createdAt": "2026-07-18T13:22:56.178Z",
+    "updatedAt": "2026-07-18T13:22:56.178Z"
   },
   {
-    "_id": "ilekpvn8qsnywe7lgdt269",
-    "createdAt": "2026-07-17T17:28:55.488Z",
-    "updatedAt": "2026-07-17T17:28:55.488Z",
+    "_id": "6a5b7e3076f7114690b6f3a7",
     "name": "Optibelt SK",
     "description": "Optibelt SK",
     "shortDescription": "Optibelt SK",
     "category": "Belts Power Transmission",
     "subcategory": "V Belts",
-    "brand": "",
-    "sku": "SKU-1782069696801-10-4om5",
-    "price": 0,
-    "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
+    "brand": "Optibelt",
+    "sku": "SKU-1002",
+    "price": 57,
+    "discountPrice": 57,
     "images": [
       "https://belts-store.com/wp-content/uploads/2025/09/Produktfoto_SK_Industrie-1-247x296.jpg"
     ],
@@ -128,23 +68,122 @@
       "Belts Power Transmission",
       "V Belts"
     ],
-    "slug": "optibelt-sk-1784309335487-3"
+    "stock": 62,
+    "status": "Active",
+    "slug": "optibelt-sk",
+    "createdAt": "2026-07-18T13:22:56.185Z",
+    "updatedAt": "2026-07-18T13:22:56.185Z"
   },
   {
-    "_id": "l02kcpmeeklhl40um0mjtr",
-    "createdAt": "2026-07-17T17:28:55.489Z",
-    "updatedAt": "2026-07-17T17:28:55.489Z",
+    "_id": "6a5e0287969540e9ca9b8997",
+    "name": "Optibelt VB",
+    "description": "Optibelt VB",
+    "shortDescription": "Optibelt VB",
+    "category": "Belts Power Transmission",
+    "subcategory": "V Belts",
+    "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
+    "sku": "SKU-1782069696800-0-0rq5",
+    "price": 0,
+    "discountPrice": 0,
+    "images": [
+      "https://belts-store.com/wp-content/uploads/2011/06/optibelt_VB_Classic_V-belts-1-1.jpg"
+    ],
+    "specifications": {},
+    "tags": [
+      "Belts Power Transmission",
+      "V Belts"
+    ],
+    "stock": 10,
+    "status": "Active",
+    "slug": "optibelt-vb-1784545927390-1",
+    "createdAt": "2026-07-20T11:12:07.425Z",
+    "updatedAt": "2026-07-20T11:12:07.425Z"
+  },
+  {
+    "_id": "6a5e0287969540e9ca9b8998",
+    "name": "Optibelt RED POWER 3",
+    "description": "Optibelt RED POWER 3",
+    "shortDescription": "Optibelt RED POWER 3",
+    "category": "Belts Power Transmission",
+    "subcategory": "V Belts",
+    "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
+    "sku": "SKU-1782069696801-6-8p7w",
+    "price": 0,
+    "discountPrice": 0,
+    "images": [
+      "https://belts-store.com/wp-content/uploads/2025/09/Produktfoto_Red_Power_Industrie-1-247x296.jpg"
+    ],
+    "specifications": {},
+    "tags": [
+      "Belts Power Transmission",
+      "V Belts"
+    ],
+    "stock": 10,
+    "status": "Active",
+    "slug": "optibelt-red-power-3-1784545927827-2",
+    "createdAt": "2026-07-20T11:12:07.859Z",
+    "updatedAt": "2026-07-20T11:12:07.859Z"
+  },
+  {
+    "_id": "6a5e0288969540e9ca9b8999",
+    "name": "Optibelt SK",
+    "description": "Optibelt SK",
+    "shortDescription": "Optibelt SK",
+    "category": "Belts Power Transmission",
+    "subcategory": "V Belts",
+    "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
+    "sku": "SKU-1782069696801-10-4om5",
+    "price": 0,
+    "discountPrice": 0,
+    "images": [
+      "https://belts-store.com/wp-content/uploads/2025/09/Produktfoto_SK_Industrie-1-247x296.jpg"
+    ],
+    "specifications": {},
+    "tags": [
+      "Belts Power Transmission",
+      "V Belts"
+    ],
+    "stock": 10,
+    "status": "Active",
+    "slug": "optibelt-sk-1784545927987-3",
+    "createdAt": "2026-07-20T11:12:08.161Z",
+    "updatedAt": "2026-07-20T11:12:08.161Z"
+  },
+  {
+    "_id": "6a5e0288969540e9ca9b899a",
     "name": "Optibelt SUPER TX",
     "description": "Optibelt SUPER TX",
     "shortDescription": "Optibelt SUPER TX",
     "category": "Belts Power Transmission",
     "subcategory": "V Belts",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069696801-14-0jdi",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "https://belts-store.com/wp-content/uploads/2011/07/Produktfoto_TX_Industrie-1-247x296.jpg"
     ],
@@ -153,23 +192,29 @@
       "Belts Power Transmission",
       "V Belts"
     ],
-    "slug": "optibelt-super-tx-1784309335488-4"
+    "stock": 10,
+    "status": "Active",
+    "slug": "optibelt-super-tx-1784545928416-4",
+    "createdAt": "2026-07-20T11:12:08.447Z",
+    "updatedAt": "2026-07-20T11:12:08.447Z"
   },
   {
-    "_id": "l20gwo7ngerdvcalxznbel",
-    "createdAt": "2026-07-17T17:28:55.490Z",
-    "updatedAt": "2026-07-17T17:28:55.490Z",
+    "_id": "6a5e0288969540e9ca9b899b",
     "name": "Optibelt SUPER XE-POWER PRO",
     "description": "Optibelt SUPER XE-POWER PRO",
     "shortDescription": "Optibelt SUPER XE-POWER PRO",
     "category": "Belts Power Transmission",
     "subcategory": "V Belts",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069696801-18-z01c",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "https://belts-store.com/wp-content/uploads/2025/10/Riemen_Keilriemen_SUPER_XE-POWER_PRO-1-247x296.jpg"
     ],
@@ -178,23 +223,29 @@
       "Belts Power Transmission",
       "V Belts"
     ],
-    "slug": "optibelt-super-xe-power-pro-1784309335489-5"
+    "stock": 10,
+    "status": "Active",
+    "slug": "optibelt-super-xe-power-pro-1784545928523-5",
+    "createdAt": "2026-07-20T11:12:08.558Z",
+    "updatedAt": "2026-07-20T11:12:08.558Z"
   },
   {
-    "_id": "jbwsbxc72jm1x4l6yclsp",
-    "createdAt": "2026-07-17T17:28:55.491Z",
-    "updatedAt": "2026-07-17T17:28:55.491Z",
+    "_id": "6a5e0288969540e9ca9b899c",
     "name": "Optibelt VARIO POWER",
     "description": "Optibelt VARIO POWER",
     "shortDescription": "Optibelt VARIO POWER",
     "category": "Belts Power Transmission",
     "subcategory": "V Belts",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069696801-22-5c0w",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "https://belts-store.com/wp-content/uploads/2025/10/Produktfoto_VX_Industrie-1-247x296.jpg"
     ],
@@ -203,23 +254,29 @@
       "Belts Power Transmission",
       "V Belts"
     ],
-    "slug": "optibelt-vario-power-1784309335490-6"
+    "stock": 10,
+    "status": "Active",
+    "slug": "optibelt-vario-power-1784545928634-6",
+    "createdAt": "2026-07-20T11:12:08.668Z",
+    "updatedAt": "2026-07-20T11:12:08.668Z"
   },
   {
-    "_id": "plb082bjigg89sbf79cq4",
-    "createdAt": "2026-07-17T17:28:55.492Z",
-    "updatedAt": "2026-07-17T17:28:55.492Z",
+    "_id": "6a5e0288969540e9ca9b899d",
     "name": "Optibelt KB SK",
     "description": "Optibelt KB SK",
     "shortDescription": "Optibelt KB SK",
     "category": "Belts Power Transmission",
     "subcategory": "V Belts",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069696802-26-140p",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "https://belts-store.com/wp-content/uploads/2011/07/Produktfoto_SK_KB_Industrie-1.jpg"
     ],
@@ -228,23 +285,29 @@
       "Belts Power Transmission",
       "V Belts"
     ],
-    "slug": "optibelt-kb-sk-1784309335491-7"
+    "stock": 10,
+    "status": "Active",
+    "slug": "optibelt-kb-sk-1784545928737-7",
+    "createdAt": "2026-07-20T11:12:08.838Z",
+    "updatedAt": "2026-07-20T11:12:08.838Z"
   },
   {
-    "_id": "pd2h5c5he6wjjswvmu1yf",
-    "createdAt": "2026-07-17T17:28:55.493Z",
-    "updatedAt": "2026-07-17T17:28:55.493Z",
+    "_id": "6a5e0288969540e9ca9b899e",
     "name": "Optibelt DK",
     "description": "Optibelt DK",
     "shortDescription": "Optibelt DK",
     "category": "Belts Power Transmission",
     "subcategory": "V Belts",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069696802-30-0wyd",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "https://belts-store.com/wp-content/uploads/2025/10/Produktfoto_DK_Industrie-1-247x296.jpg"
     ],
@@ -253,23 +316,29 @@
       "Belts Power Transmission",
       "V Belts"
     ],
-    "slug": "optibelt-dk-1784309335492-8"
+    "stock": 10,
+    "status": "Active",
+    "slug": "optibelt-dk-1784545928947-8",
+    "createdAt": "2026-07-20T11:12:08.978Z",
+    "updatedAt": "2026-07-20T11:12:08.978Z"
   },
   {
-    "_id": "x00dw6mqjmbhko09x6b1m",
-    "createdAt": "2026-07-17T17:28:55.494Z",
-    "updatedAt": "2026-07-17T17:28:55.494Z",
+    "_id": "6a5e0289969540e9ca9b899f",
     "name": "Optibelt KK",
     "description": "Optibelt KK",
     "shortDescription": "Optibelt KK",
     "category": "Belts Power Transmission",
     "subcategory": "Special Belts",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069696802-34-nw8i",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "https://belts-store.com/wp-content/uploads/2025/10/Produktbild_Sonstige-Riemen_optibelt-KK-Kunststoffkeilriemen_RGB-1-247x296.jpg"
     ],
@@ -278,23 +347,29 @@
       "Belts Power Transmission",
       "Special Belts"
     ],
-    "slug": "optibelt-kk-1784309335493-9"
+    "stock": 10,
+    "status": "Active",
+    "slug": "optibelt-kk-1784545929056-9",
+    "createdAt": "2026-07-20T11:12:09.173Z",
+    "updatedAt": "2026-07-20T11:12:09.173Z"
   },
   {
-    "_id": "nhyum3t10d9tt5igqatdb8",
-    "createdAt": "2026-07-17T17:28:55.495Z",
-    "updatedAt": "2026-07-17T17:28:55.495Z",
+    "_id": "6a5e0289969540e9ca9b89a0",
     "name": "Optibelt OPTIMAT OE",
     "description": "Optibelt OPTIMAT OE",
     "shortDescription": "Optibelt OPTIMAT OE",
     "category": "Belts Power Transmission",
     "subcategory": "Special Belts",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069696802-38-xyhq",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "https://belts-store.com/wp-content/uploads/2025/10/Produktbild_Sonstige-Riemen_optibelt-OPTIMAX-OE_RGB-1-247x296.jpg"
     ],
@@ -303,23 +378,29 @@
       "Belts Power Transmission",
       "Special Belts"
     ],
-    "slug": "optibelt-optimat-oe-1784309335495-10"
+    "stock": 10,
+    "status": "Active",
+    "slug": "optibelt-optimat-oe-1784545929275-10",
+    "createdAt": "2026-07-20T11:12:09.379Z",
+    "updatedAt": "2026-07-20T11:12:09.379Z"
   },
   {
-    "_id": "v12h6kqku98hydwj1zwzmk",
-    "createdAt": "2026-07-17T17:28:55.496Z",
-    "updatedAt": "2026-07-17T17:28:55.496Z",
+    "_id": "6a5e0289969540e9ca9b89a1",
     "name": "Optibelt LB",
     "description": "Optibelt LB",
     "shortDescription": "Optibelt LB",
     "category": "Belts Power Transmission",
     "subcategory": "Special Belts",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069696803-42-7fi9",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "https://belts-store.com/wp-content/uploads/2025/10/Produktbild_Sonstige-Riemen_optibelt-LB_RGB-1-247x296.jpg"
     ],
@@ -328,23 +409,29 @@
       "Belts Power Transmission",
       "Special Belts"
     ],
-    "slug": "optibelt-lb-1784309335496-11"
+    "stock": 10,
+    "status": "Active",
+    "slug": "optibelt-lb-1784545929489-11",
+    "createdAt": "2026-07-20T11:12:09.584Z",
+    "updatedAt": "2026-07-20T11:12:09.584Z"
   },
   {
-    "_id": "3imifqlucrtra3twizojdn",
-    "createdAt": "2026-07-17T17:28:55.497Z",
-    "updatedAt": "2026-07-17T17:28:55.497Z",
+    "_id": "6a5e0289969540e9ca9b89a2",
     "name": "Polyurethane Power Twist V-belts",
     "description": "Polyurethane Power Twist V-belts",
     "shortDescription": "Polyurethane Power Twist V-belts",
     "category": "Belts Power Transmission",
     "subcategory": "Special Belts",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069696803-46-gdhi",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "https://belts-store.com/wp-content/uploads/2025/10/Polyurethane-Power-Twist-V-belts-1-1-247x296.jpg"
     ],
@@ -353,23 +440,29 @@
       "Belts Power Transmission",
       "Special Belts"
     ],
-    "slug": "polyurethane-power-twist-v-belts-1784309335497-12"
+    "stock": 10,
+    "status": "Active",
+    "slug": "polyurethane-power-twist-v-belts-1784545929883-12",
+    "createdAt": "2026-07-20T11:12:09.984Z",
+    "updatedAt": "2026-07-20T11:12:09.984Z"
   },
   {
-    "_id": "vqms9hswricihl28crmf5h",
-    "createdAt": "2026-07-17T17:28:55.499Z",
-    "updatedAt": "2026-07-17T17:28:55.499Z",
+    "_id": "6a5e028a969540e9ca9b89a3",
     "name": "V-belt – Raw edge, Moulded cogged",
     "description": "V-belt – Raw edge, Moulded cogged",
     "shortDescription": "V-belt – Raw edge, Moulded cogged",
     "category": "Belts Power Transmission",
     "subcategory": "V Belts",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069697840-0-ihtq",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "/mmmm/uploads/SKU-1782069697840-0-ihtq.jpg"
     ],
@@ -378,23 +471,29 @@
       "Belts Power Transmission",
       "V Belts"
     ],
-    "slug": "v-belt-raw-edge-moulded-cogged-1784309335498-13"
+    "stock": 10,
+    "status": "Active",
+    "slug": "v-belt-raw-edge-moulded-cogged-1784545930099-13",
+    "createdAt": "2026-07-20T11:12:10.138Z",
+    "updatedAt": "2026-07-20T11:12:10.138Z"
   },
   {
-    "_id": "vtndq8hjpshc6i50m3drpa",
-    "createdAt": "2026-07-17T17:28:55.500Z",
-    "updatedAt": "2026-07-17T17:28:55.500Z",
+    "_id": "6a5e028a969540e9ca9b89a4",
     "name": "Optibelt HVAC Power",
     "description": "Optibelt HVAC Power",
     "shortDescription": "Optibelt HVAC Power",
     "category": "Belts Power Transmission",
     "subcategory": "V Belts",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069697841-6-jo87",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "https://belts-store.com/wp-content/uploads/2011/07/BluePower-1.jpg"
     ],
@@ -403,23 +502,29 @@
       "Belts Power Transmission",
       "V Belts"
     ],
-    "slug": "optibelt-hvac-power-1784309335499-14"
+    "stock": 10,
+    "status": "Active",
+    "slug": "optibelt-hvac-power-1784545930169-14",
+    "createdAt": "2026-07-20T11:12:10.208Z",
+    "updatedAt": "2026-07-20T11:12:10.208Z"
   },
   {
-    "_id": "22aujy3w7sqoag2le54jx",
-    "createdAt": "2026-07-17T17:28:55.501Z",
-    "updatedAt": "2026-07-17T17:28:55.501Z",
+    "_id": "6a5e028a969540e9ca9b89a5",
     "name": "High performance wedge belts with Aramid cord",
     "description": "High performance wedge belts with Aramid cord",
     "shortDescription": "High performance wedge belts with Aramid cord",
     "category": "Belts Power Transmission",
     "subcategory": "V Belts",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069697841-10-1ila",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "https://belts-store.com/wp-content/uploads/2011/07/industrie_hvac-power-1.jpg"
     ],
@@ -428,23 +533,29 @@
       "Belts Power Transmission",
       "V Belts"
     ],
-    "slug": "high-performance-wedge-belts-with-aramid-cord-1784309335500-15"
+    "stock": 10,
+    "status": "Active",
+    "slug": "high-performance-wedge-belts-with-aramid-cord-1784545930250-15",
+    "createdAt": "2026-07-20T11:12:10.286Z",
+    "updatedAt": "2026-07-20T11:12:10.286Z"
   },
   {
-    "_id": "4vmv8bzz0ivwyqrkpbc6q",
-    "createdAt": "2026-07-17T17:28:55.502Z",
-    "updatedAt": "2026-07-17T17:28:55.502Z",
+    "_id": "6a5e028a969540e9ca9b89a6",
     "name": "High Power Wedge Belt – Maintenance-Free",
     "description": "High Power Wedge Belt – Maintenance-Free",
     "shortDescription": "High Power Wedge Belt – Maintenance-Free",
     "category": "Belts Power Transmission",
     "subcategory": "V Belts",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069697842-14-bfj1",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "https://belts-store.com/wp-content/uploads/2011/07/industrie_red_power-1.jpg"
     ],
@@ -453,23 +564,29 @@
       "Belts Power Transmission",
       "V Belts"
     ],
-    "slug": "high-power-wedge-belt-maintenance-free-1784309335502-16"
+    "stock": 10,
+    "status": "Active",
+    "slug": "high-power-wedge-belt-maintenance-free-1784545930322-16",
+    "createdAt": "2026-07-20T11:12:10.363Z",
+    "updatedAt": "2026-07-20T11:12:10.363Z"
   },
   {
-    "_id": "1ucsjq839z68mf4iqebvw8",
-    "createdAt": "2026-07-17T17:28:55.503Z",
-    "updatedAt": "2026-07-17T17:28:55.503Z",
+    "_id": "6a5e028a969540e9ca9b89a7",
     "name": "High Power Wedge Belt",
     "description": "High Power Wedge Belt",
     "shortDescription": "High Power Wedge Belt",
     "category": "Belts Power Transmission",
     "subcategory": "V Belts",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069697842-18-ikqi",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "https://belts-store.com/wp-content/uploads/2011/06/sk_kl_mg-1.gif"
     ],
@@ -478,23 +595,29 @@
       "Belts Power Transmission",
       "V Belts"
     ],
-    "slug": "high-power-wedge-belt-1784309335503-17"
+    "stock": 10,
+    "status": "Active",
+    "slug": "high-power-wedge-belt-1784545930494-17",
+    "createdAt": "2026-07-20T11:12:10.597Z",
+    "updatedAt": "2026-07-20T11:12:10.597Z"
   },
   {
-    "_id": "m5zql1j1d5pxm49iyziv37",
-    "createdAt": "2026-07-17T17:28:55.505Z",
-    "updatedAt": "2026-07-17T17:28:55.505Z",
+    "_id": "6a5e028a969540e9ca9b89a8",
     "name": "Polyurethane Round belts",
     "description": "Polyurethane Round belts",
     "shortDescription": "Polyurethane Round belts",
     "category": "Belts Power Transmission",
     "subcategory": "Round Belts",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069697842-22-q49g",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "https://belts-store.com/wp-content/uploads/2017/04/Produktbild_Sonstige-Riemen_optibelt-RR_RGB-1-247x296.jpg"
     ],
@@ -503,23 +626,29 @@
       "Belts Power Transmission",
       "Round Belts"
     ],
-    "slug": "polyurethane-round-belts-1784309335504-18"
+    "stock": 10,
+    "status": "Active",
+    "slug": "polyurethane-round-belts-1784545930631-18",
+    "createdAt": "2026-07-20T11:12:10.668Z",
+    "updatedAt": "2026-07-20T11:12:10.668Z"
   },
   {
-    "_id": "m8t7yccptiozmik3smuii",
-    "createdAt": "2026-07-17T17:28:55.506Z",
-    "updatedAt": "2026-07-17T17:28:55.506Z",
+    "_id": "6a5e028a969540e9ca9b89a9",
     "name": "Optibelt Linear V Belts",
     "description": "Optibelt Linear V Belts",
     "shortDescription": "Optibelt Linear V Belts",
     "category": "Belts Power Transmission",
     "subcategory": "Special Belts",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069697842-26-im3y",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "https://belts-store.com/wp-content/uploads/2017/04/Linear_V_Belts-1.jpg"
     ],
@@ -528,23 +657,29 @@
       "Belts Power Transmission",
       "Special Belts"
     ],
-    "slug": "optibelt-linear-v-belts-1784309335505-19"
+    "stock": 10,
+    "status": "Active",
+    "slug": "optibelt-linear-v-belts-1784545930712-19",
+    "createdAt": "2026-07-20T11:12:10.747Z",
+    "updatedAt": "2026-07-20T11:12:10.747Z"
   },
   {
-    "_id": "yhqn9a4v5o9mtvrcjzqa0a",
-    "createdAt": "2026-07-17T17:28:55.507Z",
-    "updatedAt": "2026-07-17T17:28:55.507Z",
+    "_id": "6a5e028a969540e9ca9b89aa",
     "name": "Habasit Belts",
     "description": "Habasit Belts",
     "shortDescription": "Habasit Belts",
     "category": "Belts Power Transmission",
     "subcategory": "",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069697843-30-y0r6",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "https://belts-store.com/wp-content/uploads/2017/04/Habasit_Belts-1-247x296.jpg"
     ],
@@ -552,23 +687,29 @@
     "tags": [
       "Belts Power Transmission"
     ],
-    "slug": "habasit-belts-1784309335507-20"
+    "stock": 10,
+    "status": "Active",
+    "slug": "habasit-belts-1784545930792-20",
+    "createdAt": "2026-07-20T11:12:10.827Z",
+    "updatedAt": "2026-07-20T11:12:10.827Z"
   },
   {
-    "_id": "vfvk03ju3ahi4rtdgxw8uf",
-    "createdAt": "2026-07-17T17:28:55.508Z",
-    "updatedAt": "2026-07-17T17:28:55.508Z",
+    "_id": "6a5e028a969540e9ca9b89ab",
     "name": "Optibelt Open Ended belt",
     "description": "Optibelt Open Ended belt",
     "shortDescription": "Optibelt Open Ended belt",
     "category": "Belts Power Transmission",
     "subcategory": "Special Belts",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069697843-34-x0l9",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "https://belts-store.com/wp-content/uploads/2017/04/Optibelt_Open_Ended_belt-1.jpg"
     ],
@@ -577,23 +718,29 @@
       "Belts Power Transmission",
       "Special Belts"
     ],
-    "slug": "optibelt-open-ended-belt-1784309335508-21"
+    "stock": 10,
+    "status": "Active",
+    "slug": "optibelt-open-ended-belt-1784545930871-21",
+    "createdAt": "2026-07-20T11:12:10.915Z",
+    "updatedAt": "2026-07-20T11:12:10.915Z"
   },
   {
-    "_id": "7f4mjx8e8ymcu4kw3ifo4s",
-    "createdAt": "2026-07-17T17:28:55.509Z",
-    "updatedAt": "2026-07-17T17:28:55.509Z",
+    "_id": "6a5e028a969540e9ca9b89ac",
     "name": "Elastic Ribbed Belt",
     "description": "Elastic Ribbed Belt",
     "shortDescription": "Elastic Ribbed Belt",
     "category": "Belts Power Transmission",
     "subcategory": "Ribbed Belts",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069697843-38-ied4",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "https://belts-store.com/wp-content/uploads/2011/07/RTEmagicC_optibelt_RB-1.gif-1.gif"
     ],
@@ -602,23 +749,29 @@
       "Belts Power Transmission",
       "Ribbed Belts"
     ],
-    "slug": "elastic-ribbed-belt-1784309335509-22"
+    "stock": 10,
+    "status": "Active",
+    "slug": "elastic-ribbed-belt-1784545930951-22",
+    "createdAt": "2026-07-20T11:12:10.988Z",
+    "updatedAt": "2026-07-20T11:12:10.988Z"
   },
   {
-    "_id": "cu97xmmcnveki0loza86w",
-    "createdAt": "2026-07-17T17:28:55.511Z",
-    "updatedAt": "2026-07-17T17:28:55.511Z",
+    "_id": "6a5e028b969540e9ca9b89ad",
     "name": "Ribbed Belt",
     "description": "Ribbed Belt",
     "shortDescription": "Ribbed Belt",
     "category": "Belts Power Transmission",
     "subcategory": "Ribbed Belts",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069697843-42-3ylu",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "https://belts-store.com/wp-content/uploads/2011/07/RTEmagicC_optibelt_RB-1.gif"
     ],
@@ -627,23 +780,29 @@
       "Belts Power Transmission",
       "Ribbed Belts"
     ],
-    "slug": "ribbed-belt-1784309335510-23"
+    "stock": 10,
+    "status": "Active",
+    "slug": "ribbed-belt-1784545931031-23",
+    "createdAt": "2026-07-20T11:12:11.067Z",
+    "updatedAt": "2026-07-20T11:12:11.067Z"
   },
   {
-    "_id": "ud5rxcwcgijccf51asm26j",
-    "createdAt": "2026-07-17T17:28:55.512Z",
-    "updatedAt": "2026-07-17T17:28:55.512Z",
+    "_id": "6a5e028b969540e9ca9b89ae",
     "name": "Optibelt Laser Pointer II",
     "description": "Optibelt Laser Pointer II",
     "shortDescription": "Optibelt Laser Pointer II",
     "category": "Belts Power Transmission",
     "subcategory": "Repair Kits and Tension Tools",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069698878-0-lrli",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "/mmmm/uploads/SKU-1782069698878-0-lrli.jpg"
     ],
@@ -652,23 +811,29 @@
       "Belts Power Transmission",
       "Repair Kits and Tension Tools"
     ],
-    "slug": "optibelt-laser-pointer-ii-1784309335511-24"
+    "stock": 10,
+    "status": "Active",
+    "slug": "optibelt-laser-pointer-ii-1784545931117-24",
+    "createdAt": "2026-07-20T11:12:11.158Z",
+    "updatedAt": "2026-07-20T11:12:11.158Z"
   },
   {
-    "_id": "s5mip98xzgavwxgbiyptb",
-    "createdAt": "2026-07-17T17:28:55.513Z",
-    "updatedAt": "2026-07-17T17:28:55.513Z",
+    "_id": "6a5e028b969540e9ca9b89af",
     "name": "Optibelt Service Box",
     "description": "Optibelt Service Box",
     "shortDescription": "Optibelt Service Box",
     "category": "Belts Power Transmission",
     "subcategory": "Repair Kits and Tension Tools",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069698879-6-nogg",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "https://belts-store.com/wp-content/uploads/2011/07/service_box-1.jpg"
     ],
@@ -677,23 +842,29 @@
       "Belts Power Transmission",
       "Repair Kits and Tension Tools"
     ],
-    "slug": "optibelt-service-box-1784309335512-25"
+    "stock": 10,
+    "status": "Active",
+    "slug": "optibelt-service-box-1784545931202-25",
+    "createdAt": "2026-07-20T11:12:11.237Z",
+    "updatedAt": "2026-07-20T11:12:11.237Z"
   },
   {
-    "_id": "s8o0gu514te9kf5oiie1q",
-    "createdAt": "2026-07-17T17:28:55.514Z",
-    "updatedAt": "2026-07-17T17:28:55.514Z",
+    "_id": "6a5e028b969540e9ca9b89b0",
     "name": "Optibelt TT mini + TT mini S",
     "description": "Optibelt TT mini + TT mini S",
     "shortDescription": "Optibelt TT mini + TT mini S",
     "category": "Belts Power Transmission",
     "subcategory": "Repair Kits and Tension Tools",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069698879-10-i47x",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "https://belts-store.com/wp-content/uploads/2011/07/tt_mini-1.jpg"
     ],
@@ -702,23 +873,29 @@
       "Belts Power Transmission",
       "Repair Kits and Tension Tools"
     ],
-    "slug": "optibelt-tt-mini-tt-mini-s-1784309335513-26"
+    "stock": 10,
+    "status": "Active",
+    "slug": "optibelt-tt-mini-tt-mini-s-1784545931271-26",
+    "createdAt": "2026-07-20T11:12:11.307Z",
+    "updatedAt": "2026-07-20T11:12:11.307Z"
   },
   {
-    "_id": "dukqcf09jtncdsmpets8d",
-    "createdAt": "2026-07-17T17:28:55.515Z",
-    "updatedAt": "2026-07-17T17:28:55.515Z",
+    "_id": "6a5e028b969540e9ca9b89b1",
     "name": "Optikrik 0, I, II, III Belt Tension Gauges",
     "description": "Optikrik 0, I, II, III Belt Tension Gauges",
     "shortDescription": "Optikrik 0, I, II, III Belt Tension Gauges",
     "category": "Belts Power Transmission",
     "subcategory": "Repair Kits and Tension Tools",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069698879-14-r4ko",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "https://belts-store.com/wp-content/uploads/2011/07/messgerA4te-1.jpg"
     ],
@@ -727,23 +904,29 @@
       "Belts Power Transmission",
       "Repair Kits and Tension Tools"
     ],
-    "slug": "optikrik-0-i-ii-iii-belt-tension-gauges-1784309335514-27"
+    "stock": 10,
+    "status": "Active",
+    "slug": "optikrik-0-i-ii-iii-belt-tension-gauges-1784545931349-27",
+    "createdAt": "2026-07-20T11:12:11.387Z",
+    "updatedAt": "2026-07-20T11:12:11.387Z"
   },
   {
-    "_id": "echznkaub1egjct3vbqxf9",
-    "createdAt": "2026-07-17T17:28:55.518Z",
-    "updatedAt": "2026-07-17T17:28:55.518Z",
+    "_id": "6a5e028b969540e9ca9b89b2",
     "name": "Measuring Gauge",
     "description": "Measuring Gauge",
     "shortDescription": "Measuring Gauge",
     "category": "Belts Power Transmission",
     "subcategory": "Repair Kits and Tension Tools",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069698879-18-filv",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "https://belts-store.com/wp-content/uploads/2011/07/messlatte-1.jpg"
     ],
@@ -752,23 +935,29 @@
       "Belts Power Transmission",
       "Repair Kits and Tension Tools"
     ],
-    "slug": "measuring-gauge-1784309335515-28"
+    "stock": 10,
+    "status": "Active",
+    "slug": "measuring-gauge-1784545931422-28",
+    "createdAt": "2026-07-20T11:12:11.467Z",
+    "updatedAt": "2026-07-20T11:12:11.467Z"
   },
   {
-    "_id": "l7a1es3sz7l202rjina3zo",
-    "createdAt": "2026-07-17T17:28:55.522Z",
-    "updatedAt": "2026-07-17T17:28:55.522Z",
+    "_id": "6a5e028b969540e9ca9b89b3",
     "name": "V-Belt and pulley Groove Gauges",
     "description": "V-Belt and pulley Groove Gauges",
     "shortDescription": "V-Belt and pulley Groove Gauges",
     "category": "Belts Power Transmission",
     "subcategory": "Repair Kits and Tension Tools",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069698879-22-u91j",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "https://belts-store.com/wp-content/uploads/2011/07/spar_tip-1.jpg"
     ],
@@ -777,23 +966,29 @@
       "Belts Power Transmission",
       "Repair Kits and Tension Tools"
     ],
-    "slug": "v-belt-and-pulley-groove-gauges-1784309335519-29"
+    "stock": 10,
+    "status": "Active",
+    "slug": "v-belt-and-pulley-groove-gauges-1784545931511-29",
+    "createdAt": "2026-07-20T11:12:11.547Z",
+    "updatedAt": "2026-07-20T11:12:11.547Z"
   },
   {
-    "_id": "xhteo3t5i7m0yjsa5zxe8nb",
-    "createdAt": "2026-07-17T17:28:55.524Z",
-    "updatedAt": "2026-07-17T17:28:55.525Z",
+    "_id": "6a5e028b969540e9ca9b89b4",
     "name": "Agricultural transmission Belts",
     "description": "Agricultural transmission Belts",
     "shortDescription": "Agricultural transmission Belts",
     "category": "Belts Power Transmission",
     "subcategory": "Special Belts",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069698879-26-wow5",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "https://belts-store.com/wp-content/uploads/2011/07/transmsn_blt-1.jpg"
     ],
@@ -802,23 +997,29 @@
       "Belts Power Transmission",
       "Special Belts"
     ],
-    "slug": "agricultural-transmission-belts-1784309335523-30"
+    "stock": 10,
+    "status": "Active",
+    "slug": "agricultural-transmission-belts-1784545931621-30",
+    "createdAt": "2026-07-20T11:12:11.657Z",
+    "updatedAt": "2026-07-20T11:12:11.657Z"
   },
   {
-    "_id": "dnpcugbghc2ch8ktkka55",
-    "createdAt": "2026-07-17T17:28:55.526Z",
-    "updatedAt": "2026-07-17T17:28:55.526Z",
+    "_id": "6a5e028b969540e9ca9b89b5",
     "name": "Emergency Belt- Use fastener to join",
     "description": "Emergency Belt- Use fastener to join",
     "shortDescription": "Emergency Belt- Use fastener to join",
     "category": "Belts Power Transmission",
     "subcategory": "Special Belts",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069698879-30-501u",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "https://belts-store.com/wp-content/uploads/2011/07/V_ROPE_LACING-1-1.jpg"
     ],
@@ -827,23 +1028,29 @@
       "Belts Power Transmission",
       "Special Belts"
     ],
-    "slug": "emergency-belt-use-fastener-to-join-1784309335525-31"
+    "stock": 10,
+    "status": "Active",
+    "slug": "emergency-belt-use-fastener-to-join-1784545931698-31",
+    "createdAt": "2026-07-20T11:12:11.737Z",
+    "updatedAt": "2026-07-20T11:12:11.737Z"
   },
   {
-    "_id": "iuk562yo83bcsbz3hkd4cm",
-    "createdAt": "2026-07-17T17:28:55.529Z",
-    "updatedAt": "2026-07-17T17:28:55.529Z",
+    "_id": "6a5e028b969540e9ca9b89b6",
     "name": "Emergency Belt-Comes with Bolt for Adjustment",
     "description": "Emergency Belt-Comes with Bolt for Adjustment",
     "shortDescription": "Emergency Belt-Comes with Bolt for Adjustment",
     "category": "Belts Power Transmission",
     "subcategory": "Special Belts",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069698880-34-pgyt",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "https://belts-store.com/wp-content/uploads/2011/07/Belts_Emergency_small-1.jpg"
     ],
@@ -852,23 +1059,29 @@
       "Belts Power Transmission",
       "Special Belts"
     ],
-    "slug": "emergency-belt-comes-with-bolt-for-adjustment-1784309335527-32"
+    "stock": 10,
+    "status": "Active",
+    "slug": "emergency-belt-comes-with-bolt-for-adjustment-1784545931781-32",
+    "createdAt": "2026-07-20T11:12:11.819Z",
+    "updatedAt": "2026-07-20T11:12:11.819Z"
   },
   {
-    "_id": "yuunvwjh5o8ad1n5uz07b",
-    "createdAt": "2026-07-17T17:28:55.532Z",
-    "updatedAt": "2026-07-17T17:28:55.532Z",
+    "_id": "6a5e028b969540e9ca9b89b7",
     "name": "Optibelt Clamping Plates",
     "description": "Optibelt Clamping Plates",
     "shortDescription": "Optibelt Clamping Plates",
     "category": "Belts Power Transmission",
     "subcategory": "",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069698880-38-byhc",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "https://belts-store.com/wp-content/uploads/2011/07/rte_platten_klmg-1.gif"
     ],
@@ -876,23 +1089,29 @@
     "tags": [
       "Belts Power Transmission"
     ],
-    "slug": "optibelt-clamping-plates-1784309335530-33"
+    "stock": 10,
+    "status": "Active",
+    "slug": "optibelt-clamping-plates-1784545931861-33",
+    "createdAt": "2026-07-20T11:12:11.897Z",
+    "updatedAt": "2026-07-20T11:12:11.897Z"
   },
   {
-    "_id": "muuwhdoa13kuc7wl9naji",
-    "createdAt": "2026-07-17T17:28:55.534Z",
-    "updatedAt": "2026-07-17T17:28:55.534Z",
+    "_id": "6a5e028b969540e9ca9b89b8",
     "name": "Fan Power Drive",
     "description": "Fan Power Drive",
     "shortDescription": "Fan Power Drive",
     "category": "Belts Power Transmission",
     "subcategory": "Timing Belts",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069698880-42-ad6j",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "https://belts-store.com/wp-content/uploads/2011/07/omega_hp_fanpower-1.jpg"
     ],
@@ -901,23 +1120,29 @@
       "Belts Power Transmission",
       "Timing Belts"
     ],
-    "slug": "fan-power-drive-1784309335532-34"
+    "stock": 10,
+    "status": "Active",
+    "slug": "fan-power-drive-1784545931941-34",
+    "createdAt": "2026-07-20T11:12:11.977Z",
+    "updatedAt": "2026-07-20T11:12:11.977Z"
   },
   {
-    "_id": "ufo53wb9d542nwsqgg293",
-    "createdAt": "2026-07-17T17:28:55.537Z",
-    "updatedAt": "2026-07-17T17:28:55.537Z",
+    "_id": "6a5e028c969540e9ca9b89b9",
     "name": "High Power Timing Belt",
     "description": "High Power Timing Belt",
     "shortDescription": "High Power Timing Belt",
     "category": "Belts Power Transmission",
     "subcategory": "Timing Belts",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069698880-46-iubx",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "https://belts-store.com/wp-content/uploads/2011/07/omega_hp-1.jpg"
     ],
@@ -926,23 +1151,29 @@
       "Belts Power Transmission",
       "Timing Belts"
     ],
-    "slug": "high-power-timing-belt-1784309335535-35"
+    "stock": 10,
+    "status": "Active",
+    "slug": "high-power-timing-belt-1784545932029-35",
+    "createdAt": "2026-07-20T11:12:12.067Z",
+    "updatedAt": "2026-07-20T11:12:12.067Z"
   },
   {
-    "_id": "p9ufn1eadiex9qhm87t21h",
-    "createdAt": "2026-07-17T17:28:55.539Z",
-    "updatedAt": "2026-07-17T17:28:55.539Z",
+    "_id": "6a5e028c969540e9ca9b89ba",
     "name": "Timing Belt – Maintenance-Free (Optibelt)",
     "description": "Timing Belt – Maintenance-Free (Optibelt)",
     "shortDescription": "Timing Belt – Maintenance-Free (Optibelt)",
     "category": "Belts Power Transmission",
     "subcategory": "Timing Belts",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069699899-6-d5a3",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "https://belts-store.com/wp-content/uploads/2011/07/omega_hl-1.jpg"
     ],
@@ -951,23 +1182,29 @@
       "Belts Power Transmission",
       "Timing Belts"
     ],
-    "slug": "timing-belt-maintenance-free-optibelt-1784309335537-36"
+    "stock": 10,
+    "status": "Active",
+    "slug": "timing-belt-maintenance-free-optibelt-1784545932101-36",
+    "createdAt": "2026-07-20T11:12:12.147Z",
+    "updatedAt": "2026-07-20T11:12:12.147Z"
   },
   {
-    "_id": "rgzkr5q813ccw1w0cgzvpq",
-    "createdAt": "2026-07-17T17:28:55.542Z",
-    "updatedAt": "2026-07-17T17:28:55.542Z",
+    "_id": "6a5e028c969540e9ca9b89bb",
     "name": "Timing Belt / Double Section Timing Belt",
     "description": "Timing Belt / Double Section Timing Belt",
     "shortDescription": "Timing Belt / Double Section Timing Belt",
     "category": "Belts Power Transmission",
     "subcategory": "Timing Belts",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069699900-10-s5m7",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "https://belts-store.com/wp-content/uploads/2011/07/rte_zr_zrd-1.png"
     ],
@@ -976,23 +1213,29 @@
       "Belts Power Transmission",
       "Timing Belts"
     ],
-    "slug": "timing-belt-double-section-timing-belt-1784309335539-37"
+    "stock": 10,
+    "status": "Active",
+    "slug": "timing-belt-double-section-timing-belt-1784545932182-37",
+    "createdAt": "2026-07-20T11:12:12.226Z",
+    "updatedAt": "2026-07-20T11:12:12.226Z"
   },
   {
-    "_id": "7x32fxoaqyppk6k0upe7r",
-    "createdAt": "2026-07-17T17:28:55.546Z",
-    "updatedAt": "2026-07-17T17:28:55.546Z",
+    "_id": "6a5e028c969540e9ca9b89bc",
     "name": "High Performance Polyurethane Timing Belt",
     "description": "High Performance Polyurethane Timing Belt",
     "shortDescription": "High Performance Polyurethane Timing Belt",
     "category": "Belts Power Transmission",
     "subcategory": "Timing Belts",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069699900-14-b914",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "https://belts-store.com/wp-content/uploads/2011/07/alpha_power-1.jpg"
     ],
@@ -1001,23 +1244,29 @@
       "Belts Power Transmission",
       "Timing Belts"
     ],
-    "slug": "high-performance-polyurethane-timing-belt-1784309335544-38"
+    "stock": 10,
+    "status": "Active",
+    "slug": "high-performance-polyurethane-timing-belt-1784545932260-38",
+    "createdAt": "2026-07-20T11:12:12.297Z",
+    "updatedAt": "2026-07-20T11:12:12.297Z"
   },
   {
-    "_id": "vzbkt0tauftsbiakh8h5cn",
-    "createdAt": "2026-07-17T17:28:55.548Z",
-    "updatedAt": "2026-07-17T17:28:55.548Z",
+    "_id": "6a5e028c969540e9ca9b89bd",
     "name": "Double Section Timing – Metric Single and Sleeve",
     "description": "Double Section Timing – Metric Single and Sleeve",
     "shortDescription": "Double Section Timing – Metric Single and Sleeve",
     "category": "Belts Power Transmission",
     "subcategory": "Timing Belts",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069699900-18-9eql",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "https://belts-store.com/wp-content/uploads/2011/07/RTEmagicC_alpa_kl_mg-1.gif-1.gif"
     ],
@@ -1026,23 +1275,29 @@
       "Belts Power Transmission",
       "Timing Belts"
     ],
-    "slug": "double-section-timing-metric-single-and-sleeve-1784309335547-39"
+    "stock": 10,
+    "status": "Active",
+    "slug": "double-section-timing-metric-single-and-sleeve-1784545932337-39",
+    "createdAt": "2026-07-20T11:12:12.367Z",
+    "updatedAt": "2026-07-20T11:12:12.367Z"
   },
   {
-    "_id": "364zvxt85r2mbg7h69jx1o",
-    "createdAt": "2026-07-17T17:28:55.550Z",
-    "updatedAt": "2026-07-17T17:28:55.550Z",
+    "_id": "6a5e028c969540e9ca9b89be",
     "name": "Endless Belts ( Timing Belt)",
     "description": "Endless Belts ( Timing Belt)",
     "shortDescription": "Endless Belts ( Timing Belt)",
     "category": "Belts Power Transmission",
     "subcategory": "Timing Belts",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069699900-22-aque",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "https://belts-store.com/wp-content/uploads/2011/07/RTEmagicC_alpha_linear_kl_mg-1.gif-1.gif"
     ],
@@ -1051,23 +1306,29 @@
       "Belts Power Transmission",
       "Timing Belts"
     ],
-    "slug": "endless-belts-timing-belt-1784309335549-40"
+    "stock": 10,
+    "status": "Active",
+    "slug": "endless-belts-timing-belt-1784545932424-40",
+    "createdAt": "2026-07-20T11:12:12.456Z",
+    "updatedAt": "2026-07-20T11:12:12.456Z"
   },
   {
-    "_id": "hbx8so8esm8ojl987b1v1p",
-    "createdAt": "2026-07-17T17:28:55.554Z",
-    "updatedAt": "2026-07-17T17:28:55.554Z",
+    "_id": "6a5e028c969540e9ca9b89bf",
     "name": "High Performance Wedge Belt with Aramid Cord",
     "description": "High Performance Wedge Belt with Aramid Cord",
     "shortDescription": "High Performance Wedge Belt with Aramid Cord",
     "category": "Belts Power Transmission",
     "subcategory": "V Belts",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069699900-30-x1oj",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "https://belts-store.com/wp-content/uploads/2011/07/industrie_blue_power-2.jpg"
     ],
@@ -1076,23 +1337,29 @@
       "Belts Power Transmission",
       "V Belts"
     ],
-    "slug": "high-performance-wedge-belt-with-aramid-cord-1784309335551-41"
+    "stock": 10,
+    "status": "Active",
+    "slug": "high-performance-wedge-belt-with-aramid-cord-1784545932501-41",
+    "createdAt": "2026-07-20T11:12:12.536Z",
+    "updatedAt": "2026-07-20T11:12:12.536Z"
   },
   {
-    "_id": "3otc3nh09jsm2zohru5jbs",
-    "createdAt": "2026-07-17T17:28:55.556Z",
-    "updatedAt": "2026-07-17T17:28:55.556Z",
+    "_id": "6a5e028c969540e9ca9b89c0",
     "name": "Endless Timing Belt",
     "description": "Endless Timing Belt",
     "shortDescription": "Endless Timing Belt",
     "category": "Belts Power Transmission",
     "subcategory": "Timing Belts",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069699901-34-oett",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "https://belts-store.com/wp-content/uploads/2011/07/RTEmagicC_omega_linear_gif-1.gif"
     ],
@@ -1101,23 +1368,29 @@
       "Belts Power Transmission",
       "Timing Belts"
     ],
-    "slug": "endless-timing-belt-1784309335555-42"
+    "stock": 10,
+    "status": "Active",
+    "slug": "endless-timing-belt-1784545932583-42",
+    "createdAt": "2026-07-20T11:12:12.628Z",
+    "updatedAt": "2026-07-20T11:12:12.628Z"
   },
   {
-    "_id": "itr5alt6icgfa9mmrojbiv",
-    "createdAt": "2026-07-17T17:28:55.558Z",
-    "updatedAt": "2026-07-17T17:28:55.558Z",
+    "_id": "6a5e028c969540e9ca9b89c1",
     "name": "High Power Banded (Kraftband)- Raw Edge",
     "description": "High Power Banded (Kraftband)- Raw Edge",
     "shortDescription": "High Power Banded (Kraftband)- Raw Edge",
     "category": "Belts Power Transmission",
     "subcategory": "V Belts",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069699901-38-cznv",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "https://belts-store.com/wp-content/uploads/2011/07/industrie_kb_red_power-1.jpg"
     ],
@@ -1126,23 +1399,29 @@
       "Belts Power Transmission",
       "V Belts"
     ],
-    "slug": "high-power-banded-kraftband-raw-edge-1784309335557-43"
+    "stock": 10,
+    "status": "Active",
+    "slug": "high-power-banded-kraftband-raw-edge-1784545932672-43",
+    "createdAt": "2026-07-20T11:12:12.707Z",
+    "updatedAt": "2026-07-20T11:12:12.707Z"
   },
   {
-    "_id": "p45vwvhnipynj1kvpd65",
-    "createdAt": "2026-07-17T17:28:55.560Z",
-    "updatedAt": "2026-07-17T17:28:55.560Z",
+    "_id": "6a5e028c969540e9ca9b89c2",
     "name": "Banded (Kraftband)- Wrapped Belt",
     "description": "Banded (Kraftband)- Wrapped Belt",
     "shortDescription": "Banded (Kraftband)- Wrapped Belt",
     "category": "Belts Power Transmission",
     "subcategory": "V Belts",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069699901-42-1glc",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "https://belts-store.com/wp-content/uploads/2011/07/industrie_super_kbx_power-1.jpg"
     ],
@@ -1151,23 +1430,29 @@
       "Belts Power Transmission",
       "V Belts"
     ],
-    "slug": "banded-kraftband-wrapped-belt-1784309335558-44"
+    "stock": 10,
+    "status": "Active",
+    "slug": "banded-kraftband-wrapped-belt-1784545932749-44",
+    "createdAt": "2026-07-20T11:12:12.788Z",
+    "updatedAt": "2026-07-20T11:12:12.788Z"
   },
   {
-    "_id": "7vrxatly5ba9suih5ndgwh",
-    "createdAt": "2026-07-17T17:28:55.563Z",
-    "updatedAt": "2026-07-17T17:28:55.563Z",
+    "_id": "6a5e028c969540e9ca9b89c3",
     "name": "Endless-Welded Belts",
     "description": "Endless-Welded Belts",
     "shortDescription": "Endless-Welded Belts",
     "category": "Belts Power Transmission",
     "subcategory": "Timing Belts",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069699901-46-vd85",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "https://belts-store.com/wp-content/uploads/2011/07/rte_alpa_v_kl_mg-1.gif"
     ],
@@ -1176,23 +1461,29 @@
       "Belts Power Transmission",
       "Timing Belts"
     ],
-    "slug": "endless-welded-belts-1784309335561-45"
+    "stock": 10,
+    "status": "Active",
+    "slug": "endless-welded-belts-1784545932829-45",
+    "createdAt": "2026-07-20T11:12:12.862Z",
+    "updatedAt": "2026-07-20T11:12:12.862Z"
   },
   {
-    "_id": "nlbt9a0x27hvdndadfqmwl",
-    "createdAt": "2026-07-17T17:28:55.564Z",
-    "updatedAt": "2026-07-17T17:28:55.564Z",
+    "_id": "6a5e028c969540e9ca9b89c4",
     "name": "Variable Speed Belt – Raw Edge, Doudle Cogged",
     "description": "Variable Speed Belt – Raw Edge, Doudle Cogged",
     "shortDescription": "Variable Speed Belt – Raw Edge, Doudle Cogged",
     "category": "Belts Power Transmission",
     "subcategory": "V Belts",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069700930-0-wep7",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "/mmmm/uploads/SKU-1782069700930-0-wep7.jpg"
     ],
@@ -1201,23 +1492,29 @@
       "Belts Power Transmission",
       "V Belts"
     ],
-    "slug": "variable-speed-belt-raw-edge-doudle-cogged-1784309335563-46"
+    "stock": 10,
+    "status": "Active",
+    "slug": "variable-speed-belt-raw-edge-doudle-cogged-1784545932900-46",
+    "createdAt": "2026-07-20T11:12:12.924Z",
+    "updatedAt": "2026-07-20T11:12:12.924Z"
   },
   {
-    "_id": "kcejr9l7jfn1qbmjqq9t",
-    "createdAt": "2026-07-17T17:28:55.565Z",
-    "updatedAt": "2026-07-17T17:28:55.565Z",
+    "_id": "6a5e028c969540e9ca9b89c5",
     "name": "Clamping Plates",
     "description": "Clamping Plates",
     "shortDescription": "Clamping Plates",
     "category": "Pulleys",
     "subcategory": "",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069701208-0-wrjk",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "https://belts-store.com/wp-content/uploads/2011/07/RTEmagicC_alpha_spannplatten_kl_mg-1.gif-1.gif"
     ],
@@ -1225,23 +1522,29 @@
     "tags": [
       "Pulleys"
     ],
-    "slug": "clamping-plates-1784309335564-47"
+    "stock": 10,
+    "status": "Active",
+    "slug": "clamping-plates-1784545932961-47",
+    "createdAt": "2026-07-20T11:12:12.989Z",
+    "updatedAt": "2026-07-20T11:12:12.989Z"
   },
   {
-    "_id": "mr1cxb1tgbeu8lnbmdfj",
-    "createdAt": "2026-07-17T17:28:55.567Z",
-    "updatedAt": "2026-07-17T17:28:55.567Z",
+    "_id": "6a5e028d969540e9ca9b89c6",
     "name": "Ribbed Belt Pullets",
     "description": "Ribbed Belt Pullets",
     "shortDescription": "Ribbed Belt Pullets",
     "category": "Pulleys",
     "subcategory": "",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069701208-6-3rll",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "https://belts-store.com/wp-content/uploads/2011/07/RTEmagicC_Rippenbandscheiben_kl_mg-1.gif"
     ],
@@ -1249,23 +1552,29 @@
     "tags": [
       "Pulleys"
     ],
-    "slug": "ribbed-belt-pullets-1784309335566-48"
+    "stock": 10,
+    "status": "Active",
+    "slug": "ribbed-belt-pullets-1784545933020-48",
+    "createdAt": "2026-07-20T11:12:13.047Z",
+    "updatedAt": "2026-07-20T11:12:13.047Z"
   },
   {
-    "_id": "vrh29fah9r9r3p7wad4hqb",
-    "createdAt": "2026-07-17T17:28:55.569Z",
-    "updatedAt": "2026-07-17T17:28:55.569Z",
+    "_id": "6a5e028d969540e9ca9b89c7",
     "name": "Timing Belt Pulleys",
     "description": "Timing Belt Pulleys",
     "shortDescription": "Timing Belt Pulleys",
     "category": "Pulleys",
     "subcategory": "",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069701208-10-dc26",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "https://belts-store.com/wp-content/uploads/2011/07/RTEmagicC_Zahnriemenscheiben_kl_mg-1.gif-1.gif"
     ],
@@ -1273,23 +1582,29 @@
     "tags": [
       "Pulleys"
     ],
-    "slug": "timing-belt-pulleys-1784309335567-49"
+    "stock": 10,
+    "status": "Active",
+    "slug": "timing-belt-pulleys-1784545933082-49",
+    "createdAt": "2026-07-20T11:12:13.117Z",
+    "updatedAt": "2026-07-20T11:12:13.117Z"
   },
   {
-    "_id": "w8ty69t5jm72mfzw87glut",
-    "createdAt": "2026-07-17T17:28:55.570Z",
-    "updatedAt": "2026-07-17T17:28:55.570Z",
+    "_id": "6a5e028d969540e9ca9b89c8",
     "name": "V-Grooved Pulleys",
     "description": "V-Grooved Pulleys",
     "shortDescription": "V-Grooved Pulleys",
     "category": "Pulleys",
     "subcategory": "",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069701209-14-hapz",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "https://belts-store.com/wp-content/uploads/2011/07/RTEmagicC_Keilrillenscheiben_kl_mg-1.gif-1.gif"
     ],
@@ -1297,23 +1612,29 @@
     "tags": [
       "Pulleys"
     ],
-    "slug": "v-grooved-pulleys-1784309335569-50"
+    "stock": 10,
+    "status": "Active",
+    "slug": "v-grooved-pulleys-1784545933158-50",
+    "createdAt": "2026-07-20T11:12:13.196Z",
+    "updatedAt": "2026-07-20T11:12:13.196Z"
   },
   {
-    "_id": "mkx7c8mky6qu325f4mq29",
-    "createdAt": "2026-07-17T17:28:55.576Z",
-    "updatedAt": "2026-07-17T17:28:55.576Z",
+    "_id": "6a5e028d969540e9ca9b89c9",
     "name": "Conveyor Belts",
     "description": "Conveyor Belts",
     "shortDescription": "Conveyor Belts",
     "category": "Conveying Accessories",
     "subcategory": "Conveying Accessorise",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069701495-0-szw9",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "https://belts-store.com/wp-content/uploads/2011/01/Conveying_CBF-1.jpg"
     ],
@@ -1322,23 +1643,29 @@
       "Conveying Accessories",
       "Conveying Accessorise"
     ],
-    "slug": "conveyor-belts-1784309335573-51"
+    "stock": 10,
+    "status": "Active",
+    "slug": "conveyor-belts-1784545933237-51",
+    "createdAt": "2026-07-20T11:12:13.267Z",
+    "updatedAt": "2026-07-20T11:12:13.267Z"
   },
   {
-    "_id": "l6aamsjyvropoubuz9v74n",
-    "createdAt": "2026-07-17T17:28:55.579Z",
-    "updatedAt": "2026-07-17T17:28:55.579Z",
+    "_id": "6a5e028d969540e9ca9b89ca",
     "name": "Conveyor Rollers",
     "description": "Conveyor Rollers",
     "shortDescription": "Conveyor Rollers",
     "category": "Conveying Accessories",
     "subcategory": "Conveying Accessorise",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069701496-6-v4o5",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "https://belts-store.com/wp-content/uploads/2011/01/Conveying_Rollers_final-1.jpg"
     ],
@@ -1347,23 +1674,29 @@
       "Conveying Accessories",
       "Conveying Accessorise"
     ],
-    "slug": "conveyor-rollers-1784309335577-52"
+    "stock": 10,
+    "status": "Active",
+    "slug": "conveyor-rollers-1784545933318-52",
+    "createdAt": "2026-07-20T11:12:13.346Z",
+    "updatedAt": "2026-07-20T11:12:13.346Z"
   },
   {
-    "_id": "ix4or9vkucyu45xkh0cpi",
-    "createdAt": "2026-07-17T17:28:55.581Z",
-    "updatedAt": "2026-07-17T17:28:55.581Z",
+    "_id": "6a5e028d969540e9ca9b89cb",
     "name": "Crusher Screen",
     "description": "Crusher Screen",
     "shortDescription": "Crusher Screen",
     "category": "Conveying Accessories",
     "subcategory": "Conveying Accessorise",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069701496-10-v5ck",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "https://belts-store.com/wp-content/uploads/2011/01/Conveying_Screen-1.jpg"
     ],
@@ -1372,23 +1705,29 @@
       "Conveying Accessories",
       "Conveying Accessorise"
     ],
-    "slug": "crusher-screen-1784309335580-53"
+    "stock": 10,
+    "status": "Active",
+    "slug": "crusher-screen-1784545933389-53",
+    "createdAt": "2026-07-20T11:12:13.427Z",
+    "updatedAt": "2026-07-20T11:12:13.427Z"
   },
   {
-    "_id": "94syv15k37cc739rb2078",
-    "createdAt": "2026-07-17T17:28:55.584Z",
-    "updatedAt": "2026-07-17T17:28:55.584Z",
+    "_id": "6a5e028d969540e9ca9b89cc",
     "name": "Gear-Boxes (SMR) Speed Reducer",
     "description": "Gear-Boxes (SMR) Speed Reducer",
     "shortDescription": "Gear-Boxes (SMR) Speed Reducer",
     "category": "Conveying Accessories",
     "subcategory": "Conveying Accessorise",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069701496-14-zbyn",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "https://belts-store.com/wp-content/uploads/2011/01/Conveying_Gearbox-1.jpg"
     ],
@@ -1397,23 +1736,29 @@
       "Conveying Accessories",
       "Conveying Accessorise"
     ],
-    "slug": "gear-boxes-smr-speed-reducer-1784309335582-54"
+    "stock": 10,
+    "status": "Active",
+    "slug": "gear-boxes-smr-speed-reducer-1784545933478-54",
+    "createdAt": "2026-07-20T11:12:13.518Z",
+    "updatedAt": "2026-07-20T11:12:13.518Z"
   },
   {
-    "_id": "briqixbrkf8gqqxcdgcjvk",
-    "createdAt": "2026-07-17T17:28:55.586Z",
-    "updatedAt": "2026-07-17T17:28:55.586Z",
+    "_id": "6a5e028d969540e9ca9b89cd",
     "name": "Rough Top Belts",
     "description": "Rough Top Belts",
     "shortDescription": "Rough Top Belts",
     "category": "Conveying Accessories",
     "subcategory": "Conveying Accessorise",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069701496-18-k710",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "https://belts-store.com/wp-content/uploads/2011/01/Conveying_CBR-1.jpg"
     ],
@@ -1422,23 +1767,29 @@
       "Conveying Accessories",
       "Conveying Accessorise"
     ],
-    "slug": "rough-top-belts-1784309335585-55"
+    "stock": 10,
+    "status": "Active",
+    "slug": "rough-top-belts-1784545933562-55",
+    "createdAt": "2026-07-20T11:12:13.586Z",
+    "updatedAt": "2026-07-20T11:12:13.586Z"
   },
   {
-    "_id": "qcfgvdlb1yh4ccguob71",
-    "createdAt": "2026-07-17T17:28:55.587Z",
-    "updatedAt": "2026-07-17T17:28:55.587Z",
+    "_id": "6a5e028d969540e9ca9b89ce",
     "name": "Chevron Conveyor Belts",
     "description": "Chevron Conveyor Belts",
     "shortDescription": "Chevron Conveyor Belts",
     "category": "Conveying Accessories",
     "subcategory": "Conveying Accessorise",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069701496-22-50b6",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "https://belts-store.com/wp-content/uploads/2011/01/Conveying_CBC-1.jpg"
     ],
@@ -1447,23 +1798,29 @@
       "Conveying Accessories",
       "Conveying Accessorise"
     ],
-    "slug": "chevron-conveyor-belts-1784309335586-56"
+    "stock": 10,
+    "status": "Active",
+    "slug": "chevron-conveyor-belts-1784545933635-56",
+    "createdAt": "2026-07-20T11:12:13.669Z",
+    "updatedAt": "2026-07-20T11:12:13.669Z"
   },
   {
-    "_id": "05zhavpe5dirfa8k43k9f9",
-    "createdAt": "2026-07-17T17:28:55.589Z",
-    "updatedAt": "2026-07-17T17:28:55.589Z",
+    "_id": "6a5e028d969540e9ca9b89cf",
     "name": "Conveyor Belts Fasteners",
     "description": "Conveyor Belts Fasteners",
     "shortDescription": "Conveyor Belts Fasteners",
     "category": "Conveying Accessories",
     "subcategory": "Conveying Accessorise",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069701496-26-y337",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "https://belts-store.com/wp-content/uploads/2011/01/BF-1.gif"
     ],
@@ -1472,23 +1829,29 @@
       "Conveying Accessories",
       "Conveying Accessorise"
     ],
-    "slug": "conveyor-belts-fasteners-1784309335588-57"
+    "stock": 10,
+    "status": "Active",
+    "slug": "conveyor-belts-fasteners-1784545933697-57",
+    "createdAt": "2026-07-20T11:12:13.724Z",
+    "updatedAt": "2026-07-20T11:12:13.724Z"
   },
   {
-    "_id": "cfqapafc16rzrz3mlvq3c",
-    "createdAt": "2026-07-17T17:28:55.591Z",
-    "updatedAt": "2026-07-17T17:28:55.591Z",
+    "_id": "6a5e028d969540e9ca9b89d0",
     "name": "Fastners Set",
     "description": "Fastners Set",
     "shortDescription": "Fastners Set",
     "category": "Conveying Accessories",
     "subcategory": "Conveying Accessorise",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069701497-30-qojb",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "https://belts-store.com/wp-content/uploads/2011/01/Fastener_Set-1.jpg"
     ],
@@ -1497,23 +1860,29 @@
       "Conveying Accessories",
       "Conveying Accessorise"
     ],
-    "slug": "fastners-set-1784309335590-58"
+    "stock": 10,
+    "status": "Active",
+    "slug": "fastners-set-1784545933758-58",
+    "createdAt": "2026-07-20T11:12:13.787Z",
+    "updatedAt": "2026-07-20T11:12:13.787Z"
   },
   {
-    "_id": "1eem7tpsx74at3mi7kchq",
-    "createdAt": "2026-07-17T17:28:55.592Z",
-    "updatedAt": "2026-07-17T17:28:55.592Z",
+    "_id": "6a5e028d969540e9ca9b89d1",
     "name": "Screen Rubber",
     "description": "Screen Rubber",
     "shortDescription": "Screen Rubber",
     "category": "Conveying Accessories",
     "subcategory": "Conveying Accessorise",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069701497-34-b727",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "https://belts-store.com/wp-content/uploads/2011/07/Screen_Rubber-1-247x288.jpg"
     ],
@@ -1522,23 +1891,29 @@
       "Conveying Accessories",
       "Conveying Accessorise"
     ],
-    "slug": "screen-rubber-1784309335591-59"
+    "stock": 10,
+    "status": "Active",
+    "slug": "screen-rubber-1784545933828-59",
+    "createdAt": "2026-07-20T11:12:13.856Z",
+    "updatedAt": "2026-07-20T11:12:13.856Z"
   },
   {
-    "_id": "7h5pbnxp1sxolnnyi8x8va",
-    "createdAt": "2026-07-17T17:28:55.595Z",
-    "updatedAt": "2026-07-17T17:28:55.595Z",
+    "_id": "6a5e028d969540e9ca9b89d2",
     "name": "Belt Punch",
     "description": "Belt Punch",
     "shortDescription": "Belt Punch",
     "category": "Conveying Accessories",
     "subcategory": "Conveying Accessorise",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069701497-38-0v8t",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "https://belts-store.com/wp-content/uploads/2011/01/Belt_Punch-1.jpg"
     ],
@@ -1547,23 +1922,29 @@
       "Conveying Accessories",
       "Conveying Accessorise"
     ],
-    "slug": "belt-punch-1784309335593-60"
+    "stock": 10,
+    "status": "Active",
+    "slug": "belt-punch-1784545933887-60",
+    "createdAt": "2026-07-20T11:12:13.928Z",
+    "updatedAt": "2026-07-20T11:12:13.928Z"
   },
   {
-    "_id": "rvor6wnd5ar23xkvff5572",
-    "createdAt": "2026-07-17T17:28:55.596Z",
-    "updatedAt": "2026-07-17T17:28:55.596Z",
+    "_id": "6a5e028e969540e9ca9b89d3",
     "name": "Crusher Spring",
     "description": "Crusher Spring",
     "shortDescription": "Crusher Spring",
     "category": "Conveying Accessories",
     "subcategory": "Conveying Accessorise",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069701497-42-d632",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "https://belts-store.com/wp-content/uploads/2011/01/Conveying_Spring-1.jpg"
     ],
@@ -1572,23 +1953,29 @@
       "Conveying Accessories",
       "Conveying Accessorise"
     ],
-    "slug": "crusher-spring-1784309335595-61"
+    "stock": 10,
+    "status": "Active",
+    "slug": "crusher-spring-1784545934271-61",
+    "createdAt": "2026-07-20T11:12:14.376Z",
+    "updatedAt": "2026-07-20T11:12:14.376Z"
   },
   {
-    "_id": "fk3qulb59dxpmube3nn3r",
-    "createdAt": "2026-07-17T17:28:55.598Z",
-    "updatedAt": "2026-07-17T17:28:55.598Z",
+    "_id": "6a5e028e969540e9ca9b89d4",
     "name": "Steel Belts Lacing",
     "description": "Steel Belts Lacing",
     "shortDescription": "Steel Belts Lacing",
     "category": "Conveying Accessories",
     "subcategory": "Conveying Accessorise",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069701497-46-uxvf",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "https://belts-store.com/wp-content/uploads/2011/07/Steel_Belt_Lacing-1.jpg"
     ],
@@ -1597,23 +1984,29 @@
       "Conveying Accessories",
       "Conveying Accessorise"
     ],
-    "slug": "steel-belts-lacing-1784309335597-62"
+    "stock": 10,
+    "status": "Active",
+    "slug": "steel-belts-lacing-1784545934551-62",
+    "createdAt": "2026-07-20T11:12:14.593Z",
+    "updatedAt": "2026-07-20T11:12:14.593Z"
   },
   {
-    "_id": "q0e9sw3f7fc1wbr588x0vt",
-    "createdAt": "2026-07-17T17:28:55.599Z",
-    "updatedAt": "2026-07-17T17:28:55.599Z",
+    "_id": "6a5e028e969540e9ca9b89d5",
     "name": "Rubber Sheets",
     "description": "Rubber Sheets",
     "shortDescription": "Rubber Sheets",
     "category": "Rubber",
     "subcategory": "",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069701781-0-np5h",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "/mmmm/uploads/SKU-1782069701781-0-np5h.bmp"
     ],
@@ -1621,23 +2014,29 @@
     "tags": [
       "Rubber"
     ],
-    "slug": "rubber-sheets-1784309335598-63"
+    "stock": 10,
+    "status": "Active",
+    "slug": "rubber-sheets-1784545934632-63",
+    "createdAt": "2026-07-20T11:12:14.656Z",
+    "updatedAt": "2026-07-20T11:12:14.656Z"
   },
   {
-    "_id": "8l4ga2nsbat8bos0gltrk",
-    "createdAt": "2026-07-17T17:28:55.602Z",
-    "updatedAt": "2026-07-17T17:28:55.602Z",
+    "_id": "6a5e028e969540e9ca9b89d6",
     "name": "Rubber Stud",
     "description": "Rubber Stud",
     "shortDescription": "Rubber Stud",
     "category": "Rubber",
     "subcategory": "",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069701781-6-t0l4",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "/mmmm/uploads/SKU-1782069701781-6-t0l4.bmp"
     ],
@@ -1645,23 +2044,29 @@
     "tags": [
       "Rubber"
     ],
-    "slug": "rubber-stud-1784309335600-64"
+    "stock": 10,
+    "status": "Active",
+    "slug": "rubber-stud-1784545934697-64",
+    "createdAt": "2026-07-20T11:12:14.867Z",
+    "updatedAt": "2026-07-20T11:12:14.867Z"
   },
   {
-    "_id": "gocp20euvocdpnab9l3u8",
-    "createdAt": "2026-07-17T17:28:55.603Z",
-    "updatedAt": "2026-07-17T17:28:55.603Z",
+    "_id": "6a5e028e969540e9ca9b89d7",
     "name": "White Rubber Sheets",
     "description": "White Rubber Sheets",
     "shortDescription": "White Rubber Sheets",
     "category": "Rubber",
     "subcategory": "",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069701781-10-vq3f",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "/mmmm/uploads/SKU-1782069701781-10-vq3f.jpg"
     ],
@@ -1669,23 +2074,29 @@
     "tags": [
       "Rubber"
     ],
-    "slug": "white-rubber-sheets-1784309335602-65"
+    "stock": 10,
+    "status": "Active",
+    "slug": "white-rubber-sheets-1784545934923-65",
+    "createdAt": "2026-07-20T11:12:14.947Z",
+    "updatedAt": "2026-07-20T11:12:14.947Z"
   },
   {
-    "_id": "gpyskwhpe4fdy224r4by2t",
-    "createdAt": "2026-07-17T17:28:55.605Z",
-    "updatedAt": "2026-07-17T17:28:55.605Z",
+    "_id": "6a5e028f969540e9ca9b89d8",
     "name": "Silicon Sheet",
     "description": "Silicon Sheet",
     "shortDescription": "Silicon Sheet",
     "category": "Rubber",
     "subcategory": "",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069701782-14-0puq",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "/mmmm/uploads/SKU-1782069701782-14-0puq.bmp"
     ],
@@ -1693,23 +2104,29 @@
     "tags": [
       "Rubber"
     ],
-    "slug": "silicon-sheet-1784309335604-66"
+    "stock": 10,
+    "status": "Active",
+    "slug": "silicon-sheet-1784545934991-66",
+    "createdAt": "2026-07-20T11:12:15.027Z",
+    "updatedAt": "2026-07-20T11:12:15.027Z"
   },
   {
-    "_id": "av547nofllmnbzwr9bj5ek",
-    "createdAt": "2026-07-17T17:28:55.607Z",
-    "updatedAt": "2026-07-17T17:28:55.607Z",
+    "_id": "6a5e028f969540e9ca9b89d9",
     "name": "Rubber Sponge Sheet",
     "description": "Rubber Sponge Sheet",
     "shortDescription": "Rubber Sponge Sheet",
     "category": "Rubber",
     "subcategory": "",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069701782-18-3qqj",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "/mmmm/uploads/SKU-1782069701782-18-3qqj.bmp"
     ],
@@ -1717,23 +2134,29 @@
     "tags": [
       "Rubber"
     ],
-    "slug": "rubber-sponge-sheet-1784309335606-67"
+    "stock": 10,
+    "status": "Active",
+    "slug": "rubber-sponge-sheet-1784545935077-67",
+    "createdAt": "2026-07-20T11:12:15.119Z",
+    "updatedAt": "2026-07-20T11:12:15.119Z"
   },
   {
-    "_id": "qm0d7tyqu46rqdwirrlni",
-    "createdAt": "2026-07-17T17:28:55.608Z",
-    "updatedAt": "2026-07-17T17:28:55.608Z",
+    "_id": "6a5e028f969540e9ca9b89da",
     "name": "Soft Spong Rubber",
     "description": "Soft Spong Rubber",
     "shortDescription": "Soft Spong Rubber",
     "category": "Rubber",
     "subcategory": "",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069701782-22-unty",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "/mmmm/uploads/SKU-1782069701782-22-unty.jpg"
     ],
@@ -1741,23 +2164,29 @@
     "tags": [
       "Rubber"
     ],
-    "slug": "soft-spong-rubber-1784309335607-68"
+    "stock": 10,
+    "status": "Active",
+    "slug": "soft-spong-rubber-1784545935149-68",
+    "createdAt": "2026-07-20T11:12:15.331Z",
+    "updatedAt": "2026-07-20T11:12:15.331Z"
   },
   {
-    "_id": "m4hj9dmyb4c3ov0y8oi68n",
-    "createdAt": "2026-07-17T17:28:55.610Z",
-    "updatedAt": "2026-07-17T17:28:55.610Z",
+    "_id": "6a5e028f969540e9ca9b89db",
     "name": "Rubber Mounts",
     "description": "Rubber Mounts",
     "shortDescription": "Rubber Mounts",
     "category": "Rubber",
     "subcategory": "",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069701782-26-54ve",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "/mmmm/uploads/SKU-1782069701782-26-54ve.bmp"
     ],
@@ -1765,23 +2194,29 @@
     "tags": [
       "Rubber"
     ],
-    "slug": "rubber-mounts-1784309335609-69"
+    "stock": 10,
+    "status": "Active",
+    "slug": "rubber-mounts-1784545935398-69",
+    "createdAt": "2026-07-20T11:12:15.436Z",
+    "updatedAt": "2026-07-20T11:12:15.436Z"
   },
   {
-    "_id": "2zkacciw820t1o9ld6lnxb",
-    "createdAt": "2026-07-17T17:28:55.612Z",
-    "updatedAt": "2026-07-17T17:28:55.612Z",
+    "_id": "6a5e028f969540e9ca9b89dc",
     "name": "Rubber Glass Moulding",
     "description": "Rubber Glass Moulding",
     "shortDescription": "Rubber Glass Moulding",
     "category": "Rubber",
     "subcategory": "",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069701782-30-yyvo",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "/mmmm/uploads/SKU-1782069701782-30-yyvo.bmp"
     ],
@@ -1789,23 +2224,29 @@
     "tags": [
       "Rubber"
     ],
-    "slug": "rubber-glass-moulding-1784309335610-70"
+    "stock": 10,
+    "status": "Active",
+    "slug": "rubber-glass-moulding-1784545935477-70",
+    "createdAt": "2026-07-20T11:12:15.527Z",
+    "updatedAt": "2026-07-20T11:12:15.527Z"
   },
   {
-    "_id": "ngyy9djc4u137c8fm6yd9i",
-    "createdAt": "2026-07-17T17:28:55.613Z",
-    "updatedAt": "2026-07-17T17:28:55.613Z",
+    "_id": "6a5e028f969540e9ca9b89dd",
     "name": "Rubber Metal Bonded",
     "description": "Rubber Metal Bonded",
     "shortDescription": "Rubber Metal Bonded",
     "category": "Rubber",
     "subcategory": "",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069701782-34-lx7i",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "/mmmm/uploads/SKU-1782069701782-34-lx7i.bmp"
     ],
@@ -1813,23 +2254,29 @@
     "tags": [
       "Rubber"
     ],
-    "slug": "rubber-metal-bonded-1784309335612-71"
+    "stock": 10,
+    "status": "Active",
+    "slug": "rubber-metal-bonded-1784545935565-71",
+    "createdAt": "2026-07-20T11:12:15.593Z",
+    "updatedAt": "2026-07-20T11:12:15.593Z"
   },
   {
-    "_id": "m12fapitnyb8kucmtkqhr",
-    "createdAt": "2026-07-17T17:28:55.614Z",
-    "updatedAt": "2026-07-17T17:28:55.614Z",
+    "_id": "6a5e028f969540e9ca9b89de",
     "name": "Rubber O-Ring Service kit",
     "description": "Rubber O-Ring Service kit",
     "shortDescription": "Rubber O-Ring Service kit",
     "category": "Rubber",
     "subcategory": "",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069701782-38-jrjy",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "/mmmm/uploads/SKU-1782069701782-38-jrjy.jpg"
     ],
@@ -1837,23 +2284,29 @@
     "tags": [
       "Rubber"
     ],
-    "slug": "rubber-o-ring-service-kit-1784309335613-72"
+    "stock": 10,
+    "status": "Active",
+    "slug": "rubber-o-ring-service-kit-1784545935627-72",
+    "createdAt": "2026-07-20T11:12:15.805Z",
+    "updatedAt": "2026-07-20T11:12:15.805Z"
   },
   {
-    "_id": "pn917yix2iqq67fi3iv41",
-    "createdAt": "2026-07-17T17:28:55.616Z",
-    "updatedAt": "2026-07-17T17:28:55.616Z",
+    "_id": "6a5e028f969540e9ca9b89df",
     "name": "Gasket Graphite With Steel Sheet",
     "description": "Gasket Graphite With Steel Sheet",
     "shortDescription": "Gasket Graphite With Steel Sheet",
     "category": "Industrial Insulation",
     "subcategory": "",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069702060-0-fruu",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "/mmmm/uploads/SKU-1782069702060-0-fruu.jpg"
     ],
@@ -1861,23 +2314,29 @@
     "tags": [
       "Industrial Insulation"
     ],
-    "slug": "gasket-graphite-with-steel-sheet-1784309335615-73"
+    "stock": 10,
+    "status": "Active",
+    "slug": "gasket-graphite-with-steel-sheet-1784545935841-73",
+    "createdAt": "2026-07-20T11:12:15.877Z",
+    "updatedAt": "2026-07-20T11:12:15.877Z"
   },
   {
-    "_id": "vfrvifpjs9l1slnifo0y7c",
-    "createdAt": "2026-07-17T17:28:55.617Z",
-    "updatedAt": "2026-07-17T17:28:55.618Z",
+    "_id": "6a5e028f969540e9ca9b89e0",
     "name": "S.S. Wire Mesh",
     "description": "S.S. Wire Mesh",
     "shortDescription": "S.S. Wire Mesh",
     "category": "Industrial Insulation",
     "subcategory": "",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069702061-6-j0x1",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "/mmmm/uploads/SKU-1782069702061-6-j0x1.jpg"
     ],
@@ -1885,23 +2344,29 @@
     "tags": [
       "Industrial Insulation"
     ],
-    "slug": "s-s-wire-mesh-1784309335616-74"
+    "stock": 10,
+    "status": "Active",
+    "slug": "s-s-wire-mesh-1784545935930-74",
+    "createdAt": "2026-07-20T11:12:15.967Z",
+    "updatedAt": "2026-07-20T11:12:15.967Z"
   },
   {
-    "_id": "zq9gsw3gknfusivsjxd5yl",
-    "createdAt": "2026-07-17T17:28:55.619Z",
-    "updatedAt": "2026-07-17T17:28:55.619Z",
+    "_id": "6a5e0290969540e9ca9b89e1",
     "name": "Cork Gasket (Rubberized)",
     "description": "Cork Gasket (Rubberized)",
     "shortDescription": "Cork Gasket (Rubberized)",
     "category": "Industrial Insulation",
     "subcategory": "",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069702061-10-9koo",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "/mmmm/uploads/SKU-1782069702061-10-9koo.jpg"
     ],
@@ -1909,23 +2374,29 @@
     "tags": [
       "Industrial Insulation"
     ],
-    "slug": "cork-gasket-rubberized-1784309335618-75"
+    "stock": 10,
+    "status": "Active",
+    "slug": "cork-gasket-rubberized-1784545936002-75",
+    "createdAt": "2026-07-20T11:12:16.027Z",
+    "updatedAt": "2026-07-20T11:12:16.027Z"
   },
   {
-    "_id": "esd3fjvlwrh1esoe98xn4ij",
-    "createdAt": "2026-07-17T17:28:55.620Z",
-    "updatedAt": "2026-07-17T17:28:55.620Z",
+    "_id": "6a5e0290969540e9ca9b89e2",
     "name": "Gaskets Sheets (Non-Asbestos Heat Resistant)",
     "description": "Gaskets Sheets (Non-Asbestos Heat Resistant)",
     "shortDescription": "Gaskets Sheets (Non-Asbestos Heat Resistant)",
     "category": "Industrial Insulation",
     "subcategory": "",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069702061-14-1h67",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "/mmmm/uploads/SKU-1782069702061-14-1h67.jpg"
     ],
@@ -1933,23 +2404,29 @@
     "tags": [
       "Industrial Insulation"
     ],
-    "slug": "gaskets-sheets-non-asbestos-heat-resistant-1784309335619-76"
+    "stock": 10,
+    "status": "Active",
+    "slug": "gaskets-sheets-non-asbestos-heat-resistant-1784545936071-76",
+    "createdAt": "2026-07-20T11:12:16.097Z",
+    "updatedAt": "2026-07-20T11:12:16.097Z"
   },
   {
-    "_id": "klkwdlqz32qgpsdu5pcjln",
-    "createdAt": "2026-07-17T17:28:55.622Z",
-    "updatedAt": "2026-07-17T17:28:55.622Z",
+    "_id": "6a5e0290969540e9ca9b89e3",
     "name": "Oil Resistant Jointing",
     "description": "Oil Resistant Jointing",
     "shortDescription": "Oil Resistant Jointing",
     "category": "Industrial Insulation",
     "subcategory": "",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069702061-18-hwv5",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "/mmmm/uploads/SKU-1782069702061-18-hwv5.jpg"
     ],
@@ -1957,23 +2434,29 @@
     "tags": [
       "Industrial Insulation"
     ],
-    "slug": "oil-resistant-jointing-1784309335621-77"
+    "stock": 10,
+    "status": "Active",
+    "slug": "oil-resistant-jointing-1784545936279-77",
+    "createdAt": "2026-07-20T11:12:16.320Z",
+    "updatedAt": "2026-07-20T11:12:16.320Z"
   },
   {
-    "_id": "3lfq76e2aptkbskhebl8z",
-    "createdAt": "2026-07-17T17:28:55.624Z",
-    "updatedAt": "2026-07-17T17:28:55.624Z",
+    "_id": "6a5e0290969540e9ca9b89e4",
     "name": "Gasket Graphite with Steel Mesh",
     "description": "Gasket Graphite with Steel Mesh",
     "shortDescription": "Gasket Graphite with Steel Mesh",
     "category": "Industrial Insulation",
     "subcategory": "",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069702061-22-csf0",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "/mmmm/uploads/SKU-1782069702061-22-csf0.jpg"
     ],
@@ -1981,23 +2464,29 @@
     "tags": [
       "Industrial Insulation"
     ],
-    "slug": "gasket-graphite-with-steel-mesh-1784309335622-78"
+    "stock": 10,
+    "status": "Active",
+    "slug": "gasket-graphite-with-steel-mesh-1784545936368-78",
+    "createdAt": "2026-07-20T11:12:16.414Z",
+    "updatedAt": "2026-07-20T11:12:16.414Z"
   },
   {
-    "_id": "w6r3gu1kbiojk1ho9s0mk",
-    "createdAt": "2026-07-17T17:28:55.625Z",
-    "updatedAt": "2026-07-17T17:28:55.625Z",
+    "_id": "6a5e0290969540e9ca9b89e5",
     "name": "Heat Insulation Tape (Ordinary-No Insertion)",
     "description": "Heat Insulation Tape (Ordinary-No Insertion)",
     "shortDescription": "Heat Insulation Tape (Ordinary-No Insertion)",
     "category": "Industrial Insulation",
     "subcategory": "",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069702062-26-zm56",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "/mmmm/uploads/SKU-1782069702062-26-zm56.jpg"
     ],
@@ -2005,23 +2494,29 @@
     "tags": [
       "Industrial Insulation"
     ],
-    "slug": "heat-insulation-tape-ordinary-no-insertion-1784309335624-79"
+    "stock": 10,
+    "status": "Active",
+    "slug": "heat-insulation-tape-ordinary-no-insertion-1784545936450-79",
+    "createdAt": "2026-07-20T11:12:16.497Z",
+    "updatedAt": "2026-07-20T11:12:16.497Z"
   },
   {
-    "_id": "b1b55trga9pq2rjhmduf2o",
-    "createdAt": "2026-07-17T17:28:55.627Z",
-    "updatedAt": "2026-07-17T17:28:55.627Z",
+    "_id": "6a5e0290969540e9ca9b89e6",
     "name": "Gland Packing Rope With Teflon (square)",
     "description": "Gland Packing Rope With Teflon (square)",
     "shortDescription": "Gland Packing Rope With Teflon (square)",
     "category": "Industrial Insulation",
     "subcategory": "",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069702062-30-7cg4",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "/mmmm/uploads/SKU-1782069702062-30-7cg4.jpg"
     ],
@@ -2029,23 +2524,29 @@
     "tags": [
       "Industrial Insulation"
     ],
-    "slug": "gland-packing-rope-with-teflon-square-1784309335626-80"
+    "stock": 10,
+    "status": "Active",
+    "slug": "gland-packing-rope-with-teflon-square-1784545936541-80",
+    "createdAt": "2026-07-20T11:12:16.577Z",
+    "updatedAt": "2026-07-20T11:12:16.577Z"
   },
   {
-    "_id": "32rda17burdzl7zv1sxxp",
-    "createdAt": "2026-07-17T17:28:55.628Z",
-    "updatedAt": "2026-07-17T17:28:55.628Z",
+    "_id": "6a5e0290969540e9ca9b89e7",
     "name": "Graphite Gland Packing Rope (square Black)",
     "description": "Graphite Gland Packing Rope (square Black)",
     "shortDescription": "Graphite Gland Packing Rope (square Black)",
     "category": "Industrial Insulation",
     "subcategory": "",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069702062-34-nnyh",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "/mmmm/uploads/SKU-1782069702062-34-nnyh.jpg"
     ],
@@ -2053,23 +2554,29 @@
     "tags": [
       "Industrial Insulation"
     ],
-    "slug": "graphite-gland-packing-rope-square-black-1784309335627-81"
+    "stock": 10,
+    "status": "Active",
+    "slug": "graphite-gland-packing-rope-square-black-1784545936744-81",
+    "createdAt": "2026-07-20T11:12:16.786Z",
+    "updatedAt": "2026-07-20T11:12:16.786Z"
   },
   {
-    "_id": "rko9nkvyc2n67ejrtelp7f",
-    "createdAt": "2026-07-17T17:28:55.630Z",
-    "updatedAt": "2026-07-17T17:28:55.630Z",
+    "_id": "6a5e0290969540e9ca9b89e8",
     "name": "Packing Rope (Square White color)",
     "description": "Packing Rope (Square White color)",
     "shortDescription": "Packing Rope (Square White color)",
     "category": "Industrial Insulation",
     "subcategory": "",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069702062-38-37rl",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "/mmmm/uploads/SKU-1782069702062-38-37rl.jpg"
     ],
@@ -2077,23 +2584,29 @@
     "tags": [
       "Industrial Insulation"
     ],
-    "slug": "packing-rope-square-white-color-1784309335629-82"
+    "stock": 10,
+    "status": "Active",
+    "slug": "packing-rope-square-white-color-1784545936848-82",
+    "createdAt": "2026-07-20T11:12:16.886Z",
+    "updatedAt": "2026-07-20T11:12:16.886Z"
   },
   {
-    "_id": "9uqhgofhsixq4ltvjtkm",
-    "createdAt": "2026-07-17T17:28:55.631Z",
-    "updatedAt": "2026-07-17T17:28:55.631Z",
+    "_id": "6a5e0291969540e9ca9b89e9",
     "name": "Packing Rope Cord (Round)",
     "description": "Packing Rope Cord (Round)",
     "shortDescription": "Packing Rope Cord (Round)",
     "category": "Industrial Insulation",
     "subcategory": "",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069702062-42-46i0",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "/mmmm/uploads/SKU-1782069702062-42-46i0.jpg"
     ],
@@ -2101,23 +2614,29 @@
     "tags": [
       "Industrial Insulation"
     ],
-    "slug": "packing-rope-cord-round-1784309335630-83"
+    "stock": 10,
+    "status": "Active",
+    "slug": "packing-rope-cord-round-1784545937267-83",
+    "createdAt": "2026-07-20T11:12:17.416Z",
+    "updatedAt": "2026-07-20T11:12:17.416Z"
   },
   {
-    "_id": "6dsge7owi2707hqwlr8bexp",
-    "createdAt": "2026-07-17T17:28:55.633Z",
-    "updatedAt": "2026-07-17T17:28:55.633Z",
+    "_id": "6a5e0291969540e9ca9b89ea",
     "name": "Heat Insulation Cloth (Ordinary)",
     "description": "Heat Insulation Cloth (Ordinary)",
     "shortDescription": "Heat Insulation Cloth (Ordinary)",
     "category": "Industrial Insulation",
     "subcategory": "",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069702062-46-cz1m",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "/mmmm/uploads/SKU-1782069702062-46-cz1m.jpg"
     ],
@@ -2125,23 +2644,29 @@
     "tags": [
       "Industrial Insulation"
     ],
-    "slug": "heat-insulation-cloth-ordinary-1784309335632-84"
+    "stock": 10,
+    "status": "Active",
+    "slug": "heat-insulation-cloth-ordinary-1784545937523-84",
+    "createdAt": "2026-07-20T11:12:17.558Z",
+    "updatedAt": "2026-07-20T11:12:17.558Z"
   },
   {
-    "_id": "iaa4kbkgp2rdp71alk8efd",
-    "createdAt": "2026-07-17T17:28:55.634Z",
-    "updatedAt": "2026-07-17T17:28:55.634Z",
+    "_id": "6a5e0291969540e9ca9b89eb",
     "name": "Shim (Brass & S.S)",
     "description": "Shim (Brass & S.S)",
     "shortDescription": "Shim (Brass & S.S)",
     "category": "Industrial Insulation",
     "subcategory": "",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069702842-0-5fz4",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "/mmmm/uploads/SKU-1782069702842-0-5fz4.jpg"
     ],
@@ -2149,23 +2674,29 @@
     "tags": [
       "Industrial Insulation"
     ],
-    "slug": "shim-brass-s-s-1784309335633-85"
+    "stock": 10,
+    "status": "Active",
+    "slug": "shim-brass-s-s-1784545937783-85",
+    "createdAt": "2026-07-20T11:12:17.830Z",
+    "updatedAt": "2026-07-20T11:12:17.830Z"
   },
   {
-    "_id": "ndnwxsi17meczbe0e9izt",
-    "createdAt": "2026-07-17T17:28:55.636Z",
-    "updatedAt": "2026-07-17T17:28:55.636Z",
+    "_id": "6a5e0291969540e9ca9b89ec",
     "name": "Felt Sheet",
     "description": "Felt Sheet",
     "shortDescription": "Felt Sheet",
     "category": "Industrial Insulation",
     "subcategory": "",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069702843-6-57jk",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "/mmmm/uploads/SKU-1782069702843-6-57jk.jpg"
     ],
@@ -2173,23 +2704,29 @@
     "tags": [
       "Industrial Insulation"
     ],
-    "slug": "felt-sheet-1784309335635-86"
+    "stock": 10,
+    "status": "Active",
+    "slug": "felt-sheet-1784545937882-86",
+    "createdAt": "2026-07-20T11:12:17.917Z",
+    "updatedAt": "2026-07-20T11:12:17.917Z"
   },
   {
-    "_id": "by4a9518ih5cv3r1l4jle",
-    "createdAt": "2026-07-17T17:28:55.638Z",
-    "updatedAt": "2026-07-17T17:28:55.638Z",
+    "_id": "6a5e0291969540e9ca9b89ed",
     "name": "Double Direction Thrust Ball Bearings",
     "description": "Double Direction Thrust Ball Bearings",
     "shortDescription": "Double Direction Thrust Ball Bearings",
     "category": "Bearings",
     "subcategory": "Thrust Ball Bearings",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069703116-0-3vva",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "https://belts-store.com/wp-content/uploads/2017/04/Double_direction_Thrust_Ball_Bearings-1.jpg"
     ],
@@ -2198,23 +2735,29 @@
       "Bearings",
       "Thrust Ball Bearings"
     ],
-    "slug": "double-direction-thrust-ball-bearings-1784309335636-87"
+    "stock": 10,
+    "status": "Active",
+    "slug": "double-direction-thrust-ball-bearings-1784545937948-87",
+    "createdAt": "2026-07-20T11:12:17.987Z",
+    "updatedAt": "2026-07-20T11:12:17.987Z"
   },
   {
-    "_id": "vvrcmj0c3lgc1eyul2ig65",
-    "createdAt": "2026-07-17T17:28:55.639Z",
-    "updatedAt": "2026-07-17T17:28:55.639Z",
+    "_id": "6a5e0292969540e9ca9b89ee",
     "name": "Double Direction Thrust Angular Contact Ball Bearings series",
     "description": "Double Direction Thrust Angular Contact Ball Bearings series",
     "shortDescription": "Double Direction Thrust Angular Contact Ball Bearings series",
     "category": "Bearings",
     "subcategory": "Thrust Ball Bearings",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069703117-6-9b9d",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "https://belts-store.com/wp-content/uploads/2017/04/Double_direction_Thrust_Ball_Bearings-1.jpg"
     ],
@@ -2223,23 +2766,29 @@
       "Bearings",
       "Thrust Ball Bearings"
     ],
-    "slug": "double-direction-thrust-angular-contact-ball-bearings-series-1784309335638-88"
+    "stock": 10,
+    "status": "Active",
+    "slug": "double-direction-thrust-angular-contact-ball-bearings-series-1784545938021-88",
+    "createdAt": "2026-07-20T11:12:18.058Z",
+    "updatedAt": "2026-07-20T11:12:18.058Z"
   },
   {
-    "_id": "bmzvn00ao9sqh56zfk4mr8",
-    "createdAt": "2026-07-17T17:28:55.641Z",
-    "updatedAt": "2026-07-17T17:28:55.641Z",
+    "_id": "6a5e0292969540e9ca9b89ef",
     "name": "Thrust Ball Bearings",
     "description": "Thrust Ball Bearings",
     "shortDescription": "Thrust Ball Bearings",
     "category": "Bearings",
     "subcategory": "Thrust Ball Bearings",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069703117-10-9g7n",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "https://belts-store.com/wp-content/uploads/2017/04/Double_direction_Thrust_Angular_Contact_Ball_Bearings_TAD_series-1.jpg"
     ],
@@ -2248,23 +2797,29 @@
       "Bearings",
       "Thrust Ball Bearings"
     ],
-    "slug": "thrust-ball-bearings-1784309335640-89"
+    "stock": 10,
+    "status": "Active",
+    "slug": "thrust-ball-bearings-1784545938099-89",
+    "createdAt": "2026-07-20T11:12:18.251Z",
+    "updatedAt": "2026-07-20T11:12:18.251Z"
   },
   {
-    "_id": "5wmi5j792pli3uxgidmwwn",
-    "createdAt": "2026-07-17T17:28:55.642Z",
-    "updatedAt": "2026-07-17T17:28:55.642Z",
+    "_id": "6a5e0292969540e9ca9b89f0",
     "name": "Tapered Roller Bearings",
     "description": "Tapered Roller Bearings",
     "shortDescription": "Tapered Roller Bearings",
     "category": "Bearings",
     "subcategory": "Radial Roller Bearings",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069703117-14-spjd",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "https://belts-store.com/wp-content/uploads/2017/04/Tapered_Roller_Bearings-1.jpg"
     ],
@@ -2273,23 +2828,29 @@
       "Bearings",
       "Radial Roller Bearings"
     ],
-    "slug": "tapered-roller-bearings-1784309335641-90"
+    "stock": 10,
+    "status": "Active",
+    "slug": "tapered-roller-bearings-1784545938298-90",
+    "createdAt": "2026-07-20T11:12:18.337Z",
+    "updatedAt": "2026-07-20T11:12:18.337Z"
   },
   {
-    "_id": "uqeud17fr38zgfqc14tlup",
-    "createdAt": "2026-07-17T17:28:55.644Z",
-    "updatedAt": "2026-07-17T17:28:55.644Z",
+    "_id": "6a5e0292969540e9ca9b89f1",
     "name": "Spherical Roller Thrust Bearings",
     "description": "Spherical Roller Thrust Bearings",
     "shortDescription": "Spherical Roller Thrust Bearings",
     "category": "Bearings",
     "subcategory": "Radial Roller Bearings",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069703117-18-xrd7",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "https://belts-store.com/wp-content/uploads/2017/04/Spherical_Roller_Thrust_Bearings-1.jpg"
     ],
@@ -2298,23 +2859,29 @@
       "Bearings",
       "Radial Roller Bearings"
     ],
-    "slug": "spherical-roller-thrust-bearings-1784309335643-91"
+    "stock": 10,
+    "status": "Active",
+    "slug": "spherical-roller-thrust-bearings-1784545938382-91",
+    "createdAt": "2026-07-20T11:12:18.442Z",
+    "updatedAt": "2026-07-20T11:12:18.442Z"
   },
   {
-    "_id": "c71qgfzm5cez9i74v08xif",
-    "createdAt": "2026-07-17T17:28:55.646Z",
-    "updatedAt": "2026-07-17T17:28:55.646Z",
+    "_id": "6a5e0292969540e9ca9b89f2",
     "name": "Spherical Roller Bearings",
     "description": "Spherical Roller Bearings",
     "shortDescription": "Spherical Roller Bearings",
     "category": "Bearings",
     "subcategory": "Radial Roller Bearings",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069703117-22-h4n4",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "https://belts-store.com/wp-content/uploads/2017/04/Spherical_Roller_Bearings-1.jpg"
     ],
@@ -2323,23 +2890,29 @@
       "Bearings",
       "Radial Roller Bearings"
     ],
-    "slug": "spherical-roller-bearings-1784309335644-92"
+    "stock": 10,
+    "status": "Active",
+    "slug": "spherical-roller-bearings-1784545938514-92",
+    "createdAt": "2026-07-20T11:12:18.551Z",
+    "updatedAt": "2026-07-20T11:12:18.551Z"
   },
   {
-    "_id": "10i1osovtwbjjh7enyqh2fi",
-    "createdAt": "2026-07-17T17:28:55.647Z",
-    "updatedAt": "2026-07-17T17:28:55.647Z",
+    "_id": "6a5e0292969540e9ca9b89f3",
     "name": "Double Row Tapered Roller Bearings",
     "description": "Double Row Tapered Roller Bearings",
     "shortDescription": "Double Row Tapered Roller Bearings",
     "category": "Bearings",
     "subcategory": "Radial Roller Bearings",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069703117-26-mcfj",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "https://belts-store.com/wp-content/uploads/2017/04/Double_row_Tapered_Roller_Bearings-1.jpg"
     ],
@@ -2348,23 +2921,29 @@
       "Bearings",
       "Radial Roller Bearings"
     ],
-    "slug": "double-row-tapered-roller-bearings-1784309335646-93"
+    "stock": 10,
+    "status": "Active",
+    "slug": "double-row-tapered-roller-bearings-1784545938765-93",
+    "createdAt": "2026-07-20T11:12:18.917Z",
+    "updatedAt": "2026-07-20T11:12:18.917Z"
   },
   {
-    "_id": "g29c22rx3kibuc5q3c9ztq",
-    "createdAt": "2026-07-17T17:28:55.649Z",
-    "updatedAt": "2026-07-17T17:28:55.649Z",
+    "_id": "6a5e0292969540e9ca9b89f4",
     "name": "Double Row Cylindrical Roller Bearings",
     "description": "Double Row Cylindrical Roller Bearings",
     "shortDescription": "Double Row Cylindrical Roller Bearings",
     "category": "Bearings",
     "subcategory": "Radial Roller Bearings",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069703117-30-ucrc",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "https://belts-store.com/wp-content/uploads/2017/04/Double_row_Cylindrical_Roller_Bearings-1.jpg"
     ],
@@ -2373,23 +2952,29 @@
       "Bearings",
       "Radial Roller Bearings"
     ],
-    "slug": "double-row-cylindrical-roller-bearings-1784309335648-94"
+    "stock": 10,
+    "status": "Active",
+    "slug": "double-row-cylindrical-roller-bearings-1784545938955-94",
+    "createdAt": "2026-07-20T11:12:18.998Z",
+    "updatedAt": "2026-07-20T11:12:18.998Z"
   },
   {
-    "_id": "7v6eccekz6xt4k1fuafbh",
-    "createdAt": "2026-07-17T17:28:55.650Z",
-    "updatedAt": "2026-07-17T17:28:55.650Z",
+    "_id": "6a5e0293969540e9ca9b89f5",
     "name": "Cylindrical Roller Bearings",
     "description": "Cylindrical Roller Bearings",
     "shortDescription": "Cylindrical Roller Bearings",
     "category": "Bearings",
     "subcategory": "Radial Roller Bearings",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069703118-34-10gz",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "https://belts-store.com/wp-content/uploads/2017/04/Cylindrical_Roller_Bearings-1.jpg"
     ],
@@ -2398,23 +2983,29 @@
       "Bearings",
       "Radial Roller Bearings"
     ],
-    "slug": "cylindrical-roller-bearings-1784309335649-95"
+    "stock": 10,
+    "status": "Active",
+    "slug": "cylindrical-roller-bearings-1784545939043-95",
+    "createdAt": "2026-07-20T11:12:19.279Z",
+    "updatedAt": "2026-07-20T11:12:19.279Z"
   },
   {
-    "_id": "99kt2ftcoml5ijo5su37r6",
-    "createdAt": "2026-07-17T17:28:55.652Z",
-    "updatedAt": "2026-07-17T17:28:55.652Z",
+    "_id": "6a5e0293969540e9ca9b89f6",
     "name": "Single row Angular Contact Ball Bearings",
     "description": "Single row Angular Contact Ball Bearings",
     "shortDescription": "Single row Angular Contact Ball Bearings",
     "category": "Bearings",
     "subcategory": "Radial Ball Bearings",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069703118-38-zclw",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "https://belts-store.com/wp-content/uploads/2017/04/Single_row_Angular_Contact_Ball_Bearings-1.jpg"
     ],
@@ -2423,23 +3014,29 @@
       "Bearings",
       "Radial Ball Bearings"
     ],
-    "slug": "single-row-angular-contact-ball-bearings-1784309335651-96"
+    "stock": 10,
+    "status": "Active",
+    "slug": "single-row-angular-contact-ball-bearings-1784545939326-96",
+    "createdAt": "2026-07-20T11:12:19.357Z",
+    "updatedAt": "2026-07-20T11:12:19.357Z"
   },
   {
-    "_id": "rb87qovjc9au5k8mxw3nfq",
-    "createdAt": "2026-07-17T17:28:55.653Z",
-    "updatedAt": "2026-07-17T17:28:55.653Z",
+    "_id": "6a5e0293969540e9ca9b89f7",
     "name": "Self aligning Ball Bearings",
     "description": "Self aligning Ball Bearings",
     "shortDescription": "Self aligning Ball Bearings",
     "category": "Bearings",
     "subcategory": "Radial Ball Bearings",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069703118-42-zlko",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "https://belts-store.com/wp-content/uploads/2017/04/Self_aligning_Ball_Bearings-1.jpg"
     ],
@@ -2448,23 +3045,29 @@
       "Bearings",
       "Radial Ball Bearings"
     ],
-    "slug": "self-aligning-ball-bearings-1784309335652-97"
+    "stock": 10,
+    "status": "Active",
+    "slug": "self-aligning-ball-bearings-1784545939421-97",
+    "createdAt": "2026-07-20T11:12:19.457Z",
+    "updatedAt": "2026-07-20T11:12:19.457Z"
   },
   {
-    "_id": "djyv61zwzo98gp5yacbn",
-    "createdAt": "2026-07-17T17:28:55.655Z",
-    "updatedAt": "2026-07-17T17:28:55.655Z",
+    "_id": "6a5e0293969540e9ca9b89f8",
     "name": "Double row Angular Contact Ball Bearings",
     "description": "Double row Angular Contact Ball Bearings",
     "shortDescription": "Double row Angular Contact Ball Bearings",
     "category": "Bearings",
     "subcategory": "Radial Ball Bearings",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069703118-46-9jow",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "https://belts-store.com/wp-content/uploads/2017/04/0901d196807ff274-1.png"
     ],
@@ -2473,23 +3076,29 @@
       "Bearings",
       "Radial Ball Bearings"
     ],
-    "slug": "double-row-angular-contact-ball-bearings-1784309335654-98"
+    "stock": 10,
+    "status": "Active",
+    "slug": "double-row-angular-contact-ball-bearings-1784545939502-98",
+    "createdAt": "2026-07-20T11:12:19.537Z",
+    "updatedAt": "2026-07-20T11:12:19.537Z"
   },
   {
-    "_id": "lo7olui8jlko05unqcvhv",
-    "createdAt": "2026-07-17T17:28:55.657Z",
-    "updatedAt": "2026-07-17T17:28:55.657Z",
+    "_id": "6a5e0293969540e9ca9b89f9",
     "name": "Combination Angular Contact Ball Bearings",
     "description": "Combination Angular Contact Ball Bearings",
     "shortDescription": "Combination Angular Contact Ball Bearings",
     "category": "Bearings",
     "subcategory": "Radial Ball Bearings",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069703903-0-3cj4",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "https://belts-store.com/wp-content/uploads/2017/04/Combination_Angular_Contact_Ball_Bearings-1.jpg"
     ],
@@ -2498,23 +3107,29 @@
       "Bearings",
       "Radial Ball Bearings"
     ],
-    "slug": "combination-angular-contact-ball-bearings-1784309335655-99"
+    "stock": 10,
+    "status": "Active",
+    "slug": "combination-angular-contact-ball-bearings-1784545939579-99",
+    "createdAt": "2026-07-20T11:12:19.794Z",
+    "updatedAt": "2026-07-20T11:12:19.794Z"
   },
   {
-    "_id": "h2rtvzyqonpsfbnub7ncxj",
-    "createdAt": "2026-07-17T17:28:55.658Z",
-    "updatedAt": "2026-07-17T17:28:55.658Z",
+    "_id": "6a5e0293969540e9ca9b89fa",
     "name": "Plummer Block Housing",
     "description": "Plummer Block Housing",
     "shortDescription": "Plummer Block Housing",
     "category": "Bearings",
     "subcategory": "Bearing Units and Plummer Block Housing",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069703903-6-f99f",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "https://belts-store.com/wp-content/uploads/2017/04/Plummer_Block_Housing-1.jpg"
     ],
@@ -2523,23 +3138,29 @@
       "Bearings",
       "Bearing Units and Plummer Block Housing"
     ],
-    "slug": "plummer-block-housing-1784309335657-100"
+    "stock": 10,
+    "status": "Active",
+    "slug": "plummer-block-housing-1784545939838-100",
+    "createdAt": "2026-07-20T11:12:19.886Z",
+    "updatedAt": "2026-07-20T11:12:19.886Z"
   },
   {
-    "_id": "d1o5pvfepp76e6g07g4z64",
-    "createdAt": "2026-07-17T17:28:55.660Z",
-    "updatedAt": "2026-07-17T17:28:55.660Z",
+    "_id": "6a5e0293969540e9ca9b89fb",
     "name": "Deep Groove Ball Bearings",
     "description": "Deep Groove Ball Bearings",
     "shortDescription": "Deep Groove Ball Bearings",
     "category": "Bearings",
     "subcategory": "Radial Ball Bearings",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069703903-10-dyln",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "https://belts-store.com/wp-content/uploads/2017/04/Deep_Groove_Ball_Bearings-1.jpg"
     ],
@@ -2548,23 +3169,29 @@
       "Bearings",
       "Radial Ball Bearings"
     ],
-    "slug": "deep-groove-ball-bearings-1784309335659-101"
+    "stock": 10,
+    "status": "Active",
+    "slug": "deep-groove-ball-bearings-1784545939927-101",
+    "createdAt": "2026-07-20T11:12:19.973Z",
+    "updatedAt": "2026-07-20T11:12:19.973Z"
   },
   {
-    "_id": "05d5bwfn8yhiwt65i6lvcag",
-    "createdAt": "2026-07-17T17:28:55.662Z",
-    "updatedAt": "2026-07-17T17:28:55.662Z",
+    "_id": "6a5e0294969540e9ca9b89fc",
     "name": "Bearing Unit",
     "description": "Bearing Unit",
     "shortDescription": "Bearing Unit",
     "category": "Bearings",
     "subcategory": "Bearing Units and Plummer Block Housing",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069703904-14-gwju",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "https://belts-store.com/wp-content/uploads/2011/07/BU_UCT-1.jpg"
     ],
@@ -2573,23 +3200,29 @@
       "Bearings",
       "Bearing Units and Plummer Block Housing"
     ],
-    "slug": "bearing-unit-1784309335660-102"
+    "stock": 10,
+    "status": "Active",
+    "slug": "bearing-unit-1784545940026-102",
+    "createdAt": "2026-07-20T11:12:20.067Z",
+    "updatedAt": "2026-07-20T11:12:20.067Z"
   },
   {
-    "_id": "lsvz6lvzkfq00hyf26bwor7f",
-    "createdAt": "2026-07-17T17:28:55.663Z",
-    "updatedAt": "2026-07-17T17:28:55.663Z",
+    "_id": "6a5e0294969540e9ca9b89fd",
     "name": "Connecting Links",
     "description": "Connecting Links",
     "shortDescription": "Connecting Links",
     "category": "Transmission Chains and Sprockets",
     "subcategory": "Transmission chain",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069704185-0-4bk6",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "/mmmm/uploads/SKU-1782069704185-0-4bk6.jpg"
     ],
@@ -2598,23 +3231,29 @@
       "Transmission Chains and Sprockets",
       "Transmission chain"
     ],
-    "slug": "connecting-links-1784309335662-103"
+    "stock": 10,
+    "status": "Active",
+    "slug": "connecting-links-1784545940111-103",
+    "createdAt": "2026-07-20T11:12:20.310Z",
+    "updatedAt": "2026-07-20T11:12:20.310Z"
   },
   {
-    "_id": "6ccycbkqwbn3q6usk5g3s5",
-    "createdAt": "2026-07-17T17:28:55.665Z",
-    "updatedAt": "2026-07-17T17:28:55.665Z",
+    "_id": "6a5e0294969540e9ca9b89fe",
     "name": "Chain Couplings",
     "description": "Chain Couplings",
     "shortDescription": "Chain Couplings",
     "category": "Transmission Chains and Sprockets",
     "subcategory": "Couplings",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069704186-6-o9tx",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "/mmmm/uploads/SKU-1782069704186-6-o9tx.png"
     ],
@@ -2623,23 +3262,29 @@
       "Transmission Chains and Sprockets",
       "Couplings"
     ],
-    "slug": "chain-couplings-1784309335664-104"
+    "stock": 10,
+    "status": "Active",
+    "slug": "chain-couplings-1784545940348-104",
+    "createdAt": "2026-07-20T11:12:20.387Z",
+    "updatedAt": "2026-07-20T11:12:20.387Z"
   },
   {
-    "_id": "5ce91lculejn1wi0m2moug",
-    "createdAt": "2026-07-17T17:28:55.667Z",
-    "updatedAt": "2026-07-17T17:28:55.667Z",
+    "_id": "6a5e0294969540e9ca9b89ff",
     "name": "Sprockets",
     "description": "Sprockets",
     "shortDescription": "Sprockets",
     "category": "Transmission Chains and Sprockets",
     "subcategory": "Sprockets",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069704186-10-esfa",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "/mmmm/uploads/SKU-1782069704186-10-esfa.jpg"
     ],
@@ -2648,23 +3293,29 @@
       "Transmission Chains and Sprockets",
       "Sprockets"
     ],
-    "slug": "sprockets-1784309335666-105"
+    "stock": 10,
+    "status": "Active",
+    "slug": "sprockets-1784545940428-105",
+    "createdAt": "2026-07-20T11:12:20.467Z",
+    "updatedAt": "2026-07-20T11:12:20.467Z"
   },
   {
-    "_id": "t2qxiq38widsep8n3uw3pm",
-    "createdAt": "2026-07-17T17:28:55.668Z",
-    "updatedAt": "2026-07-17T17:28:55.668Z",
+    "_id": "6a5e0294969540e9ca9b8a00",
     "name": "Offset Links",
     "description": "Offset Links",
     "shortDescription": "Offset Links",
     "category": "Transmission Chains and Sprockets",
     "subcategory": "Transmission chain",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069704186-18-qs8x",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "/mmmm/uploads/SKU-1782069704186-18-qs8x.jpg"
     ],
@@ -2673,23 +3324,29 @@
       "Transmission Chains and Sprockets",
       "Transmission chain"
     ],
-    "slug": "offset-links-1784309335667-106"
+    "stock": 10,
+    "status": "Active",
+    "slug": "offset-links-1784545940526-106",
+    "createdAt": "2026-07-20T11:12:20.557Z",
+    "updatedAt": "2026-07-20T11:12:20.557Z"
   },
   {
-    "_id": "k143zbxn9coiit21owmnbm",
-    "createdAt": "2026-07-17T17:28:55.670Z",
-    "updatedAt": "2026-07-17T17:28:55.670Z",
+    "_id": "6a5e0294969540e9ca9b8a01",
     "name": "Hollow Pin Chain",
     "description": "Hollow Pin Chain",
     "shortDescription": "Hollow Pin Chain",
     "category": "Transmission Chains and Sprockets",
     "subcategory": "Transmission chain",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069704186-22-e3ij",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "/mmmm/uploads/SKU-1782069704186-22-e3ij.jpg"
     ],
@@ -2698,23 +3355,29 @@
       "Transmission Chains and Sprockets",
       "Transmission chain"
     ],
-    "slug": "hollow-pin-chain-1784309335669-107"
+    "stock": 10,
+    "status": "Active",
+    "slug": "hollow-pin-chain-1784545940577-107",
+    "createdAt": "2026-07-20T11:12:20.622Z",
+    "updatedAt": "2026-07-20T11:12:20.622Z"
   },
   {
-    "_id": "74fvp31e1koaikjriq2gqh",
-    "createdAt": "2026-07-17T17:28:55.672Z",
-    "updatedAt": "2026-07-17T17:28:55.672Z",
+    "_id": "6a5e0294969540e9ca9b8a02",
     "name": "Conveyor Chain with Attachment",
     "description": "Conveyor Chain with Attachment",
     "shortDescription": "Conveyor Chain with Attachment",
     "category": "Transmission Chains and Sprockets",
     "subcategory": "Transmission chain",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069704187-26-rs7o",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "/mmmm/uploads/SKU-1782069704187-26-rs7o.jpg"
     ],
@@ -2723,23 +3386,29 @@
       "Transmission Chains and Sprockets",
       "Transmission chain"
     ],
-    "slug": "conveyor-chain-with-attachment-1784309335670-108"
+    "stock": 10,
+    "status": "Active",
+    "slug": "conveyor-chain-with-attachment-1784545940823-108",
+    "createdAt": "2026-07-20T11:12:20.856Z",
+    "updatedAt": "2026-07-20T11:12:20.856Z"
   },
   {
-    "_id": "zbtgyf0pu8clsdylfuo1q",
-    "createdAt": "2026-07-17T17:28:55.674Z",
-    "updatedAt": "2026-07-17T17:28:55.674Z",
+    "_id": "6a5e0294969540e9ca9b8a03",
     "name": "Conveyor Chain",
     "description": "Conveyor Chain",
     "shortDescription": "Conveyor Chain",
     "category": "Transmission Chains and Sprockets",
     "subcategory": "Transmission chain",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069704187-30-kbax",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "/mmmm/uploads/SKU-1782069704187-30-kbax.jpg"
     ],
@@ -2748,23 +3417,29 @@
       "Transmission Chains and Sprockets",
       "Transmission chain"
     ],
-    "slug": "conveyor-chain-1784309335672-109"
+    "stock": 10,
+    "status": "Active",
+    "slug": "conveyor-chain-1784545940892-109",
+    "createdAt": "2026-07-20T11:12:20.927Z",
+    "updatedAt": "2026-07-20T11:12:20.927Z"
   },
   {
-    "_id": "3cabx35xusv92t1goi675n",
-    "createdAt": "2026-07-17T17:28:55.675Z",
-    "updatedAt": "2026-07-17T17:28:55.675Z",
+    "_id": "6a5e0294969540e9ca9b8a04",
     "name": "Stainless Steel Chains",
     "description": "Stainless Steel Chains",
     "shortDescription": "Stainless Steel Chains",
     "category": "Transmission Chains and Sprockets",
     "subcategory": "Transmission chain",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069704187-34-8cfl",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "/mmmm/uploads/SKU-1782069704187-34-8cfl.jpg"
     ],
@@ -2773,23 +3448,29 @@
       "Transmission Chains and Sprockets",
       "Transmission chain"
     ],
-    "slug": "stainless-steel-chains-1784309335674-110"
+    "stock": 10,
+    "status": "Active",
+    "slug": "stainless-steel-chains-1784545940961-110",
+    "createdAt": "2026-07-20T11:12:20.996Z",
+    "updatedAt": "2026-07-20T11:12:20.996Z"
   },
   {
-    "_id": "kbxr1stw3ngiez85qgpta",
-    "createdAt": "2026-07-17T17:28:55.677Z",
-    "updatedAt": "2026-07-17T17:28:55.677Z",
+    "_id": "6a5e0295969540e9ca9b8a05",
     "name": "Leaf Chain",
     "description": "Leaf Chain",
     "shortDescription": "Leaf Chain",
     "category": "Transmission Chains and Sprockets",
     "subcategory": "Transmission chain",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069704187-38-mb46",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "/mmmm/uploads/SKU-1782069704187-38-mb46.jpg"
     ],
@@ -2798,23 +3479,29 @@
       "Transmission Chains and Sprockets",
       "Transmission chain"
     ],
-    "slug": "leaf-chain-1784309335676-111"
+    "stock": 10,
+    "status": "Active",
+    "slug": "leaf-chain-1784545941036-111",
+    "createdAt": "2026-07-20T11:12:21.361Z",
+    "updatedAt": "2026-07-20T11:12:21.361Z"
   },
   {
-    "_id": "aiyz0tdviq9axijildt0xk",
-    "createdAt": "2026-07-17T17:28:55.680Z",
-    "updatedAt": "2026-07-17T17:28:55.680Z",
+    "_id": "6a5e0295969540e9ca9b8a06",
     "name": "Agricultural Roller Chain",
     "description": "Agricultural Roller Chain",
     "shortDescription": "Agricultural Roller Chain",
     "category": "Transmission Chains and Sprockets",
     "subcategory": "Transmission chain",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069704187-42-1mn0",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "/mmmm/uploads/SKU-1782069704187-42-1mn0.jpg"
     ],
@@ -2823,23 +3510,29 @@
       "Transmission Chains and Sprockets",
       "Transmission chain"
     ],
-    "slug": "agricultural-roller-chain-1784309335678-112"
+    "stock": 10,
+    "status": "Active",
+    "slug": "agricultural-roller-chain-1784545941444-112",
+    "createdAt": "2026-07-20T11:12:21.544Z",
+    "updatedAt": "2026-07-20T11:12:21.544Z"
   },
   {
-    "_id": "csk5vxf32thuy6idzp204k",
-    "createdAt": "2026-07-17T17:28:55.681Z",
-    "updatedAt": "2026-07-17T17:28:55.681Z",
+    "_id": "6a5e0295969540e9ca9b8a07",
     "name": "Silent Chain",
     "description": "Silent Chain",
     "shortDescription": "Silent Chain",
     "category": "Transmission Chains and Sprockets",
     "subcategory": "Transmission chain",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069704187-46-5tbu",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "/mmmm/uploads/SKU-1782069704187-46-5tbu.jpg"
     ],
@@ -2848,23 +3541,29 @@
       "Transmission Chains and Sprockets",
       "Transmission chain"
     ],
-    "slug": "silent-chain-1784309335680-113"
+    "stock": 10,
+    "status": "Active",
+    "slug": "silent-chain-1784545941583-113",
+    "createdAt": "2026-07-20T11:12:21.708Z",
+    "updatedAt": "2026-07-20T11:12:21.708Z"
   },
   {
-    "_id": "4ya14he8aah99v7ddnvy8",
-    "createdAt": "2026-07-17T17:28:55.683Z",
-    "updatedAt": "2026-07-17T17:28:55.683Z",
+    "_id": "6a5e0295969540e9ca9b8a08",
     "name": "Specialty Chain Series",
     "description": "Specialty Chain Series",
     "shortDescription": "Specialty Chain Series",
     "category": "Transmission Chains and Sprockets",
     "subcategory": "Transmission chain",
     "brand": "",
+    "name_ar": "",
+    "description_ar": "",
+    "shortDescription_ar": "",
+    "category_ar": "",
+    "subcategory_ar": "",
+    "brand_ar": "",
     "sku": "SKU-1782069704974-0-el56",
     "price": 0,
     "discountPrice": 0,
-    "stock": 10,
-    "status": "Active",
     "images": [
       "/mmmm/uploads/SKU-1782069704974-0-el56.jpg"
     ],
@@ -2873,31 +3572,10 @@
       "Transmission Chains and Sprockets",
       "Transmission chain"
     ],
-    "slug": "specialty-chain-series-1784309335682-114"
-  },
-  {
-    "_id": "iuq1bgfbfvkq93oxs348it",
-    "createdAt": "2026-07-17T18:13:40.486Z",
-    "updatedAt": "2026-07-17T18:15:46.623Z",
-    "name": "Habasit Belts",
-    "description": "Power transmission route\nComposite construction with three different traction layers of material covered with NBR rubber (partially with elastomer or leather), with different textures on both sides of the surface, in asymmetric and symmetrical patterns.\n\nAsymmetrical construction: Flat belts, TF series, and partially TCF.\n\nSymmetrical construction: Flat and transverse belts S, SP, CM, TC, and partially TF series.\n\n\nConveyor belt design\nHabaset conveyor and processing belts are generally manufactured from various layers, with tensile strength provided by layers of synthetic fabric. These fabrics are bonded to layers of thermoplastic material in multi-layered or fabric-layered conveyor belts.\n\n\nتصميم السير الناقل\nMost heavy conveyor belts are produced with an interwoven or nonwoven “single ply” construction. The material, thickness and texture of the conveying side depend on the function of the belt.\nCover coatings are mainly made of thermoplastic materials like TPU, TPO, PVC, etc., and elastomer-like rubbers, PUR, etc. – or feature a fabric cover. The running side is usually a fabric, often impregnated with a thermoplastic material, or with special wear-resistant PUR that provides a low and constant coefficient of friction. There are also pulley-side fabrics that feature special low-noise running capabilities.",
-    "shortDescription": "",
-    "category": "Belts Power Transmission",
-    "subcategory": "Special Belts",
-    "brand": "Conveyor belt design",
-    "sku": "SKU-1000-SP-HB-5xzc-h9gw",
-    "price": 20,
-    "discountPrice": 0,
     "stock": 10,
     "status": "Active",
-    "images": [
-      "https://res.cloudinary.com/wnkeo9se/image/upload/v1784312019/belts-store/1784312015852_Screenshot_2026-07-17_212024.jpg"
-    ],
-    "specifications": {},
-    "tags": [
-      "Belts Power Transmission",
-      "Special Belts"
-    ],
-    "slug": "habasit-belts-1784312146620"
+    "slug": "specialty-chain-series-1784545941744-114",
+    "createdAt": "2026-07-20T11:12:21.785Z",
+    "updatedAt": "2026-07-20T11:12:21.785Z"
   }
 ]
