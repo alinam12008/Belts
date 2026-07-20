@@ -373,7 +373,10 @@
     "images": [
       "/mmmm/uploads/SKU-1782069697840-0-ihtq.jpg"
     ],
-    "specifications": {},
+    "specifications": {
+      "Sections": "XPZ, XPA, XPB, XPC, 3VX/9NX, 5VX/15NX",
+      "Dimensions": "From 587 up to 3,550 mm"
+    },
     "tags": [
       "Belts Power Transmission",
       "V Belts"
@@ -382,7 +385,7 @@
     "status": "Active",
     "slug": "v-belt-raw-edge-moulded-cogged-1784545930099-13",
     "createdAt": "2026-07-20T11:12:10.138Z",
-    "updatedAt": "2026-07-20T21:40:06.818Z"
+    "updatedAt": "2026-07-20T21:57:17.633Z"
   },
   {
     "_id": "6a5e028a969540e9ca9b89a4",
@@ -404,7 +407,10 @@
     "images": [
       "https://belts-store.com/wp-content/uploads/2011/07/BluePower-1.jpg"
     ],
-    "specifications": {},
+    "specifications": {
+      "Sections": "A/4L – B/5L",
+      "Dimensions": "20 – 47 mm (450 -1150 mm)"
+    },
     "tags": [
       "Belts Power Transmission",
       "V Belts"
@@ -413,7 +419,7 @@
     "status": "Active",
     "slug": "optibelt-hvac-power-1784545930169-14",
     "createdAt": "2026-07-20T11:12:10.208Z",
-    "updatedAt": "2026-07-20T21:40:07.631Z"
+    "updatedAt": "2026-07-20T21:57:17.649Z"
   },
   {
     "_id": "6a5e028a969540e9ca9b89a5",
@@ -435,7 +441,10 @@
     "images": [
       "https://belts-store.com/wp-content/uploads/2011/07/industrie_hvac-power-1.jpg"
     ],
-    "specifications": {},
+    "specifications": {
+      "Sections": "SPB, SPC and 8V/25N",
+      "Dimensions": "From 1,500 up to 9,000 mm"
+    },
     "tags": [
       "Belts Power Transmission",
       "V Belts"
@@ -444,7 +453,7 @@
     "status": "Active",
     "slug": "high-performance-wedge-belts-with-aramid-cord-1784545930250-15",
     "createdAt": "2026-07-20T11:12:10.286Z",
-    "updatedAt": "2026-07-20T21:40:08.357Z"
+    "updatedAt": "2026-07-20T21:57:17.657Z"
   },
   {
     "_id": "6a5e028a969540e9ca9b89a6",
@@ -466,7 +475,10 @@
     "images": [
       "https://belts-store.com/wp-content/uploads/2011/07/industrie_red_power-1.jpg"
     ],
-    "specifications": {},
+    "specifications": {
+      "Sections": "SPZ, SPA, SPB, SPC, 3V/9N, 5V/15N, 8V/25N",
+      "Dimensions": "From 1,200 up to 12,000 mm"
+    },
     "tags": [
       "Belts Power Transmission",
       "V Belts"
@@ -475,7 +487,7 @@
     "status": "Active",
     "slug": "high-power-wedge-belt-maintenance-free-1784545930322-16",
     "createdAt": "2026-07-20T11:12:10.363Z",
-    "updatedAt": "2026-07-20T21:40:09.183Z"
+    "updatedAt": "2026-07-20T21:57:17.665Z"
   },
   {
     "_id": "6a5e028a969540e9ca9b89a7",
@@ -651,7 +663,10 @@
     "images": [
       "https://belts-store.com/wp-content/uploads/2011/07/RTEmagicC_optibelt_RB-1.gif-1.gif"
     ],
-    "specifications": {},
+    "specifications": {
+      "Sections": "EPH, EPJ",
+      "Dimensions": "The belt length is dependent upon the respective section."
+    },
     "tags": [
       "Belts Power Transmission",
       "Ribbed Belts"
@@ -660,7 +675,7 @@
     "status": "Active",
     "slug": "elastic-ribbed-belt-1784545930951-22",
     "createdAt": "2026-07-20T11:12:10.988Z",
-    "updatedAt": "2026-07-20T21:40:12.889Z"
+    "updatedAt": "2026-07-20T21:57:17.701Z"
   },
   {
     "_id": "6a5e028b969540e9ca9b89ad",
@@ -682,7 +697,10 @@
     "images": [
       "https://belts-store.com/wp-content/uploads/2011/07/RTEmagicC_optibelt_RB-1.gif"
     ],
-    "specifications": {},
+    "specifications": {
+      "Sections": "PH, PJ, PK, PL, PM",
+      "Dimensions": "The belt length is dependent upon the respective section."
+    },
     "tags": [
       "Belts Power Transmission",
       "Ribbed Belts"
@@ -691,7 +709,7 @@
     "status": "Active",
     "slug": "ribbed-belt-1784545931031-23",
     "createdAt": "2026-07-20T11:12:11.067Z",
-    "updatedAt": "2026-07-20T21:40:13.533Z"
+    "updatedAt": "2026-07-20T21:57:17.713Z"
   },
   {
     "_id": "6a5e028b969540e9ca9b89ae",
@@ -837,7 +855,9 @@
     "images": [
       "https://belts-store.com/wp-content/uploads/2011/07/messlatte-1.jpg"
     ],
-    "specifications": {},
+    "specifications": {
+      "Measuring range": "500-2,500 mm inside length (L)"
+    },
     "tags": [
       "Belts Power Transmission",
       "Repair Kits and Tension Tools"
@@ -846,7 +866,7 @@
     "status": "Active",
     "slug": "measuring-gauge-1784545931422-28",
     "createdAt": "2026-07-20T11:12:11.467Z",
-    "updatedAt": "2026-07-20T21:40:17.165Z"
+    "updatedAt": "2026-07-20T21:55:03.717Z"
   },
   {
     "_id": "6a5e028b969540e9ca9b89b3",
@@ -899,7 +919,9 @@
     "images": [
       "https://belts-store.com/wp-content/uploads/2011/07/transmsn_blt-1.jpg"
     ],
-    "specifications": {},
+    "specifications": {
+      "Sections": "from 2″ (inch) to 12″ (inch)"
+    },
     "tags": [
       "Belts Power Transmission",
       "Special Belts"
@@ -908,7 +930,7 @@
     "status": "Active",
     "slug": "agricultural-transmission-belts-1784545931621-30",
     "createdAt": "2026-07-20T11:12:11.657Z",
-    "updatedAt": "2026-07-20T21:40:18.499Z"
+    "updatedAt": "2026-07-20T21:57:17.721Z"
   },
   {
     "_id": "6a5e028b969540e9ca9b89b5",
@@ -930,7 +952,10 @@
     "images": [
       "https://belts-store.com/wp-content/uploads/2011/07/V_ROPE_LACING-1-1.jpg"
     ],
-    "specifications": {},
+    "specifications": {
+      "Sections": "A/13, B/17, C/22",
+      "Dimensions": "Open"
+    },
     "tags": [
       "Belts Power Transmission",
       "Special Belts"
@@ -939,7 +964,7 @@
     "status": "Active",
     "slug": "emergency-belt-use-fastener-to-join-1784545931698-31",
     "createdAt": "2026-07-20T11:12:11.737Z",
-    "updatedAt": "2026-07-20T21:40:19.212Z"
+    "updatedAt": "2026-07-20T21:57:17.728Z"
   },
   {
     "_id": "6a5e028b969540e9ca9b89b6",
@@ -961,7 +986,10 @@
     "images": [
       "https://belts-store.com/wp-content/uploads/2011/07/Belts_Emergency_small-1.jpg"
     ],
-    "specifications": {},
+    "specifications": {
+      "Sections": "A/13, B/17, C/22",
+      "Dimensions": "Open"
+    },
     "tags": [
       "Belts Power Transmission",
       "Special Belts"
@@ -970,7 +998,7 @@
     "status": "Active",
     "slug": "emergency-belt-comes-with-bolt-for-adjustment-1784545931781-32",
     "createdAt": "2026-07-20T11:12:11.819Z",
-    "updatedAt": "2026-07-20T21:40:19.862Z"
+    "updatedAt": "2026-07-20T21:57:17.736Z"
   },
   {
     "_id": "6a5e028b969540e9ca9b89b7",
@@ -1084,7 +1112,10 @@
     "images": [
       "https://belts-store.com/wp-content/uploads/2011/07/omega_hl-1.jpg"
     ],
-    "specifications": {},
+    "specifications": {
+      "Sections": "S3M, S5M, S8M, S14",
+      "M Dimensions": "From 120 up to 5012 mm"
+    },
     "tags": [
       "Belts Power Transmission",
       "Timing Belts"
@@ -1093,7 +1124,7 @@
     "status": "Active",
     "slug": "timing-belt-maintenance-free-optibelt-1784545932101-36",
     "createdAt": "2026-07-20T11:12:12.147Z",
-    "updatedAt": "2026-07-20T21:40:22.919Z"
+    "updatedAt": "2026-07-20T21:57:17.744Z"
   },
   {
     "_id": "6a5e028c969540e9ca9b89bb",
@@ -1115,7 +1146,10 @@
     "images": [
       "https://belts-store.com/wp-content/uploads/2011/07/rte_zr_zrd-1.png"
     ],
-    "specifications": {},
+    "specifications": {
+      "Sections": "MXL, XL, L, H, XH, XXH",
+      "Dimensions": "From 91 up to 4,572 mm"
+    },
     "tags": [
       "Belts Power Transmission",
       "Timing Belts"
@@ -1124,7 +1158,7 @@
     "status": "Active",
     "slug": "timing-belt-double-section-timing-belt-1784545932182-37",
     "createdAt": "2026-07-20T11:12:12.226Z",
-    "updatedAt": "2026-07-20T21:40:23.611Z"
+    "updatedAt": "2026-07-20T21:57:17.753Z"
   },
   {
     "_id": "6a5e028c969540e9ca9b89bc",
@@ -1146,7 +1180,9 @@
     "images": [
       "https://belts-store.com/wp-content/uploads/2011/07/alpha_power-1.jpg"
     ],
-    "specifications": {},
+    "specifications": {
+      "Sections": "T2,5; T5; T10; AT5; AT10; double timing belt DT5 and DT10Dimensions : From 120 up to 2,250 mm"
+    },
     "tags": [
       "Belts Power Transmission",
       "Timing Belts"
@@ -1155,7 +1191,7 @@
     "status": "Active",
     "slug": "high-performance-polyurethane-timing-belt-1784545932260-38",
     "createdAt": "2026-07-20T11:12:12.297Z",
-    "updatedAt": "2026-07-20T21:40:24.327Z"
+    "updatedAt": "2026-07-20T21:57:17.761Z"
   },
   {
     "_id": "6a5e028c969540e9ca9b89bd",
@@ -1177,7 +1213,10 @@
     "images": [
       "https://belts-store.com/wp-content/uploads/2011/07/RTEmagicC_alpa_kl_mg-1.gif-1.gif"
     ],
-    "specifications": {},
+    "specifications": {
+      "Sections": "T2,5, T5, T10, T20, AT5, AT10, AT20",
+      "Dimensions": "From 120 up to 2,350 mm"
+    },
     "tags": [
       "Belts Power Transmission",
       "Timing Belts"
@@ -1186,7 +1225,7 @@
     "status": "Active",
     "slug": "double-section-timing-metric-single-and-sleeve-1784545932337-39",
     "createdAt": "2026-07-20T11:12:12.367Z",
-    "updatedAt": "2026-07-20T21:40:25.043Z"
+    "updatedAt": "2026-07-20T21:57:17.769Z"
   },
   {
     "_id": "6a5e028c969540e9ca9b89be",
@@ -1239,7 +1278,10 @@
     "images": [
       "https://belts-store.com/wp-content/uploads/2011/07/industrie_blue_power-2.jpg"
     ],
-    "specifications": {},
+    "specifications": {
+      "Sections": "3V/9J, 5V/15J, 8V/25J",
+      "Dimensions": "From 1,200 up to 12,000 mm"
+    },
     "tags": [
       "Belts Power Transmission",
       "V Belts"
@@ -1248,7 +1290,7 @@
     "status": "Active",
     "slug": "high-performance-wedge-belt-with-aramid-cord-1784545932501-41",
     "createdAt": "2026-07-20T11:12:12.536Z",
-    "updatedAt": "2026-07-20T21:40:26.374Z"
+    "updatedAt": "2026-07-20T21:57:17.776Z"
   },
   {
     "_id": "6a5e028c969540e9ca9b89c0",
@@ -1270,7 +1312,10 @@
     "images": [
       "https://belts-store.com/wp-content/uploads/2011/07/RTEmagicC_omega_linear_gif-1.gif"
     ],
-    "specifications": {},
+    "specifications": {
+      "Sections": "OMEGA 3M, OMEGA 5M 10, OMEGA 8M 10",
+      "Dimensions": "Rolls measuring 30 m"
+    },
     "tags": [
       "Belts Power Transmission",
       "Timing Belts"
@@ -1279,7 +1324,7 @@
     "status": "Active",
     "slug": "endless-timing-belt-1784545932583-42",
     "createdAt": "2026-07-20T11:12:12.628Z",
-    "updatedAt": "2026-07-20T21:40:27.020Z"
+    "updatedAt": "2026-07-20T21:57:17.785Z"
   },
   {
     "_id": "6a5e028c969540e9ca9b89c1",
@@ -1301,7 +1346,10 @@
     "images": [
       "https://belts-store.com/wp-content/uploads/2011/07/industrie_kb_red_power-1.jpg"
     ],
-    "specifications": {},
+    "specifications": {
+      "Sections": "3V/9J, 5V/15J, 8V/25J, SPB, SPC",
+      "Dimensions": "From 1,270 up to 12,000 mm"
+    },
     "tags": [
       "Belts Power Transmission",
       "V Belts"
@@ -1310,7 +1358,7 @@
     "status": "Active",
     "slug": "high-power-banded-kraftband-raw-edge-1784545932672-43",
     "createdAt": "2026-07-20T11:12:12.707Z",
-    "updatedAt": "2026-07-20T21:40:27.709Z"
+    "updatedAt": "2026-07-20T21:57:17.792Z"
   },
   {
     "_id": "6a5e028c969540e9ca9b89c2",
@@ -1332,7 +1380,10 @@
     "images": [
       "https://belts-store.com/wp-content/uploads/2011/07/industrie_super_kbx_power-1.jpg"
     ],
-    "specifications": {},
+    "specifications": {
+      "Sections": "3VX/9JX, 5VX/15JX,",
+      "XPB Dimensions": "From 1,250 up to 3,550 mm"
+    },
     "tags": [
       "Belts Power Transmission",
       "V Belts"
@@ -1341,7 +1392,7 @@
     "status": "Active",
     "slug": "banded-kraftband-wrapped-belt-1784545932749-44",
     "createdAt": "2026-07-20T11:12:12.788Z",
-    "updatedAt": "2026-07-20T21:40:28.423Z"
+    "updatedAt": "2026-07-20T21:57:17.801Z"
   },
   {
     "_id": "6a5e028c969540e9ca9b89c3",
@@ -1363,7 +1414,10 @@
     "images": [
       "https://belts-store.com/wp-content/uploads/2011/07/rte_alpa_v_kl_mg-1.gif"
     ],
-    "specifications": {},
+    "specifications": {
+      "Sections": "L, H, XH, T5, T10, T20",
+      "Dimensions": "Metre goods from 600 mm"
+    },
     "tags": [
       "Belts Power Transmission",
       "Timing Belts"
@@ -1372,7 +1426,7 @@
     "status": "Active",
     "slug": "endless-welded-belts-1784545932829-45",
     "createdAt": "2026-07-20T11:12:12.862Z",
-    "updatedAt": "2026-07-20T21:40:29.138Z"
+    "updatedAt": "2026-07-20T21:57:17.809Z"
   },
   {
     "_id": "6a5e028c969540e9ca9b89c4",
@@ -1607,7 +1661,12 @@
     "images": [
       "https://belts-store.com/wp-content/uploads/2011/01/Conveying_Screen-1.jpg"
     ],
-    "specifications": {},
+    "specifications": {
+      "Type": "Steel Screen",
+      "Sizes (Opening)": "from 1mm to 85mm",
+      "Width": "1.2 MTR X 2.00 MTR",
+      "Wire Thickness": "varies depend on the opening size"
+    },
     "tags": [
       "Conveying Accessories",
       "Conveying Accessorise"
@@ -1616,7 +1675,7 @@
     "status": "Active",
     "slug": "crusher-screen-1784545933389-53",
     "createdAt": "2026-07-20T11:12:13.427Z",
-    "updatedAt": "2026-07-20T21:40:34.797Z"
+    "updatedAt": "2026-07-20T21:55:03.734Z"
   },
   {
     "_id": "6a5e028d969540e9ca9b89cc",
@@ -1669,7 +1728,12 @@
     "images": [
       "https://belts-store.com/wp-content/uploads/2011/01/Conveying_CBR-1.jpg"
     ],
-    "specifications": {},
+    "specifications": {
+      "Type": "EP200",
+      "Ply": "2ply",
+      "Width": "from 400mm to 1000mm / (40-100 cm)",
+      "Length": "up to 300 MTR"
+    },
     "tags": [
       "Conveying Accessories",
       "Conveying Accessorise"
@@ -1678,7 +1742,7 @@
     "status": "Active",
     "slug": "rough-top-belts-1784545933562-55",
     "createdAt": "2026-07-20T11:12:13.586Z",
-    "updatedAt": "2026-07-20T21:40:38.458Z"
+    "updatedAt": "2026-07-20T21:55:03.745Z"
   },
   {
     "_id": "6a5e028d969540e9ca9b89ce",
@@ -1700,7 +1764,12 @@
     "images": [
       "https://belts-store.com/wp-content/uploads/2011/01/Conveying_CBC-1.jpg"
     ],
-    "specifications": {},
+    "specifications": {
+      "Type": "EP315",
+      "Ply": "3ply",
+      "Width": "from 400mm to 1200mm / (40-120 cm)",
+      "Length": "up to customer requirement."
+    },
     "tags": [
       "Conveying Accessories",
       "Conveying Accessorise"
@@ -1709,7 +1778,7 @@
     "status": "Active",
     "slug": "chevron-conveyor-belts-1784545933635-56",
     "createdAt": "2026-07-20T11:12:13.669Z",
-    "updatedAt": "2026-07-20T21:40:39.376Z"
+    "updatedAt": "2026-07-20T21:55:03.755Z"
   },
   {
     "_id": "6a5e028d969540e9ca9b89cf",
@@ -1731,7 +1800,9 @@
     "images": [
       "https://belts-store.com/wp-content/uploads/2011/01/BF-1.gif"
     ],
-    "specifications": {},
+    "specifications": {
+      "Size": "1″, 1.25″, 1.50″, 2.00″, 2.50″ (inch)"
+    },
     "tags": [
       "Conveying Accessories",
       "Conveying Accessorise"
@@ -1740,7 +1811,7 @@
     "status": "Active",
     "slug": "conveyor-belts-fasteners-1784545933697-57",
     "createdAt": "2026-07-20T11:12:13.724Z",
-    "updatedAt": "2026-07-20T21:40:40.306Z"
+    "updatedAt": "2026-07-20T21:55:03.764Z"
   },
   {
     "_id": "6a5e028d969540e9ca9b89d0",
@@ -1855,7 +1926,10 @@
     "images": [
       "https://belts-store.com/wp-content/uploads/2011/01/Conveying_Spring-1.jpg"
     ],
-    "specifications": {},
+    "specifications": {
+      "Type": "Steel",
+      "Sizes": "28mm    X146mm X320mm"
+    },
     "tags": [
       "Conveying Accessories",
       "Conveying Accessorise"
@@ -1864,7 +1938,7 @@
     "status": "Active",
     "slug": "crusher-spring-1784545934271-61",
     "createdAt": "2026-07-20T11:12:14.376Z",
-    "updatedAt": "2026-07-20T21:40:45.143Z"
+    "updatedAt": "2026-07-20T21:55:03.772Z"
   },
   {
     "_id": "6a5e028e969540e9ca9b89d4",
@@ -1886,7 +1960,9 @@
     "images": [
       "https://belts-store.com/wp-content/uploads/2011/07/Steel_Belt_Lacing-1.jpg"
     ],
-    "specifications": {},
+    "specifications": {
+      "Size": "No. 15, 20, 25G, 27L, 35N, 45U"
+    },
     "tags": [
       "Conveying Accessories",
       "Conveying Accessorise"
@@ -1895,7 +1971,7 @@
     "status": "Active",
     "slug": "steel-belts-lacing-1784545934551-62",
     "createdAt": "2026-07-20T11:12:14.593Z",
-    "updatedAt": "2026-07-20T21:40:46.442Z"
+    "updatedAt": "2026-07-20T21:55:03.780Z"
   },
   {
     "_id": "6a5e028e969540e9ca9b89d5",
@@ -2217,7 +2293,10 @@
     "images": [
       "/mmmm/uploads/SKU-1782069702060-0-fruu.jpg"
     ],
-    "specifications": {},
+    "specifications": {
+      "Sheet Sizes": "100 cm X 1.00 cm",
+      "Thickness Available": "1.0, 1.5, 2.0, 3.0 mm"
+    },
     "tags": [
       "Industrial Insulation"
     ],
@@ -2225,7 +2304,7 @@
     "status": "Active",
     "slug": "gasket-graphite-with-steel-sheet-1784545935841-73",
     "createdAt": "2026-07-20T11:12:15.877Z",
-    "updatedAt": "2026-07-20T21:40:56.443Z"
+    "updatedAt": "2026-07-20T21:57:17.817Z"
   },
   {
     "_id": "6a5e028f969540e9ca9b89e0",
@@ -2247,7 +2326,11 @@
     "images": [
       "/mmmm/uploads/SKU-1782069702061-6-j0x1.jpg"
     ],
-    "specifications": {},
+    "specifications": {
+      "Roll Width": "1.00 Mtr & 1.20 Mtr",
+      "Roll Length": "Up to 30 Mtr",
+      "Size Available": "Various size"
+    },
     "tags": [
       "Industrial Insulation"
     ],
@@ -2255,7 +2338,7 @@
     "status": "Active",
     "slug": "s-s-wire-mesh-1784545935930-74",
     "createdAt": "2026-07-20T11:12:15.967Z",
-    "updatedAt": "2026-07-20T21:40:57.379Z"
+    "updatedAt": "2026-07-20T21:57:17.824Z"
   },
   {
     "_id": "6a5e0290969540e9ca9b89e1",
@@ -2307,7 +2390,10 @@
     "images": [
       "/mmmm/uploads/SKU-1782069702061-14-1h67.jpg"
     ],
-    "specifications": {},
+    "specifications": {
+      "Sheet Sizes": "1.5 Mtr x1.5 Mtr,XX 1.5 Mtr x1Mtr, 1 Mtr x 1Mtr",
+      "Thickness Available": "0.5, 0.8, 1.0, 1.5, 2.0 and 3.0 mm Made in India"
+    },
     "tags": [
       "Industrial Insulation"
     ],
@@ -2315,7 +2401,7 @@
     "status": "Active",
     "slug": "gaskets-sheets-non-asbestos-heat-resistant-1784545936071-76",
     "createdAt": "2026-07-20T11:12:16.097Z",
-    "updatedAt": "2026-07-20T21:40:59.161Z"
+    "updatedAt": "2026-07-20T21:57:17.831Z"
   },
   {
     "_id": "6a5e0290969540e9ca9b89e3",
@@ -2337,7 +2423,9 @@
     "images": [
       "/mmmm/uploads/SKU-1782069702061-18-hwv5.jpg"
     ],
-    "specifications": {},
+    "specifications": {
+      "Brand": "Cranlexf"
+    },
     "tags": [
       "Industrial Insulation"
     ],
@@ -2345,7 +2433,7 @@
     "status": "Active",
     "slug": "oil-resistant-jointing-1784545936279-77",
     "createdAt": "2026-07-20T11:12:16.320Z",
-    "updatedAt": "2026-07-20T21:41:00.049Z"
+    "updatedAt": "2026-07-20T21:55:03.789Z"
   },
   {
     "_id": "6a5e0290969540e9ca9b89e4",
@@ -2367,7 +2455,10 @@
     "images": [
       "/mmmm/uploads/SKU-1782069702061-22-csf0.jpg"
     ],
-    "specifications": {},
+    "specifications": {
+      "Sheet Sizes": "1.27 Mtr x1.27 Mtr, 1.5 Mtr x1.5 Mtr,",
+      "Thickness Available": "0.6, 0.8, 1.0, 1.5, 2.0, 3.0 and 4mm"
+    },
     "tags": [
       "Industrial Insulation"
     ],
@@ -2375,7 +2466,7 @@
     "status": "Active",
     "slug": "gasket-graphite-with-steel-mesh-1784545936368-78",
     "createdAt": "2026-07-20T11:12:16.414Z",
-    "updatedAt": "2026-07-20T21:41:00.983Z"
+    "updatedAt": "2026-07-20T21:57:17.838Z"
   },
   {
     "_id": "6a5e0290969540e9ca9b89e5",
@@ -2397,7 +2488,9 @@
     "images": [
       "/mmmm/uploads/SKU-1782069702062-26-zm56.jpg"
     ],
-    "specifications": {},
+    "specifications": {
+      "Standard Roll Size": "15Mtr"
+    },
     "tags": [
       "Industrial Insulation"
     ],
@@ -2405,7 +2498,7 @@
     "status": "Active",
     "slug": "heat-insulation-tape-ordinary-no-insertion-1784545936450-79",
     "createdAt": "2026-07-20T11:12:16.497Z",
-    "updatedAt": "2026-07-20T21:41:01.887Z"
+    "updatedAt": "2026-07-20T21:55:03.799Z"
   },
   {
     "_id": "6a5e0290969540e9ca9b89e6",
@@ -2427,7 +2520,9 @@
     "images": [
       "/mmmm/uploads/SKU-1782069702062-30-7cg4.jpg"
     ],
-    "specifications": {},
+    "specifications": {
+      "Thickness Available": "10.0 to 16.0 mm"
+    },
     "tags": [
       "Industrial Insulation"
     ],
@@ -2435,7 +2530,7 @@
     "status": "Active",
     "slug": "gland-packing-rope-with-teflon-square-1784545936541-80",
     "createdAt": "2026-07-20T11:12:16.577Z",
-    "updatedAt": "2026-07-20T21:41:02.567Z"
+    "updatedAt": "2026-07-20T21:57:17.845Z"
   },
   {
     "_id": "6a5e0290969540e9ca9b89e7",
@@ -2457,7 +2552,9 @@
     "images": [
       "/mmmm/uploads/SKU-1782069702062-34-nnyh.jpg"
     ],
-    "specifications": {},
+    "specifications": {
+      "Thickness Available": "3.0 to 32.0 mm ."
+    },
     "tags": [
       "Industrial Insulation"
     ],
@@ -2465,7 +2562,7 @@
     "status": "Active",
     "slug": "graphite-gland-packing-rope-square-black-1784545936744-81",
     "createdAt": "2026-07-20T11:12:16.786Z",
-    "updatedAt": "2026-07-20T21:41:03.204Z"
+    "updatedAt": "2026-07-20T21:57:17.852Z"
   },
   {
     "_id": "6a5e0290969540e9ca9b89e8",
@@ -2487,7 +2584,9 @@
     "images": [
       "/mmmm/uploads/SKU-1782069702062-38-37rl.jpg"
     ],
-    "specifications": {},
+    "specifications": {
+      "Thickness Available": "6.0 to 30.0 mm"
+    },
     "tags": [
       "Industrial Insulation"
     ],
@@ -2495,7 +2594,7 @@
     "status": "Active",
     "slug": "packing-rope-square-white-color-1784545936848-82",
     "createdAt": "2026-07-20T11:12:16.886Z",
-    "updatedAt": "2026-07-20T21:41:04.123Z"
+    "updatedAt": "2026-07-20T21:57:17.860Z"
   },
   {
     "_id": "6a5e0291969540e9ca9b89e9",
@@ -2517,7 +2616,9 @@
     "images": [
       "/mmmm/uploads/SKU-1782069702062-42-46i0.jpg"
     ],
-    "specifications": {},
+    "specifications": {
+      "Thickness Available": "3.0 to 30.0 mm"
+    },
     "tags": [
       "Industrial Insulation"
     ],
@@ -2525,7 +2626,7 @@
     "status": "Active",
     "slug": "packing-rope-cord-round-1784545937267-83",
     "createdAt": "2026-07-20T11:12:17.416Z",
-    "updatedAt": "2026-07-20T21:41:05.303Z"
+    "updatedAt": "2026-07-20T21:55:03.807Z"
   },
   {
     "_id": "6a5e0291969540e9ca9b89ea",
@@ -2547,7 +2648,10 @@
     "images": [
       "/mmmm/uploads/SKU-1782069702062-46-cz1m.jpg"
     ],
-    "specifications": {},
+    "specifications": {
+      "Standard Roll Size": "30 Mtr",
+      "Width Available": "1Mtr"
+    },
     "tags": [
       "Industrial Insulation"
     ],
@@ -2555,7 +2659,7 @@
     "status": "Active",
     "slug": "heat-insulation-cloth-ordinary-1784545937523-84",
     "createdAt": "2026-07-20T11:12:17.558Z",
-    "updatedAt": "2026-07-20T21:41:06.218Z"
+    "updatedAt": "2026-07-20T21:55:03.815Z"
   },
   {
     "_id": "6a5e0291969540e9ca9b89eb",
@@ -2577,7 +2681,10 @@
     "images": [
       "/mmmm/uploads/SKU-1782069702842-0-5fz4.jpg"
     ],
-    "specifications": {},
+    "specifications": {
+      "Type": "– Brass Shim – 304 Stainless Steel Shim",
+      "Thickness Available": "Various Thickness"
+    },
     "tags": [
       "Industrial Insulation"
     ],
@@ -2585,7 +2692,7 @@
     "status": "Active",
     "slug": "shim-brass-s-s-1784545937783-85",
     "createdAt": "2026-07-20T11:12:17.830Z",
-    "updatedAt": "2026-07-20T21:41:07.157Z"
+    "updatedAt": "2026-07-20T21:57:17.869Z"
   },
   {
     "_id": "6a5e0291969540e9ca9b89ec",
@@ -2607,7 +2714,10 @@
     "images": [
       "/mmmm/uploads/SKU-1782069702843-6-57jk.jpg"
     ],
-    "specifications": {},
+    "specifications": {
+      "Sheet Sizes": "1.2 Mtr x1.0Mtr,",
+      "Thickness Available": "2,3,4,5,6,8,10,12,14,16, and 20mm ."
+    },
     "tags": [
       "Industrial Insulation"
     ],
@@ -2615,7 +2725,7 @@
     "status": "Active",
     "slug": "felt-sheet-1784545937882-86",
     "createdAt": "2026-07-20T11:12:17.917Z",
-    "updatedAt": "2026-07-20T21:41:08.047Z"
+    "updatedAt": "2026-07-20T21:57:17.879Z"
   },
   {
     "_id": "6a5e0291969540e9ca9b89ed",
@@ -3133,7 +3243,9 @@
     "images": [
       "/mmmm/uploads/SKU-1782069704185-0-4bk6.jpg"
     ],
-    "specifications": {},
+    "specifications": {
+      "Type": "Connecting Links"
+    },
     "tags": [
       "Transmission Chains and Sprockets",
       "Transmission chain"
@@ -3142,7 +3254,7 @@
     "status": "Active",
     "slug": "connecting-links-1784545940111-103",
     "createdAt": "2026-07-20T11:12:20.310Z",
-    "updatedAt": "2026-07-20T21:41:22.325Z"
+    "updatedAt": "2026-07-20T21:55:03.824Z"
   },
   {
     "_id": "6a5e0294969540e9ca9b89fe",
@@ -3195,7 +3307,9 @@
     "images": [
       "/mmmm/uploads/SKU-1782069704186-18-qs8x.jpg"
     ],
-    "specifications": {},
+    "specifications": {
+      "Type": "Offset Links"
+    },
     "tags": [
       "Transmission Chains and Sprockets",
       "Transmission chain"
@@ -3204,7 +3318,7 @@
     "status": "Active",
     "slug": "offset-links-1784545940526-106",
     "createdAt": "2026-07-20T11:12:20.557Z",
-    "updatedAt": "2026-07-20T21:41:24.331Z"
+    "updatedAt": "2026-07-20T21:55:03.835Z"
   },
   {
     "_id": "6a5e0294969540e9ca9b8a01",
@@ -3226,7 +3340,10 @@
     "images": [
       "/mmmm/uploads/SKU-1782069704186-22-e3ij.jpg"
     ],
-    "specifications": {},
+    "specifications": {
+      "Type": "Hollow Pin Chain",
+      "Length": "10ft"
+    },
     "tags": [
       "Transmission Chains and Sprockets",
       "Transmission chain"
@@ -3235,7 +3352,7 @@
     "status": "Active",
     "slug": "hollow-pin-chain-1784545940577-107",
     "createdAt": "2026-07-20T11:12:20.622Z",
-    "updatedAt": "2026-07-20T21:41:25.048Z"
+    "updatedAt": "2026-07-20T21:55:03.843Z"
   },
   {
     "_id": "6a5e0294969540e9ca9b8a02",
@@ -3257,7 +3374,10 @@
     "images": [
       "/mmmm/uploads/SKU-1782069704187-26-rs7o.jpg"
     ],
-    "specifications": {},
+    "specifications": {
+      "Type": "Standard Conveyor Chain With Attachments",
+      "Length": "10ft"
+    },
     "tags": [
       "Transmission Chains and Sprockets",
       "Transmission chain"
@@ -3266,7 +3386,7 @@
     "status": "Active",
     "slug": "conveyor-chain-with-attachment-1784545940823-108",
     "createdAt": "2026-07-20T11:12:20.856Z",
-    "updatedAt": "2026-07-20T21:41:25.765Z"
+    "updatedAt": "2026-07-20T21:55:03.852Z"
   },
   {
     "_id": "6a5e0294969540e9ca9b8a03",
@@ -3288,7 +3408,10 @@
     "images": [
       "/mmmm/uploads/SKU-1782069704187-30-kbax.jpg"
     ],
-    "specifications": {},
+    "specifications": {
+      "Type": "Standard Conveyor Chain  Double Pitch",
+      "Length": "10ft"
+    },
     "tags": [
       "Transmission Chains and Sprockets",
       "Transmission chain"
@@ -3297,7 +3420,7 @@
     "status": "Active",
     "slug": "conveyor-chain-1784545940892-109",
     "createdAt": "2026-07-20T11:12:20.927Z",
-    "updatedAt": "2026-07-20T21:41:26.408Z"
+    "updatedAt": "2026-07-20T21:55:03.859Z"
   },
   {
     "_id": "6a5e0294969540e9ca9b8a04",
@@ -3319,7 +3442,10 @@
     "images": [
       "/mmmm/uploads/SKU-1782069704187-34-8cfl.jpg"
     ],
-    "specifications": {},
+    "specifications": {
+      "Type": "Stainless Steel chains",
+      "Length": "Standard  10ft"
+    },
     "tags": [
       "Transmission Chains and Sprockets",
       "Transmission chain"
@@ -3328,7 +3454,7 @@
     "status": "Active",
     "slug": "stainless-steel-chains-1784545940961-110",
     "createdAt": "2026-07-20T11:12:20.996Z",
-    "updatedAt": "2026-07-20T21:41:27.378Z"
+    "updatedAt": "2026-07-20T21:55:03.867Z"
   },
   {
     "_id": "6a5e0295969540e9ca9b8a05",
@@ -3350,7 +3476,10 @@
     "images": [
       "/mmmm/uploads/SKU-1782069704187-38-mb46.jpg"
     ],
-    "specifications": {},
+    "specifications": {
+      "Type": "leaf Chain",
+      "Length": "Standard  10ft"
+    },
     "tags": [
       "Transmission Chains and Sprockets",
       "Transmission chain"
@@ -3359,7 +3488,7 @@
     "status": "Active",
     "slug": "leaf-chain-1784545941036-111",
     "createdAt": "2026-07-20T11:12:21.361Z",
-    "updatedAt": "2026-07-20T21:41:28.323Z"
+    "updatedAt": "2026-07-20T21:55:03.874Z"
   },
   {
     "_id": "6a5e0295969540e9ca9b8a06",
@@ -3381,7 +3510,10 @@
     "images": [
       "/mmmm/uploads/SKU-1782069704187-42-1mn0.jpg"
     ],
-    "specifications": {},
+    "specifications": {
+      "Type": "Agricultural Roller Chain",
+      "Length": "Standard  10ft"
+    },
     "tags": [
       "Transmission Chains and Sprockets",
       "Transmission chain"
@@ -3390,7 +3522,7 @@
     "status": "Active",
     "slug": "agricultural-roller-chain-1784545941444-112",
     "createdAt": "2026-07-20T11:12:21.544Z",
-    "updatedAt": "2026-07-20T21:41:28.997Z"
+    "updatedAt": "2026-07-20T21:55:03.881Z"
   },
   {
     "_id": "6a5e0295969540e9ca9b8a07",
@@ -3412,7 +3544,10 @@
     "images": [
       "/mmmm/uploads/SKU-1782069704187-46-5tbu.jpg"
     ],
-    "specifications": {},
+    "specifications": {
+      "Type": "Silent Chain",
+      "Length": "Standard  10ft"
+    },
     "tags": [
       "Transmission Chains and Sprockets",
       "Transmission chain"
@@ -3421,7 +3556,7 @@
     "status": "Active",
     "slug": "silent-chain-1784545941583-113",
     "createdAt": "2026-07-20T11:12:21.708Z",
-    "updatedAt": "2026-07-20T21:41:29.894Z"
+    "updatedAt": "2026-07-20T21:55:03.895Z"
   },
   {
     "_id": "6a5e0295969540e9ca9b8a08",
@@ -3443,7 +3578,10 @@
     "images": [
       "/mmmm/uploads/SKU-1782069704974-0-el56.jpg"
     ],
-    "specifications": {},
+    "specifications": {
+      "Type": "Small Pitch Chain",
+      "Length": "Standard  10ft"
+    },
     "tags": [
       "Transmission Chains and Sprockets",
       "Transmission chain"
@@ -3452,7 +3590,7 @@
     "status": "Active",
     "slug": "specialty-chain-series-1784545941744-114",
     "createdAt": "2026-07-20T11:12:21.785Z",
-    "updatedAt": "2026-07-20T21:41:30.577Z"
+    "updatedAt": "2026-07-20T21:55:03.902Z"
   },
   {
     "_id": "6a5e8e260a1f95058f7d347a",

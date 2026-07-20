@@ -165,7 +165,10 @@
     ],
     "short_description": "Sections: \nXPZ, XPA, XPB, XPC, 3VX/9NX, 5VX/15NX\nDimensions: \nFrom 587 up to 3,550 mm\n\nmore info.",
     "full_description": "V-belt – Raw edge, Moulded cogged",
-    "specs": {},
+    "specs": {
+      "Sections": "XPZ, XPA, XPB, XPC, 3VX/9NX, 5VX/15NX",
+      "Dimensions": "From 587 up to 3,550 mm"
+    },
     "related": []
   },
   {
@@ -178,7 +181,10 @@
     ],
     "short_description": "Sections:\nA/4L – B/5L\nDimensions:\n20 – 47 mm (450 -1150 mm)\n\nmore info.",
     "full_description": "Optibelt HVAC Power",
-    "specs": {},
+    "specs": {
+      "Sections": "A/4L – B/5L",
+      "Dimensions": "20 – 47 mm (450 -1150 mm)"
+    },
     "related": []
   },
   {
@@ -191,7 +197,10 @@
     ],
     "short_description": "Sections:\nSPB, SPC and 8V/25N\nDimensions:\nFrom 1,500 up to 9,000 mm\n\nmore info",
     "full_description": "High performance wedge belts with Aramid cord",
-    "specs": {},
+    "specs": {
+      "Sections": "SPB, SPC and 8V/25N",
+      "Dimensions": "From 1,500 up to 9,000 mm"
+    },
     "related": []
   },
   {
@@ -204,7 +213,10 @@
     ],
     "short_description": "Sections:\nSPZ, SPA, SPB, SPC, 3V/9N, 5V/15N, 8V/25N\nDimensions:\nFrom 1,200 up to 12,000 mm\n\nmore info.",
     "full_description": "High Power Wedge Belt – Maintenance-Free",
-    "specs": {},
+    "specs": {
+      "Sections": "SPZ, SPA, SPB, SPC, 3V/9N, 5V/15N, 8V/25N",
+      "Dimensions": "From 1,200 up to 12,000 mm"
+    },
     "related": []
   },
   {
@@ -281,7 +293,10 @@
     ],
     "short_description": "Sections:\nEPH, EPJ\n\nDimensions:\nThe belt length is dependent upon the respective section.\n \nmore info.",
     "full_description": "Elastic Ribbed Belt",
-    "specs": {},
+    "specs": {
+      "Sections": "EPH, EPJ",
+      "Dimensions": "The belt length is dependent upon the respective section."
+    },
     "related": []
   },
   {
@@ -294,7 +309,10 @@
     ],
     "short_description": "Sections:\nPH, PJ, PK, PL, PM\nDimensions:\nThe belt length is dependent upon the respective section.\n\n\nmore info.",
     "full_description": "Ribbed Belt",
-    "specs": {},
+    "specs": {
+      "Sections": "PH, PJ, PK, PL, PM",
+      "Dimensions": "The belt length is dependent upon the respective section."
+    },
     "related": []
   },
   {
@@ -359,7 +377,9 @@
     ],
     "short_description": "Measuring range: 500-2,500 mm inside length (L)\nmore info.",
     "full_description": "Measuring Gauge",
-    "specs": {},
+    "specs": {
+      "Measuring range": "500-2,500 mm inside length (L)"
+    },
     "related": []
   },
   {
@@ -385,7 +405,9 @@
     ],
     "short_description": "Sections:\nfrom 2″ (inch) to 12″ (inch)\nLength Range:\nmore info.",
     "full_description": "Agricultural transmission Belts",
-    "specs": {},
+    "specs": {
+      "Sections": "from 2″ (inch) to 12″ (inch)"
+    },
     "related": []
   },
   {
@@ -398,7 +420,10 @@
     ],
     "short_description": "Sections:\nA/13, B/17, C/22\nDimensions:\nOpen\nmore info.",
     "full_description": "Emergency Belt- Use fastener to join",
-    "specs": {},
+    "specs": {
+      "Sections": "A/13, B/17, C/22",
+      "Dimensions": "Open"
+    },
     "related": []
   },
   {
@@ -411,7 +436,10 @@
     ],
     "short_description": "Sections:\nA/13, B/17, C/22\nDimensions:\nOpen\nmore info.",
     "full_description": "Emergency Belt-Comes with Bolt for Adjustment",
-    "specs": {},
+    "specs": {
+      "Sections": "A/13, B/17, C/22",
+      "Dimensions": "Open"
+    },
     "related": []
   },
   {
@@ -462,7 +490,10 @@
     ],
     "short_description": "Sections:\nS3M, S5M, S8M, S14MDimensions:\nFrom 120 up to 5012 mm\nmore info.",
     "full_description": "Timing Belt – Maintenance-Free (Optibelt)",
-    "specs": {},
+    "specs": {
+      "Sections": "S3M, S5M, S8M, S14",
+      "M Dimensions": "From 120 up to 5012 mm"
+    },
     "related": []
   },
   {
@@ -475,7 +506,10 @@
     ],
     "short_description": "Sections:\nMXL, XL, L, H, XH, XXH\nDimensions: \nFrom 91 up to 4,572 mm\nmore info.",
     "full_description": "Timing Belt / Double Section Timing Belt",
-    "specs": {},
+    "specs": {
+      "Sections": "MXL, XL, L, H, XH, XXH",
+      "Dimensions": "From 91 up to 4,572 mm"
+    },
     "related": []
   },
   {
@@ -488,7 +522,9 @@
     ],
     "short_description": "Sections:\nT2,5; T5; T10; AT5; AT10;\ndouble timing belt DT5 and DT10Dimensions :\nFrom 120 up to 2,250 mm\n\nmore info.",
     "full_description": "High Performance Polyurethane Timing Belt",
-    "specs": {},
+    "specs": {
+      "Sections": "T2,5; T5; T10; AT5; AT10; double timing belt DT5 and DT10Dimensions : From 120 up to 2,250 mm"
+    },
     "related": []
   },
   {
@@ -501,7 +537,10 @@
     ],
     "short_description": "Sections:\nT2,5, T5, T10, T20, AT5, AT10, AT20Dimensions:\nFrom 120 up to 2,350 mm\n\n\nmore info.",
     "full_description": "Double Section Timing – Metric Single and Sleeve",
-    "specs": {},
+    "specs": {
+      "Sections": "T2,5, T5, T10, T20, AT5, AT10, AT20",
+      "Dimensions": "From 120 up to 2,350 mm"
+    },
     "related": []
   },
   {
@@ -527,7 +566,10 @@
     ],
     "short_description": "Sections:\n\n3V/9J, 5V/15J, 8V/25J\nDimensions: \nFrom 1,200 up to 12,000 mm\n\nmore info.",
     "full_description": "High Performance Wedge Belt with Aramid Cord",
-    "specs": {},
+    "specs": {
+      "Sections": "3V/9J, 5V/15J, 8V/25J",
+      "Dimensions": "From 1,200 up to 12,000 mm"
+    },
     "related": []
   },
   {
@@ -540,7 +582,10 @@
     ],
     "short_description": "Endless timing belt for HTD® + RPP® pulleys\nSections:\nOMEGA 3M, OMEGA 5M 10, OMEGA 8M 10\nDimensions:\nRolls measuring 30 m\n\nmore info.",
     "full_description": "Endless Timing Belt",
-    "specs": {},
+    "specs": {
+      "Sections": "OMEGA 3M, OMEGA 5M 10, OMEGA 8M 10",
+      "Dimensions": "Rolls measuring 30 m"
+    },
     "related": []
   },
   {
@@ -553,7 +598,10 @@
     ],
     "short_description": "Sections: \n3V/9J, 5V/15J, 8V/25J, SPB, SPC\n\nDimensions:\nFrom 1,270 up to 12,000 mm\nmore info.",
     "full_description": "High Power Banded (Kraftband)- Raw Edge",
-    "specs": {},
+    "specs": {
+      "Sections": "3V/9J, 5V/15J, 8V/25J, SPB, SPC",
+      "Dimensions": "From 1,270 up to 12,000 mm"
+    },
     "related": []
   },
   {
@@ -566,7 +614,10 @@
     ],
     "short_description": "Sections: \n3VX/9JX, 5VX/15JX, XPBDimensions: \nFrom 1,250 up to 3,550 mm\nmore info.",
     "full_description": "Banded (Kraftband)- Wrapped Belt",
-    "specs": {},
+    "specs": {
+      "Sections": "3VX/9JX, 5VX/15JX,",
+      "XPB Dimensions": "From 1,250 up to 3,550 mm"
+    },
     "related": []
   },
   {
@@ -579,7 +630,10 @@
     ],
     "short_description": "Sections:\nL, H, XH, T5, T10, T20\nDimensions:\nMetre goods from 600 mm\n\n\nmore info.",
     "full_description": "Endless-Welded Belts",
-    "specs": {},
+    "specs": {
+      "Sections": "L, H, XH, T5, T10, T20",
+      "Dimensions": "Metre goods from 600 mm"
+    },
     "related": []
   },
   {
@@ -676,7 +730,12 @@
     ],
     "short_description": "Type: Steel Screen\nSizes (Opening): from 1mm to 85mm\nWidth:  1.2 MTR X 2.00 MTR\nWire Thickness: varies depend on the opening size\nmore info.",
     "full_description": "Crusher Screen",
-    "specs": {},
+    "specs": {
+      "Type": "Steel Screen",
+      "Sizes (Opening)": "from 1mm to 85mm",
+      "Width": "1.2 MTR X 2.00 MTR",
+      "Wire Thickness": "varies depend on the opening size"
+    },
     "related": []
   },
   {
@@ -700,7 +759,12 @@
     ],
     "short_description": "Type: EP200\nPly:  2ply\nWidth:  from 400mm to 1000mm / (40-100 cm)\nLength: up to 300 MTR\nmore info",
     "full_description": "Rough Top Belts",
-    "specs": {},
+    "specs": {
+      "Type": "EP200",
+      "Ply": "2ply",
+      "Width": "from 400mm to 1000mm / (40-100 cm)",
+      "Length": "up to 300 MTR"
+    },
     "related": []
   },
   {
@@ -712,7 +776,12 @@
     ],
     "short_description": "Type: EP315\nPly:   3ply\nWidth:  from 400mm to 1200mm / (40-120 cm)\nLength: up to customer requirement.\nMade in Spain (Kauman Brand)\nmore info.",
     "full_description": "Chevron Conveyor Belts",
-    "specs": {},
+    "specs": {
+      "Type": "EP315",
+      "Ply": "3ply",
+      "Width": "from 400mm to 1200mm / (40-120 cm)",
+      "Length": "up to customer requirement."
+    },
     "related": []
   },
   {
@@ -724,7 +793,9 @@
     ],
     "short_description": "Size: 1″, 1.25″, 1.50″, 2.00″, 2.50″ (inch)\nmore info.",
     "full_description": "Conveyor Belts Fasteners",
-    "specs": {},
+    "specs": {
+      "Size": "1″, 1.25″, 1.50″, 2.00″, 2.50″ (inch)"
+    },
     "related": []
   },
   {
@@ -772,7 +843,10 @@
     ],
     "short_description": "Type: Steel\nWire Dai X   ID    X Height\nSizes:  19mm    X100mm X300mm\nSizes:  28mm    X146mm X320mm\nmore info.",
     "full_description": "Crusher Spring",
-    "specs": {},
+    "specs": {
+      "Type": "Steel",
+      "Sizes": "28mm    X146mm X320mm"
+    },
     "related": []
   },
   {
@@ -784,7 +858,9 @@
     ],
     "short_description": "Size: No. 15, 20, 25G, 27L, 35N, 45U\nmore info.",
     "full_description": "Steel Belts Lacing",
-    "specs": {},
+    "specs": {
+      "Size": "No. 15, 20, 25G, 27L, 35N, 45U"
+    },
     "related": []
   },
   {
@@ -916,7 +992,10 @@
     ],
     "short_description": "Sheet Sizes:\n100 cm X 1.00 cm\nThickness Available :\n1.0, 1.5, 2.0, 3.0 mm\nmore info.",
     "full_description": "Gasket Graphite With Steel Sheet",
-    "specs": {},
+    "specs": {
+      "Sheet Sizes": "100 cm X 1.00 cm",
+      "Thickness Available": "1.0, 1.5, 2.0, 3.0 mm"
+    },
     "related": []
   },
   {
@@ -928,7 +1007,11 @@
     ],
     "short_description": "Roll Width:\n1.00 Mtr & 1.20 Mtr\nRoll Length:\nUp to 30 Mtr\nSize Available :\nVarious size\nmore info.",
     "full_description": "S.S. Wire Mesh",
-    "specs": {},
+    "specs": {
+      "Roll Width": "1.00 Mtr & 1.20 Mtr",
+      "Roll Length": "Up to 30 Mtr",
+      "Size Available": "Various size"
+    },
     "related": []
   },
   {
@@ -952,7 +1035,10 @@
     ],
     "short_description": "Sheet Sizes:\n1.5 Mtr x1.5 Mtr,XX\n1.5 Mtr x1Mtr,\n1 Mtr x 1Mtr\nThickness Available :\n0.5, 0.8, 1.0, 1.5, 2.0 and 3.0 mm\nMade in India\nmore info.",
     "full_description": "Gaskets Sheets (Non-Asbestos Heat Resistant)",
-    "specs": {},
+    "specs": {
+      "Sheet Sizes": "1.5 Mtr x1.5 Mtr,XX 1.5 Mtr x1Mtr, 1 Mtr x 1Mtr",
+      "Thickness Available": "0.5, 0.8, 1.0, 1.5, 2.0 and 3.0 mm Made in India"
+    },
     "related": []
   },
   {
@@ -964,7 +1050,9 @@
     ],
     "short_description": "Sheet Sizes:\n1.0 Mtr x1.0 Mtr,\nThickness Available :\n0.2, X0.4X, 0.5, 0.8, 1.0, 1.2, 1.6, 2.0, 2.4, 3.2 mm\nBrand: Cranlexf\nMade in England\nmore info.",
     "full_description": "Oil Resistant Jointing",
-    "specs": {},
+    "specs": {
+      "Brand": "Cranlexf"
+    },
     "related": []
   },
   {
@@ -976,7 +1064,10 @@
     ],
     "short_description": "Sheet Sizes:\n1.27 Mtr x1.27 Mtr,\n1.5 Mtr x1.5 Mtr,\nThickness Available :\n0.6, 0.8, 1.0, 1.5, 2.0, 3.0 and 4mm\nmore info.",
     "full_description": "Gasket Graphite with Steel Mesh",
-    "specs": {},
+    "specs": {
+      "Sheet Sizes": "1.27 Mtr x1.27 Mtr, 1.5 Mtr x1.5 Mtr,",
+      "Thickness Available": "0.6, 0.8, 1.0, 1.5, 2.0, 3.0 and 4mm"
+    },
     "related": []
   },
   {
@@ -988,7 +1079,9 @@
     ],
     "short_description": "Sold By Roll\nStandard Roll Size: 15Mtr\nWidth Available :\n1″ to  4″ (inch)\nmore info.",
     "full_description": "Heat Insulation Tape (Ordinary-No Insertion)",
-    "specs": {},
+    "specs": {
+      "Standard Roll Size": "15Mtr"
+    },
     "related": []
   },
   {
@@ -1000,7 +1093,9 @@
     ],
     "short_description": "Sold By Roll\nThickness Available:\n10.0 to 16.0 mm\nmore info.",
     "full_description": "Gland Packing Rope With Teflon (square)",
-    "specs": {},
+    "specs": {
+      "Thickness Available": "10.0 to 16.0 mm"
+    },
     "related": []
   },
   {
@@ -1012,7 +1107,9 @@
     ],
     "short_description": "Sold By Roll and  Mtr.\nThickness Available:\n3.0 to 32.0 mm\n.more info.",
     "full_description": "Graphite Gland Packing Rope (square Black)",
-    "specs": {},
+    "specs": {
+      "Thickness Available": "3.0 to 32.0 mm ."
+    },
     "related": []
   },
   {
@@ -1024,7 +1121,9 @@
     ],
     "short_description": "Sold By Roll and  Mtr.\nThickness Available :\n6.0 to 30.0 mm\nmore info.",
     "full_description": "Packing Rope (Square White color)",
-    "specs": {},
+    "specs": {
+      "Thickness Available": "6.0 to 30.0 mm"
+    },
     "related": []
   },
   {
@@ -1036,7 +1135,9 @@
     ],
     "short_description": "Sold By Roll\nThickness Available: 3.0 to 30.0 mm\nmore info.",
     "full_description": "Packing Rope Cord (Round)",
-    "specs": {},
+    "specs": {
+      "Thickness Available": "3.0 to 30.0 mm"
+    },
     "related": []
   },
   {
@@ -1048,7 +1149,10 @@
     ],
     "short_description": "Sold By Roll\nStandard Roll Size :30 Mtr\nWidth Available : 1Mtr\nmore info.",
     "full_description": "Heat Insulation Cloth (Ordinary)",
-    "specs": {},
+    "specs": {
+      "Standard Roll Size": "30 Mtr",
+      "Width Available": "1Mtr"
+    },
     "related": []
   },
   {
@@ -1060,7 +1164,10 @@
     ],
     "short_description": "Type:\n–  Brass Shim\n– 304 Stainless Steel Shim\nThickness Available :\nVarious Thickness\nmore info.",
     "full_description": "Shim (Brass & S.S)",
-    "specs": {},
+    "specs": {
+      "Type": "– Brass Shim – 304 Stainless Steel Shim",
+      "Thickness Available": "Various Thickness"
+    },
     "related": []
   },
   {
@@ -1072,7 +1179,10 @@
     ],
     "short_description": "Sheet Sizes:\n1.2 Mtr x1.0Mtr,\nThickness Available :\n2,3,4,5,6,8,10,12,14,16, and 20mm\n.\nmore info.",
     "full_description": "Felt Sheet",
-    "specs": {},
+    "specs": {
+      "Sheet Sizes": "1.2 Mtr x1.0Mtr,",
+      "Thickness Available": "2,3,4,5,6,8,10,12,14,16, and 20mm ."
+    },
     "related": []
   },
   {
@@ -1293,7 +1403,9 @@
     ],
     "short_description": "Type: Connecting Links\n1R, 2R, 3R, 4R, 5R and 6R\nmore info.",
     "full_description": "Connecting Links",
-    "specs": {},
+    "specs": {
+      "Type": "Connecting Links"
+    },
     "related": []
   },
   {
@@ -1319,7 +1431,9 @@
     ],
     "short_description": "Type: Offset Links\n1R, 2R, 3R, 4R, 5R and 6R\nmore info.",
     "full_description": "Offset Links",
-    "specs": {},
+    "specs": {
+      "Type": "Offset Links"
+    },
     "related": []
   },
   {
@@ -1332,7 +1446,10 @@
     ],
     "short_description": "Type: Hollow Pin Chain\nLength: 10ft\nmore info.",
     "full_description": "Hollow Pin Chain",
-    "specs": {},
+    "specs": {
+      "Type": "Hollow Pin Chain",
+      "Length": "10ft"
+    },
     "related": []
   },
   {
@@ -1345,7 +1462,10 @@
     ],
     "short_description": "Type: Standard Conveyor Chain With Attachments\nDouble Pitch\nLength: 10ft\nmore info",
     "full_description": "Conveyor Chain with Attachment",
-    "specs": {},
+    "specs": {
+      "Type": "Standard Conveyor Chain With Attachments",
+      "Length": "10ft"
+    },
     "related": []
   },
   {
@@ -1358,7 +1478,10 @@
     ],
     "short_description": "Type: Standard Conveyor Chain  Double Pitch\nLength: 10ft\nmore info.",
     "full_description": "Conveyor Chain",
-    "specs": {},
+    "specs": {
+      "Type": "Standard Conveyor Chain  Double Pitch",
+      "Length": "10ft"
+    },
     "related": []
   },
   {
@@ -1371,7 +1494,10 @@
     ],
     "short_description": "Type: Stainless Steel chains\nLength: Standard  10ft\nmore info.",
     "full_description": "Stainless Steel Chains",
-    "specs": {},
+    "specs": {
+      "Type": "Stainless Steel chains",
+      "Length": "Standard  10ft"
+    },
     "related": []
   },
   {
@@ -1384,7 +1510,10 @@
     ],
     "short_description": "Type: leaf Chain\nLength: Standard  10ft\nmore info.",
     "full_description": "Leaf Chain",
-    "specs": {},
+    "specs": {
+      "Type": "leaf Chain",
+      "Length": "Standard  10ft"
+    },
     "related": []
   },
   {
@@ -1397,7 +1526,10 @@
     ],
     "short_description": "Type: Agricultural Roller Chain\nLength: Standard  10ft\nmore info.",
     "full_description": "Agricultural Roller Chain",
-    "specs": {},
+    "specs": {
+      "Type": "Agricultural Roller Chain",
+      "Length": "Standard  10ft"
+    },
     "related": []
   },
   {
@@ -1410,7 +1542,10 @@
     ],
     "short_description": "Type: Silent Chain\nLength: Standard  10ft\nmore info.",
     "full_description": "Silent Chain",
-    "specs": {},
+    "specs": {
+      "Type": "Silent Chain",
+      "Length": "Standard  10ft"
+    },
     "related": []
   },
   {
@@ -1423,7 +1558,10 @@
     ],
     "short_description": "Type: Small Pitch Chain\nLength: Standard  10ft\nmore info.",
     "full_description": "Specialty Chain Series",
-    "specs": {},
+    "specs": {
+      "Type": "Small Pitch Chain",
+      "Length": "Standard  10ft"
+    },
     "related": []
   },
   {
