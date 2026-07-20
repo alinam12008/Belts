@@ -1464,53 +1464,6 @@
     "related": []
   },
   {
-    "title": "High Power Timing Belt",
-    "url": "https://belts-store.com/product/high-power-timing-belt-2002/",
-    "image": "https://belts-store.com/wp-content/uploads/2011/07/omega_hp-1.jpg",
-    "breadcrumbs": [
-      "Belts Power Transmission",
-      "Timing Belts"
-    ],
-    "short_description": "High power timing belt for HTD/RPP pulleys, sections 3M/5M/8M/14M HP.",
-    "full_description": "High power timing belt for HTD and RPP pulleys. Sections: 3M HP, 5M HP, 8M HP, 14M HP. Dimensions: from 111 up to 4,578 mm.",
-    "specs": {
-      "Sections": "3M HP, 5M HP, 8M HP, 14M HP",
-      "Dimensions": "From 111 up to 4,578 mm"
-    },
-    "related": []
-  },
-  {
-    "title": "Endless Belts ( Timing Belt)",
-    "url": "https://belts-store.com/product/endless-belts-timing-belt-2003/",
-    "image": "https://belts-store.com/wp-content/uploads/2011/07/RTEmagicC_alpha_linear_kl_mg-1.gif-1.gif",
-    "breadcrumbs": [
-      "Belts Power Transmission",
-      "Timing Belts"
-    ],
-    "short_description": "Endless timing belts, sections XL/L/H/XH/5M/8M/14M.",
-    "full_description": "Endless timing belts. Sections: XL, L, H, XH, 5M, 8M, 14M. Dimensions: metre goods from 600 mm.",
-    "specs": {
-      "Sections": "XL, L, H, XH, 5M, 8M, 14M",
-      "Dimensions": "Metre goods from 600 mm"
-    },
-    "related": []
-  },
-  {
-    "title": "Bearing Unit",
-    "url": "https://belts-store.com/product/bearing-unit-uct-2004/",
-    "image": "https://belts-store.com/wp-content/uploads/2011/07/BU_UCT-1.jpg",
-    "breadcrumbs": [
-      "Bearings",
-      "Bearing Units and Plummer Block Housing"
-    ],
-    "short_description": "Pillow Blocks / UCT Type bearing unit.",
-    "full_description": "Bearing unit, Pillow Blocks / UCT Type.",
-    "specs": {
-      "Item Code": "Pillow Blocks / UCT Type"
-    },
-    "related": []
-  },
-  {
     "title": "Sprockets",
     "url": "https://belts-store.com/product/sprockets-variant-b-2005/",
     "image": "https://belts-store.com/wp-content/uploads/2011/07/S1_B-1.jpg",
@@ -1521,6 +1474,69 @@
     "short_description": "Sprockets for transmission chains.",
     "full_description": "Sprockets for transmission chains.",
     "specs": {},
+    "related": []
+  },
+  {
+    "title": "High Power Timing Belt",
+    "url": "https://belts-store.com/product/high-power-timing-belt-hl-2006/",
+    "image": "https://belts-store.com/wp-content/uploads/2011/07/omega_hl-1.jpg",
+    "breadcrumbs": [
+      "Belts Power Transmission",
+      "Timing Belts"
+    ],
+    "short_description": "High power timing belt for HTD/RPP pulleys, sections 8M HL/14M HL.",
+    "full_description": "High power timing belt for HTD and RPP pulleys. Sections: 8M HL, 14M HL. Dimensions: from 288 up to 4,578 mm.",
+    "specs": {
+      "Sections": "8M HL, 14M HL",
+      "Dimensions": "From 288 up to 4,578 mm"
+    },
+    "related": []
+  },
+  {
+    "title": "Endless Belts ( Timing Belt)",
+    "url": "https://belts-store.com/product/endless-belts-timing-belt-alphaflex-2007/",
+    "image": "https://belts-store.com/wp-content/uploads/2011/07/RTEmagicC_alphaflex_kl_mg-1.gif-1.gif",
+    "breadcrumbs": [
+      "Belts Power Transmission",
+      "Timing Belts"
+    ],
+    "short_description": "Endless timing belts, sections T5/T10/T20/AT5/AT10/AT20.",
+    "full_description": "Endless timing belts. Sections: T5, T10, T20, AT5, AT10, AT20. Dimensions: from 1,500 up to 24,000 mm.",
+    "specs": {
+      "Sections": "T5, T10, T20, AT5, AT10, AT20",
+      "Dimensions": "From 1,500 up to 24,000 mm"
+    },
+    "related": []
+  },
+  {
+    "title": "Bearing Unit",
+    "url": "https://belts-store.com/product/bearing-unit-ucp-2008/",
+    "image": "https://belts-store.com/wp-content/uploads/2011/07/BU_UCP-1.jpg",
+    "breadcrumbs": [
+      "Bearings",
+      "Bearing Units and Plummer Block Housing"
+    ],
+    "short_description": "Pillow Blocks / UCP Type bearing unit.",
+    "full_description": "Bearing unit, Pillow Blocks / UCP Type.",
+    "specs": {
+      "Item Code": "Pillow Blocks / UCP Type"
+    },
+    "related": []
+  },
+  {
+    "title": "Sprockets",
+    "url": "https://belts-store.com/product/sprockets-variant-a-2009/",
+    "image": "https://belts-store.com/wp-content/uploads/2011/07/S1_A-1.jpg",
+    "breadcrumbs": [
+      "Transmission Chains and Sprockets",
+      "Sprockets"
+    ],
+    "short_description": "Sprockets for transmission chains, all sizes, single/double/triple.",
+    "full_description": "Sprockets for transmission chains. Size: All Sizes, Single, Double and Triple. Specification: Sprocket Heat-Treatment.",
+    "specs": {
+      "Size": "All Sizes, Single, Double & Triple",
+      "Specification": "Sprocket Heat-Treatment"
+    },
     "related": []
   }
 ]
