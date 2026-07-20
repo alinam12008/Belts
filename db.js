@@ -299,7 +299,17 @@ db.init = async function (mongoUri, defaultEmail, defaultPassword) {
     for (let attempt = 1; attempt <= MAX_ATTEMPTS && !isConnected; attempt++) {
       try {
         console.log(`Attempting MongoDB connection (try ${attempt}/${MAX_ATTEMPTS})...`);
-        await mongoose.connect(mongoUri, { serverSelectionTimeoutMS: ATTEMPT_TIMEOUT_MS });
+        await mongoose.connect(mongoUri, {
+          serverSelectionTimeoutMS: ATTEMPT_TIMEOUT_MS,
+          // Serverless best practice: each cold start is a brand-new process
+          // with its own connection pool. Mongoose's default of up to 100
+          // connections per instance can exhaust a shared MongoDB Atlas
+          // tier's total connection limit once enough instances are warm at
+          // once. Keep each instance's pool small since it only ever serves
+          // a handful of concurrent requests anyway.
+          maxPoolSize: 5,
+          minPoolSize: 0,
+        });
         console.log('✅ Connected to MongoDB.');
         isConnected = true;
         isMongo = true;
