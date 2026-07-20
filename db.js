@@ -288,13 +288,13 @@ db.init = async function (mongoUri, defaultEmail, defaultPassword) {
   let isConnected = false;
 
   if (mongoUri) {
-    // Vercel serverless functions have a hard execution time limit (often as
-    // low as 10s on the Hobby plan). Keep the total worst-case connection
-    // budget comfortably under that instead of retrying with long timeouts,
-    // which would just get the whole invocation killed by the platform
-    // before it ever reaches our own error handling below.
-    const MAX_ATTEMPTS = 2;
-    const ATTEMPT_TIMEOUT_MS = 4000;
+    // A single, generous attempt beats two short ones: splitting the budget
+    // into multiple short tries just guarantees each one is too short if the
+    // real bottleneck is consistent latency (e.g. region distance) rather
+    // than a one-off transient blip -- retrying with the same short timeout
+    // reproduces the same failure instead of fixing it.
+    const MAX_ATTEMPTS = 1;
+    const ATTEMPT_TIMEOUT_MS = 9000;
     let lastError = null;
     for (let attempt = 1; attempt <= MAX_ATTEMPTS && !isConnected; attempt++) {
       try {
