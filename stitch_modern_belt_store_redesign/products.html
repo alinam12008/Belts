@@ -177,7 +177,10 @@
 
                 <!-- Products Grid -->
                 <div id="products-grid" class="grid grid-cols-2 xl:grid-cols-3 gap-gutter">
-                    <!-- Rendered via JS -->
+                    <!-- Skeleton loading placeholders, replaced once products load -->
+                    <div class="animate-pulse bg-surface-container-lowest border border-outline-variant rounded-lg h-72"></div>
+                    <div class="animate-pulse bg-surface-container-lowest border border-outline-variant rounded-lg h-72"></div>
+                    <div class="animate-pulse bg-surface-container-lowest border border-outline-variant rounded-lg h-72 hidden xl:block"></div>
                 </div>
 
                 <!-- Empty State -->
@@ -334,12 +337,26 @@
         let currentFilter = { category: null, subcategory: null, subsubcategory: null, search: "" };
         console.log('✅ Latest version loaded - duplicates will be removed');
 
-        document.addEventListener('DOMContentLoaded', () => {
-            fetch('/api/products', { cache: 'no-store' })
+        function fetchProductsWithRetry(isRetry) {
+            return fetch('/api/products', { cache: 'no-store' })
                 .then(res => {
-                    if (!res.ok) throw new Error('Failed to load products');
+                    if (!res.ok) {
+                        // A 503 means the database was momentarily unavailable
+                        // (e.g. a serverless instance still reconnecting) --
+                        // retry once automatically rather than showing an
+                        // error for something that resolves itself in a
+                        // couple of seconds.
+                        if (res.status === 503 && !isRetry) {
+                            return new Promise(resolve => setTimeout(resolve, 2000)).then(() => fetchProductsWithRetry(true));
+                        }
+                        throw new Error('Failed to load products');
+                    }
                     return res.json();
-                })
+                });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            fetchProductsWithRetry()
                 .then(data => {
                     const products = Array.isArray(data) ? data : [];
                     allProducts = products.map((product, index) => {

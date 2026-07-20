@@ -930,7 +930,7 @@
 
                 <div class="pt-4 flex justify-end gap-3 border-t border-outline-variant/30">
                     <button type="button" onclick="closeProductModal()" class="border border-outline-variant text-on-surface-variant font-bold px-6 py-2.5 uppercase text-[10px] rounded hover:bg-surface-container-low transition-all">Cancel</button>
-                    <button type="submit" class="bg-primary text-on-primary font-bold px-6 py-2.5 uppercase text-[10px] rounded hover:bg-primary-container shadow transition-all">Save Component</button>
+                    <button type="submit" id="product-save-btn" class="bg-primary text-on-primary font-bold px-6 py-2.5 uppercase text-[10px] rounded hover:bg-primary-container shadow transition-all disabled:opacity-60 disabled:cursor-not-allowed">Save Component</button>
                 </div>
             </form>
         </div>
@@ -1262,18 +1262,41 @@
             .catch(err => console.error(err));
         }
 
-        function loadProductsData() {
+        function loadProductsData(isRetry) {
+            const tbody = document.getElementById('products-table-body');
+            if (tbody && !isRetry) {
+                tbody.innerHTML = '<tr><td colspan="9" class="px-6 py-8 text-center text-xs text-on-surface-variant italic">Loading products...</td></tr>';
+            }
             fetch('/api/products', { cache: 'no-store' })
             .then(async res => {
                 const text = await res.text();
                 let data = [];
                 try { data = text ? JSON.parse(text) : []; } catch (e) { data = []; }
-                if (!res.ok) throw new Error('Failed to load products');
+                if (!res.ok) {
+                    const err = new Error('Failed to load products');
+                    err.status = res.status;
+                    throw err;
+                }
                 return data;
             })
             .then(data => {
                 products = data;
                 renderProductsTable();
+            })
+            .catch(err => {
+                // A 503 here means the database was momentarily unavailable
+                // (e.g. a serverless instance still reconnecting) -- retry
+                // once automatically instead of leaving the table blank.
+                if (err.status === 503 && !isRetry) {
+                    if (tbody) {
+                        tbody.innerHTML = '<tr><td colspan="9" class="px-6 py-8 text-center text-xs text-on-surface-variant italic">Reconnecting to database...</td></tr>';
+                    }
+                    setTimeout(() => loadProductsData(true), 2000);
+                    return;
+                }
+                if (tbody) {
+                    tbody.innerHTML = '<tr><td colspan="9" class="px-6 py-8 text-center text-xs text-red-500">Could not load products. <button onclick="loadProductsData()" class="underline font-bold">Retry</button></td></tr>';
+                }
             });
         }
 
@@ -2123,6 +2146,11 @@
 
         function handleSaveProduct(e) {
             e.preventDefault();
+            const saveBtn = document.getElementById('product-save-btn');
+            const originalBtnText = saveBtn ? saveBtn.innerText : '';
+            if (saveBtn) { saveBtn.disabled = true; saveBtn.innerText = 'Saving...'; }
+            const restoreBtn = () => { if (saveBtn) { saveBtn.disabled = false; saveBtn.innerText = originalBtnText; } };
+
             const id = document.getElementById('form-product-id').value;
             const name = document.getElementById('form-product-name').value;
             const sku = document.getElementById('form-product-sku').value;
@@ -2159,7 +2187,7 @@
                     const base64Str = reader.result;
                     fetch('/api/products/upload', {
                         method: 'POST',
-                        headers: { 
+                        headers: {
                             'Content-Type': 'application/json',
                             'Authorization': `Bearer ${token}`
                         },
@@ -2170,24 +2198,24 @@
                         saveProductDetails(id, {
                             name, sku, category, subcategory, price, discountPrice, stock, status, brand,
                             images: [data.url], shortDescription, description, specifications
-                        });
+                        }, restoreBtn);
                     })
-                    .catch(() => showToast("Failed to upload product image", "error"));
+                    .catch(() => { showToast("Failed to upload product image", "error"); restoreBtn(); });
                 };
             } else {
                 saveProductDetails(id, {
                     name, sku, category, subcategory, price, discountPrice, stock, status, brand,
                     images: imageUrlInput ? [imageUrlInput] : [], shortDescription, description, specifications
-                });
+                }, restoreBtn);
             }
         }
 
-        function saveProductDetails(id, payload) {
+        function saveProductDetails(id, payload, onDone, isRetry) {
             const url = id ? `/api/products/${id}` : '/api/products';
             const method = id ? 'PUT' : 'POST';
             fetch(url, {
                 method: method,
-                headers: { 
+                headers: {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token}`
                 },
@@ -2195,15 +2223,33 @@
             })
             .then(async res => {
                 const data = await res.json();
-                if (!res.ok) throw new Error(data.error || 'Failed to save product');
+                if (!res.ok) {
+                    const err = new Error(data.error || 'Failed to save product');
+                    err.status = res.status;
+                    throw err;
+                }
                 return data;
             })
             .then(() => {
                 showToast("Product saved successfully.", "success");
                 closeProductModal();
                 loadProductsData();
+                if (onDone) onDone();
             })
-            .catch(err => showToast(err.message, "error"));
+            .catch(err => {
+                // A 503 here means the database was momentarily unavailable
+                // (e.g. a serverless instance still reconnecting) rather than
+                // a real failure -- one automatic retry after a short pause
+                // resolves this in the vast majority of cases without the
+                // user needing to notice or do anything.
+                if (err.status === 503 && !isRetry) {
+                    showToast("Reconnecting to database, retrying...", "info");
+                    setTimeout(() => saveProductDetails(id, payload, onDone, true), 2000);
+                    return;
+                }
+                showToast(err.message, "error");
+                if (onDone) onDone();
+            });
         }
 
         function openDeleteProductModal(id) {
@@ -2281,15 +2327,28 @@
                 const confirmData = await confirmResp.json();
                 if (!confirmResp.ok) throw new Error(confirmData.error || '2FA verification failed');
 
-                const deleteResp = await fetch(`/api/products/${productId}`, {
-                    method: 'DELETE',
-                    headers: {
-                        'Authorization': `Bearer ${token}`,
-                        'x-delete-verified': 'true'
+                const doDelete = async (isRetry) => {
+                    const deleteResp = await fetch(`/api/products/${productId}`, {
+                        method: 'DELETE',
+                        headers: {
+                            'Authorization': `Bearer ${token}`,
+                            'x-delete-verified': 'true'
+                        }
+                    });
+                    const deleteData = await deleteResp.json().catch(() => ({}));
+                    if (!deleteResp.ok) {
+                        // A 503 means the database was momentarily unavailable
+                        // (e.g. a serverless instance still reconnecting), not
+                        // a real failure -- retry once automatically.
+                        if (deleteResp.status === 503 && !isRetry) {
+                            statusEl.innerText = 'Reconnecting to database, retrying...';
+                            await new Promise(r => setTimeout(r, 2000));
+                            return doDelete(true);
+                        }
+                        throw new Error(deleteData.error || 'Failed to delete product');
                     }
-                });
-                const deleteData = await deleteResp.json().catch(() => ({}));
-                if (!deleteResp.ok) throw new Error(deleteData.error || 'Failed to delete product');
+                };
+                await doDelete(false);
 
                 showToast('Product deleted successfully.', 'success');
                 closeDeleteProductModal();
