@@ -548,6 +548,17 @@
                                         TOTAL FOUND: <span id="admin-products-count" class="font-bold text-primary">0</span>
                                     </div>
                                 </div>
+
+                                <!-- Bulk actions bar -- only shown once at least one product is selected -->
+                                <div id="bulk-actions-bar" class="hidden flex flex-col sm:flex-row items-center justify-between gap-3 bg-secondary-fixed/40 border border-primary/30 rounded-lg p-3">
+                                    <span class="text-xs font-technical-label uppercase text-primary font-bold"><span id="bulk-selected-count">0</span> Selected</span>
+                                    <div class="flex flex-wrap items-center gap-2">
+                                        <button onclick="bulkUpdateProductStatus('Active')" class="border border-outline-variant bg-surface-container-lowest text-on-surface font-bold px-3 py-1.5 uppercase text-[10px] rounded hover:bg-green-100 hover:border-green-600 transition-all">Mark Active</button>
+                                        <button onclick="bulkUpdateProductStatus('Inactive')" class="border border-outline-variant bg-surface-container-lowest text-on-surface font-bold px-3 py-1.5 uppercase text-[10px] rounded hover:bg-surface-container transition-all">Mark Inactive</button>
+                                        <button onclick="handleBulkDeleteProducts()" class="border border-error text-error font-bold px-3 py-1.5 uppercase text-[10px] rounded hover:bg-error hover:text-white transition-all">Delete Selected</button>
+                                        <button onclick="clearProductSelection()" class="text-on-surface-variant font-bold px-3 py-1.5 uppercase text-[10px] rounded hover:underline transition-all">Clear</button>
+                                    </div>
+                                </div>
                             </div>
 
                             <!-- Products Table -->
@@ -556,6 +567,7 @@
                                     <table class="w-full text-left">
                                         <thead class="bg-primary text-on-primary text-xs font-technical-label uppercase sticky top-0 z-10">
                                             <tr>
+                                                <th class="px-4 py-4 w-10"><input type="checkbox" id="select-all-products-checkbox" onchange="toggleSelectAllProducts(this)" class="w-4 h-4 align-middle" title="Select all"/></th>
                                                 <th class="px-6 py-4">Image</th>
                                                 <th class="px-6 py-4">Product Name</th>
                                                 <th class="px-6 py-4">SKU</th>
@@ -795,9 +807,8 @@
             <button onclick="closeDeleteProductModal()" class="absolute top-4 right-4 text-on-surface-variant hover:text-primary transition-colors p-2">
                 <span class="material-symbols-outlined text-2xl">close</span>
             </button>
-            <h4 class="font-headline-lg text-xl uppercase text-primary font-bold mb-4">Verify Delete Product</h4>
+            <h4 id="delete-product-modal-title" class="font-headline-lg text-xl uppercase text-primary font-bold mb-4">Verify Delete Product</h4>
             <p class="text-sm text-on-surface-variant mb-4">Enter admin credentials first, then use the generated 2FA code below to confirm deletion.</p>
-            <input type="hidden" id="delete-product-id" />
             <div class="grid grid-cols-1 gap-4">
                 <div>
                     <label class="block text-xs uppercase font-technical-label text-on-surface-variant mb-1">Admin Email or Username</label>
@@ -992,6 +1003,8 @@
         let coupons = [];
         let analytics = {};
         let ticketReplyAttachments = [];
+        let selectedProductIds = new Set();
+        let pendingDeleteIds = [];
 
         // ---- Category hierarchy ----
         let currentAdminFilter = { category: null, subcategory: null, subsubcategory: null };
@@ -1303,7 +1316,7 @@
         function loadProductsData(isRetry) {
             const tbody = document.getElementById('products-table-body');
             if (tbody && !isRetry) {
-                tbody.innerHTML = '<tr><td colspan="8" class="px-6 py-8 text-center text-xs text-on-surface-variant italic">Loading products...</td></tr>';
+                tbody.innerHTML = '<tr><td colspan="9" class="px-6 py-8 text-center text-xs text-on-surface-variant italic">Loading products...</td></tr>';
             }
             fetch('/api/products', { cache: 'no-store' })
             .then(async res => {
@@ -1327,13 +1340,13 @@
                 // once automatically instead of leaving the table blank.
                 if (err.status === 503 && !isRetry) {
                     if (tbody) {
-                        tbody.innerHTML = '<tr><td colspan="8" class="px-6 py-8 text-center text-xs text-on-surface-variant italic">Reconnecting to database...</td></tr>';
+                        tbody.innerHTML = '<tr><td colspan="9" class="px-6 py-8 text-center text-xs text-on-surface-variant italic">Reconnecting to database...</td></tr>';
                     }
                     setTimeout(() => loadProductsData(true), 2000);
                     return;
                 }
                 if (tbody) {
-                    tbody.innerHTML = '<tr><td colspan="8" class="px-6 py-8 text-center text-xs text-red-500">Could not load products. <button onclick="loadProductsData()" class="underline font-bold">Retry</button></td></tr>';
+                    tbody.innerHTML = '<tr><td colspan="9" class="px-6 py-8 text-center text-xs text-red-500">Could not load products. <button onclick="loadProductsData()" class="underline font-bold">Retry</button></td></tr>';
                 }
             });
         }
@@ -1756,8 +1769,13 @@
                 return true;
             });
             document.getElementById('admin-products-count').innerText = filtered.length;
+            // Drop any selected IDs that are no longer in the visible/filtered set
+            // (e.g. category filter changed) so the bulk bar count stays accurate.
+            const visibleIds = new Set(filtered.map(p => p._id));
+            selectedProductIds.forEach(id => { if (!visibleIds.has(id)) selectedProductIds.delete(id); });
             if (filtered.length === 0) {
-                tbody.innerHTML = `<tr><td colspan="8" class="px-6 py-8 text-center text-xs text-on-surface-variant italic">No matching products found.</td></tr>`;
+                tbody.innerHTML = `<tr><td colspan="9" class="px-6 py-8 text-center text-xs text-on-surface-variant italic">No matching products found.</td></tr>`;
+                updateBulkActionsBar();
                 return;
             }
             tbody.innerHTML = filtered.map(p => {
@@ -1765,6 +1783,7 @@
                 const statusCls = p.status === 'Active' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800';
                 return `
                     <tr>
+                        <td class="px-4 py-4"><input type="checkbox" class="product-row-checkbox w-4 h-4 align-middle" data-id="${p._id}" onchange="toggleProductSelection('${p._id}', this.checked)" ${selectedProductIds.has(p._id) ? 'checked' : ''}/></td>
                         <td class="px-6 py-4"><img src="${image}" alt="" class="w-10 h-10 object-contain bg-surface-container-low p-1 border border-outline-variant rounded"/></td>
                         <td class="px-6 py-4 font-bold text-primary truncate max-w-[200px]" title="${p.name}">${p.name}</td>
                         <td class="px-6 py-4 font-bold text-on-surface">${p.sku}</td>
@@ -1783,6 +1802,82 @@
                     </tr>
                 `;
             }).join('');
+            updateBulkActionsBar();
+        }
+
+        // ---- Bulk selection & actions (optional -- admin only needs it for multi-edit) ----
+        function toggleSelectAllProducts(checkbox) {
+            document.querySelectorAll('.product-row-checkbox').forEach(cb => {
+                cb.checked = checkbox.checked;
+                if (checkbox.checked) selectedProductIds.add(cb.dataset.id);
+                else selectedProductIds.delete(cb.dataset.id);
+            });
+            updateBulkActionsBar();
+        }
+
+        function toggleProductSelection(id, checked) {
+            if (checked) selectedProductIds.add(id);
+            else selectedProductIds.delete(id);
+            updateBulkActionsBar();
+        }
+
+        function clearProductSelection() {
+            selectedProductIds.clear();
+            renderProductsTable();
+        }
+
+        function updateBulkActionsBar() {
+            const bar = document.getElementById('bulk-actions-bar');
+            const countEl = document.getElementById('bulk-selected-count');
+            const selectAllCheckbox = document.getElementById('select-all-products-checkbox');
+            if (!bar || !countEl) return;
+            countEl.innerText = selectedProductIds.size;
+            bar.classList.toggle('hidden', selectedProductIds.size === 0);
+            bar.classList.toggle('flex', selectedProductIds.size > 0);
+            if (selectAllCheckbox) {
+                const visibleCheckboxes = document.querySelectorAll('.product-row-checkbox');
+                selectAllCheckbox.checked = visibleCheckboxes.length > 0 && Array.from(visibleCheckboxes).every(cb => cb.checked);
+            }
+        }
+
+        async function bulkUpdateProductStatus(newStatus) {
+            const ids = Array.from(selectedProductIds);
+            if (ids.length === 0) return;
+            if (!confirm(`Mark ${ids.length} selected product(s) as ${newStatus}?`)) return;
+
+            let successCount = 0;
+            for (const id of ids) {
+                const existing = products.find(p => p._id === id);
+                if (!existing) continue;
+                try {
+                    const doUpdate = async (isRetry) => {
+                        const res = await fetch(`/api/products/${id}`, {
+                            method: 'PUT',
+                            headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
+                            body: JSON.stringify({
+                                name: existing.name, sku: existing.sku, category: existing.category, subcategory: existing.subcategory,
+                                brand: existing.brand, status: newStatus, images: existing.images, shortDescription: existing.shortDescription,
+                                description: existing.description, specifications: existing.specifications
+                            })
+                        });
+                        if (!res.ok && res.status === 503 && !isRetry) {
+                            await new Promise(r => setTimeout(r, 2000));
+                            return doUpdate(true);
+                        }
+                        return res.ok;
+                    };
+                    if (await doUpdate(false)) successCount++;
+                } catch (e) { /* counted as a failure below */ }
+            }
+            showToast(`${successCount} of ${ids.length} product(s) updated to ${newStatus}.`, successCount === ids.length ? 'success' : 'error');
+            selectedProductIds.clear();
+            loadProductsData();
+        }
+
+        function handleBulkDeleteProducts() {
+            const ids = Array.from(selectedProductIds);
+            if (ids.length === 0) return;
+            openDeleteProductModal(ids);
         }
 
         function renderOrdersTable() {
@@ -2358,8 +2453,11 @@
             });
         }
 
-        function openDeleteProductModal(id) {
-            document.getElementById('delete-product-id').value = id;
+        function openDeleteProductModal(idOrIds) {
+            pendingDeleteIds = Array.isArray(idOrIds) ? idOrIds : [idOrIds];
+            document.getElementById('delete-product-modal-title').innerText = pendingDeleteIds.length > 1
+                ? `Verify Delete ${pendingDeleteIds.length} Products`
+                : 'Verify Delete Product';
             document.getElementById('delete-product-username').value = '';
             document.getElementById('delete-product-password').value = '';
             document.getElementById('delete-product-code').value = '';
@@ -2410,7 +2508,6 @@
         }
 
         async function confirmDeleteProduct() {
-            const productId = document.getElementById('delete-product-id').value;
             const username = document.getElementById('delete-product-username').value.trim();
             const code = document.getElementById('delete-product-code').value.trim();
             const statusEl = document.getElementById('delete-product-status');
@@ -2433,8 +2530,8 @@
                 const confirmData = await confirmResp.json();
                 if (!confirmResp.ok) throw new Error(confirmData.error || '2FA verification failed');
 
-                const doDelete = async (isRetry) => {
-                    const deleteResp = await fetch(`/api/products/${productId}`, {
+                const doDelete = async (id, isRetry) => {
+                    const deleteResp = await fetch(`/api/products/${id}`, {
                         method: 'DELETE',
                         headers: {
                             'Authorization': `Bearer ${token}`,
@@ -2449,14 +2546,21 @@
                         if (deleteResp.status === 503 && !isRetry) {
                             statusEl.innerText = 'Reconnecting to database, retrying...';
                             await new Promise(r => setTimeout(r, 2000));
-                            return doDelete(true);
+                            return doDelete(id, true);
                         }
                         throw new Error(deleteData.error || 'Failed to delete product');
                     }
                 };
-                await doDelete(false);
 
-                showToast('Product deleted successfully.', 'success');
+                let deletedCount = 0;
+                for (const id of pendingDeleteIds) {
+                    if (pendingDeleteIds.length > 1) statusEl.innerText = `Deleting ${deletedCount + 1} of ${pendingDeleteIds.length}...`;
+                    await doDelete(id, false);
+                    deletedCount++;
+                    selectedProductIds.delete(id);
+                }
+
+                showToast(deletedCount > 1 ? `${deletedCount} products deleted successfully.` : 'Product deleted successfully.', 'success');
                 closeDeleteProductModal();
                 loadProductsData();
             } catch (err) {
