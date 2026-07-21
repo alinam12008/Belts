@@ -1129,6 +1129,16 @@ app.get('/api/admin/analytics', requireAdmin, ensureDbReady, async (req, res) =>
     const daysPerBucket = rangeDays / bucketCount;
     const rangeEnd = new Date();
     rangeEnd.setHours(24, 0, 0, 0);
+    // Daily Ledger entries covering this range, so the chart can color each
+    // bar by what the admin actually logged (green = profit, red = loss)
+    // instead of always the neutral color.
+    const rangeStartForLedger = new Date(rangeEnd);
+    rangeStartForLedger.setDate(rangeStartForLedger.getDate() - rangeDays);
+    const ledgerEntries = await db.DailyLedgerEntry.find({});
+    const rangeStartKey = localDateKey(rangeStartForLedger);
+    const rangeEndKey = localDateKey(rangeEnd);
+    const ledgerInRange = ledgerEntries.filter(e => e.date >= rangeStartKey && e.date <= rangeEndKey);
+
     const weeklyTrend = [];
     for (let i = bucketCount - 1; i >= 0; i--) {
       const bucketEnd = new Date(rangeEnd);
@@ -1142,10 +1152,18 @@ app.get('/api/admin/analytics', requireAdmin, ensureDbReady, async (req, res) =>
       const label = daysPerBucket <= 1
         ? bucketStart.toLocaleDateString('en-US', { weekday: 'short' })
         : `${bucketStart.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}`;
+
+      const bucketStartKey = localDateKey(bucketStart);
+      const bucketEndKey = localDateKey(bucketEnd);
+      const bucketLedgerEntries = ledgerInRange.filter(e => e.date >= bucketStartKey && e.date < bucketEndKey);
+      const ledgerProfit = bucketLedgerEntries.reduce((sum, e) => sum + (Number(e.profit) || 0), 0);
+
       weeklyTrend.push({
         label,
         revenue: bucketOrders.reduce((sum, order) => sum + (Number(order.totalPrice) || 0), 0),
-        orders: bucketOrders.length
+        orders: bucketOrders.length,
+        ledgerProfit,
+        hasLedgerData: bucketLedgerEntries.length > 0
       });
     }
 
@@ -1296,6 +1314,15 @@ app.put('/api/admin/dashboard-overrides', requireAdmin, ensureDbReady, requireMo
 // Monday-Sunday.
 function dateKey(d) {
   return d.toISOString().slice(0, 10);
+}
+// The Daily Ledger's admin-entered dates represent the admin's LOCAL
+// calendar day (built client-side from local Y/M/D, not UTC). Matching
+// them against bucket boundaries must use the same local-day convention --
+// dateKey()'s UTC conversion would shift the day by one whenever the
+// server's local timezone isn't UTC.
+function localDateKey(d) {
+  const y = d.getFullYear(), m = String(d.getMonth() + 1).padStart(2, '0'), day = String(d.getDate()).padStart(2, '0');
+  return `${y}-${m}-${day}`;
 }
 function mondayOf(dateStr) {
   const d = new Date(dateStr + 'T00:00:00.000Z');

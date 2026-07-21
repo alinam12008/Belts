@@ -452,6 +452,11 @@
                             <div id="revenue-trend-chart" class="h-64 flex items-end justify-between gap-4 pt-8 pb-2 border-b border-outline-variant px-4">
                                 <!-- Dynamic bars rendered by JS from real order data -->
                             </div>
+                            <div class="flex items-center gap-4 text-[10px] font-technical-label uppercase text-on-surface-variant">
+                                <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-sm bg-green-500 inline-block"></span> Profit logged</span>
+                                <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-sm bg-red-500 inline-block"></span> Loss logged</span>
+                                <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-sm bg-primary/20 inline-block"></span> No ledger entry</span>
+                            </div>
                         </div>
 
                         <!-- Weekly Sales comparison -->
@@ -1444,9 +1449,18 @@
                     const maxRevenue = Math.max(1, ...trend.map(d => d.revenue));
                     trendContainer.innerHTML = trend.map(d => {
                         const heightPct = Math.max(4, Math.round((d.revenue / maxRevenue) * 100));
+                        // Colored by what the admin logged in the Daily Ledger for
+                        // this bar's date range -- green for a profit day/period,
+                        // red for a loss, neutral if nothing's been logged there.
+                        const barColorCls = !d.hasLedgerData
+                            ? 'bg-primary/20 hover:bg-primary'
+                            : (d.ledgerProfit >= 0 ? 'bg-green-500 hover:bg-green-600' : 'bg-red-500 hover:bg-red-600');
+                        const ledgerNote = d.hasLedgerData
+                            ? ` — ${d.ledgerProfit >= 0 ? 'Profit' : 'Loss'} ${formatCurrency(Math.abs(d.ledgerProfit))} logged`
+                            : '';
                         return `
                             <div class="flex flex-col items-center flex-1 h-full justify-end">
-                                <div class="bg-primary/20 w-8 rounded-t transition-all hover:bg-primary" style="height:${heightPct}%" title="${d.label}: ${formatCurrency(d.revenue)} (${d.orders} order${d.orders === 1 ? '' : 's'})"></div>
+                                <div class="${barColorCls} w-8 rounded-t transition-all" style="height:${heightPct}%" title="${d.label}: ${formatCurrency(d.revenue)} (${d.orders} order${d.orders === 1 ? '' : 's'})${ledgerNote}"></div>
                                 <span class="text-[10px] font-technical-label uppercase text-on-surface-variant mt-2">${d.label}</span>
                             </div>
                         `;
