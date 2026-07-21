@@ -41,7 +41,10 @@
     ],
     "short_description": "Optibelt SK",
     "full_description": "Optibelt SK",
-    "specs": {},
+    "specs": {
+      "DIN Standard": "DIN 7753 Teil 1",
+      "ISO Standard": "ISO 4184"
+    },
     "related": []
   },
   {

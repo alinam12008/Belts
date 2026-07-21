@@ -25,7 +25,8 @@
     "status": "Active",
     "slug": "optibelt-vb-1784496584044",
     "createdAt": "2026-07-18T13:22:56.167Z",
-    "updatedAt": "2026-07-20T22:15:39.755Z"
+    "updatedAt": "2026-07-20T22:15:39.755Z",
+    "__v": 0
   },
   {
     "_id": "6a5b7e3076f7114690b6f3a6",
@@ -53,7 +54,8 @@
     "status": "Active",
     "slug": "optibelt-red-power-3",
     "createdAt": "2026-07-18T13:22:56.178Z",
-    "updatedAt": "2026-07-20T22:15:40.747Z"
+    "updatedAt": "2026-07-20T22:15:40.747Z",
+    "__v": 0
   },
   {
     "_id": "6a5b7e3076f7114690b6f3a7",
@@ -69,7 +71,10 @@
     "images": [
       "https://belts-store.com/wp-content/uploads/2025/09/Produktfoto_SK_Industrie-1-247x296.jpg"
     ],
-    "specifications": {},
+    "specifications": {
+      "DIN Standard": "DIN 7753 Teil 1",
+      "ISO Standard": "ISO 4184"
+    },
     "tags": [
       "Belts Power Transmission",
       "V Belts"
@@ -78,7 +83,8 @@
     "status": "Active",
     "slug": "optibelt-sk",
     "createdAt": "2026-07-18T13:22:56.185Z",
-    "updatedAt": "2026-07-18T13:22:56.185Z"
+    "updatedAt": "2026-07-18T13:22:56.185Z",
+    "__v": 0
   },
   {
     "_id": "6a5e0288969540e9ca9b899a",
@@ -112,7 +118,8 @@
     "status": "Active",
     "slug": "optibelt-super-tx-1784545928416-4",
     "createdAt": "2026-07-20T11:12:08.447Z",
-    "updatedAt": "2026-07-20T22:15:41.657Z"
+    "updatedAt": "2026-07-20T22:15:41.657Z",
+    "__v": 0
   },
   {
     "_id": "6a5e0288969540e9ca9b899b",
@@ -145,7 +152,8 @@
     "status": "Active",
     "slug": "optibelt-super-xe-power-pro-1784545928523-5",
     "createdAt": "2026-07-20T11:12:08.558Z",
-    "updatedAt": "2026-07-20T22:15:42.782Z"
+    "updatedAt": "2026-07-20T22:15:42.782Z",
+    "__v": 0
   },
   {
     "_id": "6a5e0288969540e9ca9b899c",
@@ -179,7 +187,8 @@
     "status": "Active",
     "slug": "optibelt-vario-power-1784545928634-6",
     "createdAt": "2026-07-20T11:12:08.668Z",
-    "updatedAt": "2026-07-20T22:15:43.707Z"
+    "updatedAt": "2026-07-20T22:15:43.707Z",
+    "__v": 0
   },
   {
     "_id": "6a5e0288969540e9ca9b899d",
@@ -210,7 +219,8 @@
     "status": "Active",
     "slug": "optibelt-kb-sk-1784545928737-7",
     "createdAt": "2026-07-20T11:12:08.838Z",
-    "updatedAt": "2026-07-20T21:40:02.310Z"
+    "updatedAt": "2026-07-20T21:40:02.310Z",
+    "__v": 0
   },
   {
     "_id": "6a5e0288969540e9ca9b899e",
@@ -243,7 +253,8 @@
     "status": "Active",
     "slug": "optibelt-dk-1784545928947-8",
     "createdAt": "2026-07-20T11:12:08.978Z",
-    "updatedAt": "2026-07-20T22:15:44.344Z"
+    "updatedAt": "2026-07-20T22:15:44.344Z",
+    "__v": 0
   },
   {
     "_id": "6a5e0289969540e9ca9b899f",
@@ -274,7 +285,8 @@
     "status": "Active",
     "slug": "optibelt-kk-1784545929056-9",
     "createdAt": "2026-07-20T11:12:09.173Z",
-    "updatedAt": "2026-07-20T11:12:09.173Z"
+    "updatedAt": "2026-07-20T11:12:09.173Z",
+    "__v": 0
   },
   {
     "_id": "6a5e0289969540e9ca9b89a0",
@@ -305,7 +317,8 @@
     "status": "Active",
     "slug": "optibelt-optimat-oe-1784545929275-10",
     "createdAt": "2026-07-20T11:12:09.379Z",
-    "updatedAt": "2026-07-20T21:40:04.724Z"
+    "updatedAt": "2026-07-20T21:40:04.724Z",
+    "__v": 0
   },
   {
     "_id": "6a5e0289969540e9ca9b89a1",
@@ -336,7 +349,8 @@
     "status": "Active",
     "slug": "optibelt-lb-1784545929489-11",
     "createdAt": "2026-07-20T11:12:09.584Z",
-    "updatedAt": "2026-07-20T21:40:05.492Z"
+    "updatedAt": "2026-07-20T21:40:05.492Z",
+    "__v": 0
   },
   {
     "_id": "6a5e0289969540e9ca9b89a2",
@@ -367,7 +381,8 @@
     "status": "Active",
     "slug": "polyurethane-power-twist-v-belts-1784545929883-12",
     "createdAt": "2026-07-20T11:12:09.984Z",
-    "updatedAt": "2026-07-20T21:40:06.145Z"
+    "updatedAt": "2026-07-20T21:40:06.145Z",
+    "__v": 0
   },
   {
     "_id": "6a5e028a969540e9ca9b89a3",
@@ -401,7 +416,8 @@
     "status": "Active",
     "slug": "v-belt-raw-edge-moulded-cogged-1784545930099-13",
     "createdAt": "2026-07-20T11:12:10.138Z",
-    "updatedAt": "2026-07-20T21:57:17.633Z"
+    "updatedAt": "2026-07-20T21:57:17.633Z",
+    "__v": 0
   },
   {
     "_id": "6a5e028a969540e9ca9b89a4",
@@ -435,7 +451,8 @@
     "status": "Active",
     "slug": "optibelt-hvac-power-1784545930169-14",
     "createdAt": "2026-07-20T11:12:10.208Z",
-    "updatedAt": "2026-07-20T21:57:17.649Z"
+    "updatedAt": "2026-07-20T21:57:17.649Z",
+    "__v": 0
   },
   {
     "_id": "6a5e028a969540e9ca9b89a5",
@@ -469,7 +486,8 @@
     "status": "Active",
     "slug": "high-performance-wedge-belts-with-aramid-cord-1784545930250-15",
     "createdAt": "2026-07-20T11:12:10.286Z",
-    "updatedAt": "2026-07-20T21:57:17.657Z"
+    "updatedAt": "2026-07-20T21:57:17.657Z",
+    "__v": 0
   },
   {
     "_id": "6a5e028a969540e9ca9b89a6",
@@ -503,7 +521,8 @@
     "status": "Active",
     "slug": "high-power-wedge-belt-maintenance-free-1784545930322-16",
     "createdAt": "2026-07-20T11:12:10.363Z",
-    "updatedAt": "2026-07-20T21:57:17.665Z"
+    "updatedAt": "2026-07-20T21:57:17.665Z",
+    "__v": 0
   },
   {
     "_id": "6a5e028a969540e9ca9b89a7",
@@ -534,7 +553,8 @@
     "status": "Active",
     "slug": "high-power-wedge-belt-1784545930494-17",
     "createdAt": "2026-07-20T11:12:10.597Z",
-    "updatedAt": "2026-07-20T11:12:10.597Z"
+    "updatedAt": "2026-07-20T11:12:10.597Z",
+    "__v": 0
   },
   {
     "_id": "6a5e028a969540e9ca9b89a8",
@@ -565,7 +585,8 @@
     "status": "Active",
     "slug": "polyurethane-round-belts-1784545930631-18",
     "createdAt": "2026-07-20T11:12:10.668Z",
-    "updatedAt": "2026-07-20T11:12:10.668Z"
+    "updatedAt": "2026-07-20T11:12:10.668Z",
+    "__v": 0
   },
   {
     "_id": "6a5e028a969540e9ca9b89a9",
@@ -596,7 +617,8 @@
     "status": "Active",
     "slug": "optibelt-linear-v-belts-1784545930712-19",
     "createdAt": "2026-07-20T11:12:10.747Z",
-    "updatedAt": "2026-07-20T11:12:10.747Z"
+    "updatedAt": "2026-07-20T11:12:10.747Z",
+    "__v": 0
   },
   {
     "_id": "6a5e028a969540e9ca9b89aa",
@@ -626,7 +648,8 @@
     "status": "Active",
     "slug": "habasit-belts-1784545930792-20",
     "createdAt": "2026-07-20T11:12:10.827Z",
-    "updatedAt": "2026-07-20T11:12:10.827Z"
+    "updatedAt": "2026-07-20T11:12:10.827Z",
+    "__v": 0
   },
   {
     "_id": "6a5e028a969540e9ca9b89ab",
@@ -657,7 +680,8 @@
     "status": "Active",
     "slug": "optibelt-open-ended-belt-1784545930871-21",
     "createdAt": "2026-07-20T11:12:10.915Z",
-    "updatedAt": "2026-07-20T11:12:10.915Z"
+    "updatedAt": "2026-07-20T11:12:10.915Z",
+    "__v": 0
   },
   {
     "_id": "6a5e028a969540e9ca9b89ac",
@@ -691,7 +715,8 @@
     "status": "Active",
     "slug": "elastic-ribbed-belt-1784545930951-22",
     "createdAt": "2026-07-20T11:12:10.988Z",
-    "updatedAt": "2026-07-20T21:57:17.701Z"
+    "updatedAt": "2026-07-20T21:57:17.701Z",
+    "__v": 0
   },
   {
     "_id": "6a5e028b969540e9ca9b89ad",
@@ -725,7 +750,8 @@
     "status": "Active",
     "slug": "ribbed-belt-1784545931031-23",
     "createdAt": "2026-07-20T11:12:11.067Z",
-    "updatedAt": "2026-07-20T21:57:17.713Z"
+    "updatedAt": "2026-07-20T21:57:17.713Z",
+    "__v": 0
   },
   {
     "_id": "6a5e028b969540e9ca9b89ae",
@@ -756,7 +782,8 @@
     "status": "Active",
     "slug": "optibelt-laser-pointer-ii-1784545931117-24",
     "createdAt": "2026-07-20T11:12:11.158Z",
-    "updatedAt": "2026-07-20T21:40:14.263Z"
+    "updatedAt": "2026-07-20T21:40:14.263Z",
+    "__v": 0
   },
   {
     "_id": "6a5e028b969540e9ca9b89af",
@@ -787,7 +814,8 @@
     "status": "Active",
     "slug": "optibelt-service-box-1784545931202-25",
     "createdAt": "2026-07-20T11:12:11.237Z",
-    "updatedAt": "2026-07-20T21:40:15.046Z"
+    "updatedAt": "2026-07-20T21:40:15.046Z",
+    "__v": 0
   },
   {
     "_id": "6a5e028b969540e9ca9b89b0",
@@ -818,7 +846,8 @@
     "status": "Active",
     "slug": "optibelt-tt-mini-tt-mini-s-1784545931271-26",
     "createdAt": "2026-07-20T11:12:11.307Z",
-    "updatedAt": "2026-07-20T21:40:15.723Z"
+    "updatedAt": "2026-07-20T21:40:15.723Z",
+    "__v": 0
   },
   {
     "_id": "6a5e028b969540e9ca9b89b1",
@@ -849,7 +878,8 @@
     "status": "Active",
     "slug": "optikrik-0-i-ii-iii-belt-tension-gauges-1784545931349-27",
     "createdAt": "2026-07-20T11:12:11.387Z",
-    "updatedAt": "2026-07-20T21:40:16.451Z"
+    "updatedAt": "2026-07-20T21:40:16.451Z",
+    "__v": 0
   },
   {
     "_id": "6a5e028b969540e9ca9b89b2",
@@ -882,7 +912,8 @@
     "status": "Active",
     "slug": "measuring-gauge-1784545931422-28",
     "createdAt": "2026-07-20T11:12:11.467Z",
-    "updatedAt": "2026-07-20T21:55:03.717Z"
+    "updatedAt": "2026-07-20T21:55:03.717Z",
+    "__v": 0
   },
   {
     "_id": "6a5e028b969540e9ca9b89b3",
@@ -913,7 +944,8 @@
     "status": "Active",
     "slug": "v-belt-and-pulley-groove-gauges-1784545931511-29",
     "createdAt": "2026-07-20T11:12:11.547Z",
-    "updatedAt": "2026-07-20T21:40:17.813Z"
+    "updatedAt": "2026-07-20T21:40:17.813Z",
+    "__v": 0
   },
   {
     "_id": "6a5e028b969540e9ca9b89b4",
@@ -946,7 +978,8 @@
     "status": "Active",
     "slug": "agricultural-transmission-belts-1784545931621-30",
     "createdAt": "2026-07-20T11:12:11.657Z",
-    "updatedAt": "2026-07-20T21:57:17.721Z"
+    "updatedAt": "2026-07-20T21:57:17.721Z",
+    "__v": 0
   },
   {
     "_id": "6a5e028b969540e9ca9b89b5",
@@ -980,7 +1013,8 @@
     "status": "Active",
     "slug": "emergency-belt-use-fastener-to-join-1784545931698-31",
     "createdAt": "2026-07-20T11:12:11.737Z",
-    "updatedAt": "2026-07-20T21:57:17.728Z"
+    "updatedAt": "2026-07-20T21:57:17.728Z",
+    "__v": 0
   },
   {
     "_id": "6a5e028b969540e9ca9b89b6",
@@ -1014,7 +1048,8 @@
     "status": "Active",
     "slug": "emergency-belt-comes-with-bolt-for-adjustment-1784545931781-32",
     "createdAt": "2026-07-20T11:12:11.819Z",
-    "updatedAt": "2026-07-20T21:57:17.736Z"
+    "updatedAt": "2026-07-20T21:57:17.736Z",
+    "__v": 0
   },
   {
     "_id": "6a5e028b969540e9ca9b89b7",
@@ -1044,7 +1079,8 @@
     "status": "Active",
     "slug": "optibelt-clamping-plates-1784545931861-33",
     "createdAt": "2026-07-20T11:12:11.897Z",
-    "updatedAt": "2026-07-20T21:40:20.757Z"
+    "updatedAt": "2026-07-20T21:40:20.757Z",
+    "__v": 0
   },
   {
     "_id": "6a5e028b969540e9ca9b89b8",
@@ -1075,7 +1111,8 @@
     "status": "Active",
     "slug": "fan-power-drive-1784545931941-34",
     "createdAt": "2026-07-20T11:12:11.977Z",
-    "updatedAt": "2026-07-20T11:12:11.977Z"
+    "updatedAt": "2026-07-20T11:12:11.977Z",
+    "__v": 0
   },
   {
     "_id": "6a5e028c969540e9ca9b89b9",
@@ -1106,7 +1143,8 @@
     "status": "Active",
     "slug": "high-power-timing-belt-1784545932029-35",
     "createdAt": "2026-07-20T11:12:12.067Z",
-    "updatedAt": "2026-07-20T11:12:12.067Z"
+    "updatedAt": "2026-07-20T11:12:12.067Z",
+    "__v": 0
   },
   {
     "_id": "6a5e028c969540e9ca9b89ba",
@@ -1140,7 +1178,8 @@
     "status": "Active",
     "slug": "timing-belt-maintenance-free-optibelt-1784545932101-36",
     "createdAt": "2026-07-20T11:12:12.147Z",
-    "updatedAt": "2026-07-20T21:57:17.744Z"
+    "updatedAt": "2026-07-20T21:57:17.744Z",
+    "__v": 0
   },
   {
     "_id": "6a5e028c969540e9ca9b89bb",
@@ -1174,7 +1213,8 @@
     "status": "Active",
     "slug": "timing-belt-double-section-timing-belt-1784545932182-37",
     "createdAt": "2026-07-20T11:12:12.226Z",
-    "updatedAt": "2026-07-20T21:57:17.753Z"
+    "updatedAt": "2026-07-20T21:57:17.753Z",
+    "__v": 0
   },
   {
     "_id": "6a5e028c969540e9ca9b89bc",
@@ -1207,7 +1247,8 @@
     "status": "Active",
     "slug": "high-performance-polyurethane-timing-belt-1784545932260-38",
     "createdAt": "2026-07-20T11:12:12.297Z",
-    "updatedAt": "2026-07-20T21:57:17.761Z"
+    "updatedAt": "2026-07-20T21:57:17.761Z",
+    "__v": 0
   },
   {
     "_id": "6a5e028c969540e9ca9b89bd",
@@ -1241,7 +1282,8 @@
     "status": "Active",
     "slug": "double-section-timing-metric-single-and-sleeve-1784545932337-39",
     "createdAt": "2026-07-20T11:12:12.367Z",
-    "updatedAt": "2026-07-20T21:57:17.769Z"
+    "updatedAt": "2026-07-20T21:57:17.769Z",
+    "__v": 0
   },
   {
     "_id": "6a5e028c969540e9ca9b89be",
@@ -1272,7 +1314,8 @@
     "status": "Active",
     "slug": "endless-belts-timing-belt-1784545932424-40",
     "createdAt": "2026-07-20T11:12:12.456Z",
-    "updatedAt": "2026-07-20T11:12:12.456Z"
+    "updatedAt": "2026-07-20T11:12:12.456Z",
+    "__v": 0
   },
   {
     "_id": "6a5e028c969540e9ca9b89bf",
@@ -1306,7 +1349,8 @@
     "status": "Active",
     "slug": "high-performance-wedge-belt-with-aramid-cord-1784545932501-41",
     "createdAt": "2026-07-20T11:12:12.536Z",
-    "updatedAt": "2026-07-20T21:57:17.776Z"
+    "updatedAt": "2026-07-20T21:57:17.776Z",
+    "__v": 0
   },
   {
     "_id": "6a5e028c969540e9ca9b89c0",
@@ -1340,7 +1384,8 @@
     "status": "Active",
     "slug": "endless-timing-belt-1784545932583-42",
     "createdAt": "2026-07-20T11:12:12.628Z",
-    "updatedAt": "2026-07-20T21:57:17.785Z"
+    "updatedAt": "2026-07-20T21:57:17.785Z",
+    "__v": 0
   },
   {
     "_id": "6a5e028c969540e9ca9b89c1",
@@ -1374,7 +1419,8 @@
     "status": "Active",
     "slug": "high-power-banded-kraftband-raw-edge-1784545932672-43",
     "createdAt": "2026-07-20T11:12:12.707Z",
-    "updatedAt": "2026-07-20T21:57:17.792Z"
+    "updatedAt": "2026-07-20T21:57:17.792Z",
+    "__v": 0
   },
   {
     "_id": "6a5e028c969540e9ca9b89c2",
@@ -1408,7 +1454,8 @@
     "status": "Active",
     "slug": "banded-kraftband-wrapped-belt-1784545932749-44",
     "createdAt": "2026-07-20T11:12:12.788Z",
-    "updatedAt": "2026-07-20T21:57:17.801Z"
+    "updatedAt": "2026-07-20T21:57:17.801Z",
+    "__v": 0
   },
   {
     "_id": "6a5e028c969540e9ca9b89c3",
@@ -1442,7 +1489,8 @@
     "status": "Active",
     "slug": "endless-welded-belts-1784545932829-45",
     "createdAt": "2026-07-20T11:12:12.862Z",
-    "updatedAt": "2026-07-20T21:57:17.809Z"
+    "updatedAt": "2026-07-20T21:57:17.809Z",
+    "__v": 0
   },
   {
     "_id": "6a5e028c969540e9ca9b89c4",
@@ -1473,7 +1521,8 @@
     "status": "Active",
     "slug": "variable-speed-belt-raw-edge-doudle-cogged-1784545932900-46",
     "createdAt": "2026-07-20T11:12:12.924Z",
-    "updatedAt": "2026-07-20T11:12:12.924Z"
+    "updatedAt": "2026-07-20T11:12:12.924Z",
+    "__v": 0
   },
   {
     "_id": "6a5e028c969540e9ca9b89c5",
@@ -1503,7 +1552,8 @@
     "status": "Active",
     "slug": "clamping-plates-1784545932961-47",
     "createdAt": "2026-07-20T11:12:12.989Z",
-    "updatedAt": "2026-07-20T11:12:12.989Z"
+    "updatedAt": "2026-07-20T11:12:12.989Z",
+    "__v": 0
   },
   {
     "_id": "6a5e028d969540e9ca9b89c6",
@@ -1533,7 +1583,8 @@
     "status": "Active",
     "slug": "ribbed-belt-pullets-1784545933020-48",
     "createdAt": "2026-07-20T11:12:13.047Z",
-    "updatedAt": "2026-07-20T21:40:31.389Z"
+    "updatedAt": "2026-07-20T21:40:31.389Z",
+    "__v": 0
   },
   {
     "_id": "6a5e028d969540e9ca9b89c7",
@@ -1563,7 +1614,8 @@
     "status": "Active",
     "slug": "timing-belt-pulleys-1784545933082-49",
     "createdAt": "2026-07-20T11:12:13.117Z",
-    "updatedAt": "2026-07-20T21:40:32.107Z"
+    "updatedAt": "2026-07-20T21:40:32.107Z",
+    "__v": 0
   },
   {
     "_id": "6a5e028d969540e9ca9b89c8",
@@ -1593,7 +1645,8 @@
     "status": "Active",
     "slug": "v-grooved-pulleys-1784545933158-50",
     "createdAt": "2026-07-20T11:12:13.196Z",
-    "updatedAt": "2026-07-20T11:12:13.196Z"
+    "updatedAt": "2026-07-20T11:12:13.196Z",
+    "__v": 0
   },
   {
     "_id": "6a5e028d969540e9ca9b89c9",
@@ -1624,7 +1677,8 @@
     "status": "Active",
     "slug": "conveyor-belts-1784545933237-51",
     "createdAt": "2026-07-20T11:12:13.267Z",
-    "updatedAt": "2026-07-20T21:39:41.952Z"
+    "updatedAt": "2026-07-20T21:39:41.952Z",
+    "__v": 0
   },
   {
     "_id": "6a5e028d969540e9ca9b89ca",
@@ -1655,7 +1709,8 @@
     "status": "Active",
     "slug": "conveyor-rollers-1784545933318-52",
     "createdAt": "2026-07-20T11:12:13.346Z",
-    "updatedAt": "2026-07-20T21:40:34.158Z"
+    "updatedAt": "2026-07-20T21:40:34.158Z",
+    "__v": 0
   },
   {
     "_id": "6a5e028d969540e9ca9b89cb",
@@ -1691,7 +1746,8 @@
     "status": "Active",
     "slug": "crusher-screen-1784545933389-53",
     "createdAt": "2026-07-20T11:12:13.427Z",
-    "updatedAt": "2026-07-20T21:55:03.734Z"
+    "updatedAt": "2026-07-20T21:55:03.734Z",
+    "__v": 0
   },
   {
     "_id": "6a5e028d969540e9ca9b89cc",
@@ -1722,7 +1778,8 @@
     "status": "Active",
     "slug": "gear-boxes-smr-speed-reducer-1784545933478-54",
     "createdAt": "2026-07-20T11:12:13.518Z",
-    "updatedAt": "2026-07-20T21:40:35.436Z"
+    "updatedAt": "2026-07-20T21:40:35.436Z",
+    "__v": 0
   },
   {
     "_id": "6a5e028d969540e9ca9b89cd",
@@ -1758,7 +1815,8 @@
     "status": "Active",
     "slug": "rough-top-belts-1784545933562-55",
     "createdAt": "2026-07-20T11:12:13.586Z",
-    "updatedAt": "2026-07-20T21:55:03.745Z"
+    "updatedAt": "2026-07-20T21:55:03.745Z",
+    "__v": 0
   },
   {
     "_id": "6a5e028d969540e9ca9b89ce",
@@ -1794,7 +1852,8 @@
     "status": "Active",
     "slug": "chevron-conveyor-belts-1784545933635-56",
     "createdAt": "2026-07-20T11:12:13.669Z",
-    "updatedAt": "2026-07-20T21:55:03.755Z"
+    "updatedAt": "2026-07-20T21:55:03.755Z",
+    "__v": 0
   },
   {
     "_id": "6a5e028d969540e9ca9b89cf",
@@ -1827,7 +1886,8 @@
     "status": "Active",
     "slug": "conveyor-belts-fasteners-1784545933697-57",
     "createdAt": "2026-07-20T11:12:13.724Z",
-    "updatedAt": "2026-07-20T21:55:03.764Z"
+    "updatedAt": "2026-07-20T21:55:03.764Z",
+    "__v": 0
   },
   {
     "_id": "6a5e028d969540e9ca9b89d0",
@@ -1858,7 +1918,8 @@
     "status": "Active",
     "slug": "fastners-set-1784545933758-58",
     "createdAt": "2026-07-20T11:12:13.787Z",
-    "updatedAt": "2026-07-20T21:40:41.630Z"
+    "updatedAt": "2026-07-20T21:40:41.630Z",
+    "__v": 0
   },
   {
     "_id": "6a5e028d969540e9ca9b89d1",
@@ -1889,7 +1950,8 @@
     "status": "Active",
     "slug": "screen-rubber-1784545933828-59",
     "createdAt": "2026-07-20T11:12:13.856Z",
-    "updatedAt": "2026-07-20T21:40:42.554Z"
+    "updatedAt": "2026-07-20T21:40:42.554Z",
+    "__v": 0
   },
   {
     "_id": "6a5e028d969540e9ca9b89d2",
@@ -1920,7 +1982,8 @@
     "status": "Active",
     "slug": "belt-punch-1784545933887-60",
     "createdAt": "2026-07-20T11:12:13.928Z",
-    "updatedAt": "2026-07-20T21:40:43.885Z"
+    "updatedAt": "2026-07-20T21:40:43.885Z",
+    "__v": 0
   },
   {
     "_id": "6a5e028e969540e9ca9b89d3",
@@ -1954,7 +2017,8 @@
     "status": "Active",
     "slug": "crusher-spring-1784545934271-61",
     "createdAt": "2026-07-20T11:12:14.376Z",
-    "updatedAt": "2026-07-20T21:55:03.772Z"
+    "updatedAt": "2026-07-20T21:55:03.772Z",
+    "__v": 0
   },
   {
     "_id": "6a5e028e969540e9ca9b89d4",
@@ -1987,7 +2051,8 @@
     "status": "Active",
     "slug": "steel-belts-lacing-1784545934551-62",
     "createdAt": "2026-07-20T11:12:14.593Z",
-    "updatedAt": "2026-07-20T21:55:03.780Z"
+    "updatedAt": "2026-07-20T21:55:03.780Z",
+    "__v": 0
   },
   {
     "_id": "6a5e028e969540e9ca9b89d5",
@@ -2017,7 +2082,8 @@
     "status": "Active",
     "slug": "rubber-sheets-1784545934632-63",
     "createdAt": "2026-07-20T11:12:14.656Z",
-    "updatedAt": "2026-07-20T21:40:47.365Z"
+    "updatedAt": "2026-07-20T21:40:47.365Z",
+    "__v": 0
   },
   {
     "_id": "6a5e028e969540e9ca9b89d6",
@@ -2047,7 +2113,8 @@
     "status": "Active",
     "slug": "rubber-stud-1784545934697-64",
     "createdAt": "2026-07-20T11:12:14.867Z",
-    "updatedAt": "2026-07-20T21:40:48.284Z"
+    "updatedAt": "2026-07-20T21:40:48.284Z",
+    "__v": 0
   },
   {
     "_id": "6a5e028e969540e9ca9b89d7",
@@ -2077,7 +2144,8 @@
     "status": "Active",
     "slug": "white-rubber-sheets-1784545934923-65",
     "createdAt": "2026-07-20T11:12:14.947Z",
-    "updatedAt": "2026-07-20T21:40:49.166Z"
+    "updatedAt": "2026-07-20T21:40:49.166Z",
+    "__v": 0
   },
   {
     "_id": "6a5e028f969540e9ca9b89d8",
@@ -2107,7 +2175,8 @@
     "status": "Active",
     "slug": "silicon-sheet-1784545934991-66",
     "createdAt": "2026-07-20T11:12:15.027Z",
-    "updatedAt": "2026-07-20T21:40:50.053Z"
+    "updatedAt": "2026-07-20T21:40:50.053Z",
+    "__v": 0
   },
   {
     "_id": "6a5e028f969540e9ca9b89d9",
@@ -2137,7 +2206,8 @@
     "status": "Active",
     "slug": "rubber-sponge-sheet-1784545935077-67",
     "createdAt": "2026-07-20T11:12:15.119Z",
-    "updatedAt": "2026-07-20T21:40:50.965Z"
+    "updatedAt": "2026-07-20T21:40:50.965Z",
+    "__v": 0
   },
   {
     "_id": "6a5e028f969540e9ca9b89da",
@@ -2167,7 +2237,8 @@
     "status": "Active",
     "slug": "soft-spong-rubber-1784545935149-68",
     "createdAt": "2026-07-20T11:12:15.331Z",
-    "updatedAt": "2026-07-20T21:40:51.872Z"
+    "updatedAt": "2026-07-20T21:40:51.872Z",
+    "__v": 0
   },
   {
     "_id": "6a5e028f969540e9ca9b89db",
@@ -2197,7 +2268,8 @@
     "status": "Active",
     "slug": "rubber-mounts-1784545935398-69",
     "createdAt": "2026-07-20T11:12:15.436Z",
-    "updatedAt": "2026-07-20T21:40:52.793Z"
+    "updatedAt": "2026-07-20T21:40:52.793Z",
+    "__v": 0
   },
   {
     "_id": "6a5e028f969540e9ca9b89dc",
@@ -2227,7 +2299,8 @@
     "status": "Active",
     "slug": "rubber-glass-moulding-1784545935477-70",
     "createdAt": "2026-07-20T11:12:15.527Z",
-    "updatedAt": "2026-07-20T21:40:53.713Z"
+    "updatedAt": "2026-07-20T21:40:53.713Z",
+    "__v": 0
   },
   {
     "_id": "6a5e028f969540e9ca9b89dd",
@@ -2257,7 +2330,8 @@
     "status": "Active",
     "slug": "rubber-metal-bonded-1784545935565-71",
     "createdAt": "2026-07-20T11:12:15.593Z",
-    "updatedAt": "2026-07-20T21:40:54.632Z"
+    "updatedAt": "2026-07-20T21:40:54.632Z",
+    "__v": 0
   },
   {
     "_id": "6a5e028f969540e9ca9b89de",
@@ -2287,7 +2361,8 @@
     "status": "Active",
     "slug": "rubber-o-ring-service-kit-1784545935627-72",
     "createdAt": "2026-07-20T11:12:15.805Z",
-    "updatedAt": "2026-07-20T21:40:55.555Z"
+    "updatedAt": "2026-07-20T21:40:55.555Z",
+    "__v": 0
   },
   {
     "_id": "6a5e028f969540e9ca9b89df",
@@ -2320,7 +2395,8 @@
     "status": "Active",
     "slug": "gasket-graphite-with-steel-sheet-1784545935841-73",
     "createdAt": "2026-07-20T11:12:15.877Z",
-    "updatedAt": "2026-07-20T21:57:17.817Z"
+    "updatedAt": "2026-07-20T21:57:17.817Z",
+    "__v": 0
   },
   {
     "_id": "6a5e028f969540e9ca9b89e0",
@@ -2354,7 +2430,8 @@
     "status": "Active",
     "slug": "s-s-wire-mesh-1784545935930-74",
     "createdAt": "2026-07-20T11:12:15.967Z",
-    "updatedAt": "2026-07-20T21:57:17.824Z"
+    "updatedAt": "2026-07-20T21:57:17.824Z",
+    "__v": 0
   },
   {
     "_id": "6a5e0290969540e9ca9b89e1",
@@ -2384,7 +2461,8 @@
     "status": "Active",
     "slug": "cork-gasket-rubberized-1784545936002-75",
     "createdAt": "2026-07-20T11:12:16.027Z",
-    "updatedAt": "2026-07-20T11:12:16.027Z"
+    "updatedAt": "2026-07-20T11:12:16.027Z",
+    "__v": 0
   },
   {
     "_id": "6a5e0290969540e9ca9b89e2",
@@ -2417,7 +2495,8 @@
     "status": "Active",
     "slug": "gaskets-sheets-non-asbestos-heat-resistant-1784545936071-76",
     "createdAt": "2026-07-20T11:12:16.097Z",
-    "updatedAt": "2026-07-20T21:57:17.831Z"
+    "updatedAt": "2026-07-20T21:57:17.831Z",
+    "__v": 0
   },
   {
     "_id": "6a5e0290969540e9ca9b89e3",
@@ -2449,7 +2528,8 @@
     "status": "Active",
     "slug": "oil-resistant-jointing-1784545936279-77",
     "createdAt": "2026-07-20T11:12:16.320Z",
-    "updatedAt": "2026-07-20T21:55:03.789Z"
+    "updatedAt": "2026-07-20T21:55:03.789Z",
+    "__v": 0
   },
   {
     "_id": "6a5e0290969540e9ca9b89e4",
@@ -2482,7 +2562,8 @@
     "status": "Active",
     "slug": "gasket-graphite-with-steel-mesh-1784545936368-78",
     "createdAt": "2026-07-20T11:12:16.414Z",
-    "updatedAt": "2026-07-20T21:57:17.838Z"
+    "updatedAt": "2026-07-20T21:57:17.838Z",
+    "__v": 0
   },
   {
     "_id": "6a5e0290969540e9ca9b89e5",
@@ -2514,7 +2595,8 @@
     "status": "Active",
     "slug": "heat-insulation-tape-ordinary-no-insertion-1784545936450-79",
     "createdAt": "2026-07-20T11:12:16.497Z",
-    "updatedAt": "2026-07-20T21:55:03.799Z"
+    "updatedAt": "2026-07-20T21:55:03.799Z",
+    "__v": 0
   },
   {
     "_id": "6a5e0290969540e9ca9b89e6",
@@ -2546,7 +2628,8 @@
     "status": "Active",
     "slug": "gland-packing-rope-with-teflon-square-1784545936541-80",
     "createdAt": "2026-07-20T11:12:16.577Z",
-    "updatedAt": "2026-07-20T21:57:17.845Z"
+    "updatedAt": "2026-07-20T21:57:17.845Z",
+    "__v": 0
   },
   {
     "_id": "6a5e0290969540e9ca9b89e7",
@@ -2578,7 +2661,8 @@
     "status": "Active",
     "slug": "graphite-gland-packing-rope-square-black-1784545936744-81",
     "createdAt": "2026-07-20T11:12:16.786Z",
-    "updatedAt": "2026-07-20T21:57:17.852Z"
+    "updatedAt": "2026-07-20T21:57:17.852Z",
+    "__v": 0
   },
   {
     "_id": "6a5e0290969540e9ca9b89e8",
@@ -2610,7 +2694,8 @@
     "status": "Active",
     "slug": "packing-rope-square-white-color-1784545936848-82",
     "createdAt": "2026-07-20T11:12:16.886Z",
-    "updatedAt": "2026-07-20T21:57:17.860Z"
+    "updatedAt": "2026-07-20T21:57:17.860Z",
+    "__v": 0
   },
   {
     "_id": "6a5e0291969540e9ca9b89e9",
@@ -2642,7 +2727,8 @@
     "status": "Active",
     "slug": "packing-rope-cord-round-1784545937267-83",
     "createdAt": "2026-07-20T11:12:17.416Z",
-    "updatedAt": "2026-07-20T21:55:03.807Z"
+    "updatedAt": "2026-07-20T21:55:03.807Z",
+    "__v": 0
   },
   {
     "_id": "6a5e0291969540e9ca9b89ea",
@@ -2675,7 +2761,8 @@
     "status": "Active",
     "slug": "heat-insulation-cloth-ordinary-1784545937523-84",
     "createdAt": "2026-07-20T11:12:17.558Z",
-    "updatedAt": "2026-07-20T21:55:03.815Z"
+    "updatedAt": "2026-07-20T21:55:03.815Z",
+    "__v": 0
   },
   {
     "_id": "6a5e0291969540e9ca9b89eb",
@@ -2708,7 +2795,8 @@
     "status": "Active",
     "slug": "shim-brass-s-s-1784545937783-85",
     "createdAt": "2026-07-20T11:12:17.830Z",
-    "updatedAt": "2026-07-20T21:57:17.869Z"
+    "updatedAt": "2026-07-20T21:57:17.869Z",
+    "__v": 0
   },
   {
     "_id": "6a5e0291969540e9ca9b89ec",
@@ -2741,7 +2829,8 @@
     "status": "Active",
     "slug": "felt-sheet-1784545937882-86",
     "createdAt": "2026-07-20T11:12:17.917Z",
-    "updatedAt": "2026-07-20T21:57:17.879Z"
+    "updatedAt": "2026-07-20T21:57:17.879Z",
+    "__v": 0
   },
   {
     "_id": "6a5e0291969540e9ca9b89ed",
@@ -2772,7 +2861,8 @@
     "status": "Active",
     "slug": "double-direction-thrust-ball-bearings-1784545937948-87",
     "createdAt": "2026-07-20T11:12:17.987Z",
-    "updatedAt": "2026-07-20T11:12:17.987Z"
+    "updatedAt": "2026-07-20T11:12:17.987Z",
+    "__v": 0
   },
   {
     "_id": "6a5e0292969540e9ca9b89ee",
@@ -2803,7 +2893,8 @@
     "status": "Active",
     "slug": "double-direction-thrust-angular-contact-ball-bearings-series-1784545938021-88",
     "createdAt": "2026-07-20T11:12:18.058Z",
-    "updatedAt": "2026-07-20T11:12:18.058Z"
+    "updatedAt": "2026-07-20T11:12:18.058Z",
+    "__v": 0
   },
   {
     "_id": "6a5e0292969540e9ca9b89ef",
@@ -2834,7 +2925,8 @@
     "status": "Active",
     "slug": "thrust-ball-bearings-1784545938099-89",
     "createdAt": "2026-07-20T11:12:18.251Z",
-    "updatedAt": "2026-07-20T11:12:18.251Z"
+    "updatedAt": "2026-07-20T11:12:18.251Z",
+    "__v": 0
   },
   {
     "_id": "6a5e0292969540e9ca9b89f0",
@@ -2865,7 +2957,8 @@
     "status": "Active",
     "slug": "tapered-roller-bearings-1784545938298-90",
     "createdAt": "2026-07-20T11:12:18.337Z",
-    "updatedAt": "2026-07-20T11:12:18.337Z"
+    "updatedAt": "2026-07-20T11:12:18.337Z",
+    "__v": 0
   },
   {
     "_id": "6a5e0292969540e9ca9b89f1",
@@ -2896,7 +2989,8 @@
     "status": "Active",
     "slug": "spherical-roller-thrust-bearings-1784545938382-91",
     "createdAt": "2026-07-20T11:12:18.442Z",
-    "updatedAt": "2026-07-20T11:12:18.442Z"
+    "updatedAt": "2026-07-20T11:12:18.442Z",
+    "__v": 0
   },
   {
     "_id": "6a5e0292969540e9ca9b89f2",
@@ -2927,7 +3021,8 @@
     "status": "Active",
     "slug": "spherical-roller-bearings-1784545938514-92",
     "createdAt": "2026-07-20T11:12:18.551Z",
-    "updatedAt": "2026-07-20T11:12:18.551Z"
+    "updatedAt": "2026-07-20T11:12:18.551Z",
+    "__v": 0
   },
   {
     "_id": "6a5e0292969540e9ca9b89f3",
@@ -2958,7 +3053,8 @@
     "status": "Active",
     "slug": "double-row-tapered-roller-bearings-1784545938765-93",
     "createdAt": "2026-07-20T11:12:18.917Z",
-    "updatedAt": "2026-07-20T11:12:18.917Z"
+    "updatedAt": "2026-07-20T11:12:18.917Z",
+    "__v": 0
   },
   {
     "_id": "6a5e0292969540e9ca9b89f4",
@@ -2989,7 +3085,8 @@
     "status": "Active",
     "slug": "double-row-cylindrical-roller-bearings-1784545938955-94",
     "createdAt": "2026-07-20T11:12:18.998Z",
-    "updatedAt": "2026-07-20T11:12:18.998Z"
+    "updatedAt": "2026-07-20T11:12:18.998Z",
+    "__v": 0
   },
   {
     "_id": "6a5e0293969540e9ca9b89f5",
@@ -3020,7 +3117,8 @@
     "status": "Active",
     "slug": "cylindrical-roller-bearings-1784545939043-95",
     "createdAt": "2026-07-20T11:12:19.279Z",
-    "updatedAt": "2026-07-20T11:12:19.279Z"
+    "updatedAt": "2026-07-20T11:12:19.279Z",
+    "__v": 0
   },
   {
     "_id": "6a5e0293969540e9ca9b89f6",
@@ -3051,7 +3149,8 @@
     "status": "Active",
     "slug": "single-row-angular-contact-ball-bearings-1784545939326-96",
     "createdAt": "2026-07-20T11:12:19.357Z",
-    "updatedAt": "2026-07-20T11:12:19.357Z"
+    "updatedAt": "2026-07-20T11:12:19.357Z",
+    "__v": 0
   },
   {
     "_id": "6a5e0293969540e9ca9b89f7",
@@ -3082,7 +3181,8 @@
     "status": "Active",
     "slug": "self-aligning-ball-bearings-1784545939421-97",
     "createdAt": "2026-07-20T11:12:19.457Z",
-    "updatedAt": "2026-07-20T11:12:19.457Z"
+    "updatedAt": "2026-07-20T11:12:19.457Z",
+    "__v": 0
   },
   {
     "_id": "6a5e0293969540e9ca9b89f8",
@@ -3113,7 +3213,8 @@
     "status": "Active",
     "slug": "double-row-angular-contact-ball-bearings-1784545939502-98",
     "createdAt": "2026-07-20T11:12:19.537Z",
-    "updatedAt": "2026-07-20T11:12:19.537Z"
+    "updatedAt": "2026-07-20T11:12:19.537Z",
+    "__v": 0
   },
   {
     "_id": "6a5e0293969540e9ca9b89f9",
@@ -3144,7 +3245,8 @@
     "status": "Active",
     "slug": "combination-angular-contact-ball-bearings-1784545939579-99",
     "createdAt": "2026-07-20T11:12:19.794Z",
-    "updatedAt": "2026-07-20T11:12:19.794Z"
+    "updatedAt": "2026-07-20T11:12:19.794Z",
+    "__v": 0
   },
   {
     "_id": "6a5e0293969540e9ca9b89fa",
@@ -3175,7 +3277,8 @@
     "status": "Active",
     "slug": "plummer-block-housing-1784545939838-100",
     "createdAt": "2026-07-20T11:12:19.886Z",
-    "updatedAt": "2026-07-20T21:41:20.303Z"
+    "updatedAt": "2026-07-20T21:41:20.303Z",
+    "__v": 0
   },
   {
     "_id": "6a5e0293969540e9ca9b89fb",
@@ -3206,7 +3309,8 @@
     "status": "Active",
     "slug": "deep-groove-ball-bearings-1784545939927-101",
     "createdAt": "2026-07-20T11:12:19.973Z",
-    "updatedAt": "2026-07-20T11:12:19.973Z"
+    "updatedAt": "2026-07-20T11:12:19.973Z",
+    "__v": 0
   },
   {
     "_id": "6a5e0294969540e9ca9b89fc",
@@ -3237,7 +3341,8 @@
     "status": "Active",
     "slug": "bearing-unit-1784585177539",
     "createdAt": "2026-07-20T11:12:20.067Z",
-    "updatedAt": "2026-07-20T22:06:17.543Z"
+    "updatedAt": "2026-07-20T22:06:17.543Z",
+    "__v": 0
   },
   {
     "_id": "6a5e0294969540e9ca9b89fd",
@@ -3270,7 +3375,8 @@
     "status": "Active",
     "slug": "connecting-links-1784545940111-103",
     "createdAt": "2026-07-20T11:12:20.310Z",
-    "updatedAt": "2026-07-20T21:55:03.824Z"
+    "updatedAt": "2026-07-20T21:55:03.824Z",
+    "__v": 0
   },
   {
     "_id": "6a5e0294969540e9ca9b89fe",
@@ -3301,7 +3407,8 @@
     "status": "Active",
     "slug": "chain-couplings-1784545940348-104",
     "createdAt": "2026-07-20T11:12:20.387Z",
-    "updatedAt": "2026-07-20T11:12:20.387Z"
+    "updatedAt": "2026-07-20T11:12:20.387Z",
+    "__v": 0
   },
   {
     "_id": "6a5e0294969540e9ca9b8a00",
@@ -3334,7 +3441,8 @@
     "status": "Active",
     "slug": "offset-links-1784545940526-106",
     "createdAt": "2026-07-20T11:12:20.557Z",
-    "updatedAt": "2026-07-20T21:55:03.835Z"
+    "updatedAt": "2026-07-20T21:55:03.835Z",
+    "__v": 0
   },
   {
     "_id": "6a5e0294969540e9ca9b8a01",
@@ -3368,7 +3476,8 @@
     "status": "Active",
     "slug": "hollow-pin-chain-1784545940577-107",
     "createdAt": "2026-07-20T11:12:20.622Z",
-    "updatedAt": "2026-07-20T21:55:03.843Z"
+    "updatedAt": "2026-07-20T21:55:03.843Z",
+    "__v": 0
   },
   {
     "_id": "6a5e0294969540e9ca9b8a02",
@@ -3402,7 +3511,8 @@
     "status": "Active",
     "slug": "conveyor-chain-with-attachment-1784545940823-108",
     "createdAt": "2026-07-20T11:12:20.856Z",
-    "updatedAt": "2026-07-20T21:55:03.852Z"
+    "updatedAt": "2026-07-20T21:55:03.852Z",
+    "__v": 0
   },
   {
     "_id": "6a5e0294969540e9ca9b8a03",
@@ -3436,7 +3546,8 @@
     "status": "Active",
     "slug": "conveyor-chain-1784545940892-109",
     "createdAt": "2026-07-20T11:12:20.927Z",
-    "updatedAt": "2026-07-20T21:55:03.859Z"
+    "updatedAt": "2026-07-20T21:55:03.859Z",
+    "__v": 0
   },
   {
     "_id": "6a5e0294969540e9ca9b8a04",
@@ -3470,7 +3581,8 @@
     "status": "Active",
     "slug": "stainless-steel-chains-1784545940961-110",
     "createdAt": "2026-07-20T11:12:20.996Z",
-    "updatedAt": "2026-07-20T21:55:03.867Z"
+    "updatedAt": "2026-07-20T21:55:03.867Z",
+    "__v": 0
   },
   {
     "_id": "6a5e0295969540e9ca9b8a05",
@@ -3504,7 +3616,8 @@
     "status": "Active",
     "slug": "leaf-chain-1784545941036-111",
     "createdAt": "2026-07-20T11:12:21.361Z",
-    "updatedAt": "2026-07-20T21:55:03.874Z"
+    "updatedAt": "2026-07-20T21:55:03.874Z",
+    "__v": 0
   },
   {
     "_id": "6a5e0295969540e9ca9b8a06",
@@ -3538,7 +3651,8 @@
     "status": "Active",
     "slug": "agricultural-roller-chain-1784545941444-112",
     "createdAt": "2026-07-20T11:12:21.544Z",
-    "updatedAt": "2026-07-20T21:55:03.881Z"
+    "updatedAt": "2026-07-20T21:55:03.881Z",
+    "__v": 0
   },
   {
     "_id": "6a5e0295969540e9ca9b8a07",
@@ -3572,7 +3686,8 @@
     "status": "Active",
     "slug": "silent-chain-1784545941583-113",
     "createdAt": "2026-07-20T11:12:21.708Z",
-    "updatedAt": "2026-07-20T21:55:03.895Z"
+    "updatedAt": "2026-07-20T21:55:03.895Z",
+    "__v": 0
   },
   {
     "_id": "6a5e0295969540e9ca9b8a08",
@@ -3606,7 +3721,8 @@
     "status": "Active",
     "slug": "specialty-chain-series-1784545941744-114",
     "createdAt": "2026-07-20T11:12:21.785Z",
-    "updatedAt": "2026-07-20T21:55:03.902Z"
+    "updatedAt": "2026-07-20T21:55:03.902Z",
+    "__v": 0
   },
   {
     "_id": "6a5e8e260a1f95058f7d347a",
@@ -3629,7 +3745,8 @@
     "status": "Active",
     "slug": "habasit-belts-2001",
     "createdAt": "2026-07-20T21:07:50.664Z",
-    "updatedAt": "2026-07-20T21:07:50.664Z"
+    "updatedAt": "2026-07-20T21:07:50.664Z",
+    "__v": 0
   },
   {
     "_id": "6a5e8e260a1f95058f7d347e",
@@ -3653,7 +3770,8 @@
     "status": "Active",
     "slug": "sprockets-variant-b-2005",
     "createdAt": "2026-07-20T21:07:50.751Z",
-    "updatedAt": "2026-07-20T21:07:50.751Z"
+    "updatedAt": "2026-07-20T21:07:50.751Z",
+    "__v": 0
   },
   {
     "_id": "6a5e915b8da03a16e3758474",
@@ -3681,7 +3799,8 @@
     "status": "Active",
     "slug": "high-power-timing-belt-hl-2006",
     "createdAt": "2026-07-20T21:21:31.796Z",
-    "updatedAt": "2026-07-20T21:21:31.796Z"
+    "updatedAt": "2026-07-20T21:21:31.796Z",
+    "__v": 0
   },
   {
     "_id": "6a5e915b8da03a16e3758475",
@@ -3709,7 +3828,8 @@
     "status": "Active",
     "slug": "endless-belts-timing-belt-alphaflex-2007",
     "createdAt": "2026-07-20T21:21:31.833Z",
-    "updatedAt": "2026-07-20T21:21:31.833Z"
+    "updatedAt": "2026-07-20T21:21:31.833Z",
+    "__v": 0
   },
   {
     "_id": "6a5e915b8da03a16e3758476",
@@ -3736,7 +3856,8 @@
     "status": "Active",
     "slug": "bearing-unit-ucp-2008",
     "createdAt": "2026-07-20T21:21:31.848Z",
-    "updatedAt": "2026-07-20T21:21:31.848Z"
+    "updatedAt": "2026-07-20T21:21:31.848Z",
+    "__v": 0
   },
   {
     "_id": "6a5e915b8da03a16e3758477",
@@ -3764,6 +3885,7 @@
     "status": "Active",
     "slug": "sprockets-variant-a-2009",
     "createdAt": "2026-07-20T21:21:31.862Z",
-    "updatedAt": "2026-07-20T21:21:31.862Z"
+    "updatedAt": "2026-07-20T21:21:31.862Z",
+    "__v": 0
   }
 ]

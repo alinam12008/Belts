@@ -13,7 +13,7 @@ const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'AdminPass123!';
 async function api(path, options = {}) {
   const res = await fetch(BASE_URL + path, {
     ...options,
-    headers: { 'Content-Type': 'application/json', ...(options.headers || {}) },
+    headers: { 'Content-Type': 'application/json', Connection: 'close', ...(options.headers || {}) },
   });
   let body = null;
   try { body = await res.json(); } catch (_) { /* non-JSON response */ }
