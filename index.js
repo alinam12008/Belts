@@ -710,7 +710,7 @@ app.get('/api/products/category/:category/:subcategory', ensureDbReady, async (r
 // ---- POST, PUT, DELETE ----
 app.post('/api/products', requireAdmin, ensureDbReady, requireMongoForWrites, async (req, res) => {
   try {
-    const { name, description, shortDescription, category, subcategory, brand, sku, price, discountPrice, stock, status, images, specifications, tags } = req.body;
+    const { name, description, shortDescription, category, subcategory, brand, sku, price, discountPrice, costPrice, stock, status, images, specifications, tags } = req.body;
 
     if (!name || !sku || !category) {
       return res.status(400).json({ error: 'Name, SKU, and Category are required' });
@@ -735,6 +735,7 @@ app.post('/api/products', requireAdmin, ensureDbReady, requireMongoForWrites, as
       sku: finalSku,
       price: Number(price) || 0,
       discountPrice: Number(discountPrice) || 0,
+      costPrice: costPrice !== undefined && costPrice !== null && costPrice !== '' ? Number(costPrice) : null,
       stock: Number(stock) || 10,
       status: status || 'Active',
       images: images || [],
@@ -763,7 +764,7 @@ app.post('/api/products', requireAdmin, ensureDbReady, requireMongoForWrites, as
 app.put('/api/products/:id', requireAdmin, ensureDbReady, requireMongoForWrites, async (req, res) => {
   try {
     const { id } = req.params;
-    const { name, description, shortDescription, category, subcategory, brand, sku, price, discountPrice, stock, status, images, specifications, tags } = req.body;
+    const { name, description, shortDescription, category, subcategory, brand, sku, price, discountPrice, costPrice, stock, status, images, specifications, tags } = req.body;
 
     if (!name || !sku || !category) {
       return res.status(400).json({ error: 'Name, SKU, and Category are required' });
@@ -789,6 +790,7 @@ app.put('/api/products/:id', requireAdmin, ensureDbReady, requireMongoForWrites,
       ...(sku && { sku }),
       ...(price !== undefined && { price: Number(price) }),
       ...(discountPrice !== undefined && { discountPrice: Number(discountPrice) }),
+      ...(costPrice !== undefined && { costPrice: costPrice !== null && costPrice !== '' ? Number(costPrice) : null }),
       ...(stock !== undefined && { stock: Number(stock) }),
       ...(finalStatus && { status: finalStatus }),
       ...(images && { images }),
@@ -1185,6 +1187,57 @@ app.get('/api/admin/analytics', requireAdmin, ensureDbReady, async (req, res) =>
     const monthOrders = orders.filter(order => new Date(order.createdAt || order.updatedAt || Date.now()) >= monthStart);
     const currentMonthRevenue = monthOrders.reduce((sum, order) => sum + (Number(order.totalPrice) || 0), 0);
 
+    // Weekly Sales comparison: this 7 days vs the 7 days before that.
+    const twoWeeksAgo = new Date();
+    twoWeeksAgo.setDate(twoWeeksAgo.getDate() - 14);
+    const priorWeekOrders = orders.filter(order => {
+      const created = new Date(order.createdAt || order.updatedAt || Date.now());
+      return created >= twoWeeksAgo && created < weekAgo;
+    });
+    const priorWeekRevenue = priorWeekOrders.reduce((sum, order) => sum + (Number(order.totalPrice) || 0), 0);
+    const weeklySalesChangePct = priorWeekRevenue > 0
+      ? Math.round(((weeklyRevenue - priorWeekRevenue) / priorWeekRevenue) * 100)
+      : (weeklyRevenue > 0 ? 100 : 0);
+
+    // Gross Profit/Loss -- needs a per-product cost price (optional field
+    // admins can set on a product) to subtract from revenue. Only orders
+    // whose item name text matches an Active product with a cost price set
+    // can be counted, so we report coverage instead of silently treating
+    // unmatched items as zero-cost (which would inflate apparent profit).
+    // Cancelled orders are excluded from revenue and reported separately as
+    // lost revenue.
+    const costByName = new Map();
+    products.forEach(p => {
+      if (p.costPrice !== null && p.costPrice !== undefined) costByName.set(p.name, Number(p.costPrice));
+    });
+    function computeProfitLoss(orderList) {
+      let revenue = 0, cost = 0, matchedQty = 0, totalQty = 0, lostRevenue = 0;
+      orderList.forEach(order => {
+        if (order.status === 'Cancelled') {
+          lostRevenue += Number(order.totalPrice) || 0;
+          return;
+        }
+        revenue += Number(order.totalPrice) || 0;
+        (order.items || []).forEach(item => {
+          const qty = Number(item.quantity) || 0;
+          totalQty += qty;
+          if (item.name && costByName.has(item.name)) {
+            cost += costByName.get(item.name) * qty;
+            matchedQty += qty;
+          }
+        });
+      });
+      return {
+        revenue,
+        cost,
+        grossProfit: revenue - cost,
+        lostRevenue,
+        costCoveragePct: totalQty > 0 ? Math.round((matchedQty / totalQty) * 100) : null
+      };
+    }
+    const monthlyProfitLoss = computeProfitLoss(monthOrders);
+    const hasAnyCostData = costByName.size > 0;
+
     res.json({
       totalSales: revenueStat.value,
       weeklyRevenue: weeklyStat.value,
@@ -1201,7 +1254,11 @@ app.get('/api/admin/analytics', requireAdmin, ensureDbReady, async (req, res) =>
       mostSold,
       recentLogs,
       currentMonthRevenue,
-      currentMonthOrders: monthOrders.length
+      currentMonthOrders: monthOrders.length,
+      priorWeekRevenue,
+      weeklySalesChangePct,
+      monthlyProfitLoss,
+      hasAnyCostData
     });
   } catch (err) {
     console.error('Analytics error:', err);

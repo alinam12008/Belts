@@ -454,6 +454,22 @@
                             </div>
                         </div>
 
+                        <!-- Weekly Sales comparison -->
+                        <div id="widget-weeklysales" class="dashboard-widget glass-card p-6 rounded-lg shadow-sm space-y-3">
+                            <h3 class="font-headline-lg text-base font-bold text-primary uppercase flex items-center gap-2"><span class="material-symbols-outlined">calendar_view_week</span> Weekly Sales</h3>
+                            <div id="weekly-sales-container">
+                                <!-- Dynamic: this week vs last week -->
+                            </div>
+                        </div>
+
+                        <!-- Profit & Loss -->
+                        <div id="widget-profitloss" class="dashboard-widget glass-card p-6 rounded-lg shadow-sm space-y-3">
+                            <h3 class="font-headline-lg text-base font-bold text-primary uppercase flex items-center gap-2"><span class="material-symbols-outlined">account_balance</span> Profit &amp; Loss <span class="normal-case font-normal text-on-surface-variant text-xs">— this month</span></h3>
+                            <div id="profit-loss-container">
+                                <!-- Dynamic: revenue, cost, gross profit/loss -->
+                            </div>
+                        </div>
+
                         <!-- Monthly goals -->
                         <div id="widget-goals" class="dashboard-widget glass-card p-6 rounded-lg shadow-sm flex flex-col justify-between">
                             <div class="space-y-4">
@@ -983,6 +999,10 @@
                                     <input id="form-product-brand" type="text" class="w-full p-2.5 border border-outline-variant bg-surface-container-low text-xs rounded outline-none focus:ring-1 focus:ring-primary focus:border-primary"/>
                                 </div>
                             </div>
+                            <div>
+                                <label class="block text-xs uppercase font-technical-label text-on-surface-variant mb-1">Internal Cost Price (SAR) <span class="normal-case font-normal text-on-surface-variant/70">— optional, never shown to customers, used only for the dashboard's profit/loss figures</span></label>
+                                <input id="form-product-cost" type="number" min="0" step="0.01" placeholder="Leave blank if unknown" class="w-full p-2.5 border border-outline-variant bg-surface-container-low text-xs rounded outline-none focus:ring-1 focus:ring-primary focus:border-primary"/>
+                            </div>
                         </div>
 
                         <!-- Section: Media -->
@@ -1433,9 +1453,60 @@
                 }
 
                 renderGoalsProgress(data, goals);
+                renderWeeklySales(data);
+                renderProfitLoss(data);
                 applyDashboardLayout();
             })
             .catch(err => console.error(err));
+        }
+
+        function renderWeeklySales(data) {
+            const container = document.getElementById('weekly-sales-container');
+            if (!container) return;
+            const pct = data.weeklySalesChangePct || 0;
+            const up = pct >= 0;
+            container.innerHTML = `
+                <div class="flex items-end justify-between">
+                    <div>
+                        <p class="text-[11px] text-on-surface-variant font-technical-label uppercase">This Week</p>
+                        <p class="text-2xl font-headline-lg font-bold text-primary mt-1">${formatCurrency(data.weeklyRevenue || 0)}</p>
+                    </div>
+                    <div class="flex items-center gap-1 ${up ? 'text-green-700' : 'text-red-700'} font-bold text-sm">
+                        <span class="material-symbols-outlined text-base">${up ? 'trending_up' : 'trending_down'}</span>
+                        ${up ? '+' : ''}${pct}%
+                    </div>
+                </div>
+                <p class="text-[11px] text-on-surface-variant border-t border-outline-variant/30 pt-2">Previous 7 days: ${formatCurrency(data.priorWeekRevenue || 0)}</p>
+            `;
+        }
+
+        function renderProfitLoss(data) {
+            const container = document.getElementById('profit-loss-container');
+            if (!container) return;
+            if (!data.hasAnyCostData) {
+                container.innerHTML = `<p class="text-xs text-on-surface-variant italic">No cost prices set yet. Add an "Internal Cost Price" on a product to start seeing profit/loss here.</p>`;
+                return;
+            }
+            const pl = data.monthlyProfitLoss || {};
+            const isProfit = (pl.grossProfit || 0) >= 0;
+            container.innerHTML = `
+                <div class="grid grid-cols-2 gap-3 text-xs">
+                    <div>
+                        <p class="text-on-surface-variant font-technical-label uppercase">Revenue</p>
+                        <p class="font-bold text-on-surface text-sm mt-0.5">${formatCurrency(pl.revenue || 0)}</p>
+                    </div>
+                    <div>
+                        <p class="text-on-surface-variant font-technical-label uppercase">Cost</p>
+                        <p class="font-bold text-on-surface text-sm mt-0.5">${formatCurrency(pl.cost || 0)}</p>
+                    </div>
+                </div>
+                <div class="border-t border-outline-variant/30 pt-3">
+                    <p class="text-on-surface-variant font-technical-label uppercase text-xs">${isProfit ? 'Gross Profit' : 'Gross Loss'}</p>
+                    <p class="font-bold text-xl mt-0.5 ${isProfit ? 'text-green-700' : 'text-red-700'}">${formatCurrency(Math.abs(pl.grossProfit || 0))}</p>
+                </div>
+                ${pl.lostRevenue > 0 ? `<p class="text-[11px] text-red-700 bg-red-50 border border-red-200 rounded p-2">${formatCurrency(pl.lostRevenue)} lost to cancelled orders this month</p>` : ''}
+                ${pl.costCoveragePct !== null && pl.costCoveragePct < 100 ? `<p class="text-[10px] text-on-surface-variant italic">Based on ${pl.costCoveragePct}% of ordered items having a cost price set -- the rest aren't counted.</p>` : ''}
+            `;
         }
 
         function renderGoalsProgress(data, goals) {
@@ -1578,6 +1649,8 @@
         const DASHBOARD_WIDGETS = [
             { id: 'stats', title: 'Overview Stats' },
             { id: 'trend', title: 'Revenue & Inquiries Trend' },
+            { id: 'weeklysales', title: 'Weekly Sales' },
+            { id: 'profitloss', title: 'Profit & Loss' },
             { id: 'goals', title: 'Monthly Goals' },
             { id: 'attention', title: 'Needs Attention' },
             { id: 'topsold', title: 'Top 5 Components' },
@@ -2669,6 +2742,7 @@
             document.getElementById('form-product-subcat').value = p.subcategory || "";
             document.getElementById('form-product-status').value = p.status;
             document.getElementById('form-product-brand').value = p.brand || "";
+            document.getElementById('form-product-cost').value = (p.costPrice !== null && p.costPrice !== undefined) ? p.costPrice : "";
             document.getElementById('form-product-image-url').value = p.images && p.images.length > 0 ? p.images[0] : "";
             document.getElementById('form-product-short-desc').value = p.shortDescription || "";
             document.getElementById('form-product-desc').value = p.description || "";
@@ -2760,6 +2834,8 @@
             const subcategory = document.getElementById('form-product-subcat').value;
             const status = document.getElementById('form-product-status').value;
             const brand = document.getElementById('form-product-brand').value;
+            const costPriceRaw = document.getElementById('form-product-cost').value;
+            const costPrice = costPriceRaw !== '' ? Number(costPriceRaw) : null;
             const imageUrlInput = document.getElementById('form-product-image-url').value;
             const shortDescription = document.getElementById('form-product-short-desc').value;
             const description = document.getElementById('form-product-desc').value;
@@ -2799,7 +2875,7 @@
                     .then(res => res.json())
                     .then(data => {
                         saveProductDetails(id, {
-                            name, sku, category, subcategory, status, brand,
+                            name, sku, category, subcategory, status, brand, costPrice,
                             images: [data.url, ...extraImageUrls], shortDescription, description, specifications
                         }, restoreBtn);
                     })
@@ -2807,7 +2883,7 @@
                 };
             } else {
                 saveProductDetails(id, {
-                    name, sku, category, subcategory, status, brand,
+                    name, sku, category, subcategory, status, brand, costPrice,
                     images: imageUrlInput ? [imageUrlInput, ...extraImageUrls] : extraImageUrls, shortDescription, description, specifications
                 }, restoreBtn);
             }

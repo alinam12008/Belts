@@ -203,6 +203,10 @@ const ProductSchema = new mongoose.Schema({
   sku: { type: String, required: true, unique: true },
   price: { type: Number, default: 0 },
   discountPrice: { type: Number, default: 0 },
+  // Internal-only: what this product costs the business, used to calculate
+  // profit/loss on the admin dashboard. Never shown to customers. Optional
+  // -- null means "not set", not "free".
+  costPrice: { type: Number, default: null },
   images: [{ type: String }],
   specifications: { type: Map, of: String },
   tags: [{ type: String }],
