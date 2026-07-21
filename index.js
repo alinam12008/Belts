@@ -1104,22 +1104,31 @@ app.get('/api/admin/analytics', requireAdmin, ensureDbReady, async (req, res) =>
     const weeklyRevenue = weeklyOrders.reduce((sum, order) => sum + (Number(order.totalPrice) || 0), 0);
     const recentLogs = await db.ActivityLog.find({}).sort({ timestamp: -1 }).limit(10);
 
-    // Real revenue/order trend for the last 7 days (oldest first).
+    // Real revenue/order trend for an admin-selectable range (default 7
+    // days). Longer ranges are grouped into buckets (instead of one bar per
+    // day) so the chart stays readable instead of showing 90 tiny bars.
+    const rangeDays = [7, 30, 90].includes(Number(req.query.range)) ? Number(req.query.range) : 7;
+    const bucketCount = Math.min(rangeDays, 10);
+    const daysPerBucket = rangeDays / bucketCount;
+    const rangeEnd = new Date();
+    rangeEnd.setHours(24, 0, 0, 0);
     const weeklyTrend = [];
-    for (let i = 6; i >= 0; i--) {
-      const dayStart = new Date();
-      dayStart.setHours(0, 0, 0, 0);
-      dayStart.setDate(dayStart.getDate() - i);
-      const dayEnd = new Date(dayStart);
-      dayEnd.setDate(dayEnd.getDate() + 1);
-      const dayOrders = orders.filter(order => {
+    for (let i = bucketCount - 1; i >= 0; i--) {
+      const bucketEnd = new Date(rangeEnd);
+      bucketEnd.setDate(bucketEnd.getDate() - Math.round(i * daysPerBucket));
+      const bucketStart = new Date(rangeEnd);
+      bucketStart.setDate(bucketStart.getDate() - Math.round((i + 1) * daysPerBucket));
+      const bucketOrders = orders.filter(order => {
         const created = new Date(order.createdAt || order.updatedAt || Date.now());
-        return created >= dayStart && created < dayEnd;
+        return created >= bucketStart && created < bucketEnd;
       });
+      const label = daysPerBucket <= 1
+        ? bucketStart.toLocaleDateString('en-US', { weekday: 'short' })
+        : `${bucketStart.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}`;
       weeklyTrend.push({
-        label: dayStart.toLocaleDateString('en-US', { weekday: 'short' }),
-        revenue: dayOrders.reduce((sum, order) => sum + (Number(order.totalPrice) || 0), 0),
-        orders: dayOrders.length
+        label,
+        revenue: bucketOrders.reduce((sum, order) => sum + (Number(order.totalPrice) || 0), 0),
+        orders: bucketOrders.length
       });
     }
 
@@ -1136,6 +1145,13 @@ app.get('/api/admin/analytics', requireAdmin, ensureDbReady, async (req, res) =>
       .sort((a, b) => b.count - a.count)
       .slice(0, 5);
 
+    // Current calendar month's actuals, for the goals progress bars.
+    const monthStart = new Date();
+    monthStart.setDate(1);
+    monthStart.setHours(0, 0, 0, 0);
+    const monthOrders = orders.filter(order => new Date(order.createdAt || order.updatedAt || Date.now()) >= monthStart);
+    const currentMonthRevenue = monthOrders.reduce((sum, order) => sum + (Number(order.totalPrice) || 0), 0);
+
     res.json({
       totalSales,
       weeklyRevenue,
@@ -1144,11 +1160,44 @@ app.get('/api/admin/analytics', requireAdmin, ensureDbReady, async (req, res) =>
       needsAttention,
       weeklyTrend,
       mostSold,
-      recentLogs
+      recentLogs,
+      currentMonthRevenue,
+      currentMonthOrders: monthOrders.length
     });
   } catch (err) {
     console.error('Analytics error:', err);
     res.status(500).json({ error: 'Failed to load analytics' });
+  }
+});
+
+app.get('/api/admin/dashboard-goals', requireAdmin, ensureDbReady, async (req, res) => {
+  try {
+    const goals = await db.DashboardGoal.findOne({});
+    res.json({
+      monthlyRevenueTarget: goals ? Number(goals.monthlyRevenueTarget) || 0 : 0,
+      monthlyOrdersTarget: goals ? Number(goals.monthlyOrdersTarget) || 0 : 0
+    });
+  } catch (err) {
+    console.error('Dashboard goals fetch error:', err);
+    res.status(500).json({ error: 'Failed to load dashboard goals' });
+  }
+});
+
+app.put('/api/admin/dashboard-goals', requireAdmin, ensureDbReady, requireMongoForWrites, async (req, res) => {
+  try {
+    const monthlyRevenueTarget = Number(req.body.monthlyRevenueTarget) || 0;
+    const monthlyOrdersTarget = Number(req.body.monthlyOrdersTarget) || 0;
+    const existing = await db.DashboardGoal.findOne({});
+    let saved;
+    if (existing) {
+      saved = await db.DashboardGoal.findByIdAndUpdate(existing._id, { monthlyRevenueTarget, monthlyOrdersTarget }, { new: true });
+    } else {
+      saved = await db.DashboardGoal.create({ monthlyRevenueTarget, monthlyOrdersTarget });
+    }
+    res.json({ monthlyRevenueTarget: saved.monthlyRevenueTarget, monthlyOrdersTarget: saved.monthlyOrdersTarget });
+  } catch (err) {
+    console.error('Dashboard goals save error:', err);
+    res.status(500).json({ error: 'Failed to save dashboard goals' });
   }
 });
 

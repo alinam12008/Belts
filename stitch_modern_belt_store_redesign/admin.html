@@ -390,50 +390,77 @@
 
                 <!-- ================= PANEL: DASHBOARD ================= -->
                 <section id="panel-dashboard" class="panel-section space-y-8 hidden">
-                    <!-- Stats Cards Grid -->
-                    <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-                        <div class="glass-card p-6 rounded-lg shadow-sm flex items-center gap-4">
-                            <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary shrink-0"><span class="material-symbols-outlined text-2xl">payments</span></div>
-                            <div>
-                                <p class="text-[11px] text-on-surface-variant font-technical-label uppercase">Total Sales Revenue</p>
-                                <p class="text-xl font-headline-lg font-bold text-primary mt-1" id="stat-revenue">$0.00</p>
-                            </div>
-                        </div>
-                        <div class="glass-card p-6 rounded-lg shadow-sm flex items-center gap-4">
-                            <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary shrink-0"><span class="material-symbols-outlined text-2xl">trending_up</span></div>
-                            <div>
-                                <p class="text-[11px] text-on-surface-variant font-technical-label uppercase">Weekly Revenue</p>
-                                <p class="text-xl font-headline-lg font-bold text-primary mt-1" id="stat-weekly-revenue">$0.00</p>
-                            </div>
-                        </div>
-                        <div class="glass-card p-6 rounded-lg shadow-sm flex items-center gap-4">
-                            <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary shrink-0"><span class="material-symbols-outlined text-2xl">assignment</span></div>
-                            <div>
-                                <p class="text-[11px] text-on-surface-variant font-technical-label uppercase">Inquiries Count</p>
-                                <p class="text-xl font-headline-lg font-bold text-primary mt-1" id="stat-orders">0 Orders</p>
-                            </div>
-                        </div>
-                        <div class="glass-card p-6 rounded-lg shadow-sm flex items-center gap-4">
-                            <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary shrink-0"><span class="material-symbols-outlined text-2xl">group</span></div>
-                            <div>
-                                <p class="text-[11px] text-on-surface-variant font-technical-label uppercase">Registered Clients</p>
-                                <p class="text-xl font-headline-lg font-bold text-primary mt-1" id="stat-users">0 Users</p>
-                            </div>
-                        </div>
+                    <div class="flex justify-end">
+                        <button type="button" onclick="openCustomizeDashboardModal()" class="flex items-center gap-1.5 border border-outline-variant text-on-surface-variant font-bold px-4 py-2 uppercase text-[10px] rounded hover:bg-surface-container-low transition-all">
+                            <span class="material-symbols-outlined text-sm">tune</span> Customize Dashboard
+                        </button>
                     </div>
 
-                    <!-- Charts & Warnings -->
-                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                        <!-- Revenue Breakdown Chart Mockup -->
-                        <div class="lg:col-span-2 glass-card p-6 rounded-lg shadow-sm space-y-4">
-                            <h3 class="font-headline-lg text-base font-bold text-primary uppercase">Revenue &amp; Inquiries Trend <span class="normal-case font-normal text-on-surface-variant text-xs">— last 7 days</span></h3>
+                    <div id="dashboard-widgets-grid" class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                        <!-- Stats -->
+                        <div id="widget-stats" class="dashboard-widget lg:col-span-2">
+                            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                                <div class="glass-card p-6 rounded-lg shadow-sm flex items-center gap-4">
+                                    <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary shrink-0"><span class="material-symbols-outlined text-2xl">payments</span></div>
+                                    <div>
+                                        <p class="text-[11px] text-on-surface-variant font-technical-label uppercase">Total Sales Revenue</p>
+                                        <p class="text-xl font-headline-lg font-bold text-primary mt-1" id="stat-revenue">$0.00</p>
+                                    </div>
+                                </div>
+                                <div class="glass-card p-6 rounded-lg shadow-sm flex items-center gap-4">
+                                    <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary shrink-0"><span class="material-symbols-outlined text-2xl">trending_up</span></div>
+                                    <div>
+                                        <p class="text-[11px] text-on-surface-variant font-technical-label uppercase">Weekly Revenue</p>
+                                        <p class="text-xl font-headline-lg font-bold text-primary mt-1" id="stat-weekly-revenue">$0.00</p>
+                                    </div>
+                                </div>
+                                <div class="glass-card p-6 rounded-lg shadow-sm flex items-center gap-4">
+                                    <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary shrink-0"><span class="material-symbols-outlined text-2xl">assignment</span></div>
+                                    <div>
+                                        <p class="text-[11px] text-on-surface-variant font-technical-label uppercase">Inquiries Count</p>
+                                        <p class="text-xl font-headline-lg font-bold text-primary mt-1" id="stat-orders">0 Orders</p>
+                                    </div>
+                                </div>
+                                <div class="glass-card p-6 rounded-lg shadow-sm flex items-center gap-4">
+                                    <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary shrink-0"><span class="material-symbols-outlined text-2xl">group</span></div>
+                                    <div>
+                                        <p class="text-[11px] text-on-surface-variant font-technical-label uppercase">Registered Clients</p>
+                                        <p class="text-xl font-headline-lg font-bold text-primary mt-1" id="stat-users">0 Users</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Revenue trend chart, with selectable date range -->
+                        <div id="widget-trend" class="dashboard-widget lg:col-span-2 glass-card p-6 rounded-lg shadow-sm space-y-4">
+                            <div class="flex flex-wrap items-center justify-between gap-3">
+                                <h3 class="font-headline-lg text-base font-bold text-primary uppercase">Revenue &amp; Inquiries Trend</h3>
+                                <div id="trend-range-buttons" class="flex items-center gap-1 bg-surface-container-low border border-outline-variant rounded p-1">
+                                    <button type="button" onclick="setDashboardTrendRange(7)" data-range="7" class="trend-range-btn px-3 py-1 text-[10px] font-bold uppercase rounded transition-all text-on-surface-variant">7D</button>
+                                    <button type="button" onclick="setDashboardTrendRange(30)" data-range="30" class="trend-range-btn px-3 py-1 text-[10px] font-bold uppercase rounded transition-all text-on-surface-variant">30D</button>
+                                    <button type="button" onclick="setDashboardTrendRange(90)" data-range="90" class="trend-range-btn px-3 py-1 text-[10px] font-bold uppercase rounded transition-all text-on-surface-variant">90D</button>
+                                </div>
+                            </div>
                             <div id="revenue-trend-chart" class="h-64 flex items-end justify-between gap-4 pt-8 pb-2 border-b border-outline-variant px-4">
                                 <!-- Dynamic bars rendered by JS from real order data -->
                             </div>
                         </div>
 
+                        <!-- Monthly goals -->
+                        <div id="widget-goals" class="dashboard-widget glass-card p-6 rounded-lg shadow-sm flex flex-col justify-between">
+                            <div class="space-y-4">
+                                <div class="flex items-center justify-between">
+                                    <h3 class="font-headline-lg text-base font-bold text-primary uppercase flex items-center gap-2"><span class="material-symbols-outlined">flag</span> Monthly Goals</h3>
+                                    <button type="button" onclick="openEditGoalsModal()" class="text-[10px] font-bold uppercase text-primary hover:underline">Edit</button>
+                                </div>
+                                <div id="goals-progress-container" class="space-y-4">
+                                    <!-- Dynamic progress bars -->
+                                </div>
+                            </div>
+                        </div>
+
                         <!-- Needs Attention box -->
-                        <div class="glass-card p-6 rounded-lg shadow-sm flex flex-col justify-between">
+                        <div id="widget-attention" class="dashboard-widget glass-card p-6 rounded-lg shadow-sm flex flex-col justify-between">
                             <div>
                                 <h3 class="font-headline-lg text-base font-bold text-red-700 uppercase flex items-center gap-2"><span class="material-symbols-outlined text-red-600">warning</span> Needs Attention</h3>
                                 <p class="text-xs text-on-surface-variant mt-1 border-b border-outline-variant pb-2 mb-4">Products missing a spec sheet or image</p>
@@ -443,12 +470,9 @@
                             </div>
                             <a href="#products" class="block w-full border border-primary text-primary font-bold text-center py-2.5 text-xs uppercase hover:bg-primary/5 mt-4 transition-colors">Manage Inventory</a>
                         </div>
-                    </div>
 
-                    <!-- Audit Trail / Logs & Most sold products -->
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
                         <!-- Most sold products -->
-                        <div class="glass-card p-6 rounded-lg shadow-sm">
+                        <div id="widget-topsold" class="dashboard-widget glass-card p-6 rounded-lg shadow-sm">
                             <h3 class="font-headline-lg text-base font-bold text-primary uppercase mb-4">Top 5 Components</h3>
                             <div class="overflow-x-auto">
                                 <table class="w-full text-left">
@@ -466,7 +490,7 @@
                         </div>
 
                         <!-- Recent system activity logs -->
-                        <div class="glass-card p-6 rounded-lg shadow-sm space-y-4">
+                        <div id="widget-auditlog" class="dashboard-widget glass-card p-6 rounded-lg shadow-sm space-y-4">
                             <h3 class="font-headline-lg text-base font-bold text-primary uppercase">Recent Audit Trail Logs</h3>
                             <div class="space-y-3 max-h-60 overflow-y-auto" id="recent-logs-list">
                                 <!-- Dynamic logs -->
@@ -777,6 +801,49 @@
                 <div class="pt-4 flex justify-end gap-3 border-t border-outline-variant/30">
                     <button type="button" onclick="closeOrderModal()" class="border border-outline-variant text-on-surface-variant font-bold px-6 py-2.5 uppercase text-[10px] rounded hover:bg-surface-container-low transition-all">Cancel</button>
                     <button type="submit" class="bg-primary text-on-primary font-bold px-6 py-2.5 uppercase text-[10px] rounded hover:bg-primary-container shadow transition-all">Save Order</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ================= MODAL: CUSTOMIZE DASHBOARD ================= -->
+    <div id="customize-dashboard-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[10005] hidden items-center justify-center p-4">
+        <div class="bg-surface-container-lowest border border-outline-variant p-8 shadow-2xl relative rounded max-w-lg w-full">
+            <button onclick="closeCustomizeDashboardModal()" class="absolute top-4 right-4 text-on-surface-variant hover:text-primary transition-colors p-2">
+                <span class="material-symbols-outlined text-2xl">close</span>
+            </button>
+            <h4 class="font-headline-lg text-xl uppercase text-primary font-bold mb-2">Customize Dashboard</h4>
+            <p class="text-sm text-on-surface-variant mb-4">Show or hide widgets, and reorder them with the arrows. Saved to this browser.</p>
+            <div id="customize-dashboard-list" class="space-y-2 max-h-96 overflow-y-auto">
+                <!-- Dynamic widget rows -->
+            </div>
+            <div class="flex justify-between items-center gap-3 pt-5">
+                <button type="button" onclick="resetDashboardLayout()" class="text-xs font-bold uppercase text-on-surface-variant hover:underline">Reset to Default</button>
+                <button type="button" onclick="closeCustomizeDashboardModal()" class="bg-primary text-on-primary font-bold px-6 py-2.5 uppercase text-[10px] rounded hover:bg-primary-container transition-all">Done</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= MODAL: EDIT MONTHLY GOALS ================= -->
+    <div id="edit-goals-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[10005] hidden items-center justify-center p-4">
+        <div class="bg-surface-container-lowest border border-outline-variant p-8 shadow-2xl relative rounded max-w-md w-full">
+            <button onclick="closeEditGoalsModal()" class="absolute top-4 right-4 text-on-surface-variant hover:text-primary transition-colors p-2">
+                <span class="material-symbols-outlined text-2xl">close</span>
+            </button>
+            <h4 class="font-headline-lg text-xl uppercase text-primary font-bold mb-4">Edit Monthly Goals</h4>
+            <form onsubmit="handleSaveGoals(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs uppercase font-technical-label text-on-surface-variant mb-1">Monthly Revenue Target (SAR)</label>
+                    <input id="goal-revenue-target" type="number" min="0" step="1" class="w-full p-3 border border-outline-variant bg-surface-container-low text-sm rounded outline-none focus:ring-1 focus:ring-primary focus:border-primary"/>
+                </div>
+                <div>
+                    <label class="block text-xs uppercase font-technical-label text-on-surface-variant mb-1">Monthly Orders Target</label>
+                    <input id="goal-orders-target" type="number" min="0" step="1" class="w-full p-3 border border-outline-variant bg-surface-container-low text-sm rounded outline-none focus:ring-1 focus:ring-primary focus:border-primary"/>
+                </div>
+                <p class="text-[11px] text-on-surface-variant">Set either to 0 to hide that progress bar.</p>
+                <div class="flex justify-end gap-3 pt-2">
+                    <button type="button" onclick="closeEditGoalsModal()" class="border border-outline-variant text-on-surface-variant font-bold px-6 py-2.5 uppercase text-[10px] rounded hover:bg-surface-container-low transition-all">Cancel</button>
+                    <button type="submit" class="bg-primary text-on-primary font-bold px-6 py-2.5 uppercase text-[10px] rounded hover:bg-primary-container transition-all">Save Goals</button>
                 </div>
             </form>
         </div>
@@ -1105,7 +1172,7 @@
             document.querySelectorAll('.panel-section').forEach(sect => sect.classList.add('hidden'));
             const panel = document.getElementById(`panel-${hash}`);
             if (panel) panel.classList.remove('hidden');
-            if (hash === "dashboard") loadDashboardData();
+            if (hash === "dashboard") { applyDashboardLayout(); loadDashboardData(); }
             if (hash === "products") {
                 loadProductsData();
                 renderAdminCategories();
@@ -1222,19 +1289,39 @@
         }
 
         // ================= DATA LOADING =================
+        let dashboardTrendRange = Number(localStorage.getItem('admin_dashboard_trend_range')) || 7;
+        let lastDashboardGoals = { monthlyRevenueTarget: 0, monthlyOrdersTarget: 0 };
+
+        function setDashboardTrendRange(days) {
+            dashboardTrendRange = days;
+            localStorage.setItem('admin_dashboard_trend_range', String(days));
+            loadDashboardData();
+        }
+
         function loadDashboardData() {
-            fetch('/api/admin/analytics', {
-                headers: { 'Authorization': `Bearer ${token}` }
-            })
-            .then(async res => {
-                const text = await res.text();
-                let data = {};
-                try { data = text ? JSON.parse(text) : {}; } catch (e) { data = {}; }
-                if (!res.ok) throw new Error(data.error || 'Failed to load dashboard');
-                return data;
-            })
-            .then(data => {
+            document.querySelectorAll('.trend-range-btn').forEach(btn => {
+                const active = Number(btn.dataset.range) === dashboardTrendRange;
+                btn.classList.toggle('bg-primary', active);
+                btn.classList.toggle('text-on-primary', active);
+                btn.classList.toggle('text-on-surface-variant', !active);
+            });
+
+            Promise.all([
+                fetch(`/api/admin/analytics?range=${dashboardTrendRange}`, { headers: { 'Authorization': `Bearer ${token}` } })
+                    .then(async res => {
+                        const text = await res.text();
+                        let data = {};
+                        try { data = text ? JSON.parse(text) : {}; } catch (e) { data = {}; }
+                        if (!res.ok) throw new Error(data.error || 'Failed to load dashboard');
+                        return data;
+                    }),
+                fetch('/api/admin/dashboard-goals', { headers: { 'Authorization': `Bearer ${token}` } })
+                    .then(res => res.ok ? res.json() : { monthlyRevenueTarget: 0, monthlyOrdersTarget: 0 })
+                    .catch(() => ({ monthlyRevenueTarget: 0, monthlyOrdersTarget: 0 }))
+            ])
+            .then(([data, goals]) => {
                 analytics = data;
+                lastDashboardGoals = goals;
                 document.getElementById('stat-revenue').innerText = formatCurrency(data.totalSales || 0);
                 document.getElementById('stat-weekly-revenue').innerText = formatCurrency(data.weeklyRevenue || 0);
                 document.getElementById('stat-orders').innerText = `${data.totalOrders} Inquiries`;
@@ -1310,8 +1397,172 @@
                         `;
                     }).join('');
                 }
+
+                renderGoalsProgress(data, goals);
+                applyDashboardLayout();
             })
             .catch(err => console.error(err));
+        }
+
+        function renderGoalsProgress(data, goals) {
+            const container = document.getElementById('goals-progress-container');
+            if (!container) return;
+            const bars = [];
+            if (goals.monthlyRevenueTarget > 0) {
+                const pct = Math.min(100, Math.round((data.currentMonthRevenue || 0) / goals.monthlyRevenueTarget * 100));
+                bars.push(`
+                    <div>
+                        <div class="flex justify-between text-[11px] font-technical-label uppercase mb-1">
+                            <span class="text-on-surface-variant">Revenue this month</span>
+                            <span class="font-bold text-primary">${formatCurrency(data.currentMonthRevenue || 0)} / ${formatCurrency(goals.monthlyRevenueTarget)}</span>
+                        </div>
+                        <div class="w-full h-2.5 bg-surface-container-low rounded-full overflow-hidden border border-outline-variant">
+                            <div class="h-full bg-primary rounded-full transition-all" style="width:${pct}%"></div>
+                        </div>
+                    </div>
+                `);
+            }
+            if (goals.monthlyOrdersTarget > 0) {
+                const pct = Math.min(100, Math.round((data.currentMonthOrders || 0) / goals.monthlyOrdersTarget * 100));
+                bars.push(`
+                    <div>
+                        <div class="flex justify-between text-[11px] font-technical-label uppercase mb-1">
+                            <span class="text-on-surface-variant">Orders this month</span>
+                            <span class="font-bold text-primary">${data.currentMonthOrders || 0} / ${goals.monthlyOrdersTarget}</span>
+                        </div>
+                        <div class="w-full h-2.5 bg-surface-container-low rounded-full overflow-hidden border border-outline-variant">
+                            <div class="h-full bg-primary rounded-full transition-all" style="width:${pct}%"></div>
+                        </div>
+                    </div>
+                `);
+            }
+            container.innerHTML = bars.join('') || `<p class="text-xs text-on-surface-variant italic">No goals set yet. Click Edit to set a monthly target.</p>`;
+        }
+
+        function openEditGoalsModal() {
+            document.getElementById('goal-revenue-target').value = lastDashboardGoals.monthlyRevenueTarget || '';
+            document.getElementById('goal-orders-target').value = lastDashboardGoals.monthlyOrdersTarget || '';
+            document.getElementById('edit-goals-modal').classList.remove('hidden');
+            document.getElementById('edit-goals-modal').classList.add('flex');
+        }
+
+        function closeEditGoalsModal() {
+            document.getElementById('edit-goals-modal').classList.add('hidden');
+            document.getElementById('edit-goals-modal').classList.remove('flex');
+        }
+
+        function handleSaveGoals(e) {
+            e.preventDefault();
+            const monthlyRevenueTarget = Number(document.getElementById('goal-revenue-target').value) || 0;
+            const monthlyOrdersTarget = Number(document.getElementById('goal-orders-target').value) || 0;
+            fetch('/api/admin/dashboard-goals', {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
+                body: JSON.stringify({ monthlyRevenueTarget, monthlyOrdersTarget })
+            })
+            .then(res => res.json().then(data => ({ ok: res.ok, data })))
+            .then(({ ok, data }) => {
+                if (!ok) throw new Error(data.error || 'Failed to save goals');
+                showToast('Monthly goals saved.', 'success');
+                closeEditGoalsModal();
+                loadDashboardData();
+            })
+            .catch(err => showToast(err.message || 'Failed to save goals', 'error'));
+        }
+
+        // ---- Dashboard widget layout (order + visibility), saved per-browser ----
+        const DASHBOARD_WIDGETS = [
+            { id: 'stats', title: 'Overview Stats' },
+            { id: 'trend', title: 'Revenue & Inquiries Trend' },
+            { id: 'goals', title: 'Monthly Goals' },
+            { id: 'attention', title: 'Needs Attention' },
+            { id: 'topsold', title: 'Top 5 Components' },
+            { id: 'auditlog', title: 'Recent Audit Trail Logs' }
+        ];
+        const DASHBOARD_LAYOUT_KEY = 'admin_dashboard_layout';
+
+        function getDashboardLayout() {
+            try {
+                const saved = JSON.parse(localStorage.getItem(DASHBOARD_LAYOUT_KEY));
+                if (saved && Array.isArray(saved.order)) {
+                    // Include any widgets added after this layout was saved (forward-compatible).
+                    const missing = DASHBOARD_WIDGETS.map(w => w.id).filter(id => !saved.order.includes(id));
+                    return { order: [...saved.order, ...missing], hidden: saved.hidden || [] };
+                }
+            } catch (e) { /* fall through to default */ }
+            return { order: DASHBOARD_WIDGETS.map(w => w.id), hidden: [] };
+        }
+
+        function saveDashboardLayout(layout) {
+            localStorage.setItem(DASHBOARD_LAYOUT_KEY, JSON.stringify(layout));
+        }
+
+        function applyDashboardLayout() {
+            const layout = getDashboardLayout();
+            layout.order.forEach((id, index) => {
+                const el = document.getElementById(`widget-${id}`);
+                if (!el) return;
+                el.style.order = index;
+                el.classList.toggle('hidden', layout.hidden.includes(id));
+            });
+        }
+
+        function openCustomizeDashboardModal() {
+            renderCustomizeDashboardList();
+            document.getElementById('customize-dashboard-modal').classList.remove('hidden');
+            document.getElementById('customize-dashboard-modal').classList.add('flex');
+        }
+
+        function closeCustomizeDashboardModal() {
+            document.getElementById('customize-dashboard-modal').classList.add('hidden');
+            document.getElementById('customize-dashboard-modal').classList.remove('flex');
+        }
+
+        function renderCustomizeDashboardList() {
+            const layout = getDashboardLayout();
+            const container = document.getElementById('customize-dashboard-list');
+            const widgetsById = Object.fromEntries(DASHBOARD_WIDGETS.map(w => [w.id, w]));
+            container.innerHTML = layout.order.map((id, index) => {
+                const widget = widgetsById[id];
+                if (!widget) return '';
+                const isHidden = layout.hidden.includes(id);
+                return `
+                    <div class="flex items-center justify-between gap-3 p-3 border border-outline-variant rounded bg-surface-container-low">
+                        <label class="flex items-center gap-2.5 text-xs font-bold uppercase text-on-surface flex-1 cursor-pointer">
+                            <input type="checkbox" class="w-4 h-4" ${isHidden ? '' : 'checked'} onchange="toggleDashboardWidgetVisibility('${id}', this.checked)"/>
+                            ${widget.title}
+                        </label>
+                        <div class="flex items-center gap-1">
+                            <button type="button" onclick="moveDashboardWidget('${id}', -1)" ${index === 0 ? 'disabled' : ''} class="p-1.5 border border-outline-variant rounded hover:bg-surface-container transition-all disabled:opacity-30 disabled:cursor-not-allowed" title="Move up"><span class="material-symbols-outlined text-sm">arrow_upward</span></button>
+                            <button type="button" onclick="moveDashboardWidget('${id}', 1)" ${index === layout.order.length - 1 ? 'disabled' : ''} class="p-1.5 border border-outline-variant rounded hover:bg-surface-container transition-all disabled:opacity-30 disabled:cursor-not-allowed" title="Move down"><span class="material-symbols-outlined text-sm">arrow_downward</span></button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function toggleDashboardWidgetVisibility(id, visible) {
+            const layout = getDashboardLayout();
+            layout.hidden = visible ? layout.hidden.filter(h => h !== id) : [...new Set([...layout.hidden, id])];
+            saveDashboardLayout(layout);
+            applyDashboardLayout();
+        }
+
+        function moveDashboardWidget(id, direction) {
+            const layout = getDashboardLayout();
+            const idx = layout.order.indexOf(id);
+            const swapWith = idx + direction;
+            if (swapWith < 0 || swapWith >= layout.order.length) return;
+            [layout.order[idx], layout.order[swapWith]] = [layout.order[swapWith], layout.order[idx]];
+            saveDashboardLayout(layout);
+            applyDashboardLayout();
+            renderCustomizeDashboardList();
+        }
+
+        function resetDashboardLayout() {
+            localStorage.removeItem(DASHBOARD_LAYOUT_KEY);
+            applyDashboardLayout();
+            renderCustomizeDashboardList();
         }
 
         function loadProductsData(isRetry) {

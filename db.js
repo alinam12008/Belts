@@ -283,6 +283,11 @@ const SeedHistorySchema = new mongoose.Schema({
   timestamp: { type: Date, default: Date.now }
 });
 
+const DashboardGoalSchema = new mongoose.Schema({
+  monthlyRevenueTarget: { type: Number, default: 0 },
+  monthlyOrdersTarget: { type: Number, default: 0 }
+}, { timestamps: true });
+
 // Remembers the configured URI so a later reconnect attempt can be made
 // without needing db.init's original arguments again.
 let storedMongoUri = null;
@@ -299,6 +304,7 @@ function registerMongoModels() {
   db.SupportTicket = mongoose.model('SupportTicket', SupportTicketSchema);
   db.Coupon = mongoose.model('Coupon', CouponSchema);
   db.SeedHistory = mongoose.model('SeedHistory', SeedHistorySchema);
+  db.DashboardGoal = mongoose.model('DashboardGoal', DashboardGoalSchema);
 }
 
 async function attemptMongoConnect(mongoUri) {
@@ -377,6 +383,7 @@ db.init = async function (mongoUri, defaultEmail, defaultPassword) {
     db.SupportTicket = new JSONModel('tickets.json');
     db.Coupon = new JSONModel('coupons.json');
     db.SeedHistory = new JSONModel('seedHistory.json', []);
+    db.DashboardGoal = new JSONModel('dashboardGoals.json', []);
   }
 
   // --- Seeding (Admin, Categories, Users, Tickets, Coupons) ---
