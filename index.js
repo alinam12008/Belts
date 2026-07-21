@@ -9,6 +9,7 @@ const jwt = require('jsonwebtoken');
 const nodemailer = require('nodemailer');
 const db = require('./db');
 const cloudinary = require('./cloudinary');
+const cache = require('./cache');
 const isVercel = process.env.VERCEL === '1';
 
 // ============================================================
@@ -97,18 +98,20 @@ app.use((err, req, res, next) => {
   next(err);
 });
 
-// Short-lived in-memory cache for the product catalog. The Vercel-to-Atlas
-// network path has consistently higher latency than local, so even a warm,
-// already-connected instance takes several hundred ms per query -- for a
-// catalog that changes rarely (only on admin edits) compared to how often
-// visitors load it, serving a recent cached copy instead of re-querying on
-// every single request is a large, safe win. Cleared immediately whenever a
-// product is created/updated/deleted so admin changes are never stale.
-const productsCache = { all: null, allAt: 0, publicCatalog: null, publicCatalogAt: 0 };
-const PRODUCTS_CACHE_TTL_MS = 30000;
-function invalidateProductsCache() {
-  productsCache.all = null;
-  productsCache.publicCatalog = null;
+// Short-lived shared cache for the product catalog (see cache.js). The
+// Vercel-to-Atlas network path has consistently higher latency than local,
+// so even a warm, already-connected instance takes several hundred ms per
+// query -- for a catalog that changes rarely (only on admin edits) compared
+// to how often visitors load it, serving a recent cached copy instead of
+// re-querying on every single request is a large, safe win. Backed by
+// Upstash Redis when configured so every visitor on every instance shares
+// the same cache; cleared immediately whenever a product is
+// created/updated/deleted so admin changes are never stale.
+const PRODUCTS_CACHE_TTL_SECONDS = 30;
+const PRODUCTS_CACHE_KEY_ALL = 'products:all';
+const PRODUCTS_CACHE_KEY_PUBLIC = 'products:public';
+async function invalidateProductsCache() {
+  await cache.del([PRODUCTS_CACHE_KEY_ALL, PRODUCTS_CACHE_KEY_PUBLIC]);
 }
 
 // Middleware to wait for DB readiness
@@ -326,9 +329,9 @@ app.get('/api/health', ensureDbReady, (req, res) => {
 // Dynamic products_data.json
 app.get(['/products_data.json', '/stitch_modern_belt_store_redesign/products_data.json'], ensureDbReady, async (req, res) => {
   try {
-    const now = Date.now();
-    if (productsCache.publicCatalog && (now - productsCache.publicCatalogAt) < PRODUCTS_CACHE_TTL_MS) {
-      return res.json(productsCache.publicCatalog);
+    const cached = await cache.get(PRODUCTS_CACHE_KEY_PUBLIC);
+    if (cached) {
+      return res.json(cached);
     }
 
     const products = await db.Product.find({ status: 'Active' }).lean();
@@ -346,8 +349,7 @@ app.get(['/products_data.json', '/stitch_modern_belt_store_redesign/products_dat
         related: []
       };
     });
-    productsCache.publicCatalog = mapped;
-    productsCache.publicCatalogAt = now;
+    await cache.set(PRODUCTS_CACHE_KEY_PUBLIC, mapped, PRODUCTS_CACHE_TTL_SECONDS);
     res.json(mapped);
   } catch (err) {
     console.error('Error serving products catalog:', err);
@@ -609,13 +611,12 @@ app.get('/api/products', ensureDbReady, async (req, res) => {
       console.error('❌ db.Product is undefined!');
       return res.status(500).json({ error: 'Product model not initialized' });
     }
-    const now = Date.now();
-    if (productsCache.all && (now - productsCache.allAt) < PRODUCTS_CACHE_TTL_MS) {
-      return res.json(productsCache.all);
+    const cached = await cache.get(PRODUCTS_CACHE_KEY_ALL);
+    if (cached) {
+      return res.json(cached);
     }
     const products = await db.Product.find({}).lean();
-    productsCache.all = products;
-    productsCache.allAt = now;
+    await cache.set(PRODUCTS_CACHE_KEY_ALL, products, PRODUCTS_CACHE_TTL_SECONDS);
     res.json(products);
   } catch (err) {
     console.error('❌ /api/products error:', err.message, err.stack);
@@ -747,7 +748,7 @@ app.post('/api/products', requireAdmin, ensureDbReady, requireMongoForWrites, as
     });
 
     console.log(`✅ Product created: ${name} (${finalSku})`);
-    invalidateProductsCache();
+    await invalidateProductsCache();
     try { await rebuildStaticCatalog(); } catch (e) {}
     res.json(newProduct);
 
@@ -820,7 +821,7 @@ app.put('/api/products/:id', requireAdmin, ensureDbReady, requireMongoForWrites,
       timestamp: new Date().toISOString()
     });
 
-    invalidateProductsCache();
+    await invalidateProductsCache();
     try { await rebuildStaticCatalog(); } catch (e) {}
     res.json(updatedProduct);
   } catch (err) {
@@ -846,7 +847,7 @@ app.delete('/api/products/:id', requireAdmin, ensureDbReady, requireMongoForWrit
       timestamp: new Date().toISOString()
     });
 
-    invalidateProductsCache();
+    await invalidateProductsCache();
     try { await rebuildStaticCatalog(); } catch (e) {}
     res.json({ success: true });
   } catch (err) {
