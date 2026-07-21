@@ -1104,6 +1104,21 @@ app.get('/api/admin/analytics', requireAdmin, ensureDbReady, async (req, res) =>
     const weeklyRevenue = weeklyOrders.reduce((sum, order) => sum + (Number(order.totalPrice) || 0), 0);
     const recentLogs = await db.ActivityLog.find({}).sort({ timestamp: -1 }).limit(10);
 
+    // Manual overrides for the 4 stat cards -- null means "not overridden,
+    // use the real computed value". `overrides` tells the frontend which
+    // numbers are manual so it can label them instead of passing them off
+    // as live data.
+    const override = await db.DashboardOverride.findOne({});
+    const pick = (field, liveValue) => {
+      const overridden = override && override[field] !== null && override[field] !== undefined;
+      return { value: overridden ? Number(override[field]) : liveValue, overridden: !!overridden };
+    };
+    const liveActiveUsers = await db.User.countDocuments({ status: 'Active' });
+    const revenueStat = pick('totalSalesRevenue', totalSales);
+    const weeklyStat = pick('weeklyRevenue', weeklyRevenue);
+    const ordersStat = pick('totalOrders', orders.length);
+    const usersStat = pick('activeUsers', liveActiveUsers);
+
     // Real revenue/order trend for an admin-selectable range (default 7
     // days). Longer ranges are grouped into buckets (instead of one bar per
     // day) so the chart stays readable instead of showing 90 tiny bars.
@@ -1132,6 +1147,24 @@ app.get('/api/admin/analytics', requireAdmin, ensureDbReady, async (req, res) =>
       });
     }
 
+    // If Weekly Revenue is manually overridden and the chart is showing
+    // that exact 7-day window, scale the bars so they sum to the override
+    // instead of the chart silently disagreeing with the stat card above
+    // it. Proportional to each bar's real share of the total; split evenly
+    // if there was no real revenue to scale from. Longer ranges (30D/90D)
+    // aren't touched -- there's no 30/90-day override to stay consistent
+    // with, and stretching a 7-day override across a longer window would
+    // just invent numbers.
+    if (rangeDays === 7 && weeklyStat.overridden) {
+      const realTotal = weeklyTrend.reduce((sum, d) => sum + d.revenue, 0);
+      if (realTotal > 0) {
+        weeklyTrend.forEach(d => { d.revenue = Math.round((d.revenue / realTotal) * weeklyStat.value * 100) / 100; });
+      } else {
+        const evenShare = Math.round((weeklyStat.value / weeklyTrend.length) * 100) / 100;
+        weeklyTrend.forEach(d => { d.revenue = evenShare; });
+      }
+    }
+
     // Real most-sold products, aggregated from actual order line items.
     const soldCounts = new Map();
     orders.forEach(order => {
@@ -1151,21 +1184,6 @@ app.get('/api/admin/analytics', requireAdmin, ensureDbReady, async (req, res) =>
     monthStart.setHours(0, 0, 0, 0);
     const monthOrders = orders.filter(order => new Date(order.createdAt || order.updatedAt || Date.now()) >= monthStart);
     const currentMonthRevenue = monthOrders.reduce((sum, order) => sum + (Number(order.totalPrice) || 0), 0);
-    const liveActiveUsers = await db.User.countDocuments({ status: 'Active' });
-
-    // Manual overrides for the 4 stat cards -- null means "not overridden,
-    // use the real computed value". `overrides` tells the frontend which
-    // numbers are manual so it can label them instead of passing them off
-    // as live data.
-    const override = await db.DashboardOverride.findOne({});
-    const pick = (field, liveValue) => {
-      const overridden = override && override[field] !== null && override[field] !== undefined;
-      return { value: overridden ? Number(override[field]) : liveValue, overridden: !!overridden };
-    };
-    const revenueStat = pick('totalSalesRevenue', totalSales);
-    const weeklyStat = pick('weeklyRevenue', weeklyRevenue);
-    const ordersStat = pick('totalOrders', orders.length);
-    const usersStat = pick('activeUsers', liveActiveUsers);
 
     res.json({
       totalSales: revenueStat.value,
