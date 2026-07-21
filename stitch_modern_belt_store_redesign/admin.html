@@ -470,6 +470,37 @@
                             </div>
                         </div>
 
+                        <!-- Daily Ledger: manual income/profit log -->
+                        <div id="widget-ledger" class="dashboard-widget lg:col-span-2 glass-card p-6 rounded-lg shadow-sm space-y-4">
+                            <div class="flex flex-wrap items-center justify-between gap-3">
+                                <h3 class="font-headline-lg text-base font-bold text-primary uppercase flex items-center gap-2"><span class="material-symbols-outlined">edit_calendar</span> Daily Ledger <span class="normal-case font-normal text-on-surface-variant text-xs">— write in each day's income & profit/loss</span></h3>
+                                <div class="flex items-center gap-2">
+                                    <button type="button" onclick="shiftLedgerWeek(-1)" class="p-1.5 border border-outline-variant rounded hover:bg-surface-container-low transition-all" title="Previous week"><span class="material-symbols-outlined text-sm">chevron_left</span></button>
+                                    <span id="ledger-week-label" class="text-xs font-bold uppercase text-on-surface font-technical-label whitespace-nowrap">Week</span>
+                                    <button type="button" onclick="shiftLedgerWeek(1)" class="p-1.5 border border-outline-variant rounded hover:bg-surface-container-low transition-all" title="Next week"><span class="material-symbols-outlined text-sm">chevron_right</span></button>
+                                    <button type="button" onclick="downloadLedgerWeekCsv()" class="flex items-center gap-1 border border-outline-variant text-on-surface-variant font-bold px-3 py-1.5 uppercase text-[10px] rounded hover:bg-surface-container-low transition-all"><span class="material-symbols-outlined text-sm">download</span> CSV</button>
+                                </div>
+                            </div>
+                            <div id="ledger-mini-chart" class="h-20 flex items-end justify-between gap-2 px-1">
+                                <!-- Color-coded bars: green = profit day, red = loss day -->
+                            </div>
+                            <div id="ledger-rows" class="grid grid-cols-1 gap-2">
+                                <!-- Dynamic: one row per day -->
+                            </div>
+                            <div id="ledger-week-summary" class="flex flex-wrap justify-between gap-3 text-xs border-t border-outline-variant/30 pt-3">
+                                <!-- Dynamic totals -->
+                            </div>
+                        </div>
+
+                        <!-- Weekly History: past weeks archive -->
+                        <div id="widget-ledgerhistory" class="dashboard-widget glass-card p-6 rounded-lg shadow-sm space-y-3">
+                            <h3 class="font-headline-lg text-base font-bold text-primary uppercase flex items-center gap-2"><span class="material-symbols-outlined">history</span> Weekly History</h3>
+                            <p id="ledger-avg-income" class="text-xs text-on-surface-variant"></p>
+                            <div id="ledger-history-list" class="space-y-2 max-h-64 overflow-y-auto">
+                                <!-- Dynamic: list of past logged weeks -->
+                            </div>
+                        </div>
+
                         <!-- Monthly goals -->
                         <div id="widget-goals" class="dashboard-widget glass-card p-6 rounded-lg shadow-sm flex flex-col justify-between">
                             <div class="space-y-4">
@@ -1225,7 +1256,7 @@
             document.querySelectorAll('.panel-section').forEach(sect => sect.classList.add('hidden'));
             const panel = document.getElementById(`panel-${hash}`);
             if (panel) panel.classList.remove('hidden');
-            if (hash === "dashboard") { applyDashboardLayout(); loadDashboardData(); }
+            if (hash === "dashboard") { applyDashboardLayout(); loadDashboardData(); loadLedgerWeek(); loadLedgerHistory(); }
             if (hash === "products") {
                 loadProductsData();
                 renderAdminCategories();
@@ -1509,6 +1540,185 @@
             `;
         }
 
+        // ---- Daily Ledger: a manual income/profit log the admin writes in
+        // themselves, independent of order-based analytics. Weeks run
+        // Monday-Sunday, same as the backend.
+        function ledgerDateKey(d) {
+            const y = d.getFullYear(), m = String(d.getMonth() + 1).padStart(2, '0'), day = String(d.getDate()).padStart(2, '0');
+            return `${y}-${m}-${day}`;
+        }
+        function ledgerMondayOf(d) {
+            const date = new Date(d);
+            const day = date.getDay();
+            date.setDate(date.getDate() + (day === 0 ? -6 : 1 - day));
+            return ledgerDateKey(date);
+        }
+        function ledgerAddDays(dateStr, n) {
+            const d = new Date(dateStr + 'T00:00:00');
+            d.setDate(d.getDate() + n);
+            return ledgerDateKey(d);
+        }
+        let ledgerWeekStart = ledgerMondayOf(new Date());
+
+        function shiftLedgerWeek(direction) {
+            ledgerWeekStart = ledgerAddDays(ledgerWeekStart, direction * 7);
+            loadLedgerWeek();
+        }
+
+        function loadLedgerWeek() {
+            const weekEnd = ledgerAddDays(ledgerWeekStart, 6);
+            const labelEl = document.getElementById('ledger-week-label');
+            if (labelEl) {
+                const fmt = (s) => new Date(s + 'T00:00:00').toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+                labelEl.innerText = `${fmt(ledgerWeekStart)} – ${fmt(weekEnd)}`;
+            }
+            fetch(`/api/admin/daily-ledger?start=${ledgerWeekStart}&end=${weekEnd}`, { headers: { 'Authorization': `Bearer ${token}` } })
+                .then(res => res.ok ? res.json() : [])
+                .then(entries => {
+                    const byDate = Object.fromEntries(entries.map(e => [e.date, e]));
+                    renderLedgerRows(byDate);
+                    renderLedgerMiniChart(byDate);
+                    renderLedgerWeekSummary(byDate);
+                })
+                .catch(err => console.error(err));
+        }
+
+        function renderLedgerRows(byDate) {
+            const container = document.getElementById('ledger-rows');
+            if (!container) return;
+            const days = Array.from({ length: 7 }, (_, i) => ledgerAddDays(ledgerWeekStart, i));
+            container.innerHTML = days.map(date => {
+                const entry = byDate[date] || { income: '', profit: '' };
+                const dayName = new Date(date + 'T00:00:00').toLocaleDateString('en-US', { weekday: 'short' });
+                return `
+                    <div class="flex items-center gap-2 flex-wrap sm:flex-nowrap">
+                        <span class="text-xs font-bold uppercase text-on-surface-variant w-24 shrink-0">${dayName} ${date.slice(5)}</span>
+                        <input type="number" step="0.01" placeholder="Income" value="${entry.income}" class="ledger-income-input flex-1 min-w-[100px] p-2 border border-outline-variant bg-surface-container-low text-xs rounded outline-none focus:ring-1 focus:ring-primary focus:border-primary" data-date="${date}"/>
+                        <input type="number" step="0.01" placeholder="Profit/Loss" value="${entry.profit}" class="ledger-profit-input flex-1 min-w-[100px] p-2 border border-outline-variant bg-surface-container-low text-xs rounded outline-none focus:ring-1 focus:ring-primary focus:border-primary" data-date="${date}"/>
+                        <button type="button" onclick="saveLedgerDay('${date}')" class="p-2 border border-outline-variant rounded hover:bg-primary hover:text-white hover:border-primary transition-all text-on-surface-variant shrink-0" title="Save"><span class="material-symbols-outlined text-sm">save</span></button>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function renderLedgerMiniChart(byDate) {
+            const container = document.getElementById('ledger-mini-chart');
+            if (!container) return;
+            const days = Array.from({ length: 7 }, (_, i) => ledgerAddDays(ledgerWeekStart, i));
+            const maxAbs = Math.max(1, ...days.map(d => Math.abs((byDate[d] || {}).profit || 0)));
+            container.innerHTML = days.map(date => {
+                const entry = byDate[date];
+                const hasEntry = !!entry;
+                const profit = hasEntry ? Number(entry.profit) || 0 : 0;
+                const heightPct = hasEntry ? Math.max(6, Math.round((Math.abs(profit) / maxAbs) * 100)) : 4;
+                const colorCls = !hasEntry ? 'bg-outline-variant' : (profit >= 0 ? 'bg-green-500' : 'bg-red-500');
+                const dayName = new Date(date + 'T00:00:00').toLocaleDateString('en-US', { weekday: 'short' });
+                return `
+                    <div class="flex flex-col items-center flex-1 h-full justify-end">
+                        <div class="${colorCls} w-6 rounded-t transition-all" style="height:${heightPct}%" title="${dayName}: ${hasEntry ? (profit >= 0 ? 'Profit' : 'Loss') + ' ' + formatCurrency(Math.abs(profit)) : 'No entry'}"></div>
+                        <span class="text-[9px] font-technical-label uppercase text-on-surface-variant mt-1">${dayName}</span>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function renderLedgerWeekSummary(byDate) {
+            const container = document.getElementById('ledger-week-summary');
+            if (!container) return;
+            const entries = Object.values(byDate);
+            const totalIncome = entries.reduce((s, e) => s + (Number(e.income) || 0), 0);
+            const totalProfit = entries.reduce((s, e) => s + (Number(e.profit) || 0), 0);
+            const isProfit = totalProfit >= 0;
+            container.innerHTML = `
+                <span class="text-on-surface-variant">Week Total Income: <span class="font-bold text-on-surface">${formatCurrency(totalIncome)}</span></span>
+                <span class="${isProfit ? 'text-green-700' : 'text-red-700'} font-bold">Week ${isProfit ? 'Profit' : 'Loss'}: ${formatCurrency(Math.abs(totalProfit))}</span>
+                <span class="text-on-surface-variant">${entries.length} of 7 days logged</span>
+            `;
+        }
+
+        function saveLedgerDay(date) {
+            const incomeInput = document.querySelector(`.ledger-income-input[data-date="${date}"]`);
+            const profitInput = document.querySelector(`.ledger-profit-input[data-date="${date}"]`);
+            const income = Number(incomeInput.value) || 0;
+            const profit = Number(profitInput.value) || 0;
+            fetch('/api/admin/daily-ledger', {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
+                body: JSON.stringify({ date, income, profit })
+            })
+            .then(res => res.json().then(data => ({ ok: res.ok, data })))
+            .then(({ ok, data }) => {
+                if (!ok) throw new Error(data.error || 'Failed to save');
+                showToast(`Saved ${date}.`, 'success');
+                loadLedgerWeek();
+                loadLedgerHistory();
+            })
+            .catch(err => showToast(err.message || 'Failed to save ledger entry', 'error'));
+        }
+
+        function downloadLedgerWeekCsv() {
+            const weekEnd = ledgerAddDays(ledgerWeekStart, 6);
+            downloadLedgerCsv(ledgerWeekStart, weekEnd);
+        }
+
+        function downloadLedgerCsv(start, end) {
+            fetch(`/api/admin/daily-ledger/export?start=${start}&end=${end}`, { headers: { 'Authorization': `Bearer ${token}` } })
+                .then(res => {
+                    if (!res.ok) throw new Error('Failed to export');
+                    return res.blob();
+                })
+                .then(blob => {
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = `ledger-${start}-to-${end}.csv`;
+                    document.body.appendChild(a);
+                    a.click();
+                    a.remove();
+                    URL.revokeObjectURL(url);
+                })
+                .catch(err => showToast(err.message || 'Failed to download CSV', 'error'));
+        }
+
+        function loadLedgerHistory() {
+            fetch('/api/admin/daily-ledger/weeks', { headers: { 'Authorization': `Bearer ${token}` } })
+                .then(res => res.ok ? res.json() : { weeks: [], averageWeeklyIncome: 0 })
+                .then(data => {
+                    const avgEl = document.getElementById('ledger-avg-income');
+                    if (avgEl) avgEl.innerText = data.weeks.length > 0 ? `Average Weekly Income: ${formatCurrency(data.averageWeeklyIncome)} (across ${data.weeks.length} logged week${data.weeks.length === 1 ? '' : 's'})` : '';
+
+                    const listEl = document.getElementById('ledger-history-list');
+                    if (!listEl) return;
+                    if (data.weeks.length === 0) {
+                        listEl.innerHTML = `<p class="text-xs text-on-surface-variant italic">No weeks logged yet. Fill in the Daily Ledger above to start building history.</p>`;
+                        return;
+                    }
+                    listEl.innerHTML = data.weeks.map(w => {
+                        const isProfit = w.totalProfit >= 0;
+                        const fmt = (s) => new Date(s + 'T00:00:00').toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+                        return `
+                            <div class="flex items-center justify-between gap-2 p-2.5 border border-outline-variant rounded bg-surface-container-low">
+                                <div>
+                                    <p class="text-xs font-bold text-on-surface">${fmt(w.weekStart)} – ${fmt(w.weekEnd)}</p>
+                                    <p class="text-[10px] text-on-surface-variant">${w.daysLogged} of 7 days · Income ${formatCurrency(w.totalIncome)} · <span class="${isProfit ? 'text-green-700' : 'text-red-700'} font-bold">${isProfit ? 'Profit' : 'Loss'} ${formatCurrency(Math.abs(w.totalProfit))}</span></p>
+                                </div>
+                                <div class="flex items-center gap-1 shrink-0">
+                                    <button type="button" onclick="viewLedgerWeek('${w.weekStart}')" class="p-1.5 border border-outline-variant rounded hover:bg-primary hover:text-white hover:border-primary transition-all text-on-surface-variant" title="View this week"><span class="material-symbols-outlined text-sm">visibility</span></button>
+                                    <button type="button" onclick="downloadLedgerCsv('${w.weekStart}', '${w.weekEnd}')" class="p-1.5 border border-outline-variant rounded hover:bg-primary hover:text-white hover:border-primary transition-all text-on-surface-variant" title="Download CSV"><span class="material-symbols-outlined text-sm">download</span></button>
+                                </div>
+                            </div>
+                        `;
+                    }).join('');
+                })
+                .catch(err => console.error(err));
+        }
+
+        function viewLedgerWeek(weekStart) {
+            ledgerWeekStart = weekStart;
+            loadLedgerWeek();
+            document.getElementById('widget-ledger')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
         function renderGoalsProgress(data, goals) {
             const container = document.getElementById('goals-progress-container');
             if (!container) return;
@@ -1651,6 +1861,8 @@
             { id: 'trend', title: 'Revenue & Inquiries Trend' },
             { id: 'weeklysales', title: 'Weekly Sales' },
             { id: 'profitloss', title: 'Profit & Loss' },
+            { id: 'ledger', title: 'Daily Ledger' },
+            { id: 'ledgerhistory', title: 'Weekly History' },
             { id: 'goals', title: 'Monthly Goals' },
             { id: 'attention', title: 'Needs Attention' },
             { id: 'topsold', title: 'Top 5 Components' },

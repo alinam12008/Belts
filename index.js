@@ -1289,6 +1289,113 @@ app.put('/api/admin/dashboard-overrides', requireAdmin, ensureDbReady, requireMo
   }
 });
 
+// ---- Daily Ledger: a manual income/profit log the admin fills in
+// themselves, independent of order-based analytics. Dates are plain
+// 'YYYY-MM-DD' strings (UTC) so range filtering is just string comparison,
+// identical whether backed by Mongo or the JSON fallback store. Weeks run
+// Monday-Sunday.
+function dateKey(d) {
+  return d.toISOString().slice(0, 10);
+}
+function mondayOf(dateStr) {
+  const d = new Date(dateStr + 'T00:00:00.000Z');
+  const day = d.getUTCDay(); // 0 = Sunday
+  const diff = day === 0 ? -6 : 1 - day;
+  d.setUTCDate(d.getUTCDate() + diff);
+  return dateKey(d);
+}
+
+app.get('/api/admin/daily-ledger', requireAdmin, ensureDbReady, async (req, res) => {
+  try {
+    const { start, end } = req.query;
+    const all = await db.DailyLedgerEntry.find({});
+    const filtered = all.filter(e => (!start || e.date >= start) && (!end || e.date <= end));
+    filtered.sort((a, b) => a.date.localeCompare(b.date));
+    res.json(filtered);
+  } catch (err) {
+    console.error('Daily ledger fetch error:', err);
+    res.status(500).json({ error: 'Failed to load daily ledger' });
+  }
+});
+
+app.put('/api/admin/daily-ledger', requireAdmin, ensureDbReady, requireMongoForWrites, async (req, res) => {
+  try {
+    const { date, income, profit, notes } = req.body;
+    if (!date || !/^\d{4}-\d{2}-\d{2}$/.test(date)) {
+      return res.status(400).json({ error: 'A valid date (YYYY-MM-DD) is required' });
+    }
+    const payload = { date, income: Number(income) || 0, profit: Number(profit) || 0, notes: notes || '' };
+    const existing = await db.DailyLedgerEntry.findOne({ date });
+    const saved = existing
+      ? await db.DailyLedgerEntry.findByIdAndUpdate(existing._id, payload, { new: true })
+      : await db.DailyLedgerEntry.create(payload);
+    res.json(saved);
+  } catch (err) {
+    console.error('Daily ledger save error:', err);
+    res.status(500).json({ error: 'Failed to save daily ledger entry' });
+  }
+});
+
+app.delete('/api/admin/daily-ledger/:date', requireAdmin, ensureDbReady, requireMongoForWrites, async (req, res) => {
+  try {
+    await db.DailyLedgerEntry.deleteMany({ date: req.params.date });
+    res.json({ success: true });
+  } catch (err) {
+    console.error('Daily ledger delete error:', err);
+    res.status(500).json({ error: 'Failed to delete daily ledger entry' });
+  }
+});
+
+app.get('/api/admin/daily-ledger/weeks', requireAdmin, ensureDbReady, async (req, res) => {
+  try {
+    const all = await db.DailyLedgerEntry.find({});
+    const weeks = new Map();
+    all.forEach(entry => {
+      const weekStart = mondayOf(entry.date);
+      if (!weeks.has(weekStart)) weeks.set(weekStart, { weekStart, totalIncome: 0, totalProfit: 0, daysLogged: 0 });
+      const w = weeks.get(weekStart);
+      w.totalIncome += Number(entry.income) || 0;
+      w.totalProfit += Number(entry.profit) || 0;
+      w.daysLogged += 1;
+    });
+    const list = Array.from(weeks.values()).map(w => {
+      const weekEndDate = new Date(w.weekStart + 'T00:00:00.000Z');
+      weekEndDate.setUTCDate(weekEndDate.getUTCDate() + 6);
+      return { ...w, weekEnd: dateKey(weekEndDate) };
+    }).sort((a, b) => b.weekStart.localeCompare(a.weekStart));
+    const averageWeeklyIncome = list.length > 0 ? Math.round((list.reduce((s, w) => s + w.totalIncome, 0) / list.length) * 100) / 100 : 0;
+    res.json({ weeks: list, averageWeeklyIncome });
+  } catch (err) {
+    console.error('Daily ledger weeks error:', err);
+    res.status(500).json({ error: 'Failed to load weekly history' });
+  }
+});
+
+app.get('/api/admin/daily-ledger/export', requireAdmin, ensureDbReady, async (req, res) => {
+  try {
+    const { start, end } = req.query;
+    if (!start || !end) return res.status(400).json({ error: 'start and end dates are required' });
+    const all = await db.DailyLedgerEntry.find({});
+    const filtered = all.filter(e => e.date >= start && e.date <= end).sort((a, b) => a.date.localeCompare(b.date));
+    const escapeCsv = (val) => `"${String(val ?? '').replace(/"/g, '""')}"`;
+    const rows = [['Date', 'Income (SAR)', 'Profit/Loss (SAR)', 'Notes'].map(escapeCsv).join(',')];
+    filtered.forEach(e => {
+      rows.push([e.date, e.income, e.profit, e.notes || ''].map(escapeCsv).join(','));
+    });
+    const totalIncome = filtered.reduce((s, e) => s + (Number(e.income) || 0), 0);
+    const totalProfit = filtered.reduce((s, e) => s + (Number(e.profit) || 0), 0);
+    rows.push(['', '', '', ''].map(escapeCsv).join(','));
+    rows.push(['Total', totalIncome, totalProfit, ''].map(escapeCsv).join(','));
+    const csv = rows.join('\r\n');
+    res.setHeader('Content-Type', 'text/csv; charset=utf-8');
+    res.setHeader('Content-Disposition', `attachment; filename="ledger-${start}-to-${end}.csv"`);
+    res.send(csv);
+  } catch (err) {
+    console.error('Daily ledger export error:', err);
+    res.status(500).json({ error: 'Failed to export daily ledger' });
+  }
+});
+
 app.get('/api/admin/dashboard-goals', requireAdmin, ensureDbReady, async (req, res) => {
   try {
     const goals = await db.DashboardGoal.findOne({});

@@ -303,6 +303,18 @@ const DashboardOverrideSchema = new mongoose.Schema({
   activeUsers: { type: Number, default: null }
 }, { timestamps: true });
 
+// A manual daily log the admin fills in themselves (income + profit/loss
+// for that day) -- independent of the order-based analytics. `date` is a
+// plain 'YYYY-MM-DD' string so lookups/sorting/range-filtering are simple
+// string comparisons that work the same whether backed by Mongo or the
+// JSON fallback store.
+const DailyLedgerEntrySchema = new mongoose.Schema({
+  date: { type: String, required: true, unique: true },
+  income: { type: Number, default: 0 },
+  profit: { type: Number, default: 0 },
+  notes: { type: String, default: '' }
+}, { timestamps: true });
+
 // Remembers the configured URI so a later reconnect attempt can be made
 // without needing db.init's original arguments again.
 let storedMongoUri = null;
@@ -321,6 +333,7 @@ function registerMongoModels() {
   db.SeedHistory = mongoose.model('SeedHistory', SeedHistorySchema);
   db.DashboardGoal = mongoose.model('DashboardGoal', DashboardGoalSchema);
   db.DashboardOverride = mongoose.model('DashboardOverride', DashboardOverrideSchema);
+  db.DailyLedgerEntry = mongoose.model('DailyLedgerEntry', DailyLedgerEntrySchema);
 }
 
 async function attemptMongoConnect(mongoUri) {
@@ -401,6 +414,7 @@ db.init = async function (mongoUri, defaultEmail, defaultPassword) {
     db.SeedHistory = new JSONModel('seedHistory.json', []);
     db.DashboardGoal = new JSONModel('dashboardGoals.json', []);
     db.DashboardOverride = new JSONModel('dashboardOverrides.json', []);
+    db.DailyLedgerEntry = new JSONModel('dailyLedger.json', []);
   }
 
   // --- Seeding (Admin, Categories, Users, Tickets, Coupons) ---
