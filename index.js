@@ -1084,23 +1084,65 @@ app.delete('/api/coupons/:id', requireAdmin, ensureDbReady, requireMongoForWrite
 app.get('/api/admin/analytics', requireAdmin, ensureDbReady, async (req, res) => {
   try {
     const products = await db.Product.find({ status: 'Active' });
-    const lowStock = products.filter(p => Number(p.stock) <= 3).slice(0, 10);
+    // "Stock" isn't editable from the admin form anymore (removed by design),
+    // so it can never reflect real inventory -- surface products that are
+    // actually missing catalog data instead, which admins can act on.
+    const needsAttention = products
+      .filter(p => Object.keys(p.specifications || {}).length === 0 || !p.images || p.images.length === 0)
+      .slice(0, 10)
+      .map(p => ({
+        name: p.name,
+        sku: p.sku,
+        missingSpecs: Object.keys(p.specifications || {}).length === 0,
+        missingImage: !p.images || p.images.length === 0
+      }));
     const orders = await db.Order.find({});
     const totalSales = orders.reduce((sum, order) => sum + (Number(order.totalPrice) || 0), 0);
-    const weeklyRevenue = orders.filter(order => {
-      const created = new Date(order.createdAt || order.updatedAt || Date.now());
-      const weekAgo = new Date();
-      weekAgo.setDate(weekAgo.getDate() - 7);
-      return created >= weekAgo;
-    }).reduce((sum, order) => sum + (Number(order.totalPrice) || 0), 0);
+    const weekAgo = new Date();
+    weekAgo.setDate(weekAgo.getDate() - 7);
+    const weeklyOrders = orders.filter(order => new Date(order.createdAt || order.updatedAt || Date.now()) >= weekAgo);
+    const weeklyRevenue = weeklyOrders.reduce((sum, order) => sum + (Number(order.totalPrice) || 0), 0);
     const recentLogs = await db.ActivityLog.find({}).sort({ timestamp: -1 }).limit(10);
-    const mostSold = products.slice(0, 5).map(product => ({ name: product.name, count: Math.max(1, Math.min(10, Number(product.stock) || 1)) }));
+
+    // Real revenue/order trend for the last 7 days (oldest first).
+    const weeklyTrend = [];
+    for (let i = 6; i >= 0; i--) {
+      const dayStart = new Date();
+      dayStart.setHours(0, 0, 0, 0);
+      dayStart.setDate(dayStart.getDate() - i);
+      const dayEnd = new Date(dayStart);
+      dayEnd.setDate(dayEnd.getDate() + 1);
+      const dayOrders = orders.filter(order => {
+        const created = new Date(order.createdAt || order.updatedAt || Date.now());
+        return created >= dayStart && created < dayEnd;
+      });
+      weeklyTrend.push({
+        label: dayStart.toLocaleDateString('en-US', { weekday: 'short' }),
+        revenue: dayOrders.reduce((sum, order) => sum + (Number(order.totalPrice) || 0), 0),
+        orders: dayOrders.length
+      });
+    }
+
+    // Real most-sold products, aggregated from actual order line items.
+    const soldCounts = new Map();
+    orders.forEach(order => {
+      (order.items || []).forEach(item => {
+        if (!item.name) return;
+        soldCounts.set(item.name, (soldCounts.get(item.name) || 0) + (Number(item.quantity) || 0));
+      });
+    });
+    const mostSold = Array.from(soldCounts.entries())
+      .map(([name, count]) => ({ name, count }))
+      .sort((a, b) => b.count - a.count)
+      .slice(0, 5);
+
     res.json({
       totalSales,
       weeklyRevenue,
       totalOrders: orders.length,
       activeUsers: await db.User.countDocuments({ status: 'Active' }),
-      lowStock,
+      needsAttention,
+      weeklyTrend,
       mostSold,
       recentLogs
     });

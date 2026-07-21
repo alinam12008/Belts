@@ -426,46 +426,19 @@
                     <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
                         <!-- Revenue Breakdown Chart Mockup -->
                         <div class="lg:col-span-2 glass-card p-6 rounded-lg shadow-sm space-y-4">
-                            <h3 class="font-headline-lg text-base font-bold text-primary uppercase">Revenue &amp; Inquiries Trend</h3>
-                            <div class="h-64 flex items-end justify-between gap-4 pt-8 pb-2 border-b border-outline-variant px-4">
-                                <div class="flex flex-col items-center flex-1 h-full justify-end">
-                                    <div class="bg-primary/20 w-8 h-[20%] rounded-t transition-all hover:bg-primary" title="Monday: $120"></div>
-                                    <span class="text-[10px] font-technical-label uppercase text-on-surface-variant mt-2">Mon</span>
-                                </div>
-                                <div class="flex flex-col items-center flex-1 h-full justify-end">
-                                    <div class="bg-primary/20 w-8 h-[45%] rounded-t transition-all hover:bg-primary" title="Tuesday: $290"></div>
-                                    <span class="text-[10px] font-technical-label uppercase text-on-surface-variant mt-2">Tue</span>
-                                </div>
-                                <div class="flex flex-col items-center flex-1 h-full justify-end">
-                                    <div class="bg-primary/20 w-8 h-[35%] rounded-t transition-all hover:bg-primary" title="Wednesday: $210"></div>
-                                    <span class="text-[10px] font-technical-label uppercase text-on-surface-variant mt-2">Wed</span>
-                                </div>
-                                <div class="flex flex-col items-center flex-1 h-full justify-end">
-                                    <div class="bg-primary/20 w-8 h-[60%] rounded-t transition-all hover:bg-primary" title="Thursday: $410"></div>
-                                    <span class="text-[10px] font-technical-label uppercase text-on-surface-variant mt-2">Thu</span>
-                                </div>
-                                <div class="flex flex-col items-center flex-1 h-full justify-end">
-                                    <div class="bg-primary/20 w-8 h-[75%] rounded-t transition-all hover:bg-primary" title="Friday: $530"></div>
-                                    <span class="text-[10px] font-technical-label uppercase text-on-surface-variant mt-2">Fri</span>
-                                </div>
-                                <div class="flex flex-col items-center flex-1 h-full justify-end">
-                                    <div class="bg-primary/20 w-8 h-[15%] rounded-t transition-all hover:bg-primary" title="Saturday: $90"></div>
-                                    <span class="text-[10px] font-technical-label uppercase text-on-surface-variant mt-2">Sat</span>
-                                </div>
-                                <div class="flex flex-col items-center flex-1 h-full justify-end">
-                                    <div class="bg-primary/20 w-8 h-[30%] rounded-t transition-all hover:bg-primary" title="Sunday: $180"></div>
-                                    <span class="text-[10px] font-technical-label uppercase text-on-surface-variant mt-2">Sun</span>
-                                </div>
+                            <h3 class="font-headline-lg text-base font-bold text-primary uppercase">Revenue &amp; Inquiries Trend <span class="normal-case font-normal text-on-surface-variant text-xs">— last 7 days</span></h3>
+                            <div id="revenue-trend-chart" class="h-64 flex items-end justify-between gap-4 pt-8 pb-2 border-b border-outline-variant px-4">
+                                <!-- Dynamic bars rendered by JS from real order data -->
                             </div>
                         </div>
 
-                        <!-- Low Stock alerts box -->
+                        <!-- Needs Attention box -->
                         <div class="glass-card p-6 rounded-lg shadow-sm flex flex-col justify-between">
                             <div>
-                                <h3 class="font-headline-lg text-base font-bold text-red-700 uppercase flex items-center gap-2"><span class="material-symbols-outlined text-red-600">warning</span> Stock Deficits</h3>
-                                <p class="text-xs text-on-surface-variant mt-1 border-b border-outline-variant pb-2 mb-4">Immediate reordering recommended</p>
+                                <h3 class="font-headline-lg text-base font-bold text-red-700 uppercase flex items-center gap-2"><span class="material-symbols-outlined text-red-600">warning</span> Needs Attention</h3>
+                                <p class="text-xs text-on-surface-variant mt-1 border-b border-outline-variant pb-2 mb-4">Products missing a spec sheet or image</p>
                                 <div class="space-y-3 max-h-48 overflow-y-auto" id="low-stock-list">
-                                    <!-- Dynamic deficit items go here -->
+                                    <!-- Dynamic items go here -->
                                 </div>
                             </div>
                             <a href="#products" class="block w-full border border-primary text-primary font-bold text-center py-2.5 text-xs uppercase hover:bg-primary/5 mt-4 transition-colors">Manage Inventory</a>
@@ -528,7 +501,7 @@
                                 <!-- Actions and search -->
                                 <div class="flex flex-col sm:flex-row justify-between items-center gap-4 bg-surface-container-lowest p-4 border border-outline-variant rounded-lg">
                                     <div class="relative w-full sm:w-80">
-                                        <input id="product-search-input" oninput="renderProductsTable()" class="w-full pl-10 pr-4 py-2.5 border border-outline-variant rounded focus:border-primary focus:ring-1 focus:ring-primary outline-none text-sm bg-surface-container-low transition-all" placeholder="Filter by name or SKU..." data-i18n-placeholder="admin_filter_sku_placeholder"/>
+                                        <input id="product-search-input" oninput="productsCurrentPage = 1; renderProductsTable()" class="w-full pl-10 pr-4 py-2.5 border border-outline-variant rounded focus:border-primary focus:ring-1 focus:ring-primary outline-none text-sm bg-surface-container-low transition-all" placeholder="Filter by name or SKU..." data-i18n-placeholder="admin_filter_sku_placeholder"/>
                                         <span class="material-symbols-outlined absolute left-3 top-3 text-on-surface-variant text-base">search</span>
                                     </div>
                                     <button onclick="openAddProductModal()" class="w-full sm:w-auto bg-primary text-on-primary font-bold px-6 py-2.5 uppercase text-xs hover:bg-primary-container transition-all flex items-center justify-center gap-2 rounded shadow">
@@ -582,6 +555,14 @@
                                             <!-- Dynamic rows -->
                                         </tbody>
                                     </table>
+                                </div>
+                                <div id="products-pagination" class="flex items-center justify-between gap-4 p-3 border-t border-outline-variant text-xs font-technical-label">
+                                    <span id="products-pagination-summary" class="text-on-surface-variant"></span>
+                                    <div class="flex items-center gap-2">
+                                        <button type="button" onclick="goToProductsPage(productsCurrentPage - 1)" class="border border-outline-variant px-3 py-1.5 rounded uppercase font-bold hover:bg-surface-container-low transition-all disabled:opacity-40 disabled:cursor-not-allowed" id="products-prev-btn">Prev</button>
+                                        <span id="products-page-indicator" class="font-bold text-primary px-1">Page 1</span>
+                                        <button type="button" onclick="goToProductsPage(productsCurrentPage + 1)" class="border border-outline-variant px-3 py-1.5 rounded uppercase font-bold hover:bg-surface-container-low transition-all disabled:opacity-40 disabled:cursor-not-allowed" id="products-next-btn">Next</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -1005,6 +986,9 @@
         let ticketReplyAttachments = [];
         let selectedProductIds = new Set();
         let pendingDeleteIds = [];
+        let productsCurrentPage = 1;
+        let lastProductsFilterKey = null;
+        const PRODUCTS_PAGE_SIZE = 25;
 
         // ---- Category hierarchy ----
         let currentAdminFilter = { category: null, subcategory: null, subsubcategory: null };
@@ -1256,28 +1240,45 @@
                 document.getElementById('stat-orders').innerText = `${data.totalOrders} Inquiries`;
                 document.getElementById('stat-users').innerText = `${data.activeUsers} Users`;
 
+                const needsAttention = data.needsAttention || [];
                 const list = document.getElementById('low-stock-list');
-                if (data.lowStock.length === 0) {
-                    list.innerHTML = `<p class="text-[11px] text-on-surface-variant italic">All stock levels are optimal.</p>`;
+                if (needsAttention.length === 0) {
+                    list.innerHTML = `<p class="text-[11px] text-on-surface-variant italic">Every product has specs and an image.</p>`;
                     document.getElementById('notif-badge')?.classList.add('hidden');
                 } else {
-                    const nb = document.getElementById('notif-badge'); if (nb) { nb.innerText = data.lowStock.length; nb.classList.remove('hidden'); }
-                    list.innerHTML = data.lowStock.map(p => `
+                    const nb = document.getElementById('notif-badge'); if (nb) { nb.innerText = needsAttention.length; nb.classList.remove('hidden'); }
+                    const reasonText = p => [p.missingSpecs && 'no specs', p.missingImage && 'no image'].filter(Boolean).join(', ');
+                    list.innerHTML = needsAttention.map(p => `
                         <div class="flex items-center justify-between bg-red-50 p-2.5 rounded border border-red-200">
                             <div>
                                 <p class="text-xs font-bold text-red-900 truncate max-w-[150px]">${p.name}</p>
                                 <p class="text-[10px] text-red-700 font-technical-label">SKU: ${p.sku}</p>
                             </div>
-                            <span class="text-xs font-bold text-red-800 font-technical-label bg-red-200 px-2 py-0.5 rounded">Stock: ${p.stock}</span>
+                            <span class="text-xs font-bold text-red-800 font-technical-label bg-red-200 px-2 py-0.5 rounded">${reasonText(p)}</span>
                         </div>
                     `).join('');
                     const notifList = document.getElementById('notif-list');
-                    if (notifList) notifList.innerHTML = data.lowStock.map(p => `
+                    if (notifList) notifList.innerHTML = needsAttention.map(p => `
                         <div class="border-b border-outline-variant/30 pb-2 mb-2">
-                            <p class="text-[11px] font-bold text-red-800">LOW STOCK WARNING</p>
-                            <p class="text-xs mt-0.5">${p.name} (SKU: ${p.sku}) is running low on stock. Current count: ${p.stock}</p>
+                            <p class="text-[11px] font-bold text-red-800">INCOMPLETE PRODUCT</p>
+                            <p class="text-xs mt-0.5">${p.name} (SKU: ${p.sku}) is missing ${reasonText(p)}.</p>
                         </div>
                     `).join('');
+                }
+
+                const trendContainer = document.getElementById('revenue-trend-chart');
+                if (trendContainer) {
+                    const trend = data.weeklyTrend || [];
+                    const maxRevenue = Math.max(1, ...trend.map(d => d.revenue));
+                    trendContainer.innerHTML = trend.map(d => {
+                        const heightPct = Math.max(4, Math.round((d.revenue / maxRevenue) * 100));
+                        return `
+                            <div class="flex flex-col items-center flex-1 h-full justify-end">
+                                <div class="bg-primary/20 w-8 rounded-t transition-all hover:bg-primary" style="height:${heightPct}%" title="${d.label}: ${formatCurrency(d.revenue)} (${d.orders} order${d.orders === 1 ? '' : 's'})"></div>
+                                <span class="text-[10px] font-technical-label uppercase text-on-surface-variant mt-2">${d.label}</span>
+                            </div>
+                        `;
+                    }).join('') || `<p class="text-xs text-on-surface-variant italic w-full text-center pb-6">No order data yet.</p>`;
                 }
 
                 const mostSoldTbody = document.getElementById('most-sold-list');
@@ -1756,6 +1757,16 @@
         function renderProductsTable() {
             const query = document.getElementById('product-search-input').value.toLowerCase().trim();
             const tbody = document.getElementById('products-table-body');
+
+            // Jump back to page 1 whenever the active filter/search actually
+            // changes, but leave the page alone on a plain re-render (e.g.
+            // after an edit) so Prev/Next keep working.
+            const filterKey = JSON.stringify(currentAdminFilter) + '|' + query;
+            if (filterKey !== lastProductsFilterKey) {
+                productsCurrentPage = 1;
+                lastProductsFilterKey = filterKey;
+            }
+
             const filtered = products.filter(p => {
                 if (currentAdminFilter.category && p.category.toLowerCase().trim() !== currentAdminFilter.category.toLowerCase().trim()) return false;
                 if (currentAdminFilter.subcategory && (!p.subcategory || p.subcategory.toLowerCase().trim() !== currentAdminFilter.subcategory.toLowerCase().trim())) return false;
@@ -1776,9 +1787,17 @@
             if (filtered.length === 0) {
                 tbody.innerHTML = `<tr><td colspan="9" class="px-6 py-8 text-center text-xs text-on-surface-variant italic">No matching products found.</td></tr>`;
                 updateBulkActionsBar();
+                renderProductsPagination(0);
                 return;
             }
-            tbody.innerHTML = filtered.map(p => {
+
+            const totalPages = Math.max(1, Math.ceil(filtered.length / PRODUCTS_PAGE_SIZE));
+            if (productsCurrentPage > totalPages) productsCurrentPage = totalPages;
+            if (productsCurrentPage < 1) productsCurrentPage = 1;
+            const pageStart = (productsCurrentPage - 1) * PRODUCTS_PAGE_SIZE;
+            const pageItems = filtered.slice(pageStart, pageStart + PRODUCTS_PAGE_SIZE);
+
+            tbody.innerHTML = pageItems.map(p => {
                 const image = p.images && p.images.length > 0 ? p.images[0] : 'https://belts-store.com/wp-content/uploads/2025/09/BELTS-STORE_en-1.svg';
                 const statusCls = p.status === 'Active' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800';
                 return `
@@ -1803,6 +1822,34 @@
                 `;
             }).join('');
             updateBulkActionsBar();
+            renderProductsPagination(filtered.length);
+        }
+
+        function renderProductsPagination(totalCount) {
+            const summary = document.getElementById('products-pagination-summary');
+            const indicator = document.getElementById('products-page-indicator');
+            const prevBtn = document.getElementById('products-prev-btn');
+            const nextBtn = document.getElementById('products-next-btn');
+            if (!summary) return;
+            if (totalCount === 0) {
+                summary.innerText = '';
+                indicator.innerText = 'Page 1';
+                prevBtn.disabled = true;
+                nextBtn.disabled = true;
+                return;
+            }
+            const totalPages = Math.max(1, Math.ceil(totalCount / PRODUCTS_PAGE_SIZE));
+            const start = (productsCurrentPage - 1) * PRODUCTS_PAGE_SIZE + 1;
+            const end = Math.min(totalCount, productsCurrentPage * PRODUCTS_PAGE_SIZE);
+            summary.innerText = `Showing ${start}–${end} of ${totalCount}`;
+            indicator.innerText = `Page ${productsCurrentPage} of ${totalPages}`;
+            prevBtn.disabled = productsCurrentPage <= 1;
+            nextBtn.disabled = productsCurrentPage >= totalPages;
+        }
+
+        function goToProductsPage(page) {
+            productsCurrentPage = page;
+            renderProductsTable();
         }
 
         // ---- Bulk selection & actions (optional -- admin only needs it for multi-edit) ----
