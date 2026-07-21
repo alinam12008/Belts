@@ -1151,12 +1151,33 @@ app.get('/api/admin/analytics', requireAdmin, ensureDbReady, async (req, res) =>
     monthStart.setHours(0, 0, 0, 0);
     const monthOrders = orders.filter(order => new Date(order.createdAt || order.updatedAt || Date.now()) >= monthStart);
     const currentMonthRevenue = monthOrders.reduce((sum, order) => sum + (Number(order.totalPrice) || 0), 0);
+    const liveActiveUsers = await db.User.countDocuments({ status: 'Active' });
+
+    // Manual overrides for the 4 stat cards -- null means "not overridden,
+    // use the real computed value". `overrides` tells the frontend which
+    // numbers are manual so it can label them instead of passing them off
+    // as live data.
+    const override = await db.DashboardOverride.findOne({});
+    const pick = (field, liveValue) => {
+      const overridden = override && override[field] !== null && override[field] !== undefined;
+      return { value: overridden ? Number(override[field]) : liveValue, overridden: !!overridden };
+    };
+    const revenueStat = pick('totalSalesRevenue', totalSales);
+    const weeklyStat = pick('weeklyRevenue', weeklyRevenue);
+    const ordersStat = pick('totalOrders', orders.length);
+    const usersStat = pick('activeUsers', liveActiveUsers);
 
     res.json({
-      totalSales,
-      weeklyRevenue,
-      totalOrders: orders.length,
-      activeUsers: await db.User.countDocuments({ status: 'Active' }),
+      totalSales: revenueStat.value,
+      weeklyRevenue: weeklyStat.value,
+      totalOrders: ordersStat.value,
+      activeUsers: usersStat.value,
+      statOverrides: {
+        totalSalesRevenue: revenueStat.overridden,
+        weeklyRevenue: weeklyStat.overridden,
+        totalOrders: ordersStat.overridden,
+        activeUsers: usersStat.overridden
+      },
       needsAttention,
       weeklyTrend,
       mostSold,
@@ -1167,6 +1188,29 @@ app.get('/api/admin/analytics', requireAdmin, ensureDbReady, async (req, res) =>
   } catch (err) {
     console.error('Analytics error:', err);
     res.status(500).json({ error: 'Failed to load analytics' });
+  }
+});
+
+app.put('/api/admin/dashboard-overrides', requireAdmin, ensureDbReady, requireMongoForWrites, async (req, res) => {
+  try {
+    const allowedFields = ['totalSalesRevenue', 'weeklyRevenue', 'totalOrders', 'activeUsers'];
+    const { field, value } = req.body;
+    if (!allowedFields.includes(field)) {
+      return res.status(400).json({ error: 'Unknown stat field' });
+    }
+    // value === null clears the override and reverts that card to live data.
+    const updateValue = value === null || value === undefined ? null : Number(value);
+    const existing = await db.DashboardOverride.findOne({});
+    let saved;
+    if (existing) {
+      saved = await db.DashboardOverride.findByIdAndUpdate(existing._id, { [field]: updateValue }, { new: true });
+    } else {
+      saved = await db.DashboardOverride.create({ [field]: updateValue });
+    }
+    res.json({ field, value: saved[field] });
+  } catch (err) {
+    console.error('Dashboard override save error:', err);
+    res.status(500).json({ error: 'Failed to save override' });
   }
 });
 

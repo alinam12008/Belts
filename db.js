@@ -288,6 +288,17 @@ const DashboardGoalSchema = new mongoose.Schema({
   monthlyOrdersTarget: { type: Number, default: 0 }
 }, { timestamps: true });
 
+// Manual overrides for the dashboard's stat cards. null/undefined means
+// "not overridden, show the real computed value" -- only a non-null value
+// here replaces the live number, and the admin panel always labels an
+// overridden card so it's never mistaken for real data.
+const DashboardOverrideSchema = new mongoose.Schema({
+  totalSalesRevenue: { type: Number, default: null },
+  weeklyRevenue: { type: Number, default: null },
+  totalOrders: { type: Number, default: null },
+  activeUsers: { type: Number, default: null }
+}, { timestamps: true });
+
 // Remembers the configured URI so a later reconnect attempt can be made
 // without needing db.init's original arguments again.
 let storedMongoUri = null;
@@ -305,6 +316,7 @@ function registerMongoModels() {
   db.Coupon = mongoose.model('Coupon', CouponSchema);
   db.SeedHistory = mongoose.model('SeedHistory', SeedHistorySchema);
   db.DashboardGoal = mongoose.model('DashboardGoal', DashboardGoalSchema);
+  db.DashboardOverride = mongoose.model('DashboardOverride', DashboardOverrideSchema);
 }
 
 async function attemptMongoConnect(mongoUri) {
@@ -384,6 +396,7 @@ db.init = async function (mongoUri, defaultEmail, defaultPassword) {
     db.Coupon = new JSONModel('coupons.json');
     db.SeedHistory = new JSONModel('seedHistory.json', []);
     db.DashboardGoal = new JSONModel('dashboardGoals.json', []);
+    db.DashboardOverride = new JSONModel('dashboardOverrides.json', []);
   }
 
   // --- Seeding (Admin, Categories, Users, Tickets, Coupons) ---

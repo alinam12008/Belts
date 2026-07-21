@@ -400,32 +400,40 @@
                         <!-- Stats -->
                         <div id="widget-stats" class="dashboard-widget lg:col-span-2">
                             <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-                                <div class="glass-card p-6 rounded-lg shadow-sm flex items-center gap-4">
+                                <div class="glass-card p-6 rounded-lg shadow-sm flex items-center gap-4 relative">
+                                    <button type="button" onclick="openEditStatModal('totalSalesRevenue')" class="absolute top-2 right-2 p-1 text-on-surface-variant/50 hover:text-primary transition-colors" title="Edit"><span class="material-symbols-outlined text-sm">edit</span></button>
                                     <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary shrink-0"><span class="material-symbols-outlined text-2xl">payments</span></div>
                                     <div>
                                         <p class="text-[11px] text-on-surface-variant font-technical-label uppercase">Total Sales Revenue</p>
                                         <p class="text-xl font-headline-lg font-bold text-primary mt-1" id="stat-revenue">$0.00</p>
+                                        <span id="stat-revenue-badge" class="hidden text-[9px] font-bold uppercase text-amber-700 bg-amber-100 px-1.5 py-0.5 rounded">Manual</span>
                                     </div>
                                 </div>
-                                <div class="glass-card p-6 rounded-lg shadow-sm flex items-center gap-4">
+                                <div class="glass-card p-6 rounded-lg shadow-sm flex items-center gap-4 relative">
+                                    <button type="button" onclick="openEditStatModal('weeklyRevenue')" class="absolute top-2 right-2 p-1 text-on-surface-variant/50 hover:text-primary transition-colors" title="Edit"><span class="material-symbols-outlined text-sm">edit</span></button>
                                     <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary shrink-0"><span class="material-symbols-outlined text-2xl">trending_up</span></div>
                                     <div>
                                         <p class="text-[11px] text-on-surface-variant font-technical-label uppercase">Weekly Revenue</p>
                                         <p class="text-xl font-headline-lg font-bold text-primary mt-1" id="stat-weekly-revenue">$0.00</p>
+                                        <span id="stat-weekly-revenue-badge" class="hidden text-[9px] font-bold uppercase text-amber-700 bg-amber-100 px-1.5 py-0.5 rounded">Manual</span>
                                     </div>
                                 </div>
-                                <div class="glass-card p-6 rounded-lg shadow-sm flex items-center gap-4">
+                                <div class="glass-card p-6 rounded-lg shadow-sm flex items-center gap-4 relative">
+                                    <button type="button" onclick="openEditStatModal('totalOrders')" class="absolute top-2 right-2 p-1 text-on-surface-variant/50 hover:text-primary transition-colors" title="Edit"><span class="material-symbols-outlined text-sm">edit</span></button>
                                     <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary shrink-0"><span class="material-symbols-outlined text-2xl">assignment</span></div>
                                     <div>
                                         <p class="text-[11px] text-on-surface-variant font-technical-label uppercase">Inquiries Count</p>
                                         <p class="text-xl font-headline-lg font-bold text-primary mt-1" id="stat-orders">0 Orders</p>
+                                        <span id="stat-orders-badge" class="hidden text-[9px] font-bold uppercase text-amber-700 bg-amber-100 px-1.5 py-0.5 rounded">Manual</span>
                                     </div>
                                 </div>
-                                <div class="glass-card p-6 rounded-lg shadow-sm flex items-center gap-4">
+                                <div class="glass-card p-6 rounded-lg shadow-sm flex items-center gap-4 relative">
+                                    <button type="button" onclick="openEditStatModal('activeUsers')" class="absolute top-2 right-2 p-1 text-on-surface-variant/50 hover:text-primary transition-colors" title="Edit"><span class="material-symbols-outlined text-sm">edit</span></button>
                                     <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary shrink-0"><span class="material-symbols-outlined text-2xl">group</span></div>
                                     <div>
                                         <p class="text-[11px] text-on-surface-variant font-technical-label uppercase">Registered Clients</p>
                                         <p class="text-xl font-headline-lg font-bold text-primary mt-1" id="stat-users">0 Users</p>
+                                        <span id="stat-users-badge" class="hidden text-[9px] font-bold uppercase text-amber-700 bg-amber-100 px-1.5 py-0.5 rounded">Manual</span>
                                     </div>
                                 </div>
                             </div>
@@ -844,6 +852,31 @@
                 <div class="flex justify-end gap-3 pt-2">
                     <button type="button" onclick="closeEditGoalsModal()" class="border border-outline-variant text-on-surface-variant font-bold px-6 py-2.5 uppercase text-[10px] rounded hover:bg-surface-container-low transition-all">Cancel</button>
                     <button type="submit" class="bg-primary text-on-primary font-bold px-6 py-2.5 uppercase text-[10px] rounded hover:bg-primary-container transition-all">Save Goals</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ================= MODAL: EDIT STAT CARD ================= -->
+    <div id="edit-stat-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[10005] hidden items-center justify-center p-4">
+        <div class="bg-surface-container-lowest border border-outline-variant p-8 shadow-2xl relative rounded max-w-md w-full">
+            <button onclick="closeEditStatModal()" class="absolute top-4 right-4 text-on-surface-variant hover:text-primary transition-colors p-2">
+                <span class="material-symbols-outlined text-2xl">close</span>
+            </button>
+            <h4 id="edit-stat-modal-title" class="font-headline-lg text-xl uppercase text-primary font-bold mb-2">Edit Stat</h4>
+            <p class="text-xs text-on-surface-variant mb-4 bg-amber-50 border border-amber-200 rounded p-2.5">Setting a value here overrides the real, calculated number until you revert it back to live.</p>
+            <form onsubmit="handleSaveStatOverride(event)" class="space-y-4">
+                <input type="hidden" id="edit-stat-field"/>
+                <div>
+                    <label id="edit-stat-value-label" class="block text-xs uppercase font-technical-label text-on-surface-variant mb-1">Value</label>
+                    <input id="edit-stat-value" type="number" min="0" step="1" class="w-full p-3 border border-outline-variant bg-surface-container-low text-sm rounded outline-none focus:ring-1 focus:ring-primary focus:border-primary"/>
+                </div>
+                <div class="flex justify-between items-center gap-3 pt-2">
+                    <button type="button" id="edit-stat-revert-btn" onclick="revertStatOverride()" class="text-xs font-bold uppercase text-on-surface-variant hover:underline">Revert to Live Data</button>
+                    <div class="flex gap-3">
+                        <button type="button" onclick="closeEditStatModal()" class="border border-outline-variant text-on-surface-variant font-bold px-6 py-2.5 uppercase text-[10px] rounded hover:bg-surface-container-low transition-all">Cancel</button>
+                        <button type="submit" class="bg-primary text-on-primary font-bold px-6 py-2.5 uppercase text-[10px] rounded hover:bg-primary-container transition-all">Save</button>
+                    </div>
                 </div>
             </form>
         </div>
@@ -1326,6 +1359,7 @@
                 document.getElementById('stat-weekly-revenue').innerText = formatCurrency(data.weeklyRevenue || 0);
                 document.getElementById('stat-orders').innerText = `${data.totalOrders} Inquiries`;
                 document.getElementById('stat-users').innerText = `${data.activeUsers} Users`;
+                renderStatOverrideBadges(data);
 
                 const needsAttention = data.needsAttention || [];
                 const list = document.getElementById('low-stock-list');
@@ -1437,6 +1471,76 @@
                 `);
             }
             container.innerHTML = bars.join('') || `<p class="text-xs text-on-surface-variant italic">No goals set yet. Click Edit to set a monthly target.</p>`;
+        }
+
+        // ---- Manual overrides for the 4 stat cards ----
+        const STAT_CARDS = [
+            { field: 'totalSalesRevenue', dataKey: 'totalSales', elId: 'stat-revenue', badgeId: 'stat-revenue-badge', label: 'Total Sales Revenue', isCurrency: true },
+            { field: 'weeklyRevenue', dataKey: 'weeklyRevenue', elId: 'stat-weekly-revenue', badgeId: 'stat-weekly-revenue-badge', label: 'Weekly Revenue', isCurrency: true },
+            { field: 'totalOrders', dataKey: 'totalOrders', elId: 'stat-orders', badgeId: 'stat-orders-badge', label: 'Inquiries Count', isCurrency: false },
+            { field: 'activeUsers', dataKey: 'activeUsers', elId: 'stat-users', badgeId: 'stat-users-badge', label: 'Registered Clients', isCurrency: false }
+        ];
+
+        function renderStatOverrideBadges(data) {
+            const overrides = data.statOverrides || {};
+            STAT_CARDS.forEach(card => {
+                const badge = document.getElementById(card.badgeId);
+                if (badge) badge.classList.toggle('hidden', !overrides[card.field]);
+            });
+        }
+
+        function openEditStatModal(field) {
+            const card = STAT_CARDS.find(c => c.field === field);
+            if (!card) return;
+            document.getElementById('edit-stat-modal-title').innerText = `Edit ${card.label}`;
+            document.getElementById('edit-stat-value-label').innerText = card.isCurrency ? 'Value (SAR)' : 'Value';
+            document.getElementById('edit-stat-field').value = field;
+            document.getElementById('edit-stat-value').value = analytics[card.dataKey] || 0;
+            const isOverridden = analytics.statOverrides && analytics.statOverrides[field];
+            document.getElementById('edit-stat-revert-btn').classList.toggle('hidden', !isOverridden);
+            document.getElementById('edit-stat-modal').classList.remove('hidden');
+            document.getElementById('edit-stat-modal').classList.add('flex');
+        }
+
+        function closeEditStatModal() {
+            document.getElementById('edit-stat-modal').classList.add('hidden');
+            document.getElementById('edit-stat-modal').classList.remove('flex');
+        }
+
+        function saveStatOverrideValue(field, value) {
+            return fetch('/api/admin/dashboard-overrides', {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
+                body: JSON.stringify({ field, value })
+            })
+            .then(res => res.json().then(data => ({ ok: res.ok, data })))
+            .then(({ ok, data }) => {
+                if (!ok) throw new Error(data.error || 'Failed to save');
+            });
+        }
+
+        function handleSaveStatOverride(e) {
+            e.preventDefault();
+            const field = document.getElementById('edit-stat-field').value;
+            const value = Number(document.getElementById('edit-stat-value').value) || 0;
+            saveStatOverrideValue(field, value)
+                .then(() => {
+                    showToast('Stat updated.', 'success');
+                    closeEditStatModal();
+                    loadDashboardData();
+                })
+                .catch(err => showToast(err.message || 'Failed to save stat', 'error'));
+        }
+
+        function revertStatOverride() {
+            const field = document.getElementById('edit-stat-field').value;
+            saveStatOverrideValue(field, null)
+                .then(() => {
+                    showToast('Reverted to live data.', 'success');
+                    closeEditStatModal();
+                    loadDashboardData();
+                })
+                .catch(err => showToast(err.message || 'Failed to revert stat', 'error'));
         }
 
         function openEditGoalsModal() {
