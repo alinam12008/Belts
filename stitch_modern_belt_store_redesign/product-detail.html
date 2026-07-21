@@ -150,8 +150,11 @@
             <!-- Main Info Layout -->
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
                 <!-- Image Box -->
-                <div class="lg:col-span-5 bg-surface-container-lowest border border-outline-variant p-8 flex items-center justify-center aspect-square rounded-lg max-h-[500px]">
-                    <img id="product-main-image" class="max-w-full max-h-full object-contain transition-transform duration-300 hover:scale-105" src="" alt=""/>
+                <div class="lg:col-span-5 space-y-3">
+                    <div class="bg-surface-container-lowest border border-outline-variant p-8 flex items-center justify-center aspect-square rounded-lg max-h-[500px]">
+                        <img id="product-main-image" class="max-w-full max-h-full object-contain transition-transform duration-300 hover:scale-105" src="" alt=""/>
+                    </div>
+                    <div id="product-image-thumbs" class="flex flex-wrap gap-2"></div>
                 </div>
 
                 <!-- Technical Details Panel -->
@@ -612,9 +615,29 @@
         breadContainer.innerHTML = pathHtml;
 
         // Image – support both 'images' array and 'image' string
-        const image = (product.images && product.images[0]) || 'https://belts-store.com/wp-content/uploads/2025/09/BELTS-STORE_en-1.svg';
+        const galleryImages = Array.isArray(product.images) ? product.images.filter(Boolean) : [];
+        const image = galleryImages[0] || 'https://belts-store.com/wp-content/uploads/2025/09/BELTS-STORE_en-1.svg';
         document.getElementById('product-main-image').src = image;
         document.getElementById('product-main-image').alt = product.productName || 'Product';
+
+        // Thumbnail strip – only shown when a product has more than one image
+        const thumbsContainer = document.getElementById('product-image-thumbs');
+        if (galleryImages.length > 1) {
+            thumbsContainer.innerHTML = galleryImages.map((src, i) => `
+                <button type="button" class="product-thumb-btn w-16 h-16 border-2 ${i === 0 ? 'border-primary' : 'border-outline-variant'} rounded bg-surface-container-lowest p-1.5 flex items-center justify-center transition-colors hover:border-primary" data-src="${src}">
+                    <img src="${src}" class="max-w-full max-h-full object-contain" alt="${product.productName || 'Product'} thumbnail ${i + 1}"/>
+                </button>
+            `).join('');
+            thumbsContainer.querySelectorAll('.product-thumb-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    document.getElementById('product-main-image').src = btn.dataset.src;
+                    thumbsContainer.querySelectorAll('.product-thumb-btn').forEach(b => b.classList.replace('border-primary', 'border-outline-variant'));
+                    btn.classList.replace('border-outline-variant', 'border-primary');
+                });
+            });
+        } else {
+            thumbsContainer.innerHTML = '';
+        }
 
         // Title & badge
         document.getElementById('product-title').innerText = product.productName || 'Unnamed Product';

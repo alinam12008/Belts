@@ -906,6 +906,15 @@
                                     <input id="form-product-image-url" oninput="updateProductPreview()" type="text" placeholder="https://..." data-i18n-placeholder="admin_direct_url_placeholder" class="w-full p-2.5 border border-outline-variant bg-surface-container-low text-xs rounded outline-none focus:ring-1 focus:ring-primary focus:border-primary"/>
                                 </div>
                             </div>
+                            <div class="pt-1">
+                                <div class="flex items-center justify-between mb-1">
+                                    <label class="text-xs uppercase font-technical-label text-on-surface-variant">Additional Images <span class="normal-case font-normal text-on-surface-variant/70">(optional)</span></label>
+                                </div>
+                                <div id="extra-images-rows" class="space-y-2"></div>
+                                <button type="button" onclick="addImageRow()" class="flex items-center gap-1.5 text-xs text-primary font-bold hover:underline py-1 transition-all">
+                                    <span class="material-symbols-outlined text-sm">add_circle</span> Add Another Image
+                                </button>
+                            </div>
                         </div>
 
                         <!-- Section: Descriptions -->
@@ -2116,6 +2125,20 @@
             container.appendChild(row);
         }
 
+        function addImageRow(url = '') {
+            const container = document.getElementById('extra-images-rows');
+            if (!container) return;
+            const row = document.createElement('div');
+            row.className = 'flex items-center gap-2 extra-image-row';
+            row.innerHTML = `
+                <input type="text" placeholder="https://... additional image URL" value="${escapeHtml(url)}" class="flex-1 p-2 border border-outline-variant bg-surface-container-lowest text-xs rounded outline-none focus:ring-1 focus:ring-primary focus:border-primary extra-image-url"/>
+                <button type="button" onclick="this.parentElement.remove()" class="p-2 text-on-surface-variant hover:text-error transition-colors flex items-center justify-center border border-outline-variant rounded hover:border-error bg-surface-container-low" title="Remove Image">
+                    <span class="material-symbols-outlined text-sm">delete</span>
+                </button>
+            `;
+            container.appendChild(row);
+        }
+
         function escapeHtml(text) {
             return text
                 .replace(/&/g, "&amp;")
@@ -2131,6 +2154,7 @@
             document.getElementById('form-product-id').value = "";
             document.getElementById('specs-editor-rows').innerHTML = "";
             document.getElementById('form-product-desc').value = "";
+            document.getElementById('extra-images-rows').innerHTML = "";
             addSpecRow();
             updateProductPreview();
             document.getElementById('product-modal').classList.remove('hidden');
@@ -2151,6 +2175,11 @@
             document.getElementById('form-product-image-url').value = p.images && p.images.length > 0 ? p.images[0] : "";
             document.getElementById('form-product-short-desc').value = p.shortDescription || "";
             document.getElementById('form-product-desc').value = p.description || "";
+            const extraImagesContainer = document.getElementById('extra-images-rows');
+            extraImagesContainer.innerHTML = "";
+            if (Array.isArray(p.images) && p.images.length > 1) {
+                p.images.slice(1).forEach(url => addImageRow(url));
+            }
             const specsContainer = document.getElementById('specs-editor-rows');
             specsContainer.innerHTML = "";
             if (p.specifications && Object.keys(p.specifications).length > 0) {
@@ -2250,6 +2279,10 @@
                 }
             });
 
+            const extraImageUrls = Array.from(document.querySelectorAll('.extra-image-url'))
+                .map(input => input.value.trim())
+                .filter(Boolean);
+
             const fileInput = document.getElementById('form-product-image-file');
             const file = fileInput.files[0];
 
@@ -2270,7 +2303,7 @@
                     .then(data => {
                         saveProductDetails(id, {
                             name, sku, category, subcategory, status, brand,
-                            images: [data.url], shortDescription, description, specifications
+                            images: [data.url, ...extraImageUrls], shortDescription, description, specifications
                         }, restoreBtn);
                     })
                     .catch(() => { showToast("Failed to upload product image", "error"); restoreBtn(); });
@@ -2278,7 +2311,7 @@
             } else {
                 saveProductDetails(id, {
                     name, sku, category, subcategory, status, brand,
-                    images: imageUrlInput ? [imageUrlInput] : [], shortDescription, description, specifications
+                    images: imageUrlInput ? [imageUrlInput, ...extraImageUrls] : extraImageUrls, shortDescription, description, specifications
                 }, restoreBtn);
             }
         }
